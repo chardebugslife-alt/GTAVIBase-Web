@@ -1,65 +1,231 @@
+import Link from "next/link";
 import Image from "next/image";
+import { Countdown } from "@/components/Countdown";
+import { JsonLd } from "@/components/JsonLd";
+import { videoGameJsonLd } from "@/lib/seo";
+import { gameFacts } from "@/lib/site";
+import { characters, faqs, trailers } from "@/lib/data";
+
+const features = [
+  {
+    href: "/characters",
+    title: "Characters",
+    blurb: "Meet Lucia and Jason, the dual leads at the heart of the story.",
+  },
+  {
+    href: "/setting",
+    title: "Map & Setting",
+    blurb: "Explore Vice City and the state of Leonida — the biggest GTA world yet.",
+  },
+  {
+    href: "/trailers",
+    title: "Trailers",
+    blurb: "Watch every official trailer and break down what we learned.",
+  },
+  {
+    href: "/news",
+    title: "News",
+    blurb: "The latest confirmed updates straight from Rockstar Games.",
+  },
+];
+
+const quickFacts = [
+  { label: "Release date", value: gameFacts.releaseDateLabel },
+  { label: "Developer", value: gameFacts.developer },
+  { label: "Setting", value: "Vice City, Leonida" },
+  { label: "Platforms", value: "PS5 · Xbox Series X|S" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <JsonLd data={videoGameJsonLd()} />
+
+      {/* Hero */}
+      <section className="mx-auto max-w-6xl px-5 pb-10 pt-16 sm:pt-24">
+        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-muted">
+          <span className="h-2 w-2 rounded-full bg-teal" aria-hidden />
+          The independent GTA VI information hub
+        </p>
+        <h1 className="font-display text-5xl leading-[0.95] sm:text-7xl md:text-8xl">
+          Everything about{" "}
+          <span className="gradient-text">Grand Theft Auto VI</span>
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+          Release date, characters, the map of Leonida, trailers and a
+          constantly updated FAQ — all the confirmed facts about Rockstar
+          Games&rsquo; next Grand Theft Auto, in one clean place.
+        </p>
+
+        <figure className="relative mt-10 aspect-[1200/630] w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
+          <Image
+            src="https://www.rockstargames.com/VI/-/opengraph-image.jpg"
+            alt="Grand Theft Auto VI key art"
+            fill
+            priority
+            sizes="(max-width: 1152px) 100vw, 1152px"
+            className="object-cover"
+          />
+          <figcaption className="absolute bottom-0 right-0 bg-black/60 px-2 py-1 text-[10px] text-muted">
+            Key art © Rockstar Games
+          </figcaption>
+        </figure>
+
+        <div className="mt-8 rounded-2xl border border-white/10 bg-black/30 p-6">
+          <p className="text-sm uppercase tracking-wider text-muted">
+            Countdown to launch · {gameFacts.releaseDateLabel}
+          </p>
+          <div className="mt-4">
+            <Countdown
+              target={`${gameFacts.releaseDate}T00:00:00`}
+              label={gameFacts.releaseDateLabel}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Quick facts */}
+      <section
+        aria-labelledby="facts-heading"
+        className="mx-auto max-w-6xl px-5 py-8"
+      >
+        <h2 id="facts-heading" className="sr-only">
+          Quick facts
+        </h2>
+        <dl className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {quickFacts.map((f) => (
+            <div
+              key={f.label}
+              className="rounded-xl border border-white/10 bg-white/5 p-5"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              <dt className="text-xs uppercase tracking-wider text-muted">
+                {f.label}
+              </dt>
+              <dd className="mt-2 font-display text-xl">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* Overview */}
+      <section className="mx-auto max-w-6xl px-5 py-12">
+        <h2 className="font-display text-3xl sm:text-4xl">
+          What is <span className="gradient-text-cool">GTA VI</span>?
+        </h2>
+        <div className="mt-5 grid gap-6 text-lg leading-relaxed text-muted md:grid-cols-2">
+          <p>
+            Grand Theft Auto VI is the next entry in Rockstar Games&rsquo;
+            record-breaking open-world series — and the first mainline game since
+            Grand Theft Auto V in 2013. It returns to a modern, reimagined Vice
+            City within the fictional state of Leonida.
+          </p>
+          <p>
+            For the first time the series follows two playable protagonists,
+            Lucia and Jason, in a story Rockstar describes as a modern
+            Bonnie-and-Clyde tale. GTA VI launches on PlayStation 5 and Xbox
+            Series X|S on {gameFacts.releaseDateLabel}.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Explore cards */}
+      <section
+        aria-labelledby="explore-heading"
+        className="mx-auto max-w-6xl px-5 py-12"
+      >
+        <h2 id="explore-heading" className="font-display text-3xl sm:text-4xl">
+          Explore the guide
+        </h2>
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map((f) => (
+            <Link
+              key={f.href}
+              href={f.href}
+              className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink/50 hover:bg-white/[0.08]"
+            >
+              <h3 className="font-display text-2xl text-foreground">
+                {f.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                {f.blurb}
+              </p>
+              <span className="mt-4 inline-block text-sm font-semibold text-pink transition-transform group-hover:translate-x-1">
+                Read more →
+              </span>
+            </Link>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Characters teaser */}
+      <section className="mx-auto max-w-6xl px-5 py-12">
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="font-display text-3xl sm:text-4xl">The protagonists</h2>
+          <Link
+            href="/characters"
+            className="shrink-0 text-sm font-semibold text-pink hover:underline"
+          >
+            All characters →
+          </Link>
+        </div>
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
+          {characters.map((c) => (
+            <div
+              key={c.slug}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+            >
+              <p className="text-xs uppercase tracking-wider text-teal">
+                {c.role}
+              </p>
+              <h3 className="mt-1 font-display text-2xl">{c.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                {c.summary}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ teaser */}
+      <section className="mx-auto max-w-6xl px-5 py-12">
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="font-display text-3xl sm:text-4xl">Common questions</h2>
+          <Link
+            href="/faq"
+            className="shrink-0 text-sm font-semibold text-pink hover:underline"
+          >
+            Full FAQ →
+          </Link>
+        </div>
+        <dl className="mt-6 divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5">
+          {faqs.slice(0, 4).map((f) => (
+            <div key={f.question} className="p-6">
+              <dt className="font-semibold text-foreground">{f.question}</dt>
+              <dd className="mt-2 text-sm leading-relaxed text-muted">
+                {f.answer}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* Trailer CTA */}
+      <section className="mx-auto max-w-6xl px-5 py-12">
+        <div className="rounded-2xl border border-white/10 bg-gradient-to-r from-pink/15 via-magenta/10 to-orange/15 p-8 text-center">
+          <h2 className="font-display text-3xl sm:text-4xl">
+            Watch the latest trailer
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted">
+            {trailers[0].description}
+          </p>
+          <Link
+            href="/trailers"
+            className="mt-6 inline-block rounded-full bg-gradient-to-r from-pink to-orange px-6 py-3 font-semibold text-black transition-opacity hover:opacity-90"
+          >
+            View all trailers
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
