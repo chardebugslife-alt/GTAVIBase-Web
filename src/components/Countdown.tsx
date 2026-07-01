@@ -64,11 +64,14 @@ export function Countdown({ target, label }: { target: string; label: string }) 
   ];
 
   return (
-    <div aria-label={`Countdown to ${label}`} className="flex flex-wrap gap-3">
+    <div
+      aria-label={`Countdown to ${label}`}
+      className="grid grid-cols-2 gap-3 sm:grid-cols-4"
+    >
       {units.map((u) => (
         <div
           key={u.label}
-          className="min-w-[78px] rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center"
+          className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center"
         >
           <div
             className="font-display text-3xl tabular-nums gradient-text"

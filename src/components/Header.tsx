@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { mainNav } from "@/lib/site";
+import { MobileNav } from "@/components/MobileNav";
 
 export function Header() {
   return (
@@ -30,12 +31,15 @@ export function Header() {
           ))}
         </ul>
 
-        <Link
-          href="/faq"
-          className="rounded-full bg-gradient-to-r from-pink to-orange px-4 py-2 text-sm font-semibold text-black transition-opacity hover:opacity-90"
-        >
-          Get the facts
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/faq"
+            className="hidden rounded-full bg-gradient-to-r from-pink to-orange px-4 py-2 text-sm font-semibold text-black transition-opacity hover:opacity-90 md:inline-flex"
+          >
+            Get the facts
+          </Link>
+          <MobileNav />
+        </div>
       </nav>
     </header>
   );
