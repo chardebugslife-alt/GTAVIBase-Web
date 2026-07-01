@@ -53,6 +53,7 @@ export const mainNav: NavItem[] = [
   { href: "/characters", label: "Characters" },
   { href: "/setting", label: "Map & Setting" },
   { href: "/trailers", label: "Trailers" },
+  { href: "/editions", label: "Editions & Price" },
   { href: "/news", label: "News" },
   { href: "/faq", label: "FAQ" },
 ];

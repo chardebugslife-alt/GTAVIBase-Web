@@ -376,6 +376,97 @@ export const news: NewsArticle[] = [
   },
 ];
 
+/**
+ * Editions & pricing. Confirmed by Rockstar Games alongside the June 25, 2026
+ * pre-order launch. Prices are the US digital MSRP in USD; contents and price
+ * vary by region. Kept as data so it drives both the page and the Product /
+ * Offer structured data.
+ */
+export type Edition = {
+  slug: string;
+  name: string;
+  /** Display price, US digital MSRP. */
+  price: string;
+  /** Numeric price for structured data. */
+  priceValue: number;
+  tagline: string;
+  /** Available as a digital download. */
+  digital: boolean;
+  /** Available as a boxed copy (a download code — no disc). */
+  physical: boolean;
+  /** Visually featured as the premium option. */
+  featured?: boolean;
+  includes: string[];
+  /** Official Rockstar Store edition artwork (hotlinked). */
+  image: string;
+  imageAlt: string;
+  imageCredit: string;
+};
+
+export const editions: Edition[] = [
+  {
+    slug: "standard",
+    name: "Standard Edition",
+    price: "$79.99",
+    priceValue: 79.99,
+    tagline: "The complete Grand Theft Auto VI experience.",
+    digital: true,
+    physical: true,
+    includes: [
+      "The full Grand Theft Auto VI game.",
+      "Vintage Vice City Pack — the pre-order bonus, for orders placed before November 20, 2026.",
+    ],
+    image:
+      "https://images.ctfassets.net/h1rqp7q66d54/2bQ11ydObxmD2CvRyUlII6/e6e94f08f74e6a439e8937421653245e/GTAVI_PreOrderWebstore_CompareEditionsThumbnail_Standard_1280x720_R01.jpg",
+    imageAlt: "Grand Theft Auto VI Standard Edition artwork on the Rockstar Store",
+    imageCredit: "© Rockstar Games",
+  },
+  {
+    slug: "ultimate",
+    name: "Ultimate Edition",
+    price: "$99.99",
+    priceValue: 99.99,
+    tagline: "The base game plus a collection of premium content woven through the story.",
+    digital: true,
+    physical: false,
+    featured: true,
+    includes: [
+      "Everything in the Standard Edition, including the Vintage Vice City Pack.",
+      "Premium vehicles: the '95 Grotti Cheetah, Shitzu Squalo and '67 Vapid Dominator Buggy.",
+      "Personalized weapons and exclusive apparel and tattoos.",
+      "Ultimate-only businesses to visit in-game: Rideout Customs and Sara's Unisex Salon.",
+      "One month of GTA+ membership included with digital purchases.",
+    ],
+    image:
+      "https://images.ctfassets.net/h1rqp7q66d54/6BWQSfnOYTcVVsRj8ay2ML/8e51ba006c8d309d0c6a1b582c44b041/UltimateEdition_07_en_us_R04_Deliv.jpg",
+    imageAlt: "Grand Theft Auto VI Ultimate Edition artwork on the Rockstar Store",
+    imageCredit: "© Rockstar Games",
+  },
+];
+
+/** Facts framing the editions — pre-order timing, bonus and platforms. */
+export const editionsInfo = {
+  currencyNote:
+    "Prices shown are the US digital MSRP in USD. Contents and pricing vary by region and platform.",
+  preOrderLabel: "June 25, 2026",
+  preOrderBonus: "Vintage Vice City Pack",
+  preOrderBonusDeadline: "November 20, 2026",
+  preloadLabel: "November 12, 2026",
+  storeUrl: "https://store.rockstargames.com/game/buy-gta-vi",
+  sources: [
+    {
+      title: "Pre-Order Grand Theft Auto VI on June 25",
+      publisher: "Rockstar Games Newswire",
+      url: "https://www.rockstargames.com/newswire/article/5171972o3ak5oa/pre-order-grand-theft-auto-vi-on-june-25",
+    },
+    {
+      title: "Grand Theft Auto VI — Rockstar Store",
+      publisher: "Rockstar Store",
+      url: "https://store.rockstargames.com/game/buy-gta-vi",
+    },
+  ] as NewsSource[],
+};
+
 export type Faq = {
   question: string;
   answer: string;
@@ -419,5 +510,39 @@ export const faqs: Faq[] = [
     question: "Is GTA VI the first game since GTA V?",
     answer:
       "Yes. GTA VI is the first mainline Grand Theft Auto entry since Grand Theft Auto V launched in 2013, making it one of the most anticipated games ever.",
+  },
+];
+
+/** Edition & pricing Q&A. Shown on the Editions page with its own FAQPage
+ *  schema and appended to the main FAQ page. Answers are deliberately
+ *  self-contained so answer engines (AEO) and AI overviews (GEO) can quote a
+ *  single entry in full. */
+export const editionFaqs: Faq[] = [
+  {
+    question:
+      "What is the difference between the GTA VI Standard and Ultimate editions?",
+    answer:
+      "The GTA VI Standard Edition ($79.99) is the full game plus the Vintage Vice City Pack pre-order bonus. The Ultimate Edition ($99.99) adds a collection of premium in-game content: the '95 Grotti Cheetah, Shitzu Squalo and '67 Vapid Dominator Buggy vehicles, personalized weapons, exclusive apparel and tattoos, the Ultimate-only Rideout Customs and Sara's Unisex Salon businesses, and a one-month GTA+ membership. The Standard Edition is sold digitally or as a boxed download code; the Ultimate Edition is digital only.",
+  },
+  {
+    question: "How much does GTA VI cost?",
+    answer:
+      "Grand Theft Auto VI costs $79.99 for the Standard Edition and $99.99 for the Ultimate Edition, based on US digital pricing. Prices vary by region and platform.",
+  },
+  {
+    question: "What is included in the GTA VI Ultimate Edition?",
+    answer:
+      "The GTA VI Ultimate Edition ($99.99) includes everything in the Standard Edition plus premium vehicles (the '95 Grotti Cheetah, Shitzu Squalo and '67 Vapid Dominator Buggy), personalized weapons, exclusive apparel and tattoos, the Ultimate-only Rideout Customs and Sara's Unisex Salon businesses, and one month of GTA+ membership with digital purchases.",
+  },
+  {
+    question: "Can you buy GTA VI physically on disc?",
+    answer:
+      "The GTA VI Standard Edition is available as a boxed copy, but the box contains a download code rather than a game disc. The Ultimate Edition is digital only. Both editions can also be bought digitally from the PlayStation Store, Xbox and the Rockstar Store.",
+  },
+  {
+    question:
+      "When did GTA VI pre-orders open and what is the pre-order bonus?",
+    answer:
+      "GTA VI pre-orders opened on June 25, 2026. Every pre-order placed before November 20, 2026 includes the Vintage Vice City Pack. The game releases November 19, 2026 on PlayStation 5 and Xbox Series X|S.",
   },
 ];

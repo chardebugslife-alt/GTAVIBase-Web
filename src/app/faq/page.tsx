@@ -1,29 +1,16 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
-import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
-import { faqs } from "@/lib/data";
+import { pageMetadata, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo";
+import { faqs, editionFaqs } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI FAQ — Release Date, Platforms & More",
+  title: "GTA VI FAQ — Release Date, Price, Editions & Platforms",
   description:
-    "Answers to the most common Grand Theft Auto VI questions: release date, platforms, setting, characters and developer — concise, confirmed and up to date.",
+    "Answers to the most common Grand Theft Auto VI questions: release date, price, Standard vs Ultimate editions, platforms, setting, characters and developer — concise, confirmed and up to date.",
   path: "/faq",
 });
 
-function faqPageJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: f.answer,
-      },
-    })),
-  };
-}
+const allFaqs = [...faqs, ...editionFaqs];
 
 export default function FaqPage() {
   return (
@@ -34,7 +21,7 @@ export default function FaqPage() {
           { name: "FAQ", path: "/faq" },
         ])}
       />
-      <JsonLd data={faqPageJsonLd()} />
+      <JsonLd data={faqPageJsonLd(allFaqs)} />
 
       <article className="mx-auto max-w-3xl px-5 py-16">
         <header>
@@ -51,7 +38,7 @@ export default function FaqPage() {
         </header>
 
         <div className="mt-12 space-y-3">
-          {faqs.map((f) => (
+          {allFaqs.map((f) => (
             <details
               key={f.question}
               className="group rounded-2xl border border-white/10 bg-white/5 p-6 open:border-pink/40"

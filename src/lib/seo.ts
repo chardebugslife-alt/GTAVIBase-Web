@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { absoluteUrl, siteConfig, gameFacts } from "@/lib/site";
-import type { NewsArticle } from "@/lib/data";
+import type { NewsArticle, Faq } from "@/lib/data";
+import { editions } from "@/lib/data";
 
 /**
  * Build per-page metadata with sensible, SEO-friendly defaults: canonical URL,
@@ -101,6 +102,43 @@ export function newsArticleJsonLd(a: NewsArticle): Record<string, unknown> {
       name: gameFacts.title,
       url: siteConfig.url,
     },
+  };
+}
+
+/** FAQPage structured data — lets a set of Q&A pairs be surfaced directly in
+ *  search results and quoted by answer engines (AEO) and AI overviews (GEO). */
+export function faqPageJsonLd(items: Faq[]): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+}
+
+/** Product structured data listing the GTA VI editions as pre-order Offers —
+ *  gives search and answer engines machine-readable prices and availability. */
+export function editionsJsonLd(): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: gameFacts.title,
+    description:
+      "Grand Theft Auto VI editions and pricing — the Standard and Ultimate editions for PlayStation 5 and Xbox Series X|S.",
+    brand: { "@type": "Brand", name: gameFacts.publisher },
+    offers: editions.map((e) => ({
+      "@type": "Offer",
+      name: e.name,
+      price: e.priceValue,
+      priceCurrency: "USD",
+      priceValidUntil: gameFacts.releaseDate,
+      availability: "https://schema.org/PreOrder",
+      url: absoluteUrl("/editions"),
+      seller: { "@type": "Organization", name: gameFacts.publisher },
+    })),
   };
 }
 

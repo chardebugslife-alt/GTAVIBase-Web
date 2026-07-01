@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         hostname: "media-rockstargames-com.akamaized.net",
         pathname: "/tina-uploads/**",
       },
+      {
+        // Rockstar Store edition artwork (Contentful space h1rqp7q66d54).
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+        pathname: "/h1rqp7q66d54/**",
+      },
     ],
   },
 };
