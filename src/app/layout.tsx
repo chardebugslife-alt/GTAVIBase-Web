@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Inter } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { AdBanner } from "@/components/AdUnit";
+import { adsConfig, adsEnabled } from "@/lib/ads";
 import { siteConfig, absoluteUrl } from "@/lib/site";
 
 const inter = Inter({
@@ -36,6 +39,10 @@ export const metadata: Metadata = {
   publisher: siteConfig.name,
   alternates: { canonical: "/" },
   category: "Gaming",
+  // AdSense site-verification tag; only emitted once a publisher id is set.
+  ...(adsEnabled
+    ? { other: { "google-adsense-account": adsConfig.client } }
+    : {}),
   openGraph: {
     type: "website",
     url: siteConfig.url,
@@ -115,9 +122,26 @@ export default function RootLayout({
         <main id="main" className="flex-1">
           {children}
         </main>
+
+        {/* Unobtrusive site-wide banner above the footer. */}
+        <div className="mx-auto w-full max-w-6xl px-5">
+          <AdBanner className="mt-16" />
+        </div>
+
         <Footer />
         <Analytics />
         <SpeedInsights />
+
+        {/* AdSense loader — injected only when a publisher id is configured. */}
+        {adsEnabled && (
+          <Script
+            id="google-adsense"
+            async
+            strategy="afterInteractive"
+            crossOrigin="anonymous"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsConfig.client}`}
+          />
+        )}
       </body>
     </html>
   );

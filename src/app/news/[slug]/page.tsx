@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { AdInArticle } from "@/components/AdUnit";
 import {
   pageMetadata,
   breadcrumbJsonLd,
@@ -136,6 +137,8 @@ export default async function NewsArticlePage({
             <p key={i}>{paragraph}</p>
           ))}
         </div>
+
+        <AdInArticle className="mt-10" />
 
         <section
           aria-labelledby="sources"
