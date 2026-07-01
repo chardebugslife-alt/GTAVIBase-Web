@@ -1,13 +1,24 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl, mainNav } from "@/lib/site";
+import { news } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  return mainNav.map((item) => ({
+  const pages: MetadataRoute.Sitemap = mainNav.map((item) => ({
     url: absoluteUrl(item.href),
     lastModified: now,
-    changeFrequency: item.href === "/" || item.href === "/news" ? "daily" : "weekly",
+    changeFrequency:
+      item.href === "/" || item.href === "/news" ? "daily" : "weekly",
     priority: item.href === "/" ? 1 : 0.8,
   }));
+
+  const articles: MetadataRoute.Sitemap = news.map((a) => ({
+    url: absoluteUrl(`/news/${a.slug}`),
+    lastModified: new Date(a.date),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...pages, ...articles];
 }
