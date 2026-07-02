@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { AdInArticle } from "@/components/AdUnit";
 import {
@@ -224,6 +225,37 @@ export default function EditionsPage() {
               </details>
             ))}
           </div>
+        </section>
+
+        {/* Related internal links */}
+        <section aria-labelledby="related" className="mt-12">
+          <h2
+            id="related"
+            className="font-display text-sm uppercase tracking-wider text-teal"
+          >
+            Related guides
+          </h2>
+          <p className="mt-3 leading-relaxed text-muted">
+            Read more on{" "}
+            <Link href="/faq" className="font-semibold text-pink hover:underline">
+              the GTA VI FAQ
+            </Link>
+            , keep up with the{" "}
+            <Link
+              href="/news"
+              className="font-semibold text-pink hover:underline"
+            >
+              latest GTA VI news
+            </Link>
+            , or check the{" "}
+            <Link
+              href="/news/platforms-and-editions"
+              className="font-semibold text-pink hover:underline"
+            >
+              platforms &amp; editions overview
+            </Link>
+            .
+          </p>
         </section>
 
         {/* Sources & credits — Rockstar-only policy */}

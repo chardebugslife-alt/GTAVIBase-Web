@@ -1,10 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Countdown } from "@/components/Countdown";
+import { HeroTrailer } from "@/components/HeroTrailer";
 import { JsonLd } from "@/components/JsonLd";
 import { videoGameJsonLd } from "@/lib/seo";
 import { gameFacts } from "@/lib/site";
-import { characters, faqs, trailers } from "@/lib/data";
+import { characters, faqs, trailers, editions } from "@/lib/data";
 
 const features = [
   {
@@ -21,6 +21,11 @@ const features = [
     href: "/trailers",
     title: "Trailers",
     blurb: "Watch every official trailer and break down what we learned.",
+  },
+  {
+    href: "/editions",
+    title: "Editions & Price",
+    blurb: "Compare the Standard and Ultimate editions, pricing and pre-order bonuses.",
   },
   {
     href: "/news",
@@ -57,19 +62,11 @@ export default function Home() {
           Games&rsquo; next Grand Theft Auto, in one clean place.
         </p>
 
-        <figure className="relative mt-10 aspect-[1200/630] w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
-          <Image
-            src="https://www.rockstargames.com/VI/-/opengraph-image.jpg"
-            alt="Grand Theft Auto VI key art"
-            fill
-            priority
-            sizes="(max-width: 1152px) 100vw, 1152px"
-            className="object-cover"
-          />
-          <figcaption className="absolute bottom-0 right-0 bg-black/60 px-2 py-1 text-[10px] text-muted">
-            Key art © Rockstar Games
-          </figcaption>
-        </figure>
+        <HeroTrailer
+          youtubeId={trailers[0].youtubeId}
+          title={trailers[0].title}
+          releasedLabel={trailers[0].releasedLabel}
+        />
 
         <div className="mt-8 rounded-2xl border border-white/10 bg-black/30 p-6">
           <p className="text-sm uppercase tracking-wider text-muted">
@@ -182,6 +179,48 @@ export default function Home() {
                 {c.summary}
               </p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Editions & pricing teaser */}
+      <section className="mx-auto max-w-6xl px-5 py-12">
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="font-display text-3xl sm:text-4xl">
+            Editions &amp; price
+          </h2>
+          <Link
+            href="/editions"
+            className="shrink-0 text-sm font-semibold text-pink hover:underline"
+          >
+            Compare editions →
+          </Link>
+        </div>
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
+          GTA VI comes in two editions. See the full breakdown of what each
+          includes, pricing and pre-order bonuses on the{" "}
+          <Link href="/editions" className="text-pink hover:underline">
+            editions &amp; price guide
+          </Link>
+          .
+        </p>
+        <div className="mt-6 grid gap-5 sm:grid-cols-2">
+          {editions.map((e) => (
+            <Link
+              key={e.slug}
+              href="/editions"
+              className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink/50 hover:bg-white/[0.08]"
+            >
+              <div>
+                <h3 className="font-display text-2xl text-foreground">
+                  {e.name}
+                </h3>
+                <p className="mt-1 text-sm text-muted">{e.tagline}</p>
+              </div>
+              <span className="shrink-0 font-display text-2xl gradient-text">
+                {e.price}
+              </span>
+            </Link>
           ))}
         </div>
       </section>

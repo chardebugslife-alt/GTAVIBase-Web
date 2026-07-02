@@ -140,6 +140,32 @@ export default async function NewsArticlePage({
 
         <AdInArticle className="mt-10" />
 
+        {article.related && article.related.length > 0 && (
+          <section
+            aria-labelledby="related"
+            className="mt-12 border-t border-white/10 pt-6"
+          >
+            <h2
+              id="related"
+              className="font-display text-sm uppercase tracking-wider text-teal"
+            >
+              Related on GTA VI Base
+            </h2>
+            <ul className="mt-4 space-y-3">
+              {article.related.map((link) => (
+                <li key={link.href} className="text-sm">
+                  <Link
+                    href={link.href}
+                    className="font-semibold text-pink hover:underline"
+                  >
+                    {link.label} →
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <section
           aria-labelledby="sources"
           className="mt-12 border-t border-white/10 pt-6"

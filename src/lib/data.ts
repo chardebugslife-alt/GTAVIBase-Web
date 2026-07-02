@@ -6,6 +6,8 @@
  * 2023; Trailer 2, May 2025). We deliberately avoid unconfirmed leaks.
  */
 
+import type { NavItem } from "@/lib/site";
+
 export type Character = {
   slug: string;
   name: string;
@@ -159,6 +161,8 @@ export type NewsArticle = {
   body: string[];
   /** Verifiable, official sources listed as credits on the page. */
   sources: NewsSource[];
+  /** Optional internal cross-links to related guide pages on this site. */
+  related?: NavItem[];
 };
 
 const RS_VI: NewsSource = {
@@ -335,6 +339,10 @@ export const news: NewsArticle[] = [
         publisher: "Rockstar Store",
         url: "https://store.rockstargames.com/game/buy-gta-vi",
       },
+    ],
+    related: [
+      { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
+      { href: "/faq", label: "GTA VI FAQ" },
     ],
   },
   {
