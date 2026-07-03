@@ -15,6 +15,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: item.href === "/" ? 1 : 0.8,
   }));
 
+  const legal: MetadataRoute.Sitemap = [
+    {
+      url: absoluteUrl("/privacy"),
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+  ];
+
   const articles: MetadataRoute.Sitemap = news.map((a) => ({
     url: absoluteUrl(`/news/${a.slug}`),
     lastModified: new Date(a.date),
@@ -29,5 +38,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...pages, ...articles, ...communityPosts];
+  return [...pages, ...legal, ...articles, ...communityPosts];
 }

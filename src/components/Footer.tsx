@@ -60,6 +60,20 @@ export function Footer() {
               </a>
             </li>
           </ul>
+
+          <h2 className="mt-6 text-xs font-semibold uppercase tracking-wider text-muted">
+            Legal
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            <li>
+              <Link
+                href="/privacy"
+                className="text-foreground/80 transition-colors hover:text-foreground"
+              >
+                Privacy Policy
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
 
