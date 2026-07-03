@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { pageMetadata, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo";
 import { faqs, editionFaqs } from "@/lib/data";
 
@@ -54,6 +55,7 @@ export default function FaqPage() {
           ))}
         </div>
       </article>
+      <RelatedLinks current="faq" className="mx-auto max-w-3xl px-5" />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { community, communityCategories, type CommunityPost } from "@/lib/data";
 
@@ -137,6 +138,7 @@ export default function CommunityPage() {
           })}
         </div>
       </div>
+      <RelatedLinks current="community" className="mx-auto max-w-5xl px-5" />
     </>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { AdInArticle } from "@/components/AdUnit";
 import {
   pageMetadata,
@@ -213,6 +214,7 @@ export default async function CommunityPostPage({
           </ul>
         </section>
       </article>
+      <RelatedLinks current="community" className="mx-auto max-w-3xl px-5" />
     </>
   );
 }

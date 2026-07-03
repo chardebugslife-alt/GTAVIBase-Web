@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { JsonLd } from "@/components/JsonLd";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { setting } from "@/lib/data";
 
@@ -89,6 +90,7 @@ export default function SettingPage() {
           </p>
         </section>
       </article>
+      <RelatedLinks current="setting" />
     </>
   );
 }

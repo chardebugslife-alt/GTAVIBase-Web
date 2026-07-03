@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { AdInArticle } from "@/components/AdUnit";
 import {
   pageMetadata,
@@ -289,6 +290,7 @@ export default function EditionsPage() {
           </ul>
         </section>
       </article>
+      <RelatedLinks current="editions" />
     </>
   );
 }

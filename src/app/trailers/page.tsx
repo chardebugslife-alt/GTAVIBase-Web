@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { trailers } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
@@ -87,6 +88,7 @@ export default function TrailersPage() {
           ))}
         </div>
       </article>
+      <RelatedLinks current="trailers" />
     </>
   );
 }

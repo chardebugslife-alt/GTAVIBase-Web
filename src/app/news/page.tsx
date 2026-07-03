@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { news } from "@/lib/data";
 
@@ -72,6 +73,7 @@ export default function NewsPage() {
           ))}
         </ol>
       </article>
+      <RelatedLinks current="news" />
     </>
   );
 }

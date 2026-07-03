@@ -82,6 +82,7 @@ export default function Home() {
           youtubeId={trailers[0].youtubeId}
           title={trailers[0].title}
           releasedLabel={trailers[0].releasedLabel}
+          thumbnail={trailers[0].thumbnail}
         />
 
         <div className="mt-8 rounded-2xl border border-white/10 bg-black/30 p-6">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { JsonLd } from "@/components/JsonLd";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { characters } from "@/lib/data";
 
@@ -85,6 +86,7 @@ export default function CharactersPage() {
           ))}
         </div>
       </article>
+      <RelatedLinks current="characters" />
     </>
   );
 }

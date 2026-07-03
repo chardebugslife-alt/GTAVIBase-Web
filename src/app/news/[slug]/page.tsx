@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { AdInArticle } from "@/components/AdUnit";
 import {
   pageMetadata,
@@ -196,6 +197,7 @@ export default async function NewsArticlePage({
           </ul>
         </section>
       </article>
+      <RelatedLinks current="news" className="mx-auto max-w-3xl px-5" />
     </>
   );
 }
