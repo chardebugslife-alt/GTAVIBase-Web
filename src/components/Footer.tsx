@@ -62,6 +62,28 @@ export function Footer() {
           </ul>
 
           <h2 className="mt-6 text-xs font-semibold uppercase tracking-wider text-muted">
+            Site
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            <li>
+              <Link
+                href="/about"
+                className="text-foreground/80 transition-colors hover:text-foreground"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="text-foreground/80 transition-colors hover:text-foreground"
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+
+          <h2 className="mt-6 text-xs font-semibold uppercase tracking-wider text-muted">
             Legal
           </h2>
           <ul className="mt-3 space-y-2 text-sm">
@@ -71,6 +93,14 @@ export function Footer() {
                 className="text-foreground/80 transition-colors hover:text-foreground"
               >
                 Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/terms"
+                className="text-foreground/80 transition-colors hover:text-foreground"
+              >
+                Terms of Use
               </Link>
             </li>
           </ul>
