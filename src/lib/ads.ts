@@ -8,7 +8,9 @@
  * Each slot id is the numeric id AdSense generates for an individual ad unit.
  */
 export const adsConfig = {
-  client: process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "",
+  // Public AdSense publisher id. Hardcoded as the default so ads/verification
+  // work on every deploy without env config; override with the env var if needed.
+  client: process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-5492282313844711",
   slots: {
     // Wide leaderboard / banner units (e.g. above the footer).
     horizontal: process.env.NEXT_PUBLIC_ADSENSE_SLOT_HORIZONTAL ?? "",
