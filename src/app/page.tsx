@@ -4,7 +4,23 @@ import { HeroTrailer } from "@/components/HeroTrailer";
 import { JsonLd } from "@/components/JsonLd";
 import { videoGameJsonLd } from "@/lib/seo";
 import { gameFacts } from "@/lib/site";
-import { characters, faqs, trailers, editions } from "@/lib/data";
+import {
+  characters,
+  faqs,
+  trailers,
+  editions,
+  community,
+  communityCategories,
+} from "@/lib/data";
+
+const categoryBySlug = Object.fromEntries(
+  communityCategories.map((c) => [c.slug, c]),
+);
+
+/** The newest few community posts, for the homepage strip. */
+const latestCommunity = [...community]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 3);
 
 const features = [
   {
@@ -246,6 +262,69 @@ export default function Home() {
             </div>
           ))}
         </dl>
+      </section>
+
+      {/* Latest from Community */}
+      <section
+        aria-labelledby="community-heading"
+        className="mx-auto max-w-6xl px-5 py-12"
+      >
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2
+              id="community-heading"
+              className="font-display text-3xl sm:text-4xl"
+            >
+              Latest from the <span className="gradient-text-cool">community</span>
+            </h2>
+            <p className="mt-2 text-sm text-muted">
+              Fan theories, debates and leaks — unofficial, and clearly labelled.
+            </p>
+          </div>
+          <Link
+            href="/community"
+            className="shrink-0 text-sm font-semibold text-pink hover:underline"
+          >
+            All community →
+          </Link>
+        </div>
+        <div className="mt-6 grid gap-5 sm:grid-cols-3">
+          {latestCommunity.map((post) => {
+            const category = categoryBySlug[post.category];
+            return (
+              <Link
+                key={post.slug}
+                href={`/community/${post.slug}`}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-colors hover:border-pink/50 hover:bg-white/[0.08]"
+              >
+                <div
+                  className={`flex aspect-[16/6] items-end bg-gradient-to-br ${category.accent} p-4`}
+                >
+                  <span className="rounded-full bg-black/40 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
+                    {category.label}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <time
+                    dateTime={post.date}
+                    className="text-xs uppercase tracking-wider text-teal"
+                  >
+                    {post.dateLabel}
+                  </time>
+                  <h3 className="mt-2 font-display text-lg leading-tight">
+                    {post.title}
+                  </h3>
+                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">
+                    {post.summary}
+                  </p>
+                  <span className="mt-3 inline-block text-sm font-semibold text-pink transition-transform group-hover:translate-x-1">
+                    Read summary →
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
       </section>
 
       {/* Trailer CTA */}

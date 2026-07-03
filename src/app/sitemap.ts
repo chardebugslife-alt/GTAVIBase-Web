@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl, mainNav } from "@/lib/site";
-import { news } from "@/lib/data";
+import { news, community } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -9,7 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: absoluteUrl(item.href),
     lastModified: now,
     changeFrequency:
-      item.href === "/" || item.href === "/news" ? "daily" : "weekly",
+      item.href === "/" || item.href === "/news" || item.href === "/community"
+        ? "daily"
+        : "weekly",
     priority: item.href === "/" ? 1 : 0.8,
   }));
 
@@ -20,5 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...pages, ...articles];
+  const communityPosts: MetadataRoute.Sitemap = community.map((p) => ({
+    url: absoluteUrl(`/community/${p.slug}`),
+    lastModified: new Date(p.date),
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
+  return [...pages, ...articles, ...communityPosts];
 }

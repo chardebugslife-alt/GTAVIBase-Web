@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { absoluteUrl, siteConfig, gameFacts } from "@/lib/site";
-import type { NewsArticle, Faq } from "@/lib/data";
+import type { NewsArticle, Faq, CommunityPost } from "@/lib/data";
 import { editions } from "@/lib/data";
 
 /**
@@ -96,6 +96,46 @@ export function newsArticleJsonLd(a: NewsArticle): Record<string, unknown> {
       name: s.title,
       url: s.url,
       publisher: { "@type": "Organization", name: s.publisher },
+    })),
+    about: {
+      "@type": "VideoGame",
+      name: gameFacts.title,
+      url: siteConfig.url,
+    },
+  };
+}
+
+/** Article (commentary) structured data for a community post. Unlike the
+ *  NewsArticle schema, this is explicitly opinion/analysis: it links the
+ *  external discussion via `isBasedOn`/`citation` and marks the game as its
+ *  subject, without presenting the content as reported fact. */
+export function communityPostJsonLd(p: CommunityPost): Record<string, unknown> {
+  const url = absoluteUrl(`/community/${p.slug}`);
+  const links = [p.source, ...(p.moreLinks ?? [])];
+  const publisher = {
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: { "@type": "ImageObject", url: absoluteUrl("/icon.svg") },
+  };
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: p.title,
+    description: p.summary,
+    datePublished: p.date,
+    dateModified: p.date,
+    inLanguage: "en-US",
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    author: publisher,
+    publisher,
+    isBasedOn: links.map((l) => l.url),
+    citation: links.map((l) => ({
+      "@type": "CreativeWork",
+      name: l.title,
+      url: l.url,
+      publisher: { "@type": "Organization", name: l.publisher },
     })),
     about: {
       "@type": "VideoGame",

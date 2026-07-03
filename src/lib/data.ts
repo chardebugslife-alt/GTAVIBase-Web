@@ -554,3 +554,454 @@ export const editionFaqs: Faq[] = [
       "GTA VI pre-orders opened on June 25, 2026. Every pre-order placed before November 20, 2026 includes the Vintage Vice City Pack. The game releases November 19, 2026 on PlayStation 5 and Xbox Series X|S.",
   },
 ];
+
+/* ------------------------------------------------------------------ *
+ *  Community hub
+ *
+ *  UNOFFICIAL, fan-driven content: theories, story speculation, frame-
+ *  by-frame breakdowns, conspiracy talk and community roundups. This is
+ *  deliberately kept SEPARATE from the official /news section so the
+ *  factual pages stay Rockstar-sourced only. Every entry here is an
+ *  original summary of an ongoing community conversation, clearly framed
+ *  as speculation and linked back to where the discussion lives.
+ * ------------------------------------------------------------------ */
+
+/** A community topic bucket. `accent` is a Tailwind gradient used for the
+ *  category badge and the placeholder artwork. */
+export type CommunityCategory = {
+  slug: string;
+  label: string;
+  blurb: string;
+  /** Tailwind `from-*`/`to-*` gradient stops for badges & placeholders. */
+  accent: string;
+};
+
+export const communityCategories: CommunityCategory[] = [
+  {
+    slug: "fan-theories",
+    label: "Fan Theories",
+    blurb:
+      "Map-size guesses, hidden-detail hunts and gameplay predictions the community keeps returning to.",
+    accent: "from-pink to-orange",
+  },
+  {
+    slug: "story-speculation",
+    label: "Story Talk",
+    blurb:
+      "Where fans think the Lucia-and-Jason story is heading, based on the two trailers.",
+    accent: "from-purple to-pink",
+  },
+  {
+    slug: "conspiracy",
+    label: "Conspiracy Corner",
+    blurb:
+      "The wilder, take-it-with-a-shaker-of-salt end of the fandom. Entertainment, not evidence.",
+    accent: "from-teal to-purple",
+  },
+  {
+    slug: "leaks-rumors",
+    label: "Leaks & Rumors",
+    blurb:
+      "Unconfirmed chatter and reported leaks the community is weighing — none of it official.",
+    accent: "from-orange to-pink",
+  },
+  {
+    slug: "debates",
+    label: "Hot Debates",
+    blurb:
+      "The arguments splitting the fandom right now — price, story length and how to play launch week.",
+    accent: "from-orange to-teal",
+  },
+  {
+    slug: "breakdowns",
+    label: "Trailer Breakdowns",
+    blurb:
+      "Frame-by-frame analysis and detail spotting from creators and forum sleuths.",
+    accent: "from-teal to-pink",
+  },
+  {
+    slug: "community-hubs",
+    label: "Community Hubs",
+    blurb:
+      "The megathreads, subreddits and forums where the whole conversation actually happens.",
+    accent: "from-pink to-purple",
+  },
+];
+
+/** An external place the discussion lives (thread, video, forum, subreddit). */
+export type CommunityLink = {
+  title: string;
+  /** e.g. "Reddit — r/GTA6", "GTAForums", "YouTube". */
+  publisher: string;
+  url: string;
+  /** Shown as a small tag on the link. */
+  kind: "Discussion" | "Forum" | "Video" | "Subreddit" | "Article";
+};
+
+export type CommunityPost = {
+  slug: string;
+  /** One of `communityCategories[].slug`. */
+  category: string;
+  date: string;
+  dateLabel: string;
+  updatedLabel?: string;
+  title: string;
+  /** One-sentence dek, reused as the page meta description. */
+  summary: string;
+  /** Scannable, quotable talking points. */
+  keyPoints: string[];
+  /** Original prose — one string per paragraph. Framed as speculation. */
+  body: string[];
+  /** The primary place this conversation is happening (linked prominently). */
+  source: CommunityLink;
+  /** Any additional external threads/videos worth a look. */
+  moreLinks?: CommunityLink[];
+  /** Optional internal cross-links to factual guide pages on this site. */
+  related?: NavItem[];
+};
+
+/** Real, stable community destinations reused across posts. */
+const HUB_REDDIT: CommunityLink = {
+  title: "r/GTA6 — the main GTA VI subreddit",
+  publisher: "Reddit — r/GTA6",
+  url: "https://www.reddit.com/r/GTA6/",
+  kind: "Subreddit",
+};
+
+const HUB_FORUMS: CommunityLink = {
+  title: "GTAForums — Grand Theft Auto VI boards",
+  publisher: "GTAForums",
+  url: "https://gtaforums.com/forum/401-grand-theft-auto-vi/",
+  kind: "Forum",
+};
+
+export const community: CommunityPost[] = [
+  {
+    slug: "how-big-is-the-map",
+    category: "fan-theories",
+    date: "2026-06-28",
+    dateLabel: "June 28, 2026",
+    updatedLabel:
+      "Based on the fan-run Community Mapping Project — a reconstruction, not an official Rockstar map.",
+    title: "How big is the GTA VI map? The 2.5x figure explained",
+    summary:
+      "The fan Community Mapping Project now pegs Leonida at roughly 2.5 times the size of GTA V's map — here's where that number comes from and why it's still an estimate, not an official figure.",
+    keyPoints: [
+      "Fan mapping estimates put Leonida at about 2.5x the size of GTA V.",
+      "One widely-shared Reddit calculation lands at ~2.7x with the full area, ~2.4x without the northern panhandle.",
+      "The April 2026 revision of the Community Mapping Project added cities, highways, towns and waterways.",
+      "It's built from trailer analysis and leaks — Rockstar has not published an official map or size.",
+    ],
+    body: [
+      "The single most-asked GTA VI question finally has a headline number attached: the fan-built Community Mapping Project now estimates Leonida at roughly 2.5 times the size of GTA V's map. That figure has rocketed around the fandom, but it's worth understanding exactly what it is — and isn't.",
+      "The number comes from fans painstakingly reconstructing the map from trailer shots, screenshots and leaked data. One widely-cited Reddit calculation put it at about 2.7x GTA V with the full area, or roughly 2.4x if you exclude a northern panhandle region. An April 2026 revision of the mapping project added cities (including the confirmed Vice City), highways, towns, countryside and waterways, making it the clearest picture yet.",
+      "None of this is official. Rockstar has never released a full world map or a square-mileage figure, and a Brazilian retailer's description of 'the most massive, dense and insane map ever created' is marketing, not measurement. Treat 2.5x as a well-reasoned fan estimate that could shift before the November 19, 2026 release.",
+    ],
+    source: {
+      title: "GTA 6's Map Is Officially 2.5 Times Bigger Than GTA 5",
+      publisher: "CBR",
+      url: "https://www.cbr.com/gta-6-map-size-official-confirmation/",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title: "GTA 6 Map Comparison Confirms Mind-Blowing Scale Of Open-World",
+        publisher: "ScreenRant",
+        url: "https://screenrant.com/gta-6-map-comparison-open-world-scale/",
+        kind: "Article",
+      },
+      {
+        title: "Updated Community Mapping Project comparison",
+        publisher: "GamingBible",
+        url: "https://www.gamingbible.com/news/gta-6-updated-map-leak-324914-20260414",
+        kind: "Article",
+      },
+      HUB_REDDIT,
+    ],
+    related: [
+      { href: "/setting", label: "GTA VI setting: Vice City & Leonida" },
+    ],
+  },
+  {
+    slug: "lucia-and-jason-ending-theories",
+    category: "story-speculation",
+    date: "2026-06-20",
+    dateLabel: "June 20, 2026",
+    title: "Where fans think the Lucia & Jason story ends",
+    summary:
+      "Rockstar calls it a modern outlaw-couple tale — so naturally the community is already theorizing about betrayals, branching endings and whether both leads make it out alive.",
+    keyPoints: [
+      "The two-protagonist setup has fans predicting player-choice or branching endings.",
+      "The 'Bonnie and Clyde' framing fuels tragic-ending and betrayal theories.",
+      "None of these outcomes are confirmed — the trailers show setup, not resolution.",
+      "Discussion draws heavily on Rockstar's past narrative structures for clues.",
+    ],
+    body: [
+      "Rockstar has framed Lucia and Jason as two people the world has counted out, pulled together and then deeper into a criminal conspiracy across Leonida. That outlaw-couple pitch has the community running wild with story predictions — chief among them, whether the game will hand players a choice over how the pair's story ends.",
+      "The most popular threads lean on the 'Bonnie and Clyde' comparison to argue for a tragic or bittersweet finale, while others expect a betrayal beat between the leads or a branching structure echoing past Rockstar games. Frame-counters have combed both trailers for hints of who might turn on whom.",
+      "It's worth stressing that all of this is reading tea leaves. The trailers establish character and tone, not plot resolution. Until the game is out, every ending theory — happy, tragic or player-decided — is fan projection, and that's exactly what makes this corner of the fandom fun.",
+    ],
+    source: {
+      title: "Story & ending theory threads on r/GTA6",
+      publisher: "Reddit — r/GTA6",
+      url: "https://www.reddit.com/r/GTA6/",
+      kind: "Subreddit",
+    },
+    related: [
+      { href: "/characters", label: "GTA VI characters: Lucia & Jason" },
+    ],
+  },
+  {
+    slug: "trailer-2-hidden-details",
+    category: "breakdowns",
+    date: "2026-06-15",
+    dateLabel: "June 15, 2026",
+    title: "The hidden details fans keep finding in Trailer 2",
+    summary:
+      "Creators have paused Trailer 2 to death — storefront signage, background NPC routines, weather shifts and radio-station Easter eggs are all being catalogued frame by frame.",
+    keyPoints: [
+      "Detail-hunters focus on background signage, NPC behaviour and reflections.",
+      "Many 'finds' are genuine visual details; their gameplay meaning is speculative.",
+      "Breakdowns are spread across YouTube and forum screenshot threads.",
+      "Nothing here is confirmed by Rockstar as a mechanic or story hint.",
+    ],
+    body: [
+      "The second trailer gave the community a lot more to dissect, and creators wasted no time. Frame-by-frame breakdowns have catalogued storefront names, animal behaviour, dynamic weather, crowd density and reflections — the kind of environmental detail Rockstar is known for obsessing over.",
+      "Some finds are clearly real and simply gorgeous world-building. Others get spun into gameplay theories — that a spotted sign implies a purchasable business, or that an NPC routine hints at a living-world system. That leap from 'I can see it' to 'it therefore works like this' is where speculation begins.",
+      "If you enjoy this stuff, the breakdown scene is one of the most active parts of the fandom right now. Just keep the line clear in your head between a confirmed visual detail and a fan's interpretation of what it means for the finished game.",
+    ],
+    source: {
+      title: "Trailer 2 frame-by-frame breakdown threads",
+      publisher: "GTAForums",
+      url: "https://gtaforums.com/forum/401-grand-theft-auto-vi/",
+      kind: "Forum",
+    },
+    moreLinks: [HUB_REDDIT],
+    related: [{ href: "/trailers", label: "Watch the official GTA VI trailers" }],
+  },
+  {
+    slug: "will-it-delay-again",
+    category: "leaks-rumors",
+    date: "2026-06-10",
+    dateLabel: "June 10, 2026",
+    title: "Will GTA VI get delayed again? What the community thinks",
+    summary:
+      "After two delays, a chunk of the fandom is bracing for a third — here's the case both sides are making, and why the November 19, 2026 date is the only official one.",
+    keyPoints: [
+      "The confirmed release date is November 19, 2026 (set on Nov 6, 2025).",
+      "Two prior delays have made some fans skeptical of the current date.",
+      "Pre-orders opening and a preload date are read by optimists as good signs.",
+      "Any 'insider' third-delay claim is unconfirmed rumor until Rockstar speaks.",
+    ],
+    body: [
+      "Grand Theft Auto VI has already moved twice — from a broad 2025 window to May 26, 2026, and then to its current date of November 19, 2026. So it's no surprise that a portion of the community treats every quiet week as a sign a third delay is coming.",
+      "The optimists have real momentum on their side lately. Trade reporting in mid-2026 indicated no new delay and a marketing push on track to ramp through the summer, and the business milestones back that up: pre-orders opened on June 25, 2026, with a preload date lined up for November. Studios rarely take those steps unless they intend to hit the date.",
+      "Our take for this hub: the only date that matters is the official one, November 19, 2026. Everything else — including any 'my source says' post claiming a new slip — is rumor. We'll keep the factual timeline on the News page and leave the speculation here where it belongs.",
+    ],
+    source: {
+      title: "GTA 6: No Delay or Price, but Marketing on Track for Summer",
+      publisher: "Variety",
+      url: "https://variety.com/2026/gaming/news/gta-5-no-delay-price-marketing-summer-1236755303/",
+      kind: "Article",
+    },
+    moreLinks: [HUB_REDDIT],
+    related: [
+      { href: "/news/release-date-november-2026", label: "GTA VI release date: the confirmed facts" },
+      { href: "/faq", label: "GTA VI FAQ" },
+    ],
+  },
+  {
+    slug: "vice-city-secret-messages",
+    category: "conspiracy",
+    date: "2026-06-05",
+    dateLabel: "June 5, 2026",
+    updatedLabel:
+      "Filed under Conspiracy Corner — this is for fun, not fact. Nothing here is confirmed.",
+    title: "The 'hidden messages in the trailers' rabbit hole",
+    summary:
+      "Some fans are convinced Rockstar has buried coded dates, ARG-style clues and secret meanings in the GTA VI trailers. It's a fun rabbit hole — and almost certainly just pareidolia.",
+    keyPoints: [
+      "A small corner of the fandom hunts for 'coded' clues in trailer frames and audio.",
+      "Claims include hidden dates, backwards audio and symbolic set-dressing.",
+      "Rockstar has never run a confirmed GTA VI alternate-reality game (ARG).",
+      "Treat this purely as entertainment — there's no evidence behind it.",
+    ],
+    body: [
+      "Every big Rockstar reveal spawns a conspiracy fringe, and GTA VI is no exception. You'll find posts insisting a specific frame hides a release date, that a background billboard is a coded message, or that reversing a snippet of trailer audio reveals a secret — full alternate-reality-game energy.",
+      "It's a genuinely fun rabbit hole, and pattern-spotting is half the joy of a hype cycle this long. But it's worth being honest: Rockstar has never confirmed an official GTA VI ARG, and the overwhelming majority of these 'discoveries' are pareidolia — our brains finding signals in noise.",
+      "We keep this stuff quarantined in Conspiracy Corner for a reason. Enjoy the theories, share the wild ones, but don't mistake a compelling edit for confirmation. When Rockstar actually hides something, it usually wants you to find it.",
+    ],
+    source: {
+      title: "Theory & 'hidden clue' threads on r/GTA6",
+      publisher: "Reddit — r/GTA6",
+      url: "https://www.reddit.com/r/GTA6/",
+      kind: "Subreddit",
+    },
+  },
+  {
+    slug: "where-the-community-lives",
+    category: "community-hubs",
+    date: "2026-06-01",
+    dateLabel: "June 1, 2026",
+    updatedLabel: "Evergreen — the go-to list of active GTA VI community spaces.",
+    title: "Where the GTA VI community actually hangs out",
+    summary:
+      "New to the countdown? Here are the biggest, most active places fans gather to theorize, break down trailers and argue about the release date.",
+    keyPoints: [
+      "r/GTA6 is the largest general-purpose GTA VI discussion hub.",
+      "GTAForums hosts long-running, deeply detailed analysis threads.",
+      "Most 'breaking' fan discussion starts in one of these two places.",
+      "Always sanity-check hot takes against the official News page.",
+    ],
+    body: [
+      "If you want to plug into the conversation rather than just read about it, a couple of destinations do most of the heavy lifting. The r/GTA6 subreddit is the fast-moving town square — trailers, memes, theories and release-date anxiety all in one feed.",
+      "GTAForums is the older, slower, more thorough counterpart: it's where the frame-by-frame detail threads and years-deep analysis tend to live. Between the two, you'll catch nearly every notable fan discovery and debate.",
+      "Our one bit of advice: treat these spaces as the idea factory, not the record of truth. When something big 'breaks' in a thread, cross-check it against our News page, which only tracks confirmed Rockstar information. Hype is best enjoyed with a foot on the ground.",
+    ],
+    source: HUB_REDDIT,
+    moreLinks: [
+      HUB_FORUMS,
+      {
+        title: "Grand Theft Auto VI — official site",
+        publisher: "Rockstar Games",
+        url: "https://www.rockstargames.com/VI",
+        kind: "Article",
+      },
+    ],
+    related: [{ href: "/news", label: "Confirmed GTA VI news (official only)" }],
+  },
+  {
+    slug: "story-length-75-hour-leak",
+    category: "story-speculation",
+    date: "2026-06-25",
+    dateLabel: "June 25, 2026",
+    updatedLabel:
+      "Traces back to an unverified insider post — Rockstar has confirmed none of it.",
+    title: "The '75-hour, five-chapter' story leak, explained",
+    summary:
+      "A viral leak claims GTA VI's campaign runs 75 hours across five chapters, with specific backstories for Jason and Lucia. It's the most detailed story rumor going — and completely unconfirmed.",
+    keyPoints: [
+      "The 75-hour figure comes from an anonymous 2025 insider post on X (user 'remus_r').",
+      "It describes a prologue plus five chapters escalating from ~2 to ~22 hours each.",
+      "It alleges Jason is a former Latin America black-ops soldier and Lucia's arc is cartel revenge.",
+      "Other insiders peg the campaign at 45–50 hours; Rockstar has confirmed nothing.",
+    ],
+    body: [
+      "If you've seen 'GTA VI is 75 hours long' as a confident headline, this is where it started: an anonymous insider post attributed to the X user 'remus_r' in August 2025, which spread rapidly across gaming press and has resurfaced with every hype spike since.",
+      "The leak is unusually specific. It lays out a roughly 75-hour main story split into a prologue and five chapters — climbing from around two hours to a 22-hour fourth chapter — and claims plot beats such as Jason being a former black-ops soldier from Latin America and Lucia pursuing revenge after her father is killed by a cartel, with the ending set outside the US.",
+      "That specificity is exactly why to stay skeptical. Competing insider reporting generally puts the campaign closer to 45–50 hours, and Rockstar has not confirmed a runtime, a chapter count or any of these character details. Treat the whole thing as a compelling rumor to enjoy, not a spoiler to trust.",
+    ],
+    source: {
+      title: "GTA 6 Rumored Runtime Compared To All Other Grand Theft Auto Games",
+      publisher: "ScreenRant",
+      url: "https://screenrant.com/gta-6-main-story-runtime-leak/",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title: "GTA 6 Story Length Leak — Longest Game Rockstar Has Ever Done",
+        publisher: "GamingBible",
+        url: "https://www.gamingbible.com/news/gta-6-story-length-leak-longest-game-063981-20250805",
+        kind: "Article",
+      },
+      HUB_REDDIT,
+    ],
+    related: [{ href: "/characters", label: "GTA VI characters: Lucia & Jason" }],
+  },
+  {
+    slug: "is-gta6-a-100-dollar-game",
+    category: "debates",
+    date: "2026-06-30",
+    dateLabel: "June 30, 2026",
+    title: "Is GTA VI really a $100 game? The Ultimate Edition backlash",
+    summary:
+      "The $99.99 Ultimate Edition — and the in-game shops, cars and gear locked to it — has kicked off the fandom's loudest argument yet about GTA VI's price.",
+    keyPoints: [
+      "The Ultimate Edition is $99.99; the Standard is $79.99 (US pricing).",
+      "Backlash centers on exclusive shops, vehicles and mods locked to the pricier edition.",
+      "Physical buyers get a download code in the box, not a disc — a second sore point.",
+      "Some fans dodged the cost entirely by stockpiling Microsoft Rewards points.",
+    ],
+    body: [
+      "When pre-orders opened on June 25, 2026, the price tags did as much talking as the game. The $99.99 Ultimate Edition, sitting above the $79.99 Standard, became a lightning rod — and outlets from Kotaku to Collider have chronicled the fallout as fans debate whether GTA VI is effectively a $100 game.",
+      "The sharpest complaint isn't the number itself but what's behind it: the Ultimate Edition locks away exclusive in-game businesses, vehicles, weapons and mods that Standard buyers can't access at all. Add the fact that the boxed 'physical' copy contains a download code rather than a disc, and a chunk of the community feels the value proposition is upside down.",
+      "It hasn't been all anger. In a very GTA twist, some players gamed the system right back — stockpiling Microsoft Rewards points during the long delays and effectively pre-ordering the Ultimate Edition for free. For the confirmed, non-speculative breakdown of what each edition actually includes, see our editions guide.",
+    ],
+    source: {
+      title:
+        "Fans Debate If GTA 6 Is Actually A $100 Game As Anger Grows Over The Ultimate Edition",
+      publisher: "Kotaku",
+      url: "https://kotaku.com/fans-debate-if-gta-6-is-actually-a-100-game-as-anger-grows-around-the-ultimate-edition-locking-content-away-2000710588",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title: "'GTA 6' Controversy Explodes Just Months Before Release",
+        publisher: "Collider",
+        url: "https://collider.com/gta-6-outrage-fans-social-media/",
+        kind: "Article",
+      },
+      HUB_REDDIT,
+    ],
+    related: [
+      { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
+    ],
+  },
+  {
+    slug: "how-long-should-the-story-be",
+    category: "debates",
+    date: "2026-06-22",
+    dateLabel: "June 22, 2026",
+    title: "30 hours or 75? Fans can't agree on the ideal story length",
+    summary:
+      "Sparked by the 75-hour leak, the community has split into camps — some want a tight, GTA V-style campaign, others want the longest Rockstar story ever. Here's the argument.",
+    keyPoints: [
+      "One camp wants a focused 30–40 hour story, closer to GTA V's pacing.",
+      "Another wants a sprawling 60–75 hours in the Red Dead Redemption 2 mould.",
+      "The debate was reignited by the unverified 75-hour campaign leak.",
+      "It's a matter of taste — there's no 'correct' answer and nothing is confirmed.",
+    ],
+    body: [
+      "Every big rumor spawns a debate, and the 75-hour story leak split the fandom cleanly in two. On one side are players who loved GTA V's relatively tight, propulsive campaign — roughly 30-plus hours — and worry a 75-hour story would sag under padding and filler.",
+      "On the other are fans who point to Red Dead Redemption 2 as proof Rockstar can sustain a much longer, slower-burning epic, and who'd happily sink 60–75 hours into Leonida if the quality holds. Both sides are really arguing about pacing philosophy as much as raw hours.",
+      "There's no resolving this one — it's a taste debate dressed up as a numbers debate, and it rests on a runtime Rockstar has never confirmed. But it's a great window into what people actually want from the game, which is half of why the wait is so loud.",
+    ],
+    source: {
+      title: "GTA 6 splits fans already: should its story be 30 or 75 hours?",
+      publisher: "Softonic",
+      url: "https://en.softonic.com/articles/gta-6-splits-fans-already-should-its-story-be-30-or-75-hours",
+      kind: "Article",
+    },
+    moreLinks: [HUB_REDDIT],
+    related: [
+      { href: "/community/story-length-75-hour-leak", label: "The 75-hour story leak, explained" },
+    ],
+  },
+  {
+    slug: "launch-week-contract-meme",
+    category: "debates",
+    date: "2026-06-18",
+    dateLabel: "June 18, 2026",
+    title: "The viral GTA VI 'launch week contract' taking over feeds",
+    summary:
+      "A tongue-in-cheek 'contract' laying down household rules for GTA VI launch week has gone viral — the fandom's way of bracing loved ones for November 19.",
+    keyPoints: [
+      "A joke 'contract' sets ground rules for the November 19–29 launch window.",
+      "Sample clauses: don't walk in front of the TV, save chores for pause screens.",
+      "It's pure fan humor — a meme, not anything official from Rockstar.",
+      "It captures just how much anticipation has built during the long wait.",
+    ],
+    body: [
+      "Not every trending topic is a leak. One of the most-shared GTA VI posts lately is a tongue-in-cheek 'launch week contract' — a mock agreement fans are jokingly presenting to partners and roommates to survive the November 19 release.",
+      "The clauses are the joke: no walking in front of the TV during missions, no non-essential requests mid-heist, chores deferred to whenever the game is paused, and a general amnesty for the launch fortnight. It's a lighthearted way to say the quiet part out loud about how much time people plan to sink into Leonida.",
+      "We're filing it here because it's a perfect snapshot of the fandom's mood: three years of waiting distilled into a meme. No, it isn't official, and no, it won't hold up in court — but it might just save a relationship or two come launch night.",
+    ],
+    source: {
+      title: "GTA 6 launch-week contract goes viral ahead of its November 2026 release",
+      publisher: "Softonic",
+      url: "https://en.softonic.com/articles/gta-6-launch-week-contract-goes-viral-ahead-of-its-november-2026-release",
+      kind: "Article",
+    },
+    moreLinks: [HUB_REDDIT],
+  },
+];
