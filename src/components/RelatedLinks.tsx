@@ -14,6 +14,11 @@ const destinations: Record<string, Item> = {
     title: "Map & Setting",
     blurb: "Explore Vice City and the state of Leonida — the biggest GTA world yet.",
   },
+  vehicles: {
+    href: "/vehicles",
+    title: "Vehicles",
+    blurb: "Every car, bike and boat seen in the official trailers, by type.",
+  },
   trailers: {
     href: "/trailers",
     title: "Trailers",
@@ -46,8 +51,9 @@ export type Section = keyof typeof destinations;
 /** Curated onward links for each section — three relevant next stops. */
 const related: Record<Section, Section[]> = {
   characters: ["setting", "trailers", "faq"],
-  setting: ["characters", "trailers", "editions"],
-  trailers: ["characters", "setting", "news"],
+  setting: ["characters", "vehicles", "trailers"],
+  vehicles: ["trailers", "setting", "editions"],
+  trailers: ["vehicles", "characters", "news"],
   editions: ["news", "faq", "characters"],
   news: ["trailers", "community", "editions"],
   community: ["news", "trailers", "faq"],

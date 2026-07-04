@@ -1005,3 +1005,68 @@ export const community: CommunityPost[] = [
     moreLinks: [HUB_REDDIT],
   },
 ];
+
+/* ---------------------------------------------------------------------------
+ * Vehicles shown in the official GTA VI trailers.
+ *
+ * Rockstar has NOT published an official GTA VI vehicle list or names. Every
+ * entry below is a vehicle that visibly appears in an official Rockstar trailer;
+ * the names are the vehicles' established Grand Theft Auto in-game brands as
+ * identified from the trailer footage, and the "inspiration" is the real-world
+ * car each design echoes. Details may change before launch. The trailers
+ * themselves (linked on the page) are the source.
+ * ------------------------------------------------------------------------- */
+
+export type VehicleClass = {
+  slug: string;
+  label: string;
+  blurb: string;
+  /** Tailwind gradient classes for the placeholder card banner. */
+  accent: string;
+};
+
+/** Vehicle categories, in the order they appear on the page. */
+export const vehicleClasses: VehicleClass[] = [
+  {
+    slug: "super",
+    label: "Supercars & Sports",
+    blurb: "High-end exotics and sports cars glimpsed tearing through Leonida.",
+    accent: "from-pink to-orange",
+  },
+  {
+    slug: "muscle",
+    label: "Muscle Cars",
+    blurb: "American muscle — including the magenta hero car that closes both trailers.",
+    accent: "from-orange to-pink",
+  },
+  {
+    slug: "classic",
+    label: "Classics & Luxury",
+    blurb: "Vintage cruisers and drop-top luxury in classic Vice City style.",
+    accent: "from-purple to-pink",
+  },
+  {
+    slug: "suv",
+    label: "SUVs & 4x4s",
+    blurb: "Full-size SUVs and body-on-frame haulers seen in traffic.",
+    accent: "from-teal to-purple",
+  },
+  {
+    slug: "truck",
+    label: "Trucks & Off-Road",
+    blurb: "Pickups and off-roaders built for Leonida's back roads and swamps.",
+    accent: "from-orange to-teal",
+  },
+  {
+    slug: "motorcycle",
+    label: "Motorcycles",
+    blurb: "Two wheels — from a lean chopper to a dirt bike.",
+    accent: "from-pink to-purple",
+  },
+  {
+    slug: "boat",
+    label: "Boats",
+    blurb: "Watercraft for Leonida's coast, canals and wetlands.",
+    accent: "from-teal to-pink",
+  },
+];
