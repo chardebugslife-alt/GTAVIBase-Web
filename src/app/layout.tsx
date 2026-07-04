@@ -132,6 +132,19 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
 
+        {/* Google Consent Mode v2 defaults — must run BEFORE the AdSense loader
+            (guaranteed by beforeInteractive vs. the loader's lazyOnload). Every
+            consent signal defaults to "denied", so AdSense serves only
+            non-personalized, cookieless ads until a certified CMP updates
+            consent. NOTE: this is the code-side foundation; a Google-certified
+            CMP (configure "Privacy & messaging" in AdSense) is still required to
+            actually collect EEA/UK consent and call gtag('consent','update'). */}
+        {adsEnabled && (
+          <Script id="google-consent-default" strategy="beforeInteractive">
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});`}
+          </Script>
+        )}
+
         {/* AdSense loader — injected only when a publisher id is configured. */}
         {adsEnabled && (
           <Script

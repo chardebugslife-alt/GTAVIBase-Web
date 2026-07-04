@@ -11,7 +11,10 @@ export const metadata: Metadata = pageMetadata({
   path: "/contact",
 });
 
-const CONTACT_EMAIL = "charuhasen@gmail.com";
+// Site-branded address rather than a personal inbox: keeps the operator's
+// personal identity off an ad-monetized fan site and gives spam scrapers a
+// disposable, forwardable target. Point this at a real mailbox/forwarder.
+const CONTACT_EMAIL = "hello@gtavibase.com";
 
 const reasons = [
   {
