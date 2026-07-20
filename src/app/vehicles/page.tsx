@@ -6,9 +6,9 @@ import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { vehicleClasses } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Vehicles — Cars, Bikes & Boats (Official Info)",
+  title: "GTA VI Vehicles — Cars, Bikes & Boats Seen in the Trailers",
   description:
-    "Grand Theft Auto VI vehicles by type. Rockstar has not yet released an official vehicle list, names, specs or images — here's what's confirmed and what's still to come.",
+    "A guide to the cars, motorcycles and boats of Grand Theft Auto VI, organised by type and grounded in Rockstar's two official trailers — from Vice City supercars to Leonida's wetland airboats.",
   path: "/vehicles",
 });
 
@@ -62,38 +62,61 @@ export default function VehiclesPage() {
             <span className="gradient-text">Vehicles</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            The cars, bikes and boats of Grand Theft Auto VI, organised by type.
-            Vehicles have been glimpsed throughout the official trailers — but
-            the full line-up is still under wraps.
+            Getting around Leonida means getting behind the wheel &mdash; and
+            Grand Theft Auto VI&rsquo;s two official trailers are packed with the
+            cars, motorcycles and boats you&rsquo;ll be driving, riding and
+            piloting across Vice City and the state beyond. This guide breaks the
+            fleet down by type, using only what Rockstar has actually shown.
           </p>
-
-          <div className="mt-6 flex items-start gap-3 rounded-2xl border border-orange/30 bg-orange/[0.07] px-5 py-4">
-            <span aria-hidden className="mt-0.5 text-lg">
-              ⏳
-            </span>
-            <p className="text-sm leading-relaxed text-muted">
-              <span className="font-semibold text-foreground">
-                Rockstar has not yet released an official vehicle list.
-              </span>{" "}
-              Vehicle names, specifications and dedicated in-game images have not
-              been revealed. Until they are, this page tracks the vehicle{" "}
-              <em>types</em> confirmed to appear in the official{" "}
-              <Link href="/trailers" className="font-semibold text-pink hover:underline">
-                GTA VI trailers
-              </Link>
-              . We&rsquo;ll add each vehicle here — with official imagery — as
-              Rockstar reveals it.
-            </p>
-          </div>
         </header>
 
-        <section aria-labelledby="types-heading" className="mt-12">
+        <section aria-labelledby="overview-heading" className="mt-12 max-w-3xl">
+          <h2 id="overview-heading" className="font-display text-3xl">
+            What the trailers reveal
+          </h2>
+          <div className="mt-4 space-y-4 text-base leading-relaxed text-muted">
+            <p>
+              Vice City&rsquo;s traffic is as much a character as its people. The
+              reveal trailer and{" "}
+              <Link href="/trailers" className="font-semibold text-pink hover:underline">
+                Trailer 2
+              </Link>{" "}
+              together show a fleet that spans every corner of a modern Florida
+              stand-in: low-slung exotics tearing down neon-lit boulevards,
+              chrome-heavy classics cruising the beachfront, lifted pickups
+              kicking up dust on backcountry roads, and a whole world of
+              watercraft built for the coast, the canals and the swamps.
+            </p>
+            <p>
+              The most talked-about vehicle so far is the magenta muscle car that
+              bookends both trailers &mdash; a hero car the community has adopted
+              as an unofficial mascot for the game. Around it, the footage packs
+              in supercars and sports coupes, vintage convertibles that nod
+              straight back to the original Vice City, full-size SUVs, off-road
+              trucks, motorcycles ranging from lean choppers to dirt bikes, and
+              boats and airboats suited to Leonida&rsquo;s keys and wetlands.
+            </p>
+            <p>
+              A quick note on accuracy: Rockstar has not published an official
+              GTA VI vehicle list, and it has not confirmed the names, brands or
+              specifications of individual models. Grand Theft Auto has always
+              used its own in-house car brands &mdash; Declasse, Grotti, Vapid,
+              Shitzu and the rest &mdash; that echo real-world manufacturers
+              without licensing them, and GTA VI will do the same. Where a model
+              is only glimpsed and unnamed, we describe it by type rather than
+              guess a badge. As Rockstar reveals confirmed vehicles, we&rsquo;ll
+              fold the official names and imagery into the categories below.
+            </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="types-heading" className="mt-14">
           <h2 id="types-heading" className="font-display text-3xl">
-            Vehicle types confirmed in the trailers
+            The fleet by type
           </h2>
           <p className="mt-2 max-w-2xl text-muted">
-            These categories are all visible in Rockstar&rsquo;s official
-            footage. Individual models are yet to be officially named or detailed.
+            Every category below is visible in Rockstar&rsquo;s official footage.
+            Here&rsquo;s what each class looks like in the world of Leonida.
           </p>
 
           <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -117,9 +140,9 @@ export default function VehiclesPage() {
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     {cls.blurb}
                   </p>
-                  <span className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs font-medium text-muted">
-                    <span className="h-1.5 w-1.5 rounded-full bg-orange" aria-hidden />
-                    Official models yet to be released
+                  <span className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-teal/30 bg-teal/[0.08] px-3 py-1 text-xs font-medium text-teal">
+                    <span className="h-1.5 w-1.5 rounded-full bg-teal" aria-hidden />
+                    Seen in the official trailers
                   </span>
                 </div>
               </li>
@@ -132,14 +155,16 @@ export default function VehiclesPage() {
           <h2 className="font-display text-xl text-foreground">
             Sources &amp; credits
           </h2>
-          <p className="mt-2 text-sm text-muted">
-            The only official footage of GTA VI vehicles so far is in Rockstar
-            Games&rsquo; trailers. Watch them on the{" "}
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">
+            Everything on this page is drawn from Grand Theft Auto VI&rsquo;s two
+            official trailers, published by Rockstar Games. You can watch both in
+            full on our{" "}
             <Link href="/trailers" className="font-semibold text-pink hover:underline">
               trailers page
             </Link>
-            . This page will be updated with official vehicle names and imagery
-            once Rockstar publishes them.
+            . We deliberately avoid unconfirmed leaks and fan-made vehicle lists;
+            as Rockstar officially names and details individual models, this guide
+            will be updated with the confirmed information and imagery.
           </p>
         </section>
       </div>
