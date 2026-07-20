@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
+import Link from "next/link";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { trailers } from "@/lib/data";
-import { siteConfig } from "@/lib/site";
+import { gameFacts } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "GTA VI Trailers — Watch Every Official Trailer",
@@ -25,8 +26,8 @@ function videoObjectsJsonLd() {
       contentUrl: `https://www.youtube.com/watch?v=${t.youtubeId}`,
       publisher: {
         "@type": "Organization",
-        name: siteConfig.name,
-        url: siteConfig.url,
+        name: gameFacts.publisher,
+        url: "https://www.rockstargames.com",
       },
     })),
   };
@@ -87,6 +88,56 @@ export default function TrailersPage() {
             </section>
           ))}
         </div>
+
+        <section aria-labelledby="about-heading" className="mt-16 max-w-3xl">
+          <h2 id="about-heading" className="font-display text-3xl">
+            What the two trailers tell us
+          </h2>
+          <div className="mt-4 space-y-4 text-lg leading-relaxed text-muted">
+            <p>
+              For all the anticipation around Grand Theft Auto VI, the official
+              footage still comes down to just these two trailers — the December
+              2023 reveal and the longer follow-up in May 2025. That makes them
+              worth watching closely rather than once. The first ended years of
+              speculation by confirming the return to Vice City, introducing Lucia
+              and setting its montage of sun, crime and excess to Tom Petty&rsquo;s
+              &ldquo;Love Is a Long Road.&rdquo; It leaned hard into a social-media,
+              livestream-saturated version of Leonida, signalling that GTA VI would
+              hold a mirror to the present day.
+            </p>
+            <p>
+              The second trailer was a different kind of video: longer, calmer and
+              more character-driven. It fleshed out Lucia, formally introduced her
+              partner Jason, and widened the lens across Leonida — from Vice
+              City&rsquo;s beaches and nightlife to the swamps, keys and small
+              towns that ring it. Crucially, it arrived alongside a release date,
+              turning an abstract &ldquo;someday&rdquo; into a moment fans could
+              mark on a calendar.
+            </p>
+            <p>
+              Just as telling is what the trailers deliberately withhold: there is
+              no gameplay footage, no heads-up display, no mission structure and no
+              world map. That restraint is a Rockstar signature — reveal character
+              and world long before systems. It means almost everything about how
+              the game actually plays remains unconfirmed until Rockstar chooses to
+              show it. For a fuller breakdown, read our explainer on{" "}
+              <Link
+                href="/news/trailer-2-released"
+                className="font-semibold text-pink hover:underline"
+              >
+                both official GTA VI trailers
+              </Link>
+              , or see the details fans keep spotting in our{" "}
+              <Link
+                href="/community/trailer-2-hidden-details"
+                className="font-semibold text-pink hover:underline"
+              >
+                trailer breakdown roundup
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
       </article>
       <RelatedLinks current="trailers" />
     </>

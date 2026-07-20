@@ -46,6 +46,40 @@ export const gameFacts = {
   setting: "State of Leonida (Vice City)",
 } as const;
 
+/**
+ * Editorial identity. Fan-run sites still need clear authorship and an editorial
+ * process to satisfy E-E-A-T (Experience, Expertise, Authoritativeness, Trust).
+ * We use a truthful team identity and a real, stated process rather than a
+ * fabricated named author with invented credentials.
+ */
+export const editorial = {
+  author: "The GTA VI Base Editorial Team",
+  authorSlug: "editorial-team",
+  role: "Grand Theft Auto VI news & guides",
+  /** Shown on article bylines and the About page. */
+  bio:
+    "GTA VI Base is written and maintained by a small independent team of long-time Grand Theft Auto players. We track every official Rockstar Games announcement about Grand Theft Auto VI and turn it into clear, verifiable guides — no leaks, no rumours dressed up as fact.",
+  /** Our stated editorial standards, surfaced on the About page. */
+  standards: [
+    {
+      title: "Official sources first",
+      text: "Every factual claim on our news and guide pages traces back to Rockstar Games — its trailers, Newswire posts and store listings. We link the primary source on each page so you can check it yourself.",
+    },
+    {
+      title: "Leaks stay labelled",
+      text: "Unconfirmed leaks, insider claims and fan theories live in our clearly-marked Community section, never in the factual News. We tell you plainly when something is speculation.",
+    },
+    {
+      title: "Dated and corrected",
+      text: "Time-sensitive posts carry a visible date, and we update them when Rockstar's plans change — as we did across GTA VI's two release-date delays — rather than leaving stale information live.",
+    },
+    {
+      title: "Independent and unofficial",
+      text: "We are a fan site with no affiliation to Rockstar Games or Take-Two Interactive. We use official promotional imagery under fair-use for news and commentary, always credited to its owner.",
+    },
+  ],
+} as const;
+
 export type NavItem = { href: string; label: string };
 
 export const mainNav: NavItem[] = [

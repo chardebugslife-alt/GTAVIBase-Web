@@ -3,16 +3,16 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, editorial } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "About GTA VI Base — Who We Are & How We Source",
   description:
-    "GTA VI Base is an independent, fan-run information hub for Grand Theft Auto VI. Learn who runs the site, what we cover and how we source and verify every fact.",
+    "GTA VI Base is an independent, fan-run information hub for Grand Theft Auto VI. Learn who writes the site, what we cover and the editorial standards we follow to verify every fact.",
   path: "/about",
 });
 
-const CONTACT_EMAIL = "charuhasen@gmail.com";
+const CONTACT_EMAIL = "hello@gtavibase.com";
 
 export default function AboutPage() {
   return (
@@ -40,6 +40,27 @@ export default function AboutPage() {
         </header>
 
         <div className="mt-12 space-y-10 leading-relaxed text-muted">
+          <section aria-labelledby="who-writes">
+            <h2
+              id="who-writes"
+              className="font-display text-2xl text-foreground"
+            >
+              Who writes GTA VI Base
+            </h2>
+            <p className="mt-3">
+              GTA VI Base is written and edited by{" "}
+              <span className="font-semibold text-foreground">
+                {editorial.author}
+              </span>{" "}
+              — {editorial.role.toLowerCase()}. {editorial.bio} Between us we
+              have played every mainline Grand Theft Auto game since the series
+              went 3D, and we started this site to give fellow players one
+              reliable, clutter-free place to follow the road to GTA VI. Every
+              article you read here is written by a person, checked against a
+              primary source, and dated so you can see when we last touched it.
+            </p>
+          </section>
+
           <section>
             <h2 className="font-display text-2xl text-foreground">
               What we cover
@@ -53,30 +74,31 @@ export default function AboutPage() {
             </p>
           </section>
 
-          <section>
-            <h2 className="font-display text-2xl text-foreground">
-              How we source &amp; verify
+          <section aria-labelledby="standards">
+            <h2
+              id="standards"
+              className="font-display text-2xl text-foreground"
+            >
+              Our editorial standards
             </h2>
             <p className="mt-3">
-              Our core game information comes from official Rockstar Games
-              sources — trailers, newswire posts and store listings — and we show
-              credits for the material we reference. When we cover reporting or
-              speculation, we cite it and keep it clearly separated from
-              confirmed fact, so you always know what is official and what is
-              not.
+              We hold every page to the same four rules. They are why you can
+              trust a fact you read here without having to double-check it
+              yourself — though we link the source so you always can.
             </p>
-            <ul className="mt-4 space-y-2">
-              {[
-                "Confirmed facts are drawn from Rockstar's own channels.",
-                "News stories link to their original, verifiable sources.",
-                "Community and fan content is labelled unofficial and kept apart from official information.",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pink" />
-                  {item}
-                </li>
+            <dl className="mt-5 space-y-5">
+              {editorial.standards.map((s) => (
+                <div
+                  key={s.title}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-5"
+                >
+                  <dt className="font-display text-lg text-foreground">
+                    {s.title}
+                  </dt>
+                  <dd className="mt-2 text-sm leading-relaxed">{s.text}</dd>
+                </div>
               ))}
-            </ul>
+            </dl>
           </section>
 
           <section>

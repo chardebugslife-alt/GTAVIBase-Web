@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
+import { Byline } from "@/components/Byline";
 import { AdInArticle } from "@/components/AdUnit";
 import {
   pageMetadata,
@@ -97,6 +98,11 @@ export default async function CommunityPostPage({
           <p className="mt-5 text-lg leading-relaxed text-muted">
             {post.summary}
           </p>
+          <Byline
+            date={post.date}
+            dateLabel={post.dateLabel}
+            updatedLabel={post.updatedLabel}
+          />
         </header>
 
         {/* Unofficial-content disclaimer — every community page carries it. */}

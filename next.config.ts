@@ -34,6 +34,42 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  // Permanent redirects for pages consolidated into deeper pillar articles, so
+  // old inbound links and any indexed URLs keep working (301, preserving SEO).
+  async redirects() {
+    return [
+      {
+        source: "/news/release-date-set",
+        destination: "/news/release-date-november-2026",
+        permanent: true,
+      },
+      {
+        source: "/news/trailer-1-released",
+        destination: "/news/trailer-2-released",
+        permanent: true,
+      },
+      {
+        source: "/community/story-length-75-hour-leak",
+        destination: "/community/lucia-and-jason-ending-theories",
+        permanent: true,
+      },
+      {
+        source: "/community/how-long-should-the-story-be",
+        destination: "/community/lucia-and-jason-ending-theories",
+        permanent: true,
+      },
+      {
+        source: "/community/launch-week-contract-meme",
+        destination: "/community/is-gta6-a-100-dollar-game",
+        permanent: true,
+      },
+      {
+        source: "/community/vice-city-secret-messages",
+        destination: "/community/trailer-2-hidden-details",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     // Images are only ever hotlinked from Rockstar Games' own domains.
     remotePatterns: [

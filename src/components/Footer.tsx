@@ -111,8 +111,18 @@ export function Footer() {
         <p className="mx-auto max-w-6xl text-xs leading-relaxed text-muted">
           GTA VI Base is an unofficial fan site and is not affiliated with,
           endorsed by, or sponsored by Rockstar Games or Take-Two Interactive.
-          &ldquo;Grand Theft Auto&rdquo; and all related marks are trademarks of
-          their respective owners. © {new Date().getFullYear()} {siteConfig.name}.
+          &ldquo;Grand Theft Auto,&rdquo; &ldquo;GTA,&rdquo; &ldquo;Vice
+          City&rdquo; and all related marks, logos and characters are trademarks
+          of their respective owners. Promotional images, trailers and artwork
+          are the copyright of Rockstar Games and are used here for the purpose
+          of news reporting, commentary and identification under fair use, always
+          credited to their owner. If you own material shown here and have a
+          concern, please{" "}
+          <Link href="/contact" className="text-foreground/80 hover:text-foreground">
+            contact us
+          </Link>
+          . © {new Date().getFullYear()} {siteConfig.name}. All game content ©
+          Rockstar Games.
         </p>
       </div>
     </footer>

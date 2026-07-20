@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { absoluteUrl, siteConfig, gameFacts } from "@/lib/site";
+import { absoluteUrl, siteConfig, gameFacts, editorial } from "@/lib/site";
 import type { NewsArticle, Faq, CommunityPost } from "@/lib/data";
 import { editions } from "@/lib/data";
 
@@ -88,7 +88,12 @@ export function newsArticleJsonLd(a: NewsArticle): Record<string, unknown> {
     inLanguage: "en-US",
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    author: publisher,
+    author: {
+      "@type": "Organization",
+      name: editorial.author,
+      url: absoluteUrl("/about"),
+      description: editorial.role,
+    },
     publisher,
     isBasedOn: a.sources.map((s) => s.url),
     citation: a.sources.map((s) => ({
@@ -128,7 +133,12 @@ export function communityPostJsonLd(p: CommunityPost): Record<string, unknown> {
     inLanguage: "en-US",
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    author: publisher,
+    author: {
+      "@type": "Organization",
+      name: editorial.author,
+      url: absoluteUrl("/about"),
+      description: editorial.role,
+    },
     publisher,
     isBasedOn: links.map((l) => l.url),
     citation: links.map((l) => ({

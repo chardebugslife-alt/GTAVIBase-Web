@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
+import { Byline } from "@/components/Byline";
 import { AdInArticle } from "@/components/AdUnit";
 import {
   pageMetadata,
@@ -82,6 +83,11 @@ export default async function NewsArticlePage({
           <p className="mt-5 text-lg leading-relaxed text-muted">
             {article.summary}
           </p>
+          <Byline
+            date={article.date}
+            dateLabel={article.dateLabel}
+            updatedLabel={article.updatedLabel}
+          />
           {article.updatedLabel && (
             <p className="mt-3 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-muted">
               {article.updatedLabel}
