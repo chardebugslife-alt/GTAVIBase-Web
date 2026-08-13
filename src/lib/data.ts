@@ -141,6 +141,38 @@ export type NewsSource = {
   url: string;
 };
 
+/**
+ * An illustration placed part-way through the article body. Used on longer
+ * stories where a single hero image can't carry the whole piece.
+ */
+export type ArticleFigure = {
+  /** Render this figure after the Nth body paragraph (1-based). */
+  afterParagraph: number;
+  src: string;
+  alt: string;
+  /** Shown under the image as editorial context. */
+  caption: string;
+  credit: string;
+  creditUrl: string;
+};
+
+/**
+ * A scheduled, still-upcoming event a story is counting down to (a premiere,
+ * a launch). Drives both the on-page countdown and the Event structured data.
+ */
+export type ArticleEvent = {
+  name: string;
+  /** ISO datetime *with* a UTC offset so the countdown is timezone-correct. */
+  startsAt: string;
+  /** Human label for the countdown, e.g. "August 27, 3:00 p.m. ET". */
+  startsAtLabel: string;
+  /** One line describing what happens, used in the Event schema. */
+  description: string;
+  /** Where the event can be watched. */
+  watchUrl: string;
+  watchLabel: string;
+};
+
 export type NewsArticle = {
   slug: string;
   date: string;
@@ -159,8 +191,18 @@ export type NewsArticle = {
   keyPoints: string[];
   /** Article body — one string per paragraph, original prose. */
   body: string[];
+  /** Optional in-body imagery, interleaved with `body` paragraphs. */
+  figures?: ArticleFigure[];
+  /** Optional upcoming event to count down to at the top of the article. */
+  event?: ArticleEvent;
   /** Verifiable, official sources listed as credits on the page. */
   sources: NewsSource[];
+  /**
+   * Overrides the default "sourced from Rockstar Games" line, for the rare
+   * story where a second first-party (a named partner, the publisher) is also
+   * an official source.
+   */
+  sourceNote?: string;
   /** Optional internal cross-links to related guide pages on this site. */
   related?: NavItem[];
 };
@@ -174,6 +216,108 @@ const RS_VI: NewsSource = {
 const CDN = "https://media-rockstargames-com.akamaized.net/tina-uploads/posts";
 
 export const news: NewsArticle[] = [
+  {
+    slug: "extended-look-netflix-premiere",
+    date: "2026-08-13",
+    dateLabel: "August 13, 2026",
+    updatedLabel:
+      "Our running guide to the August 27 premiere — updated as Rockstar and Netflix confirm more.",
+    title: "GTA VI: An Extended Look Premieres on Netflix August 27",
+    summary:
+      "Grand Theft Auto VI: An Extended Look premieres on Netflix on August 27, 2026 at 3 p.m. ET, then hits YouTube free six hours later. How to watch, what Rockstar has confirmed, and why the biggest reveal of the campaign is debuting on a streaming service.",
+    image: `${CDN}/9k2kaa1o3297k9/4faf2f8d60cd657f09eb55707b31cc44008bfa4c.jpg`,
+    imageAlt:
+      "Grand Theft Auto VI: An Extended Look key art from Rockstar Games",
+    imageCredit: "© Rockstar Games",
+    imageCreditUrl:
+      "https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look",
+    event: {
+      name: "Grand Theft Auto VI: An Extended Look",
+      startsAt: "2026-08-27T15:00:00-04:00",
+      startsAtLabel: "Thursday, August 27 · 3:00 p.m. ET on Netflix",
+      description:
+        "The premiere of Grand Theft Auto VI: An Extended Look, debuting on Netflix six hours before its free release on the Rockstar Games YouTube channel and the official Grand Theft Auto VI website.",
+      watchUrl: "https://www.netflix.com/title/83035795",
+      watchLabel: "Netflix listing",
+    },
+    keyPoints: [
+      "Grand Theft Auto VI: An Extended Look premieres on Netflix on Thursday, August 27, 2026 at 3 p.m. ET.",
+      "That is 12 p.m. PT, 8 p.m. BST and 9 p.m. CEST on the same day.",
+      "It goes free on the Rockstar Games YouTube channel and rockstargames.com/VI at 9 p.m. ET — a six-hour Netflix exclusive window.",
+      "Every Netflix tier can watch it, including the cheaper ad-supported plan; no separate purchase is required.",
+      "It is the first new official GTA VI footage since Trailer 2 in May 2025.",
+      "Rockstar has not confirmed a runtime, a format, or whether the footage includes gameplay.",
+      "Grand Theft Auto VI still launches November 19, 2026 on PlayStation 5 and Xbox Series X|S.",
+    ],
+    body: [
+      "Rockstar Games is about to do something it has never done in the twenty-five-year history of Grand Theft Auto: hand its next big reveal to someone else first. On August 6, 2026, the studio announced Grand Theft Auto VI: An Extended Look, and confirmed it will premiere on Netflix on Thursday, August 27 at 3 p.m. ET — six full hours before it reaches the Rockstar Games YouTube channel and the official Grand Theft Auto VI website, where everyone else can watch it free.",
+      "For a company that has spent a decade training the internet to refresh its Newswire at 9 a.m. ET, that is a genuine break in pattern. The first two trailers went straight to YouTube and social media, unmediated and free, and each detonated on arrival. Routing the third major reveal through a subscription streaming service is not a small production choice. It is a statement about what Rockstar now thinks Grand Theft Auto VI is — and it has produced the first real backlash of the campaign.",
+      "Here is the practical part first, because it is the question most people actually have. If you subscribe to Netflix on any tier — including the cheaper ad-supported plan — you can watch An Extended Look at 3 p.m. ET on August 27. That is 12 p.m. PT on the US west coast, 8 p.m. BST in the UK and 9 p.m. CEST across most of western Europe. There is no separate ticket, no pay-per-view charge and no premium add-on; it sits inside the standard Netflix catalogue like any other title.",
+      "If you do not subscribe, you wait until 9 p.m. ET the same evening — 6 p.m. PT, and the small hours of August 28 in Europe — when the identical video lands on Rockstar's own YouTube channel and on rockstargames.com/VI at no cost. Rockstar has been explicit that this is the same footage, not a cut-down version. The six-hour gap buys Netflix exclusivity, not a better edit, so waiting costs you nothing but time and an evening of scrupulously avoiding social media.",
+      "The naming is worth pausing on. Rockstar did not call this Trailer 3, and after a fifteen-month silence the fandom had been begging for exactly that. 'An Extended Look' is deliberately looser language, and it implies something longer and less rigidly cut than a two-minute music-scored montage — closer to a showcase than a trailer. Take-Two's leadership has publicly framed it as an extended trailer, which points away from a full behind-the-scenes documentary, but Rockstar itself has described the format only in that one phrase.",
+      "That leaves a genuine information vacuum, and it is being filled quickly. A widely-shared runtime of roughly twenty minutes has been circulating, traced back to a Netflix customer-support chat rather than to either company. Whether the premiere is a fixed-time livestream you cannot skip through, or a normal on-demand title you can scrub, is likewise unconfirmed. So is the biggest question of all: whether An Extended Look finally shows gameplay — a heads-up display, a mission, a menu, a map — or whether Rockstar holds that back yet again. None of that is official, and we will not treat it as though it is.",
+      "What we do know is how much ground there is to cover. Every frame Rockstar has formally released of this game still fits inside two trailers. The December 2023 reveal confirmed the return to Vice City inside the wider state of Leonida and introduced Lucia. The May 2025 follow-up introduced Jason, widened the view across the state and arrived attached to a release date. Neither showed a single second of gameplay. An Extended Look is the first new official footage in fifteen months, and it arrives with an enormous backlog of unanswered questions behind it.",
+      "The strategic logic becomes clearer when you look at where this sits on the calendar. Grand Theft Auto VI launches on November 19, 2026 — roughly twelve weeks after the premiere. This is the starting gun on the real marketing campaign, not a stray mid-cycle drop, and Take-Two treated it as such: the publisher pointed to An Extended Look in its most recent financial report as evidence that the November date holds, telling investors that anticipation for the series will keep building into launch. Studios do not schedule tentpole reveals twelve weeks out from a date they expect to move.",
+      "It also fits a marketing philosophy Take-Two chief executive Strauss Zelnick has described for months: put the campaign where the audience and the attention actually are today, rather than buying traditional television. On that logic Netflix is not a strange partner at all. It is one of the few remaining places where hundreds of millions of people can be reached simultaneously, on a television screen, in a context that reads as entertainment rather than as advertising.",
+      "Netflix, for its part, has called it a first-of-its-kind partnership. Brandon Riegg, the company's vice president of nonfiction series, said Netflix was honoured to debut the next part of the Grand Theft Auto story with its members first, and framed the deal around the idea that GTA reveals have become cultural events in their own right. That framing is the real prize for both sides: Rockstar gets its game classified alongside prestige entertainment rather than in the games aisle, and Netflix gets to stand at the centre of one of the biggest attention moments of the year.",
+      "That is also, quietly, the point where this stops being about a trailer. Netflix has spent years trying to make gaming stick — a mobile catalogue, cloud experiments, adaptations of its own franchises — with mixed results. Landing the premiere of the most anticipated entertainment product of the decade does more for its credibility in that space than another round of licensed mobile titles. And for the games industry, a major publisher treating a streaming premiere as the natural home for its biggest reveal is a meaningful precedent, even if almost no other game on earth has the cultural weight to negotiate the same deal.",
+      "The backlash was immediate and fairly predictable. A loud contingent of players read the arrangement as being asked to pay a subscription to watch an advertisement, and said so in exactly those words. It is an understandable reaction, and it is also somewhat overstated: the footage is free six hours later, on Rockstar's own channels, in full. The more substantive complaint is about the shape of the moment rather than the money. Part of what made the first two trailers extraordinary was millions of people watching the same link at the same second, reacting in the same comment sections. A six-hour staggered rollout splits that audience in two.",
+      "Rockstar surely knows this, and knows what will happen in the gap. The moment An Extended Look plays on Netflix, camera-phone recordings and re-uploads will flood every platform, and the studio will spend six hours issuing takedowns against footage it is about to publish itself. The company has historically been aggressive about controlling its own imagery — a stance that sits awkwardly with a distribution plan that guarantees a window of low-quality bootlegs. That is the cost of the exclusivity, and Rockstar has evidently decided it is worth paying.",
+      "None of this changes the underlying facts about the game, which remain exactly where they were. Grand Theft Auto VI arrives on November 19, 2026, on PlayStation 5 and Xbox Series X|S, with no PC version announced for launch. Pre-orders have been open since June 25, and the Standard and Ultimate editions are the only two tiers. If An Extended Look moves any of that, it will be because Rockstar says so on the day — and we will update this page when it does.",
+      "So: set an alarm for 3 p.m. ET on August 27 if you have Netflix, or 9 p.m. ET if you do not, and treat everything you read in between with real suspicion. This is the stretch of a campaign where fabricated 'leaked details' spread fastest, and the six-hour window is practically designed to manufacture them. We will have the confirmed breakdown here once the footage is officially out — sourced, as always, from Rockstar rather than from a screenshot of someone's support chat.",
+    ],
+    figures: [
+      {
+        afterParagraph: 6,
+        src: `${CDN}/3928aaa9471o3a/87db5089306344e0854cffb1b3bf15e6d71b465b.jpg`,
+        alt: "Lucia and Jason in a still from Grand Theft Auto VI Trailer 2",
+        caption:
+          "Trailer 2, from May 2025, is still the most recent official footage of Lucia and Jason — and, like the reveal before it, showed no gameplay at all.",
+        credit: "© Rockstar Games",
+        creditUrl:
+          "https://www.rockstargames.com/newswire/article/3928aaa9471o3a/grand-theft-auto-vi-watch-trailer-2-now",
+      },
+      {
+        afterParagraph: 8,
+        src: `${CDN}/ak3ak31a49a221/c8c033070a0bfb2e3ec6ae7ff047ebe8ec551326.jpg`,
+        alt: "Grand Theft Auto VI key art",
+        caption:
+          "The premiere lands roughly twelve weeks out from the November 19, 2026 launch — the point where a campaign of this size would be expected to begin in earnest.",
+        credit: "© Rockstar Games",
+        creditUrl:
+          "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026",
+      },
+    ],
+    sources: [
+      {
+        title: "Grand Theft Auto VI: An Extended Look",
+        publisher: "Rockstar Games Newswire",
+        url: "https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look",
+      },
+      {
+        title:
+          "Grand Theft Auto VI: Extended Trailer, First Look, Release Date",
+        publisher: "Netflix Tudum",
+        url: "https://www.netflix.com/tudum/articles/grand-theft-auto-6-extended-first-look",
+      },
+      {
+        title: "Watch Grand Theft Auto VI: An Extended Look",
+        publisher: "Netflix",
+        url: "https://www.netflix.com/title/83035795",
+      },
+      RS_VI,
+    ],
+    sourceNote:
+      "The premiere details on this page come from Rockstar Games and from Netflix, its named partner for this event. Anything not confirmed by one of them — runtime, format, whether gameplay is shown — is flagged in the text as unconfirmed.",
+    related: [
+      { href: "/trailers", label: "Watch both official GTA VI trailers" },
+      {
+        href: "/news/release-date-november-2026",
+        label: "GTA VI release date: November 19, 2026, explained",
+      },
+      { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
+    ],
+  },
   {
     slug: "release-date-november-2026",
     date: "2025-11-06",
@@ -221,6 +365,10 @@ export const news: NewsArticle[] = [
     ],
     related: [
       { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
+      {
+        href: "/news/extended-look-netflix-premiere",
+        label: "GTA VI: An Extended Look premieres on Netflix August 27",
+      },
       { href: "/faq", label: "GTA VI FAQ" },
       { href: "/community/will-it-delay-again", label: "Will GTA VI get delayed again?" },
     ],
@@ -271,6 +419,10 @@ export const news: NewsArticle[] = [
     ],
     related: [
       { href: "/trailers", label: "Watch both official GTA VI trailers" },
+      {
+        href: "/news/extended-look-netflix-premiere",
+        label: "GTA VI: An Extended Look premieres on Netflix August 27",
+      },
       { href: "/community/trailer-2-hidden-details", label: "Hidden details fans keep finding in Trailer 2" },
     ],
   },
@@ -489,7 +641,17 @@ export const faqs: Faq[] = [
   {
     question: "How many trailers does GTA VI have?",
     answer:
-      "Two official trailers have been released so far: the first in December 2023 and the second in May 2025.",
+      "Two official trailers have been released so far: the first in December 2023 and the second in May 2025. A third reveal, Grand Theft Auto VI: An Extended Look, premieres on August 27, 2026.",
+  },
+  {
+    question: "How do I watch GTA VI: An Extended Look?",
+    answer:
+      "Grand Theft Auto VI: An Extended Look premieres on Netflix on Thursday, August 27, 2026 at 3 p.m. ET (12 p.m. PT, 8 p.m. BST, 9 p.m. CEST). Any Netflix tier can watch it, including the ad-supported plan. It then releases free on the Rockstar Games YouTube channel and the official Grand Theft Auto VI website at 9 p.m. ET the same day.",
+  },
+  {
+    question: "Do I need Netflix to watch the GTA VI Extended Look?",
+    answer:
+      "No. Netflix has a six-hour exclusive window, but the same video releases free on Rockstar's YouTube channel and the Grand Theft Auto VI website at 9 p.m. ET on August 27, 2026. A Netflix subscription only gets you the earlier 3 p.m. ET premiere.",
   },
   {
     question: "Is GTA VI the first game since GTA V?",

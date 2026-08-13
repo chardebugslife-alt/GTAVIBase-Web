@@ -5,11 +5,13 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Byline } from "@/components/Byline";
+import { Countdown } from "@/components/Countdown";
 import { AdInArticle } from "@/components/AdUnit";
 import {
   pageMetadata,
   breadcrumbJsonLd,
   newsArticleJsonLd,
+  articleEventJsonLd,
 } from "@/lib/seo";
 import { news } from "@/lib/data";
 
@@ -52,6 +54,8 @@ export default async function NewsArticlePage({
   const article = getArticle(slug);
   if (!article) notFound();
 
+  const eventJsonLd = articleEventJsonLd(article);
+
   return (
     <>
       <JsonLd
@@ -62,6 +66,7 @@ export default async function NewsArticlePage({
         ])}
       />
       <JsonLd data={newsArticleJsonLd(article)} />
+      {eventJsonLd && <JsonLd data={eventJsonLd} />}
 
       <article className="mx-auto max-w-3xl px-5 py-16">
         <nav className="text-sm text-muted">
@@ -116,6 +121,37 @@ export default async function NewsArticlePage({
           </figcaption>
         </figure>
 
+        {article.event && (
+          <section
+            aria-labelledby="premiere-countdown"
+            className="mt-10 rounded-2xl border border-white/10 bg-black/30 p-6"
+          >
+            <h2
+              id="premiere-countdown"
+              className="text-sm uppercase tracking-wider text-muted"
+            >
+              Countdown to {article.event.name}
+            </h2>
+            <p className="mt-1 font-display text-xl">
+              {article.event.startsAtLabel}
+            </p>
+            <div className="mt-4">
+              <Countdown
+                target={article.event.startsAt}
+                label={article.event.name}
+              />
+            </div>
+            <a
+              href={article.event.watchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block text-sm font-semibold text-pink hover:underline"
+            >
+              {article.event.watchLabel} →
+            </a>
+          </section>
+        )}
+
         <section
           aria-labelledby="key-points"
           className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6"
@@ -141,7 +177,35 @@ export default async function NewsArticlePage({
 
         <div className="mt-10 space-y-5 text-lg leading-relaxed text-muted">
           {article.body.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
+            <div key={i} className="space-y-5">
+              <p>{paragraph}</p>
+              {article.figures
+                ?.filter((f) => f.afterParagraph === i + 1)
+                .map((figure) => (
+                  <figure key={figure.src} className="pt-3">
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
+                      <Image
+                        src={figure.src}
+                        alt={figure.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 768px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <figcaption className="mt-3 text-sm leading-relaxed text-muted/80">
+                      {figure.caption}{" "}
+                      <a
+                        href={figure.creditUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {figure.credit}
+                      </a>
+                    </figcaption>
+                  </figure>
+                ))}
+            </div>
           ))}
         </div>
 
@@ -184,7 +248,8 @@ export default async function NewsArticlePage({
             Sources &amp; credits
           </h2>
           <p className="mt-2 text-sm text-muted">
-            Every fact on this page is drawn from official Rockstar Games sources.
+            {article.sourceNote ??
+              "Every fact on this page is drawn from official Rockstar Games sources."}
           </p>
           <ul className="mt-4 space-y-3">
             {article.sources.map((source) => (

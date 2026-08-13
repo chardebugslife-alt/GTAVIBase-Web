@@ -82,7 +82,7 @@ export function newsArticleJsonLd(a: NewsArticle): Record<string, unknown> {
     "@type": "NewsArticle",
     headline: a.title,
     description: a.summary,
-    image: [a.image],
+    image: [a.image, ...(a.figures ?? []).map((f) => f.src)],
     datePublished: a.date,
     dateModified: a.date,
     inLanguage: "en-US",
@@ -107,6 +107,38 @@ export function newsArticleJsonLd(a: NewsArticle): Record<string, unknown> {
       name: gameFacts.title,
       url: siteConfig.url,
     },
+  };
+}
+
+/** BroadcastEvent structured data for a still-upcoming premiere or stream an
+ *  article covers. Gives search and answer engines a machine-readable start
+ *  time, so "when is X" queries can be answered directly from the page. */
+export function articleEventJsonLd(a: NewsArticle): Record<string, unknown> | null {
+  if (!a.event) return null;
+  const e = a.event;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BroadcastEvent",
+    name: e.name,
+    description: e.description,
+    startDate: e.startsAt,
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+    isLiveBroadcast: true,
+    inLanguage: "en-US",
+    image: [a.image],
+    location: {
+      "@type": "VirtualLocation",
+      name: e.watchLabel,
+      url: e.watchUrl,
+    },
+    publishedOn: { "@type": "BroadcastService", name: e.watchLabel },
+    about: {
+      "@type": "VideoGame",
+      name: gameFacts.title,
+      url: siteConfig.url,
+    },
+    subjectOf: { "@type": "NewsArticle", url: absoluteUrl(`/news/${a.slug}`) },
   };
 }
 
