@@ -12,6 +12,24 @@ export function Footer() {
           <p className="mt-3 max-w-xs text-sm text-muted">
             {siteConfig.tagline}. An independent, fan-run information hub.
           </p>
+          <a
+            href="https://www.buymeacoffee.com/averagegamer"
+            rel="noopener noreferrer nofollow"
+            target="_blank"
+            className="mt-5 inline-block transition-opacity hover:opacity-90"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element -- rendered by
+                Buy Me a Coffee's own button image API; next/image would optimise
+                a third-party asset we don't control. */}
+            <img
+              src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=averagegamer&button_colour=BD5FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00"
+              alt="Buy me a coffee"
+              width={217}
+              height={60}
+              loading="lazy"
+              className="h-10 w-auto"
+            />
+          </a>
         </div>
 
         <nav aria-label="Footer">
