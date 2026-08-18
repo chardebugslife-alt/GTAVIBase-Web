@@ -15,7 +15,8 @@ export const siteConfig = {
   description:
     "GTA VI Base is the go-to information hub for Grand Theft Auto VI — release date, characters Lucia and Jason, the state of Leonida and Vice City, trailers, platforms and a constantly updated FAQ.",
   locale: "en_US",
-  twitter: "@gtavibase",
+  // The real X account (see socialLinks). Drives twitter:site / twitter:creator.
+  twitter: "@avrggmryt",
   keywords: [
     "GTA VI",
     "GTA 6",
@@ -93,6 +94,61 @@ export const mainNav: NavItem[] = [
   { href: "/community", label: "Community" },
   { href: "/faq", label: "FAQ" },
 ];
+
+export type SocialLink = {
+  href: string;
+  label: string;
+  /** Icon key resolved by the Footer's icon map. */
+  icon: "youtube" | "instagram" | "tiktok" | "x" | "website";
+  /**
+   * Whether this URL belongs in the Organization JSON-LD `sameAs`. False for
+   * the site's own address: `sameAs` is for *other* pages representing the same
+   * entity, and the site's URL is already the Organization's `url`.
+   */
+  sameAs: boolean;
+};
+
+/**
+ * Official channels for the site. URLs are stored in canonical form — the
+ * share-sheet tracking parameters the mobile apps append (`igsh`, `_t`, `_r`,
+ * `s`, `utm_source=qr`) are deliberately stripped: they identify a single share
+ * session, add nothing for visitors, and would be published to every reader.
+ */
+export const socialLinks: SocialLink[] = [
+  {
+    href: "https://www.youtube.com/@avrg-gmr",
+    label: "YouTube",
+    icon: "youtube",
+    sameAs: true,
+  },
+  {
+    href: "https://www.instagram.com/avrggmr",
+    label: "Instagram",
+    icon: "instagram",
+    sameAs: true,
+  },
+  {
+    href: "https://www.tiktok.com/@avrggmr",
+    label: "TikTok",
+    icon: "tiktok",
+    sameAs: true,
+  },
+  { href: "https://x.com/avrggmryt", label: "X", icon: "x", sameAs: true },
+  {
+    href: siteConfig.url,
+    label: "Website",
+    icon: "website",
+    sameAs: false,
+  },
+];
+
+/**
+ * Profile URLs for the Organization JSON-LD `sameAs`, which is how search
+ * engines tie this site and its social accounts to one entity.
+ */
+export const sameAsProfiles: string[] = socialLinks
+  .filter((social) => social.sameAs)
+  .map((social) => social.href);
 
 /** Absolute URL helper for canonical / OG / sitemap fields. */
 export function absoluteUrl(path = ""): string {

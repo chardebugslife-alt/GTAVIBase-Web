@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { AdBanner } from "@/components/AdUnit";
 import { adsConfig, adsEnabled } from "@/lib/ads";
-import { siteConfig, absoluteUrl } from "@/lib/site";
+import { siteConfig, absoluteUrl, sameAsProfiles } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -95,6 +95,8 @@ function siteJsonLd() {
         name: siteConfig.name,
         url: siteConfig.url,
         description: siteConfig.tagline,
+        // Ties this site and its social accounts together as one entity.
+        sameAs: sameAsProfiles,
       },
     ],
   };
