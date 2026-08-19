@@ -3,6 +3,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
+import { cmpEnabled } from "@/lib/ads";
 
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy — Cookies, Ads & Consent",
@@ -12,7 +13,17 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const CONTACT_EMAIL = "charuhasen@gmail.com";
-const LAST_UPDATED = "July 3, 2026";
+const LAST_UPDATED = "August 19, 2026";
+
+/**
+ * Legal identity of the data controller, which GDPR Article 13(1)(a) requires a
+ * policy to state. Deliberately blank: for a site run by an individual this is
+ * a real name and country, and publishing those is the owner's decision to make,
+ * not something to fill in automatically. Set both and the policy names the
+ * controller; leave them blank and it falls back to the contact address alone.
+ */
+const CONTROLLER_NAME = "";
+const CONTROLLER_LOCATION = "";
 
 export default function PrivacyPage() {
   return (
@@ -45,15 +56,29 @@ export default function PrivacyPage() {
             <p className="mt-3">
               {siteConfig.name} is an independent, fan-run information hub about
               Grand Theft Auto VI. It is not affiliated with, endorsed by or
-              sponsored by Rockstar Games or Take-Two Interactive. You can reach
-              us at{" "}
+              sponsored by Rockstar Games or Take-Two Interactive.
+            </p>
+            <p className="mt-3">
+              {CONTROLLER_NAME ? (
+                <>
+                  The data controller for this site is {CONTROLLER_NAME}
+                  {CONTROLLER_LOCATION ? `, based in ${CONTROLLER_LOCATION}` : ""}
+                  , contactable at{" "}
+                </>
+              ) : (
+                <>
+                  {siteConfig.name} is the data controller for this site, and
+                  the person responsible for it can be reached at{" "}
+                </>
+              )}
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 className="font-semibold text-pink hover:underline"
               >
                 {CONTACT_EMAIL}
               </a>
-              .
+              . That address is also the one to use for any request about your
+              personal data.
             </p>
           </section>
 
@@ -86,8 +111,10 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-3">
               We use privacy-friendly analytics (Vercel Analytics and Speed
-              Insights) to measure traffic and performance. These tools report
-              aggregated trends and do not build advertising profiles of you.
+              Insights) to measure traffic and performance. These tools do not
+              use cookies, do not track you across other websites and do not
+              build advertising profiles of you — they report aggregated trends
+              such as which pages are read and how quickly they load.
             </p>
           </section>
 
@@ -147,16 +174,90 @@ export default function PrivacyPage() {
             <h2 className="font-display text-2xl text-foreground">
               Consent (EEA, UK &amp; Switzerland)
             </h2>
+            {cmpEnabled ? (
+              <>
+                <p className="mt-3">
+                  If you visit from the European Economic Area, the United
+                  Kingdom or Switzerland, we show a consent message powered by a
+                  Google-certified Consent Management Platform (CMP) before
+                  personalised ads and non-essential cookies are used. From that
+                  message you can:
+                </p>
+                <ul className="mt-4 space-y-2">
+                  {[
+                    "Consent — agree to the use of cookies and data for personalised advertising and measurement.",
+                    "Manage options — review each purpose and vendor and make granular choices, including refusing personalised advertising.",
+                  ].map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pink" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4">
+                  You can change or withdraw your consent at any time using the{" "}
+                  <strong className="text-foreground">Privacy settings</strong>{" "}
+                  link in the footer of any page, or by contacting us at{" "}
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="font-semibold text-pink hover:underline"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>
+                  . If you do not consent, we serve only non-personalised ads,
+                  which use limited data to control frequency and prevent fraud.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="mt-3">
+                  We have not yet enabled a consent message on this site, so we
+                  do not currently ask for or record your consent to
+                  personalised advertising. Because consent is what personalised
+                  advertising depends on, we instead signal to Google that
+                  consent has <em>not</em> been given, for every visitor:
+                </p>
+                <ul className="mt-4 space-y-2">
+                  {[
+                    "Storage of advertising and analytics cookies, use of your data for advertising, and ad personalisation are all set to denied before any Google tag loads.",
+                    "The practical effect is that visitors from these regions are served only non-personalised ads, which use limited data to control frequency and prevent fraud.",
+                  ].map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pink" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4">
+                  We are working on adding a Google-certified Consent Management
+                  Platform so that visitors who want personalised advertising
+                  can choose it, and this section will be updated when that
+                  happens. In the meantime you can contact us at{" "}
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="font-semibold text-pink hover:underline"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>{" "}
+                  with any question about advertising on this site.
+                </p>
+              </>
+            )}
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl text-foreground">
+              Why we are allowed to use this data
+            </h2>
             <p className="mt-3">
-              If you visit from the European Economic Area, the United Kingdom or
-              Switzerland, we show a consent message powered by a Google-certified
-              Consent Management Platform (CMP) before personalised ads and
-              non-essential cookies are used. From that message you can:
+              Under the UK and EU GDPR every use of personal data needs a legal
+              basis. Ours are:
             </p>
             <ul className="mt-4 space-y-2">
               {[
-                "Consent — agree to the use of cookies and data for personalised advertising and measurement.",
-                "Manage options — review each purpose and vendor and make granular choices, including refusing personalised advertising.",
+                "Consent — for personalised advertising and any non-essential cookies, where consent applies. You can withdraw it at any time, and withdrawing is as easy as giving it.",
+                "Legitimate interests — for keeping the site secure and available, and for aggregated, non-identifying measurement of how it is used, which we balance against your privacy.",
+                "Legal obligation — where we have to keep or disclose information to comply with the law.",
               ].map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pink" />
@@ -164,17 +265,41 @@ export default function PrivacyPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4">
-              You can change or withdraw your consent at any time — reopen the
-              privacy options from the consent message, or contact us at{" "}
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl text-foreground">
+              How long data is kept
+            </h2>
+            <p className="mt-3">
+              We do not run our own database of visitors, so the retention that
+              matters is our providers&rsquo;. Aggregated analytics are kept in
+              a form that does not identify you. Advertising and consent data
+              are held by Google under its own retention schedules, described in
+              its{" "}
               <a
-                href={`mailto:${CONTACT_EMAIL}`}
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-semibold text-pink hover:underline"
               >
-                {CONTACT_EMAIL}
+                privacy policy
               </a>
-              . If you do not consent, we serve only non-personalised ads, which
-              use limited data to control frequency and prevent fraud.
+              . Email you send us is kept only as long as needed to deal with
+              your message and any follow-up.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl text-foreground">
+              Where your data is processed
+            </h2>
+            <p className="mt-3">
+              Our providers — Google and Vercel — operate globally, so data may
+              be processed outside the EEA and the UK, including in the United
+              States. These transfers rely on the safeguards those providers put
+              in place, such as the EU&ndash;US Data Privacy Framework and the
+              European Commission&rsquo;s standard contractual clauses.
             </p>
           </section>
 
@@ -185,8 +310,9 @@ export default function PrivacyPage() {
             <p className="mt-3">
               Depending on where you live, you may have the right to access,
               correct or delete personal data, to object to or restrict certain
-              processing, and to withdraw consent. To exercise any of these
-              rights, email{" "}
+              processing, to receive your data in a portable form, and to
+              withdraw consent at any time. To exercise any of these rights,
+              email{" "}
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 className="font-semibold text-pink hover:underline"
@@ -194,6 +320,22 @@ export default function PrivacyPage() {
                 {CONTACT_EMAIL}
               </a>
               .
+            </p>
+            <p className="mt-4">
+              If you are in the EEA or the UK and think we have handled your
+              data badly, you also have the right to complain to your national
+              data protection authority. In the UK that is the{" "}
+              <a
+                href="https://ico.org.uk/make-a-complaint/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-pink hover:underline"
+              >
+                Information Commissioner&rsquo;s Office
+              </a>
+              ; in the EEA it is the supervisory authority for the country you
+              live in. We would rather hear from you first, but you do not have
+              to come to us before going to them.
             </p>
           </section>
 

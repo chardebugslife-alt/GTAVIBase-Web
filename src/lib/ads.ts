@@ -23,3 +23,19 @@ export const adsConfig = {
 
 /** Ads are only active once a publisher id is configured. */
 export const adsEnabled = adsConfig.client.length > 0;
+
+/**
+ * Whether a Google-certified Consent Management Platform is live.
+ *
+ * Google requires one for EEA/UK traffic, and it is enabled in the AdSense
+ * dashboard (Privacy & messaging → GDPR) rather than in code — the message is
+ * delivered through the AdSense tag we already load, so there is nothing to
+ * install here. What this flag does is keep the *site* honest about it: the
+ * privacy policy's description of the consent message and the footer's
+ * "Privacy settings" link are both gated on it, so they appear only once the
+ * message they describe actually exists.
+ *
+ * Flip `NEXT_PUBLIC_CMP_ENABLED` to "true" once the GDPR message is publishing
+ * in AdSense. Until then the policy describes what the site really does.
+ */
+export const cmpEnabled = process.env.NEXT_PUBLIC_CMP_ENABLED === "true";

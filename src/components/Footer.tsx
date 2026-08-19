@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { mainNav, siteConfig, gameFacts, socialLinks } from "@/lib/site";
+import { cmpEnabled } from "@/lib/ads";
+import { PrivacySettingsLink } from "@/components/PrivacySettingsLink";
 
 /**
  * Brand glyphs as inline paths, drawn on a 24x24 viewBox and filled with
@@ -176,6 +178,13 @@ export function Footer() {
                 Terms of Use
               </Link>
             </li>
+            {/* Only shown once a consent message exists to reopen — otherwise
+                the control would do nothing when clicked. */}
+            {cmpEnabled && (
+              <li>
+                <PrivacySettingsLink className="text-foreground/80 transition-colors hover:text-foreground" />
+              </li>
+            )}
           </ul>
         </div>
       </div>
