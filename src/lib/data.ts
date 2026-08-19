@@ -816,6 +816,77 @@ const HUB_FORUMS: CommunityLink = {
 
 export const community: CommunityPost[] = [
   {
+    slug: "august-2026-gameplay-leak",
+    category: "leaks-rumors",
+    date: "2026-08-19",
+    dateLabel: "August 19, 2026",
+    updatedLabel:
+      "A developing story. Leaked footage from an unfinished build — none of it is Rockstar's own announcement, and details below may not reflect the shipping game.",
+    title:
+      "The August 2026 GTA VI gameplay leak: what leaked, what's verified, and what's a scam",
+    summary:
+      "Days before Rockstar's Netflix reveal, a group calling itself CyberLeek published gameplay clips from an unfinished GTA VI build — and Rockstar's lawyers responded within hours. Here's what is actually established, what's disputed, and what to avoid.",
+    keyPoints: [
+      "Clips began appearing on August 18, 2026, growing to four over the following day.",
+      "Rockstar and Take-Two issued DMCA takedowns within hours across X, Streamable and Reddit.",
+      "Bloomberg's Jason Schreier reported the footage is genuine, citing Rockstar sources.",
+      "A separate 'full map' image is disputed by the fan community and far less certain than the clips.",
+      "It's an in-development build — mechanics shown may be cut, changed or unfinished.",
+      "Fake 'full leak' downloads are circulating. Don't run them.",
+    ],
+    body: [
+      "On August 18, 2026, roughly nine days before Rockstar's own Extended Look was due to premiere on Netflix, gameplay footage from Grand Theft Auto VI began appearing online. What started as two clips grew to four over the following day, alongside images claiming to show the full map of Leonida. A group calling itself CyberLeek took responsibility. It is the largest unauthorised GTA VI disclosure since the 2022 breach, and unlike most leak cycles, this one carries an unusually strong signal that the material is real.",
+      "That signal is Rockstar's own response. Take-Two and Rockstar began issuing DMCA takedown notices within hours, hitting posts across X, Streamable and Reddit. Copyright claims are an admission of ownership: publishers do not generally file them over footage that isn't theirs, because doing so would be both pointless and legally awkward. Bloomberg's Jason Schreier — comfortably the most reliable reporter on this beat — subsequently reported that the footage is genuine, citing sources at Rockstar. Between the takedowns and Schreier, the clips themselves are about as close to confirmed as leaked material ever gets.",
+      "The clips are not, however, a preview. Everything in them comes from a build that was still in development, and this is the distinction that gets flattened in thumbnails and headlines. Features visible in an internal build routinely get cut, rebuilt or replaced before release; placeholder art and debug states are normal; and nothing on screen has been through the polish pass that separates a work-in-progress from a shipped Rockstar game. Reporting suggests one clip contains a track released in January 2025, which points to a more recent build than first assumed — but 'more recent' is not 'final'.",
+      "With that caveat firmly attached, here is what outlets have described across the four clips. On foot: melee exchanges including punches, jump kicks and improvised weapons, knife and switchblade animations, the ability to disarm an armed NPC, and a looting system that observers immediately compared to Red Dead Redemption 2. In vehicles: a fuel gauge, engine readouts, a choice between smashing a window or cloning a key when stealing a car, and a small vehicle storage inventory. Around the edges: a basketball mini-game with its own timing mechanic feeding a focus stat, a police system that tracks your description, clothing and vehicle separately, and a stamina bar during fistfights. Several outlets also describe a karma or morality system that judges Jason's actions.",
+      "Some specifics are shakier than others, and it's worth separating them. The wanted system is a good example: a claim that GTA VI runs to six stars has circulated widely, but what is actually visible in the clips is a two-star state, which tells you nothing about the ceiling. Treat the mechanics list above as 'things that existed in this build', not as a confirmed feature set — and expect at least some of it to look different when Rockstar shows the game on its own terms.",
+      "The map images are a separate matter, and they deserve much more scepticism than the video. While the clips carry the weight of DMCA takedowns and Schreier's reporting behind them, the alleged full-map image has been disputed within the fan community, and it is considerably easier to fake a static image than a minute of coherent gameplay. Location names have circulated from it — Dalton Island, Tequesta Retreat, Gloriana Key, Catalan Key, Catalan Bay among them — but until something corroborates them, they are names on an image of uncertain origin, not confirmed geography. Our setting guide sticks to what Rockstar has actually shown.",
+      "CyberLeek has framed the leak as protest rather than profit, objecting to what it characterises as the industry's slide toward all-digital distribution and 'fake' single-player DLC, and warning that other publishers should consider themselves reachable. Whether you find that framing persuasive or self-serving, it's worth being clear-eyed about the position it puts developers in: the people whose unfinished work is being picked over publicly had no say in the matter, and the 2022 leak was followed by a genuinely ugly period for the team involved.",
+      "One practical warning. Any leak of this size attracts opportunists, and this one has been no exception: files advertised as the 'full leak', a complete map dump or an early build are circulating, and they are scams. Rockstar takedowns have also made the genuine material transient, which is exactly the environment in which malware thrives. Nothing legitimate about this story requires you to download anything. If you want to see GTA VI, the Extended Look is coming from Rockstar itself — and we'll be covering that as the official, on-the-record version of events.",
+    ],
+    source: {
+      title:
+        "Apparent GTA 6 footage and map leak as Rockstar issues takedowns",
+      publisher: "GameSpot",
+      url: "https://www.gamespot.com/articles/apparent-gta-6-footage-and-map-leak-as-rockstar-issues-takedowns/",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title:
+          "GTA 6 gameplay leaked ahead of its new trailer, and Rockstar is taking down the videos",
+        publisher: "Engadget",
+        url: "https://www.engadget.com/2239548/gta-6-gameplay-leak-august-2026/",
+        kind: "Article",
+      },
+      {
+        title: "GTA 6 gameplay leaks continue as group makes demands of Rockstar",
+        publisher: "Push Square",
+        url: "https://www.pushsquare.com/news/2026/08/gta-6-gameplay-leaks-continue-as-group-makes-demands-of-rockstar",
+        kind: "Article",
+      },
+      {
+        title:
+          "15 details from the new GTA 6 leaks, including a possible morality system and stamina meter",
+        publisher: "PC Gamer",
+        url: "https://www.pcgamer.com/games/grand-theft-auto/gta-6-video-leak-analysis-august-2026/",
+        kind: "Article",
+      },
+      {
+        title:
+          "GTA 6 gameplay and map seemingly leaked ahead of Netflix Extended Look",
+        publisher: "Dexerto",
+        url: "https://www.dexerto.com/gta/gta-6-gameplay-and-map-seemingly-leaked-ahead-of-netflix-extended-look-3399751/",
+        kind: "Article",
+      },
+      HUB_REDDIT,
+    ],
+    related: [
+      { href: "/setting", label: "GTA VI setting: Vice City & Leonida" },
+      { href: "/news/extended-look-netflix-premiere", label: "The official Extended Look on Netflix" },
+    ],
+  },
+  {
     slug: "how-big-is-the-map",
     category: "fan-theories",
     date: "2026-06-28",
