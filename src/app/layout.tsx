@@ -147,12 +147,18 @@ export default function RootLayout({
           </Script>
         )}
 
-        {/* AdSense loader — injected only when a publisher id is configured. */}
+        {/* AdSense loader — injected only when a publisher id is configured.
+            Deliberately a plain <script> rather than next/script: every
+            next/script strategy except `beforeInteractive` is injected
+            client-side, and even `beforeInteractive` ships as a
+            `self.__next_s.push(...)` bootstrap call rather than a real tag. The
+            result either way is that the server-rendered HTML contains no
+            <script src="...adsbygoogle..."> for AdSense's verification crawler
+            to find. React 19 hoists a plain async script into <head>, so the
+            literal tag Google looks for is present in the initial HTML. */}
         {adsEnabled && (
-          <Script
-            id="google-adsense"
+          <script
             async
-            strategy="lazyOnload"
             crossOrigin="anonymous"
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsConfig.client}`}
           />
