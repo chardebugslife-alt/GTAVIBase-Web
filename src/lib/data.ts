@@ -629,6 +629,31 @@ export const faqs: Faq[] = [
       "GTA VI is set in Vice City and the wider fictional state of Leonida, Rockstar's modern-day reimagining of Florida. It is the largest open world in the series to date.",
   },
   {
+    question: "Who is the main character in GTA VI?",
+    answer:
+      "There is no single main character. Grand Theft Auto VI has two playable protagonists — Lucia Caminos and Jason Duval — and you play as both. Lucia is the first female protagonist in a mainline GTA game. Rockstar has not said whether one leads more of the story than the other.",
+  },
+  {
+    question: "How old are Lucia and Jason in GTA VI?",
+    answer:
+      "Rockstar has not published ages for Lucia Caminos or Jason Duval. Both read as adults in their twenties or thirties in the trailers, but any specific figure you see quoted is a fan estimate — often extrapolated from the Bonnie-and-Clyde parallels — rather than an official number.",
+  },
+  {
+    question: "How tall are Lucia and Jason in GTA VI?",
+    answer:
+      "Rockstar has not published heights for either protagonist. Figures such as 5'3\" for Lucia and 6'1\" for Jason circulate widely, but they originate from fan wikis rather than Rockstar, and no official source confirms them.",
+  },
+  {
+    question: "Why is GTA VI on Netflix?",
+    answer:
+      "Netflix is the exclusive home of GTA VI: An Extended Look, a Rockstar-produced look at the game. It is a distribution deal for that one video, not a sign that the game itself is coming to Netflix — Grand Theft Auto VI is still a PlayStation 5 and Xbox Series X|S release.",
+  },
+  {
+    question: "What bikes and motorcycles are in GTA VI?",
+    answer:
+      "Rockstar has not published a vehicle list. The trailers show motorcycles alongside supercars, muscle cars, SUVs, trucks and boats across Vice City and the Leonida wetlands. Our vehicles guide catalogues what is actually visible in the official footage, by type.",
+  },
+  {
     question: "Who are the main characters in GTA VI?",
     answer:
       "The game has two playable protagonists, Lucia Caminos and Jason Duval. Lucia is the first female lead in a mainline Grand Theft Auto game, and their story is described as a modern Bonnie-and-Clyde tale.",

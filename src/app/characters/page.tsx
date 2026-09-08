@@ -7,9 +7,9 @@ import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { characters } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Characters — Lucia & Jason",
+  title: "GTA VI Main Characters — Lucia Caminos & Jason Duval",
   description:
-    "Meet the GTA VI characters: Lucia Caminos, the first female protagonist in a mainline Grand Theft Auto, and Jason Duval. Learn their backstories and roles in Vice City.",
+    "Who are the main characters in GTA VI? Lucia Caminos and Jason Duval are the two playable protagonists — the first time a mainline Grand Theft Auto has a female lead. Their roles, backstories and what Rockstar has actually confirmed.",
   path: "/characters",
 });
 
@@ -29,12 +29,13 @@ export default function CharactersPage() {
             GTA VI Guide
           </p>
           <h1 className="mt-2 font-display text-5xl sm:text-6xl">
-            <span className="gradient-text">Characters</span>
+            <span className="gradient-text">Main Characters</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            Grand Theft Auto VI is the first game in the series with two playable
-            protagonists. Their intertwined, Bonnie-and-Clyde story anchors the
-            game in Vice City and the wider state of Leonida.
+            Grand Theft Auto VI has no single main character. It is the first
+            game in the series with two playable protagonists — Lucia Caminos
+            and Jason Duval — and their intertwined, Bonnie-and-Clyde story
+            anchors the game in Vice City and the wider state of Leonida.
           </p>
         </header>
 
@@ -154,6 +155,17 @@ export default function CharactersPage() {
               &ldquo;detail&rdquo; circulating online — specific backstories,
               chapter counts, who betrays whom — traces back to leaks and insider
               posts, not to Rockstar.
+            </p>
+            <p>
+              That includes the stat-sheet details people search for most. Rockstar
+              has never published ages or heights for Lucia or Jason. Figures like
+              5&prime;3&Prime; for Lucia and 6&prime;1&Prime; for Jason are quoted
+              confidently across the web, but they originate from fan wikis rather
+              than any Rockstar source, and the ages attached to the pair are
+              usually extrapolated from the real Bonnie-and-Clyde timeline. Both
+              read as adults in their twenties or thirties on screen. Beyond that,
+              the honest answer is that we do not know — and neither does anyone
+              quoting a precise number.
             </p>
             <p>
               Everything on this page is drawn from Rockstar&rsquo;s official
