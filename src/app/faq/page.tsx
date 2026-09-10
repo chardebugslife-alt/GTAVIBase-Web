@@ -40,18 +40,10 @@ export default function FaqPage() {
 
         <div className="mt-12 space-y-3">
           {allFaqs.map((f) => (
-            <details
-              key={f.question}
-              className="group border border-line bg-surface p-6 open:border-accent"
-            >
-              <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold text-foreground marker:content-none">
-                {f.question}
-                <span className="shrink-0 text-pink transition-transform group-open:rotate-45">
-                  +
-                </span>
-              </summary>
+            <div key={f.question} className="border border-line bg-surface p-6">
+              <h2 className="font-semibold text-foreground">{f.question}</h2>
               <p className="mt-3 leading-relaxed text-muted">{f.answer}</p>
-            </details>
+            </div>
           ))}
         </div>
       </article>

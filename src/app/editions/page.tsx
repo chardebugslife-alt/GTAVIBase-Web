@@ -212,18 +212,13 @@ export default function EditionsPage() {
           </h2>
           <div className="mt-6 space-y-3">
             {editionFaqs.map((f) => (
-              <details
+              <div
                 key={f.question}
-                className="group border border-line bg-surface p-6 open:border-accent"
+                className="border border-line bg-surface p-6"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold text-foreground marker:content-none">
-                  {f.question}
-                  <span className="shrink-0 text-pink transition-transform group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
+                <h3 className="font-semibold text-foreground">{f.question}</h3>
                 <p className="mt-3 leading-relaxed text-muted">{f.answer}</p>
-              </details>
+              </div>
             ))}
           </div>
         </section>
