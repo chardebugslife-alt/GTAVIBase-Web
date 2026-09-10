@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Inter } from "next/font/google";
+import { Instrument_Sans, Source_Serif_4 } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -7,21 +7,25 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { ReadingProgress } from "@/components/ReadingProgress";
 import { AdBanner } from "@/components/AdUnit";
 import { adsConfig, adsEnabled } from "@/lib/ads";
 import { siteConfig, absoluteUrl, sameAsProfiles } from "@/lib/site";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Instrument Sans carries headings and UI. Both faces are variable, so weights
+// come from the axis rather than separate files.
+const instrument = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-// Anton is a heavy condensed display face that evokes the bold GTA poster type.
-const anton = Anton({
-  variable: "--font-anton",
+// Source Serif 4 sets running prose, pull quotes and captions.
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
   subsets: ["latin"],
-  weight: "400",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -72,8 +76,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05030c",
-  colorScheme: "dark",
+  themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
 function siteJsonLd() {
@@ -110,13 +114,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${anton.variable} h-full antialiased`}
+      // Next.js 16 no longer neutralises `scroll-behavior: smooth` during route
+      // transitions. This attribute opts back into the override, so navigation
+      // still jumps to the top instantly while in-page anchors stay smooth.
+      data-scroll-behavior="smooth"
+      className={`${instrument.variable} ${sourceSerif.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <JsonLd data={siteJsonLd()} />
+        <ReadingProgress />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-pink focus:px-4 focus:py-2 focus:text-black"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-pink focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to content
         </a>

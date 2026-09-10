@@ -55,9 +55,9 @@ export function AdUnit({
   return (
     <aside
       aria-label="Advertisement"
-      className={`overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] ${className}`}
+      className={`overflow-hidden border border-line bg-surface ${className}`}
     >
-      <p className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-muted/70">
+      <p className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-faint">
         Advertisement
       </p>
       <ins

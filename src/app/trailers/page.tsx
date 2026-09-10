@@ -71,7 +71,7 @@ export default function TrailersPage() {
               <p className="mt-1 text-sm text-muted">
                 Released {t.releasedLabel} · Music: {t.music}
               </p>
-              <div className="mt-4 aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
+              <div className="mt-4 aspect-video w-full overflow-hidden border border-line bg-black">
                 <iframe
                   className="h-full w-full"
                   src={`https://www.youtube-nocookie.com/embed/${t.youtubeId}`}

@@ -42,7 +42,7 @@ export default function FaqPage() {
           {allFaqs.map((f) => (
             <details
               key={f.question}
-              className="group rounded-2xl border border-white/10 bg-white/5 p-6 open:border-pink/40"
+              className="group border border-line bg-surface p-6 open:border-accent"
             >
               <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold text-foreground marker:content-none">
                 {f.question}

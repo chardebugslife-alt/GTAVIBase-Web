@@ -94,13 +94,13 @@ export default async function NewsArticlePage({
             updatedLabel={article.updatedLabel}
           />
           {article.updatedLabel && (
-            <p className="mt-3 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-muted">
+            <p className="mt-3 border border-line bg-surface px-4 py-2 text-sm text-muted">
               {article.updatedLabel}
             </p>
           )}
         </header>
 
-        <figure className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
+        <figure className="relative mt-8 aspect-[16/9] w-full overflow-hidden border border-line bg-black">
           <Image
             src={article.image}
             alt={article.imageAlt}
@@ -124,7 +124,7 @@ export default async function NewsArticlePage({
         {article.event && (
           <section
             aria-labelledby="premiere-countdown"
-            className="mt-10 rounded-2xl border border-white/10 bg-black/30 p-6"
+            className="mt-10 border border-line bg-surface p-6"
           >
             <h2
               id="premiere-countdown"
@@ -154,7 +154,7 @@ export default async function NewsArticlePage({
 
         <section
           aria-labelledby="key-points"
-          className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6"
+          className="mt-10 border border-line bg-surface p-6"
         >
           <h2
             id="key-points"
@@ -166,7 +166,7 @@ export default async function NewsArticlePage({
             {article.keyPoints.map((point) => (
               <li
                 key={point}
-                className="flex gap-3 text-sm leading-relaxed text-foreground/90"
+                className="flex gap-3 text-sm leading-relaxed text-body"
               >
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pink" />
                 {point}
@@ -183,7 +183,7 @@ export default async function NewsArticlePage({
                 ?.filter((f) => f.afterParagraph === i + 1)
                 .map((figure) => (
                   <figure key={figure.src} className="pt-3">
-                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
+                    <div className="relative aspect-[16/9] w-full overflow-hidden border border-line bg-black">
                       <Image
                         src={figure.src}
                         alt={figure.alt}
@@ -192,7 +192,7 @@ export default async function NewsArticlePage({
                         className="object-cover"
                       />
                     </div>
-                    <figcaption className="mt-3 text-sm leading-relaxed text-muted/80">
+                    <figcaption className="mt-3 text-sm leading-relaxed text-faint">
                       {figure.caption}{" "}
                       <a
                         href={figure.creditUrl}
@@ -214,7 +214,7 @@ export default async function NewsArticlePage({
         {article.related && article.related.length > 0 && (
           <section
             aria-labelledby="related"
-            className="mt-12 border-t border-white/10 pt-6"
+            className="mt-12 border-t border-line pt-6"
           >
             <h2
               id="related"
@@ -239,7 +239,7 @@ export default async function NewsArticlePage({
 
         <section
           aria-labelledby="sources"
-          className="mt-12 border-t border-white/10 pt-6"
+          className="mt-12 border-t border-line pt-6"
         >
           <h2
             id="sources"

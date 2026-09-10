@@ -18,35 +18,37 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          background:
-            "radial-gradient(900px 500px at 85% 0%, rgba(255,45,139,0.45), transparent), radial-gradient(800px 600px at 0% 100%, rgba(24,224,214,0.30), transparent), #05030c",
-          color: "#f4f1fb",
+          background: "#ffffff",
+          color: "#0b0b0b",
+          borderTop: "12px solid #e6007e",
           fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", fontSize: 34 }}>
-          <span style={{ color: "#ff2d8b", fontWeight: 800 }}>GTA&nbsp;VI</span>
-          <span style={{ marginLeft: 10, color: "#f4f1fb" }}>Base</span>
+          <span style={{ fontWeight: 600 }}>GTA&nbsp;VI</span>
+          <span style={{ marginLeft: 10, color: "#e6007e", fontStyle: "italic" }}>
+            Base
+          </span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
               fontSize: 92,
-              fontWeight: 900,
-              lineHeight: 1,
-              letterSpacing: "-0.02em",
+              fontWeight: 600,
+              lineHeight: 1.02,
+              letterSpacing: "-0.038em",
               display: "flex",
             }}
           >
             Grand Theft Auto VI
           </div>
-          <div style={{ marginTop: 20, fontSize: 36, color: "#b3a9cf", display: "flex" }}>
+          <div style={{ marginTop: 20, fontSize: 36, color: "#3d3d3d", display: "flex" }}>
             {siteConfig.tagline}
           </div>
         </div>
 
-        <div style={{ display: "flex", fontSize: 30, color: "#18e0d6" }}>
+        <div style={{ display: "flex", fontSize: 30, color: "#c10068" }}>
           Release {gameFacts.releaseDateLabel} · PS5 · Xbox Series X|S
         </div>
       </div>

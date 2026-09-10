@@ -123,15 +123,13 @@ export default function VehiclesPage() {
             {vehicleClasses.map((cls) => (
               <li
                 key={cls.slug}
-                className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+                className="flex h-full flex-col overflow-hidden border border-line bg-surface"
               >
-                <div
-                  className={`relative flex aspect-[16/9] items-end justify-between bg-gradient-to-br ${cls.accent} p-4`}
-                >
-                  <span className="rounded-full bg-black/40 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
+                <div className="relative flex aspect-[16/9] items-end justify-between border-b border-line bg-accent-wash p-4">
+                  <span className="eyebrow-sm text-accent-deep">
                     {cls.label}
                   </span>
-                  <ClassIcon slug={cls.slug} className="h-8 w-8 text-white/90" />
+                  <ClassIcon slug={cls.slug} className="h-8 w-8 text-accent" />
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="font-display text-xl leading-tight">
@@ -140,7 +138,7 @@ export default function VehiclesPage() {
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     {cls.blurb}
                   </p>
-                  <span className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-teal/30 bg-teal/[0.08] px-3 py-1 text-xs font-medium text-teal">
+                  <span className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-accent bg-accent-wash px-3 py-1 text-xs font-medium text-teal">
                     <span className="h-1.5 w-1.5 rounded-full bg-teal" aria-hidden />
                     Seen in the official trailers
                   </span>
@@ -151,7 +149,7 @@ export default function VehiclesPage() {
         </section>
 
         {/* Sources */}
-        <section className="mt-16 border-t border-white/10 pt-8">
+        <section className="mt-16 border-t border-line pt-8">
           <h2 className="font-display text-xl text-foreground">
             Sources &amp; credits
           </h2>

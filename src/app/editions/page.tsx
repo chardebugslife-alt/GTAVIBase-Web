@@ -60,7 +60,7 @@ export default function EditionsPage() {
             {editions.map((e) => (
               <div
                 key={e.slug}
-                className="flex items-baseline justify-between rounded-2xl border border-white/10 bg-white/5 p-6"
+                className="flex items-baseline justify-between border border-line bg-surface p-6"
               >
                 <span className="font-display text-xl text-foreground">
                   {e.name}
@@ -72,7 +72,7 @@ export default function EditionsPage() {
             ))}
           </div>
           <dl className="mt-6 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div className="border border-line bg-surface p-5">
               <dt className="text-xs uppercase tracking-wider text-teal">
                 Pre-orders opened
               </dt>
@@ -80,7 +80,7 @@ export default function EditionsPage() {
                 {editionsInfo.preOrderLabel}
               </dd>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div className="border border-line bg-surface p-5">
               <dt className="text-xs uppercase tracking-wider text-teal">
                 Pre-load begins
               </dt>
@@ -88,7 +88,7 @@ export default function EditionsPage() {
                 {editionsInfo.preloadLabel}
               </dd>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div className="border border-line bg-surface p-5">
               <dt className="text-xs uppercase tracking-wider text-teal">
                 Release date
               </dt>
@@ -97,7 +97,7 @@ export default function EditionsPage() {
               </dd>
             </div>
           </dl>
-          <p className="mt-4 rounded-2xl border border-pink/20 bg-pink/5 p-5 text-sm leading-relaxed text-muted">
+          <p className="mt-4 border border-line bg-accent-wash p-5 text-sm leading-relaxed text-muted">
             <strong className="text-foreground">Pre-order bonus:</strong> every
             pre-order includes the {editionsInfo.preOrderBonus}, for orders
             placed before {editionsInfo.preOrderBonusDeadline}.
@@ -123,13 +123,13 @@ export default function EditionsPage() {
             {editions.map((e) => (
               <div
                 key={e.slug}
-                className={`flex flex-col rounded-2xl border p-6 ${
+                className={`flex flex-col border p-6 ${
                   e.featured
-                    ? "border-pink/40 bg-gradient-to-b from-pink/10 to-transparent"
-                    : "border-white/10 bg-white/5"
+                    ? "border-accent bg-accent-wash"
+                    : "border-line bg-surface"
                 }`}
               >
-                <figure className="relative -mx-6 -mt-6 mb-5 aspect-[16/9] overflow-hidden rounded-t-2xl border-b border-white/10 bg-black">
+                <figure className="relative -mx-6 -mt-6 mb-5 aspect-[16/9] overflow-hidden border-b border-line bg-black">
                   <Image
                     src={e.image}
                     alt={e.imageAlt}
@@ -147,7 +147,7 @@ export default function EditionsPage() {
                     {e.name}
                   </h3>
                   {e.featured && (
-                    <span className="rounded-full bg-gradient-to-r from-pink to-orange px-3 py-1 text-xs font-semibold text-black">
+                    <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">
                       Most content
                     </span>
                   )}
@@ -161,12 +161,12 @@ export default function EditionsPage() {
 
                 <div className="mt-4 flex flex-wrap gap-2">
                   {e.digital && (
-                    <span className="rounded-full border border-white/15 px-3 py-1 text-xs text-muted">
+                    <span className="rounded-full border border-line px-3 py-1 text-xs text-muted">
                       Digital
                     </span>
                   )}
                   {e.physical && (
-                    <span className="rounded-full border border-white/15 px-3 py-1 text-xs text-muted">
+                    <span className="rounded-full border border-line px-3 py-1 text-xs text-muted">
                       Physical (download code)
                     </span>
                   )}
@@ -189,8 +189,8 @@ export default function EditionsPage() {
                   rel="noopener noreferrer"
                   className={`mt-6 inline-flex justify-center rounded-full px-4 py-2 text-sm font-semibold transition-opacity hover:opacity-90 ${
                     e.featured
-                      ? "bg-gradient-to-r from-pink to-orange text-black"
-                      : "border border-white/15 text-foreground"
+                      ? "bg-accent text-white"
+                      : "border border-line text-foreground"
                   }`}
                 >
                   View on the Rockstar Store
@@ -214,7 +214,7 @@ export default function EditionsPage() {
             {editionFaqs.map((f) => (
               <details
                 key={f.question}
-                className="group rounded-2xl border border-white/10 bg-white/5 p-6 open:border-pink/40"
+                className="group border border-line bg-surface p-6 open:border-accent"
               >
                 <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold text-foreground marker:content-none">
                   {f.question}
@@ -262,7 +262,7 @@ export default function EditionsPage() {
         {/* Sources & credits — Rockstar-only policy */}
         <section
           aria-labelledby="sources"
-          className="mt-12 border-t border-white/10 pt-6"
+          className="mt-12 border-t border-line pt-6"
         >
           <h2
             id="sources"

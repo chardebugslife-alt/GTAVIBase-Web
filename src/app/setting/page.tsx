@@ -4,12 +4,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import Link from "next/link";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
-import { setting } from "@/lib/data";
+import { setting, places, ONLY_IN_LEONIDA_URL } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Map & Setting — Vice City & Leonida",
+  title: "GTA VI Map & Setting — Vice City & the State of Leonida",
   description:
-    "Where is GTA VI set? Explore Vice City and the fictional state of Leonida, Rockstar's modern reimagining of Florida — the largest open world in the series so far.",
+    "Where is GTA VI set? A guide to every location Rockstar has toured across Leonida — Vice City, the Leonida Keys, Grassrivers, Port Gellhorn, Ambrosia and Mount Kalaga — plus what is known about the size of the map.",
   path: "/setting",
 });
 
@@ -36,7 +36,7 @@ export default function SettingPage() {
           </p>
         </header>
 
-        <figure className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
+        <figure className="relative mt-10 aspect-[16/9] w-full overflow-hidden border border-line bg-black">
           <Image
             src={setting.image}
             alt={setting.imageAlt}
@@ -149,28 +149,93 @@ export default function SettingPage() {
           </div>
         </section>
 
-        <section aria-labelledby="regions-heading" className="mt-12">
-          <h2 id="regions-heading" className="font-display text-3xl">
-            Key regions
+        <section aria-labelledby="places-heading" className="mt-16">
+          <h2 id="places-heading" className="font-display text-3xl">
+            Places across Leonida
           </h2>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2">
-            {setting.regions.map((r) => (
-              <div
-                key={r.name}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6"
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted">
+            Rockstar has toured six destinations across the state so far, each
+            with its own economy, its own weather and its own kind of trouble.
+            The descriptions below are ours; the photography and the tour itself
+            come from Rockstar&rsquo;s{" "}
+            <a
+              href={ONLY_IN_LEONIDA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-pink hover:underline"
+            >
+              Only in Leonida
+            </a>{" "}
+            pages.
+          </p>
+
+          <nav aria-label="Jump to a place" className="mt-7 flex flex-wrap gap-2">
+            {places.map((pl) => (
+              <a
+                key={pl.slug}
+                href={`#${pl.slug}`}
+                className="border border-line px-3 py-1.5 text-sm text-secondary transition-colors hover:border-pink hover:text-pink"
               >
-                <h3 className="font-display text-xl text-foreground">
-                  {r.name}
+                {pl.name}
+              </a>
+            ))}
+          </nav>
+
+          <div className="mt-12 space-y-16">
+            {places.map((pl) => (
+              <article
+                key={pl.slug}
+                id={pl.slug}
+                aria-labelledby={`${pl.slug}-heading`}
+                className="scroll-mt-24"
+              >
+                <figure className="relative aspect-[16/9] w-full overflow-hidden border border-line bg-black">
+                  <Image
+                    src={pl.image}
+                    alt={pl.imageAlt}
+                    fill
+                    sizes="(max-width: 896px) 100vw, 896px"
+                    className="object-cover"
+                  />
+                  <figcaption className="absolute bottom-0 right-0 bg-black/60 px-2 py-1 text-[10px] text-muted">
+                    &copy; Rockstar Games
+                  </figcaption>
+                </figure>
+
+                <h3 id={`${pl.slug}-heading`} className="mt-6 font-display text-3xl">
+                  {pl.name}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {r.blurb}
+                <p className="serif mt-3 text-xl leading-[1.5] text-secondary">
+                  {pl.tagline}
                 </p>
-              </div>
+                <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted">
+                  {pl.body}
+                </p>
+
+                <div className="mt-6 grid grid-cols-3 gap-3">
+                  {pl.gallery.map((g) => (
+                    <div
+                      key={g.src}
+                      className="relative aspect-[4/3] overflow-hidden border border-line bg-black"
+                    >
+                      <Image
+                        src={g.src}
+                        alt={g.alt}
+                        fill
+                        sizes="(max-width: 896px) 33vw, 290px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
-          <p className="mt-6 text-sm text-muted">
-            Rockstar has confirmed several locations across Leonida through its
-            trailers; the full map will be revealed closer to launch.
+
+          <p className="mt-10 text-sm text-muted">
+            All location art &copy; Rockstar Games, shown here for reference.
+            Rockstar has confirmed these six destinations; the full map of
+            Leonida is expected closer to launch.
           </p>
         </section>
       </article>

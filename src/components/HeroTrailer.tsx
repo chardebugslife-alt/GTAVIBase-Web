@@ -27,13 +27,13 @@ export function HeroTrailer({ youtubeId, title, releasedLabel, thumbnail }: Prop
     `?autoplay=1&playsinline=1&rel=0&modestbranding=1`;
 
   return (
-    <figure className="mt-10">
+    <figure className="mt-0">
       {/* Resolve the video hosts early so playback starts fast on click. */}
       <link rel="preconnect" href="https://www.youtube-nocookie.com" />
       <link rel="preconnect" href="https://www.youtube.com" />
       <link rel="preconnect" href="https://i.ytimg.com" />
 
-      <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
+      <div className="relative aspect-video w-full overflow-hidden bg-black">
         {playing ? (
           <iframe
             className="h-full w-full"
@@ -59,17 +59,17 @@ export function HeroTrailer({ youtubeId, title, releasedLabel, thumbnail }: Prop
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
             {/* Darkening + play affordance. */}
-            <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-            <span className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-r from-pink to-orange shadow-lg shadow-pink/30 transition-transform duration-300 group-hover:scale-110">
-              <PlayIcon className="h-8 w-8 translate-x-0.5 text-black" />
+            <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+            <span className="absolute left-1/2 top-1/2 flex h-[72px] w-[72px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent transition-transform duration-300 group-hover:scale-110">
+              <PlayIcon className="h-7 w-7 translate-x-0.5 text-white" />
             </span>
-            <span className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-black/60 px-4 py-2 text-sm font-semibold text-foreground backdrop-blur-md">
+            <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 text-[13px] font-medium text-foreground">
               Watch the trailer
             </span>
           </button>
         )}
       </div>
-      <figcaption className="mt-3 text-xs text-muted">
+      <figcaption className="serif mt-3.5 text-[13px] italic leading-normal text-muted">
         Latest official trailer ({releasedLabel}) — tap to play with sound. ©
         Rockstar Games
       </figcaption>

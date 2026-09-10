@@ -42,7 +42,7 @@ export default function NewsPage() {
             <li key={item.slug}>
               <Link
                 href={`/news/${item.slug}`}
-                className="group block overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-colors hover:border-pink/50 hover:bg-white/[0.08] sm:flex"
+                className="group block overflow-hidden border border-line bg-surface transition-colors hover:border-accent hover:bg-surface sm:flex"
               >
                 <div className="relative aspect-video w-full shrink-0 bg-black sm:aspect-auto sm:w-56">
                   <Image

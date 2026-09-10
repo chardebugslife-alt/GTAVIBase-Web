@@ -67,7 +67,7 @@ const related: Record<Section, Section[]> = {
  */
 export function RelatedLinks({
   current,
-  className = "mx-auto max-w-4xl px-5",
+  className = "mx-auto max-w-[1120px] px-5 sm:px-7",
 }: {
   current: Section;
   className?: string;
@@ -75,21 +75,32 @@ export function RelatedLinks({
   const items = related[current].map((key) => destinations[key]);
 
   return (
-    <section aria-labelledby="related-heading" className={`${className} pb-20 pt-4`}>
-      <h2 id="related-heading" className="font-display text-2xl sm:text-3xl">
-        Keep exploring
-      </h2>
-      <div className="mt-6 grid gap-5 sm:grid-cols-3">
+    <section
+      aria-labelledby="related-heading"
+      className={`${className} pb-20 pt-16`}
+    >
+      <div className="rule-top">
+        <h2 id="related-heading" className="eyebrow">
+          Keep exploring
+        </h2>
+      </div>
+      <div>
         {items.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink/50 hover:bg-white/[0.08]"
+            className="grid grid-cols-[minmax(0,1fr)_28px] items-baseline gap-5 border-b border-line py-6 transition-colors hover:bg-surface"
           >
-            <h3 className="font-display text-xl text-foreground">{item.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">{item.blurb}</p>
-            <span className="mt-4 inline-block text-sm font-semibold text-pink transition-transform group-hover:translate-x-1">
-              Read more →
+            <span className="grid gap-2">
+              <span className="text-[22px] font-semibold leading-[1.25] tracking-[-0.025em]">
+                {item.title}
+              </span>
+              <span className="serif max-w-[60ch] text-[17px] leading-[1.55] text-tertiary">
+                {item.blurb}
+              </span>
+            </span>
+            <span aria-hidden className="text-right text-lg text-accent">
+              →
             </span>
           </Link>
         ))}

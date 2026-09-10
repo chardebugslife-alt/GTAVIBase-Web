@@ -53,7 +53,11 @@ export function Countdown({ target, label }: { target: string; label: string }) 
   const time = diff(targetMs, nowSec * 1000);
 
   if (mounted && time.done) {
-    return <p className="font-display text-2xl gradient-text">{label} — out now</p>;
+    return (
+      <p className="text-3xl font-semibold tracking-[-0.03em] text-accent">
+        {label} — out now
+      </p>
+    );
   }
 
   const units = [
@@ -64,24 +68,21 @@ export function Countdown({ target, label }: { target: string; label: string }) 
   ];
 
   return (
+    // A single hairline grid: the 1px gap over a line-coloured ground draws the
+    // rules between cells without any per-cell borders.
     <div
       aria-label={`Countdown to ${label}`}
-      className="grid grid-cols-2 gap-3 sm:grid-cols-4"
+      className="grid grid-cols-2 gap-px bg-line sm:grid-cols-4"
     >
       {units.map((u) => (
-        <div
-          key={u.label}
-          className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center"
-        >
+        <div key={u.label} className="bg-background pb-6 pt-1">
           <div
-            className="font-display text-3xl tabular-nums gradient-text"
+            className="text-[clamp(38px,5.4vw,58px)] font-semibold leading-none tracking-[-0.04em] tabular-nums"
             suppressHydrationWarning
           >
             {mounted ? String(u.value).padStart(2, "0") : "--"}
           </div>
-          <div className="mt-1 text-xs uppercase tracking-wider text-muted">
-            {u.label}
-          </div>
+          <div className="eyebrow-sm mt-3 text-muted">{u.label}</div>
         </div>
       ))}
     </div>

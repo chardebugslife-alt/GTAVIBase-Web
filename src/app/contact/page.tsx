@@ -59,7 +59,7 @@ export default function ContactPage() {
           </p>
         </header>
 
-        <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
+        <div className="mt-10 border border-line bg-surface p-8 text-center">
           <p className="text-sm uppercase tracking-wider text-muted">Email us</p>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
@@ -77,7 +77,7 @@ export default function ContactPage() {
             {reasons.map((r) => (
               <div
                 key={r.title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6"
+                className="border border-line bg-surface p-6"
               >
                 <h3 className="font-display text-lg text-foreground">
                   {r.title}

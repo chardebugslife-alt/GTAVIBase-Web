@@ -20,21 +20,44 @@ export type Character = {
   imageCredit: string;
 };
 
+/**
+ * Artwork hotlinked from the official GTA VI site's "Only in Leonida"
+ * section — character portraits and location photography alike. Every file is
+ * a 2560×1440 (16:9) render, so they drop straight into the widescreen
+ * figures the site uses. Prefer them anywhere a page needs a picture of one
+ * person or one place; the trailer stills elsewhere in this file are scene
+ * captures, not official art.
+ */
+const officialArt = (file: string) =>
+  `https://www.rockstargames.com/VI/_next/static/media/${file}?akim=1&imdensity=1&imwidth=2560`;
+
+/** Where that art (and the bios paraphrased below) comes from. */
+export const ONLY_IN_LEONIDA_URL = "https://www.rockstargames.com/VI/only-in-leonida";
+
+export const JASON_IMAGE = officialArt(
+  "Jason_Duval_02.1486~7_v40cn..jpg",
+);
+
+export const LUCIA_IMAGE = officialArt(
+  "Lucia_Caminos_02.16n.5umvlu_48.jpg",
+);
+
 export const characters: Character[] = [
   {
     slug: "lucia",
     name: "Lucia Caminos",
     role: "Co-protagonist",
     summary:
-      "The first female lead in a mainline Grand Theft Auto. Fresh out of a Leonida correctional facility, Lucia is sharp, loyal and willing to do whatever it takes to change the odds stacked against her.",
+      "The first female lead in a mainline Grand Theft Auto. Her father taught her to fight before she could walk, and life has been swinging at her ever since. Defending her family put Lucia inside the Leonida Penitentiary; luck got her back out, and she came away certain that from here on it is smart moves only.",
     details: [
       "First playable female protagonist in a mainline GTA game.",
+      "Rockstar traces her family back to Liberty City before Leonida.",
       "Introduced leaving a state correctional facility in the first trailer.",
-      "Her relationship with Jason drives the dual-protagonist, Bonnie-and-Clyde story.",
+      "Wants the comfortable life her mother has always talked about — and plans to take it rather than wait for it.",
     ],
-    image:
-      "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/8978kok9385a82/1d6307ffa5adedfba5b1805e7c949fa74816d163.jpg",
-    imageAlt: "Lucia in the Grand Theft Auto VI reveal trailer",
+    // Rockstar's own character art for Lucia, from the official GTA VI site.
+    image: LUCIA_IMAGE,
+    imageAlt: "Official Rockstar Games character art of Lucia Caminos",
     imageCredit: "© Rockstar Games",
   },
   {
@@ -42,23 +65,274 @@ export const characters: Character[] = [
     name: "Jason Duval",
     role: "Co-protagonist",
     summary:
-      "Jason knows his way around a gun and grew up around grifters and chancers. Looking for a way out, he and Lucia learn the hard way that in Leonida the deck is always stacked.",
+      "Jason wants an easy life and keeps being handed a harder one. He was raised among grifters and crooks, straightened himself out with a spell in the Army, and drifted back into the only work he really knows — running errands for the drug trade in the Leonida Keys. Meeting Lucia is either his way out or the worst thing that could happen to him.",
     details: [
       "Second playable protagonist alongside Lucia.",
-      "Has a military and criminal background hinted at across the trailers.",
-      "Lives in the Leonida Keys when we first meet him.",
+      "Grew up around con artists and criminals, then served in the Army.",
+      "Works for local drug runners in the Leonida Keys, where we first meet him.",
+      "Lives rent-free on smuggler Brian Heder’s property in return for muscle.",
     ],
-    image:
-      "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/3928aaa9471o3a/87db5089306344e0854cffb1b3bf15e6d71b465b.jpg",
-    imageAlt: "Jason in the Grand Theft Auto VI second trailer",
+    // Rockstar's own character art for Jason, from the official GTA VI site.
+    image: JASON_IMAGE,
+    imageAlt: "Official Rockstar Games character art of Jason Duval",
     imageCredit: "© Rockstar Games",
   },
 ];
 
-export type Region = {
+/** A member of the supporting cast Rockstar introduced on Only in Leonida. */
+export type CastMember = {
+  slug: string;
   name: string;
+  /** Short label for who this person is in the story. */
+  role: string;
+  /** Our paraphrase of Rockstar's official bio, never a straight copy of it. */
   blurb: string;
+  /** How they tie back to Lucia, Jason or each other. */
+  connection: string;
+  image: string;
+  imageAlt: string;
 };
+
+/**
+ * The eight-strong cast Rockstar published on the official site sits either
+ * side of the two leads: `characters` above holds the playable pair, this
+ * holds everyone else, in the order Rockstar presents them.
+ */
+export const supportingCast: CastMember[] = [
+  {
+    slug: "cal-hampton",
+    name: "Cal Hampton",
+    role: "Jason’s friend",
+    blurb:
+      "A conspiracy hobbyist who feels safest indoors. Cal works for Brian alongside Jason but would rather be at home with a few beers, a stack of private browser tabs and a scanner tuned to Coast Guard chatter, convinced that nothing you are told is quite the truth.",
+    connection:
+      "He is perfectly happy at the bottom of the ladder, which puts him quietly at odds with a friend who has started looking upward.",
+    image: officialArt("Cal_Hampton_02.05r2t_mck65fe.jpg"),
+    imageAlt: "Official Rockstar Games character art of Cal Hampton",
+  },
+  {
+    slug: "boobie-ike",
+    name: "Boobie Ike",
+    role: "Vice City businessman",
+    blurb:
+      "A local legend who behaves like one. Boobie is among the few to have converted a reputation built on the street into something legitimate — property, a strip club and a recording studio — and he is warm company right up to the moment money enters the conversation.",
+    connection:
+      "His real investment is Only Raw Records, the label he backs with Dre’Quan Priest. All it is missing is a hit.",
+    image: officialArt("Boobie_Ike_02.0sp9mtc.1cdzs.jpg"),
+    imageAlt: "Official Rockstar Games character art of Boobie Ike",
+  },
+  {
+    slug: "drequan-priest",
+    name: "Dre’Quan Priest",
+    role: "Music executive",
+    blurb:
+      "Always more entrepreneur than gangster. Dre’Quan dealt on the street to cover the bills, but breaking into the music business was the point of the exercise the whole time, and he has spent years booking acts into Boobie’s club waiting for an opening.",
+    connection:
+      "Signing the Real Dimez is that opening — and his shot at the wider Vice City scene.",
+    image: officialArt("DreQuan_Priest_02.02u69e~nkk3eo.jpg"),
+    imageAlt: "Official Rockstar Games character art of Dre’Quan Priest",
+  },
+  {
+    slug: "real-dimez",
+    name: "Real Dimez",
+    role: "Rap duo",
+    blurb:
+      "Bae-Luxe and Roxy have been friends since school and worked out early how to turn shaking down local dealers into money — by way of provocative rap tracks and a social media presence that never lets up.",
+    connection:
+      "An early single with the rapper DWNPLY made their name. Five turbulent years later they are on Only Raw Records, hoping lightning strikes twice.",
+    image: officialArt("Real_Dimez_02.1366u9.x.yp0_.jpg"),
+    imageAlt: "Official Rockstar Games character art of Real Dimez",
+  },
+  {
+    slug: "raul-bautista",
+    name: "Raul Bautista",
+    role: "Career bank robber",
+    blurb:
+      "Charming, self-assured and a long way past his first job. Raul robs banks for a living and is permanently scouting for people willing to take the kind of risk that actually pays.",
+    connection:
+      "Every score he plans is bigger than the last, and sooner or later his crew has to choose between doubling down and walking away from the table.",
+    image: officialArt("Raul_Bautista_02.10ddy6ogywu-t.jpg"),
+    imageAlt: "Official Rockstar Games character art of Raul Bautista",
+  },
+  {
+    slug: "brian-heder",
+    name: "Brian Heder",
+    role: "Smuggler, Leonida Keys",
+    blurb:
+      "A survivor of the Keys’ golden age of smuggling. Brian still moves product out of his boat yard with his third wife, Lori, and has been at it long enough that other people now handle the dangerous end of the business.",
+    connection:
+      "One of those people is Jason, who gets a rent-free roof in exchange for helping with local shakedowns.",
+    image: officialArt("Brian_Heder_02.0kmg6iw38f-9o.jpg"),
+    imageAlt: "Official Rockstar Games character art of Brian Heder",
+  },
+];
+
+/** One of the destinations Rockstar tours on the official site. */
+export type Place = {
+  slug: string;
+  name: string;
+  /** One line on what the place is for. */
+  tagline: string;
+  /** Our paraphrase of Rockstar's description, never a straight copy of it. */
+  body: string;
+  /** Lead image for the section. */
+  image: string;
+  imageAlt: string;
+  /** Three further looks at the place, shown as a strip beneath the copy. */
+  gallery: { src: string; alt: string }[];
+};
+
+/**
+ * The six destinations Rockstar has toured so far, in the order it presents
+ * them. Everything here is paraphrased from the official site; the art is
+ * hotlinked from it.
+ */
+export const places: Place[] = [
+  {
+    slug: "vice-city",
+    name: "Vice City",
+    tagline:
+      "Four decades on from the 1980s, still the place America comes to burn money in the sun.",
+    body:
+      "Rockstar's pitch is the glamour, hustle and greed of the whole country compressed into a single city, with every neighbourhood selling a different version of it — Art Deco hotels and white sand at Ocean Beach, the bakeries and street life of Little Cuba, knock-off labels at the Tisha-Wocka flea market, and the cruise terminals of VC Port out at the water's edge.",
+    image: officialArt("Vice_City_02.0c5.7qx17u9kl.jpg"),
+    imageAlt: "A couple on a balcony above a pool, with the trees and beach of Vice City behind them",
+    gallery: [
+      {
+        src: officialArt("Vice_City_08.0bbg_xp4hqdvz.jpg"),
+        alt: "The Vice City skyline at night, with a lit ferris wheel and traffic below",
+      },
+      {
+        src: officialArt("Vice_City_03.0nqz~lrqdmlze.jpg"),
+        alt: "A Vice City street of palm trees and low-rise blocks, with a basketball court beside it",
+      },
+      {
+        src: officialArt("Vice_City_09.0~ng.c8ack3fp.jpg"),
+        alt: "Riders pulling tricks on dirt bikes and ATVs between traffic on a Vice City road",
+      },
+    ],
+  },
+  {
+    slug: "leonida-keys",
+    name: "Leonida Keys",
+    tagline:
+      "Nothing here is formal, and the bars never run dry.",
+    body:
+      "An easy, unglamorous life spread across a tropical archipelago: a deck chair, a drink and no particular schedule. The catch is what surrounds it. Some of the most beautiful and most dangerous water in America starts a few feet from the shore.",
+    image: officialArt("Leonida_Keys_01.0zgz7tveur6y8.jpg"),
+    imageAlt: "A seaplane flying low over the water in the Leonida Keys, with a causeway bridge behind it",
+    gallery: [
+      {
+        src: officialArt("Leonida_Keys_02.0~ptk-53gl0lq.jpg"),
+        alt: "An iguana crossing in front of a mobility scooter on a street in the Leonida Keys",
+      },
+      {
+        src: officialArt("Leonida_Keys_04.0hce1rw1s8pd9.jpg"),
+        alt: "Two scuba divers among coral, fish and a sea turtle off the Leonida Keys",
+      },
+      {
+        src: officialArt("Leonida_Keys_03.0v_3~-9ceyixc.jpg"),
+        alt: "A crowded beach bar in the Leonida Keys, drinkers spilling across the porch and picnic tables",
+      },
+    ],
+  },
+  {
+    slug: "grassrivers",
+    name: "Grassrivers",
+    tagline:
+      "The one part of Leonida nobody has managed to tame.",
+    body:
+      "A primordial sprawl of mangroves where you can rarely see what is under the surface. Alligators are the headline attraction, but Rockstar is promising worse predators than that out among the channels — along with a fair number of things that are simply strange.",
+    image: officialArt("Grassrivers_02.0teqs5xe2pem1.jpg"),
+    imageAlt: "A speedboat running toward stilt houses in the Grassrivers, the Vice City skyline in the distance",
+    gallery: [
+      {
+        src: officialArt("Grassrivers_03.14cuv-vg9orw4.jpg"),
+        alt: "An overhead view of an airboat ringed by alligators in the Grassrivers",
+      },
+      {
+        src: officialArt("Grassrivers_04.01ckpqbhxyz76.jpg"),
+        alt: "A police helicopter and two cruisers chasing a pick-up truck through the swamp",
+      },
+      {
+        src: officialArt("Grassrivers_01.1096rw4lbjur_.jpg"),
+        alt: "Three mud-covered hunters posing on an airboat in the Grassrivers",
+      },
+    ],
+  },
+  {
+    slug: "port-gellhorn",
+    name: "Port Gellhorn",
+    tagline:
+      "Leonida's forgotten coastline.",
+    body:
+      "The motels are cheap, the attractions are shuttered and the strip malls are empty, and the tourists are not coming back. What has grown up in their place is an economy running on malt liquor, painkillers and truck-stop energy drinks. Rockstar's own advice is to take a dirt bike and keep a hand on your wallet.",
+    image: officialArt("Port_Gellhorn_01.0fmisvza-5-cq.jpg"),
+    imageAlt: "A roadside motel in Port Gellhorn at night with its vacancy sign lit",
+    gallery: [
+      {
+        src: officialArt("Port_Gellhorn_04.0hd-7kzfi51q..jpg"),
+        alt: "The floodlit parking lot of a Port Gellhorn cabaret club after dark",
+      },
+      {
+        src: officialArt("Port_Gellhorn_02.00e7cz6lwrup-.jpg"),
+        alt: "Two men under grow lights in Port Gellhorn, one leaning on a shovel, the other holding a bat",
+      },
+      {
+        src: officialArt("Port_Gellhorn_03.00c2b0eh7sm~q.jpg"),
+        alt: "A woman leaning into a car window in Port Gellhorn to hand over a package",
+      },
+    ],
+  },
+  {
+    slug: "ambrosia",
+    name: "Ambrosia",
+    tagline:
+      "Where the fight over Leonida's health — and its money — starts.",
+    body:
+      "Inland Leonida, where American industry and old-fashioned values still set the terms, whatever those terms cost. The Allied Crystal sugar refinery supplies the jobs. The local biker gang supplies most of what else changes hands.",
+    image: officialArt("Ambrosia_02.0wtqs05ozl.ym.jpg"),
+    imageAlt: "The Ambrosia skyline at night, refinery smoke stacks in the distance",
+    gallery: [
+      {
+        src: officialArt("Ambrosia_01.0rqphs0gazkm..jpg"),
+        alt: "A biker gang in matching leather vests riding together down a road in Ambrosia",
+      },
+      {
+        src: officialArt("Ambrosia_04.0.2cefoguu-tt.jpg"),
+        alt: "A field of crops burning at sunset outside Ambrosia",
+      },
+      {
+        src: officialArt("Ambrosia_03.0vt46a.1s.7-y.jpg"),
+        alt: "A woman in Ambrosia hugging a man from behind, a handgun in her outstretched hand",
+      },
+    ],
+  },
+  {
+    slug: "mount-kalaga",
+    name: "Mount Kalaga",
+    tagline:
+      "Room to breathe at the top of the state.",
+    body:
+      "A national landmark on Leonida's northern border, given over to hunting, fishing and off-road trails. The backwoods around it belong to people who would rather not be found — backcountry mystics and radicals living well outside the government's sightlines.",
+    image: officialArt("Mount_Kalaga_National_Park_04.0e1sxnp1mln2u.jpg"),
+    imageAlt: "A road winding between two green hillsides in Mount Kalaga National Park",
+    gallery: [
+      {
+        src: officialArt("Mount_Kalaga_National_Park_05.0_~vto-o2zxok.jpg"),
+        alt: "A cougar stalking deer at a stream in Mount Kalaga National Park",
+      },
+      {
+        src: officialArt("Mount_Kalaga_National_Park_01.0v5fl0f83hjv_.jpg"),
+        alt: "Four riders taking dirt bikes through mud in Mount Kalaga, an ATV jumping behind them",
+      },
+      {
+        src: officialArt("Mount_Kalaga_National_Park_06.166ouq5pjd7h0.jpg"),
+        alt: "A kayaker in a life vest paddling toward a bridge in Mount Kalaga National Park",
+      },
+    ],
+  },
+];
 
 export const setting = {
   state: "Leonida",
@@ -70,28 +344,6 @@ export const setting = {
     "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/258aa538o412ok/5690872e70df76d5d63638c12e7eb5b746f83c3a.jpg",
   imageAlt: "Official Grand Theft Auto VI art of Vice City, Leonida",
   imageCredit: "© Rockstar Games",
-  regions: [
-    {
-      name: "Vice City",
-      blurb:
-        "A sprawling coastal metropolis of beaches, nightlife and Art-Deco glamour — the beating heart of Leonida.",
-    },
-    {
-      name: "Leonida Keys",
-      blurb:
-        "A chain of sun-bleached islands and sandbars stretching off the southern coast.",
-    },
-    {
-      name: "Grassrivers & Wetlands",
-      blurb:
-        "Everglades-style swamps, airboats and backcountry that surround the city.",
-    },
-    {
-      name: "Port Gellhorn",
-      blurb:
-        "An industrial port town and one of several distinct communities across the state.",
-    },
-  ] as Region[],
 };
 
 export type Trailer = {
@@ -434,11 +686,10 @@ export const news: NewsArticle[] = [
     title: "GTA VI's two protagonists: Lucia and Jason",
     summary:
       "Grand Theft Auto VI stars two playable protagonists — Lucia Caminos, the mainline series' first female lead, and Jason — in a story Rockstar describes as two partners against the odds.",
-    image: `${CDN}/8978kok9385a82/1d6307ffa5adedfba5b1805e7c949fa74816d163.jpg`,
-    imageAlt: "Lucia in Grand Theft Auto VI",
+    image: LUCIA_IMAGE,
+    imageAlt: "Official Rockstar Games character art of Lucia Caminos",
     imageCredit: "© Rockstar Games",
-    imageCreditUrl:
-      "https://www.rockstargames.com/newswire/article/8978kok9385a82/grand-theft-auto-vi-watch-trailer-1-now",
+    imageCreditUrl: "https://www.rockstargames.com/VI",
     keyPoints: [
       "GTA VI has two playable protagonists — a mainline series first for a duo.",
       "Lucia Caminos is the first female lead in a mainline Grand Theft Auto.",
@@ -730,14 +981,11 @@ export const editionFaqs: Faq[] = [
  *  as speculation and linked back to where the discussion lives.
  * ------------------------------------------------------------------ */
 
-/** A community topic bucket. `accent` is a Tailwind gradient used for the
- *  category badge and the placeholder artwork. */
+/** A community topic bucket, used to group and label posts. */
 export type CommunityCategory = {
   slug: string;
   label: string;
   blurb: string;
-  /** Tailwind `from-*`/`to-*` gradient stops for badges & placeholders. */
-  accent: string;
 };
 
 export const communityCategories: CommunityCategory[] = [
@@ -746,49 +994,42 @@ export const communityCategories: CommunityCategory[] = [
     label: "Fan Theories",
     blurb:
       "Map-size guesses, hidden-detail hunts and gameplay predictions the community keeps returning to.",
-    accent: "from-pink to-orange",
   },
   {
     slug: "story-speculation",
     label: "Story Talk",
     blurb:
       "Where fans think the Lucia-and-Jason story is heading, based on the two trailers.",
-    accent: "from-purple to-pink",
   },
   {
     slug: "conspiracy",
     label: "Conspiracy Corner",
     blurb:
       "The wilder, take-it-with-a-shaker-of-salt end of the fandom. Entertainment, not evidence.",
-    accent: "from-teal to-purple",
   },
   {
     slug: "leaks-rumors",
     label: "Leaks & Rumors",
     blurb:
       "Unconfirmed chatter and reported leaks the community is weighing — none of it official.",
-    accent: "from-orange to-pink",
   },
   {
     slug: "debates",
     label: "Hot Debates",
     blurb:
       "The arguments splitting the fandom right now — price, story length and how to play launch week.",
-    accent: "from-orange to-teal",
   },
   {
     slug: "breakdowns",
     label: "Trailer Breakdowns",
     blurb:
       "Frame-by-frame analysis and detail spotting from creators and forum sleuths.",
-    accent: "from-teal to-pink",
   },
   {
     slug: "community-hubs",
     label: "Community Hubs",
     blurb:
       "The megathreads, subreddits and forums where the whole conversation actually happens.",
-    accent: "from-pink to-purple",
   },
 ];
 
@@ -822,6 +1063,12 @@ export type CommunityPost = {
   moreLinks?: CommunityLink[];
   /** Optional internal cross-links to factual guide pages on this site. */
   related?: NavItem[];
+  /**
+   * How solid the evidence behind this post is, in one line. Surfaced beside
+   * the post on the community index so readers can weigh a claim before
+   * opening it. Optional — omitted where we haven't assessed it yet.
+   */
+  evidence?: string;
 };
 
 /** Real, stable community destinations reused across posts. */
@@ -842,6 +1089,8 @@ const HUB_FORUMS: CommunityLink = {
 export const community: CommunityPost[] = [
   {
     slug: "august-2026-gameplay-leak",
+    evidence:
+      "Footage corroborated by DMCA takedowns and Bloomberg reporting; the map image is disputed.",
     category: "leaks-rumors",
     date: "2026-08-19",
     dateLabel: "August 19, 2026",
@@ -913,6 +1162,8 @@ export const community: CommunityPost[] = [
   },
   {
     slug: "how-big-is-the-map",
+    evidence:
+      "Fan estimate reconstructed from trailer footage, not an official figure.",
     category: "fan-theories",
     date: "2026-06-28",
     dateLabel: "June 28, 2026",
@@ -963,6 +1214,7 @@ export const community: CommunityPost[] = [
   },
   {
     slug: "lucia-and-jason-ending-theories",
+    evidence: "Speculation drawn from trailer readings.",
     category: "story-speculation",
     date: "2026-06-20",
     dateLabel: "June 20, 2026",
@@ -1124,6 +1376,7 @@ export const community: CommunityPost[] = [
   },
   {
     slug: "is-gta6-a-100-dollar-game",
+    evidence: "Pricing is official; the reaction is community opinion.",
     category: "debates",
     date: "2026-06-30",
     dateLabel: "June 30, 2026",
@@ -1190,8 +1443,6 @@ export type VehicleClass = {
   slug: string;
   label: string;
   blurb: string;
-  /** Tailwind gradient classes for the placeholder card banner. */
-  accent: string;
 };
 
 /** Vehicle categories, in the order they appear on the page. */
@@ -1200,42 +1451,35 @@ export const vehicleClasses: VehicleClass[] = [
     slug: "super",
     label: "Supercars & Sports",
     blurb: "High-end exotics and sports cars glimpsed tearing through Leonida.",
-    accent: "from-pink to-orange",
   },
   {
     slug: "muscle",
     label: "Muscle Cars",
     blurb: "American muscle — including the magenta hero car that closes both trailers.",
-    accent: "from-orange to-pink",
   },
   {
     slug: "classic",
     label: "Classics & Luxury",
     blurb: "Vintage cruisers and drop-top luxury in classic Vice City style.",
-    accent: "from-purple to-pink",
   },
   {
     slug: "suv",
     label: "SUVs & 4x4s",
     blurb: "Full-size SUVs and body-on-frame haulers seen in traffic.",
-    accent: "from-teal to-purple",
   },
   {
     slug: "truck",
     label: "Trucks & Off-Road",
     blurb: "Pickups and off-roaders built for Leonida's back roads and swamps.",
-    accent: "from-orange to-teal",
   },
   {
     slug: "motorcycle",
     label: "Motorcycles",
     blurb: "Two wheels — from a lean chopper to a dirt bike.",
-    accent: "from-pink to-purple",
   },
   {
     slug: "boat",
     label: "Boats",
     blurb: "Watercraft for Leonida's coast, canals and wetlands.",
-    accent: "from-teal to-pink",
   },
 ];

@@ -4,12 +4,12 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
-import { characters } from "@/lib/data";
+import { characters, supportingCast, ONLY_IN_LEONIDA_URL } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Main Characters — Lucia Caminos & Jason Duval",
+  title: "GTA VI Characters — Lucia, Jason and the Full Cast",
   description:
-    "Who are the main characters in GTA VI? Lucia Caminos and Jason Duval are the two playable protagonists — the first time a mainline Grand Theft Auto has a female lead. Their roles, backstories and what Rockstar has actually confirmed.",
+    "Every GTA VI character Rockstar has confirmed: playable leads Lucia Caminos and Jason Duval, plus Cal Hampton, Boobie Ike, Dre’Quan Priest, Real Dimez, Raul Bautista and Brian Heder. Backstories, roles and what is still unknown.",
   path: "/characters",
 });
 
@@ -36,6 +36,8 @@ export default function CharactersPage() {
             game in the series with two playable protagonists — Lucia Caminos
             and Jason Duval — and their intertwined, Bonnie-and-Clyde story
             anchors the game in Vice City and the wider state of Leonida.
+            Rockstar has since named six more of the people around them, and
+            they are all below.
           </p>
         </header>
 
@@ -45,7 +47,7 @@ export default function CharactersPage() {
               key={c.slug}
               id={c.slug}
               aria-labelledby={`${c.slug}-heading`}
-              className="overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+              className="overflow-hidden border border-line bg-surface"
             >
               <figure className="relative aspect-[16/9] w-full bg-black">
                 <Image
@@ -76,7 +78,7 @@ export default function CharactersPage() {
                 {c.details.map((d) => (
                   <li
                     key={d}
-                    className="flex gap-3 text-sm leading-relaxed text-foreground/80"
+                    className="flex gap-3 text-sm leading-relaxed text-secondary"
                   >
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pink" />
                     {d}
@@ -87,6 +89,55 @@ export default function CharactersPage() {
             </section>
           ))}
         </div>
+
+        <section aria-labelledby="cast-heading" className="mt-16">
+          <h2 id="cast-heading" className="font-display text-3xl">
+            The rest of the cast
+          </h2>
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted">
+            Rockstar has put names, faces and short official bios to six more
+            people around the pair, and between them they map the two halves of
+            Lucia and Jason&rsquo;s Leonida: the smugglers and drifters of the
+            Keys at one end, the music money of Vice City at the other. The
+            write-ups below are ours; the source is Rockstar&rsquo;s own{" "}
+            <a
+              href={ONLY_IN_LEONIDA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-pink hover:underline"
+            >
+              Only in Leonida
+            </a>{" "}
+            pages.
+          </p>
+
+          <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2">
+            {supportingCast.map((c) => (
+              <article key={c.slug} id={c.slug}>
+                <figure className="relative aspect-[16/9] w-full overflow-hidden bg-black">
+                  <Image
+                    src={c.image}
+                    alt={c.imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 400px"
+                    className="object-cover"
+                  />
+                  <figcaption className="absolute bottom-0 right-0 bg-black/60 px-2 py-1 text-[10px] text-muted">
+                    &copy; Rockstar Games
+                  </figcaption>
+                </figure>
+                <p className="mt-4 text-xs uppercase tracking-wider text-teal">
+                  {c.role}
+                </p>
+                <h3 className="mt-1 font-display text-2xl">{c.name}</h3>
+                <p className="mt-3 leading-relaxed text-muted">{c.blurb}</p>
+                <p className="mt-3 text-sm leading-relaxed text-secondary">
+                  {c.connection}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section aria-labelledby="duo-heading" className="mt-16 max-w-3xl">
           <h2 id="duo-heading" className="font-display text-3xl">
@@ -148,13 +199,14 @@ export default function CharactersPage() {
           </h2>
           <div className="mt-4 space-y-4 text-lg leading-relaxed text-muted">
             <p>
-              Rockstar has established who Lucia and Jason are, where they start
-              and the shape of their bond. It has not published full biographies,
-              confirmed a voice cast, or detailed how the character-switching
-              system, missions or endings work. A great deal of confident
-              &ldquo;detail&rdquo; circulating online — specific backstories,
-              chapter counts, who betrays whom — traces back to leaks and insider
-              posts, not to Rockstar.
+              Rockstar has established who its cast are, where they start and how
+              they connect. What the official bios stop short of is everything
+              that happens next: it has not confirmed a voice cast, or detailed
+              how the character-switching system, missions or endings work, and
+              the supporting players arrive with roles rather than arcs. A great
+              deal of confident &ldquo;detail&rdquo; circulating online — specific
+              backstories, chapter counts, who betrays whom — traces back to leaks
+              and insider posts, not to Rockstar.
             </p>
             <p>
               That includes the stat-sheet details people search for most. Rockstar

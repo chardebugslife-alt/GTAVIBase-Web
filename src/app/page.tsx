@@ -1,9 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Countdown } from "@/components/Countdown";
 import { HeroTrailer } from "@/components/HeroTrailer";
 import { JsonLd } from "@/components/JsonLd";
 import { videoGameJsonLd } from "@/lib/seo";
-import { gameFacts } from "@/lib/site";
+import { gameFacts, editorial } from "@/lib/site";
+import { readingTime } from "@/lib/text";
 import {
   characters,
   faqs,
@@ -22,7 +24,8 @@ const latestCommunity = [...community]
   .sort((a, b) => b.date.localeCompare(a.date))
   .slice(0, 3);
 
-const features = [
+/** Numbered index of the guide sections, in reading order. */
+const topics = [
   {
     href: "/characters",
     title: "Characters",
@@ -31,7 +34,13 @@ const features = [
   {
     href: "/setting",
     title: "Map & Setting",
-    blurb: "Explore Vice City and the state of Leonida — the biggest GTA world yet.",
+    blurb:
+      "Explore Vice City and the state of Leonida — the biggest GTA world yet.",
+  },
+  {
+    href: "/vehicles",
+    title: "Vehicles",
+    blurb: "Every car, bike and boat seen in the official trailers, by type.",
   },
   {
     href: "/trailers",
@@ -41,7 +50,8 @@ const features = [
   {
     href: "/editions",
     title: "Editions & Price",
-    blurb: "Compare the Standard and Ultimate editions, pricing and pre-order bonuses.",
+    blurb:
+      "Compare the Standard and Ultimate editions, pricing and pre-order bonuses.",
   },
   {
     href: "/news",
@@ -57,26 +67,78 @@ const quickFacts = [
   { label: "Platforms", value: "PS5 · Xbox Series X|S" },
 ];
 
+/** Shared shell: the concept's 1120px measure with a 28px gutter. */
+const SHELL = "mx-auto max-w-[1120px] px-5 sm:px-7";
+
+/** A section opener: ink rule, eyebrow heading, optional link on the right. */
+function SectionHead({
+  title,
+  id,
+  href,
+  linkLabel,
+}: {
+  title: string;
+  id?: string;
+  href?: string;
+  linkLabel?: string;
+}) {
+  return (
+    <div className="rule-top flex items-baseline justify-between gap-5">
+      <h2 id={id} className="eyebrow">
+        {title}
+      </h2>
+      {href && linkLabel && (
+        <Link
+          href={href}
+          className="shrink-0 text-[13px] font-medium text-muted transition-colors hover:text-accent-deep"
+        >
+          {linkLabel} →
+        </Link>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
+  const lastUpdated = [...community, ...latestCommunity].reduce(
+    (latest, post) => (post.date > latest ? post.date : latest),
+    trailers[0].released,
+  );
+  const lastUpdatedLabel = new Date(lastUpdated).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+
   return (
     <>
       <JsonLd data={videoGameJsonLd()} />
 
-      {/* Hero */}
-      <section className="mx-auto max-w-6xl px-5 pb-10 pt-16 sm:pt-24">
-        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-muted">
-          <span className="h-2 w-2 rounded-full bg-teal" aria-hidden />
-          The independent GTA VI information hub
-        </p>
-        <h1 className="font-display text-5xl leading-[0.95] sm:text-7xl md:text-8xl">
-          Everything about{" "}
-          <span className="gradient-text">Grand Theft Auto VI</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-          Release date, characters, the map of Leonida, trailers and a
-          constantly updated FAQ — all the confirmed facts about Rockstar
-          Games&rsquo; next Grand Theft Auto, in one clean place.
-        </p>
+      <div className={SHELL}>
+        {/* Hero */}
+        <section className="max-w-[860px] pb-14 pt-16 sm:pt-21">
+          <p className="eyebrow text-accent-deep">
+            The independent GTA VI information hub
+          </p>
+          <h1 className="mt-6 text-[clamp(40px,6.4vw,74px)] font-semibold leading-[1.02] tracking-[-0.038em]">
+            Everything about Grand Theft Auto VI
+          </h1>
+          <p className="serif mt-7 max-w-[620px] text-[21px] leading-[1.6] text-secondary">
+            Release date, characters, the map of Leonida, trailers and a
+            constantly updated FAQ — all the confirmed facts about Rockstar
+            Games&rsquo; next Grand Theft Auto, in one clean place.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-x-3.5 gap-y-2 text-[13px] leading-tight text-muted">
+            <span>{editorial.author}</span>
+            <span aria-hidden className="dot-sep" />
+            <span>
+              Updated <time dateTime={lastUpdated}>{lastUpdatedLabel}</time>
+            </span>
+            <span aria-hidden className="dot-sep" />
+            <span>Verified against official sources</span>
+          </div>
+        </section>
 
         <HeroTrailer
           youtubeId={trailers[0].youtubeId}
@@ -85,266 +147,251 @@ export default function Home() {
           thumbnail={trailers[0].thumbnail}
         />
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-black/30 p-6">
-          <p className="text-sm uppercase tracking-wider text-muted">
-            Countdown to launch · {gameFacts.releaseDateLabel}
-          </p>
-          <div className="mt-4">
+        {/* Countdown */}
+        <section aria-labelledby="countdown-heading" className="mt-18">
+          <div className="rule-top flex flex-wrap items-baseline justify-between gap-6">
+            <h2 id="countdown-heading" className="eyebrow">
+              Countdown to launch
+            </h2>
+            <p className="text-[13px] leading-none text-muted">
+              {gameFacts.releaseDateLabel} · PS5 &amp; Xbox Series X|S
+            </p>
+          </div>
+          <div className="mt-6">
             <Countdown
               target={`${gameFacts.releaseDate}T00:00:00`}
               label={gameFacts.releaseDateLabel}
             />
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Quick facts */}
-      <section
-        aria-labelledby="facts-heading"
-        className="mx-auto max-w-6xl px-5 py-8"
-      >
-        <h2 id="facts-heading" className="sr-only">
-          Quick facts
-        </h2>
-        <dl className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {quickFacts.map((f) => (
-            <div
-              key={f.label}
-              className="rounded-xl border border-white/10 bg-white/5 p-5"
-            >
-              <dt className="text-xs uppercase tracking-wider text-muted">
-                {f.label}
-              </dt>
-              <dd className="mt-2 font-display text-xl">{f.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+        {/* Quick facts */}
+        <section aria-labelledby="facts-heading" className="mt-16">
+          <div className="rule-soft">
+            <h2 id="facts-heading" className="eyebrow text-muted">
+              Quick facts
+            </h2>
+          </div>
+          <dl className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-x-10 gap-y-7 pt-7">
+            {quickFacts.map((f) => (
+              <div key={f.label}>
+                <dt className="text-xs uppercase leading-none tracking-[0.1em] text-muted">
+                  {f.label}
+                </dt>
+                <dd className="mt-2.5 text-xl font-semibold leading-[1.25] tracking-[-0.02em]">
+                  {f.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
-      {/* Overview */}
-      <section className="mx-auto max-w-6xl px-5 py-12">
-        <h2 className="font-display text-3xl sm:text-4xl">
-          What is <span className="gradient-text-cool">GTA VI</span>?
-        </h2>
-        <div className="mt-5 grid gap-6 text-lg leading-relaxed text-muted md:grid-cols-2">
-          <p>
+        {/* Overview */}
+        <section className="mt-22 max-w-[680px]">
+          <h2 className="text-[32px] font-semibold leading-[1.15] tracking-[-0.03em]">
+            What is GTA VI?
+          </h2>
+          <p className="serif mt-6 text-xl leading-[1.68] text-body">
             Grand Theft Auto VI is the next entry in Rockstar Games&rsquo;
             record-breaking open-world series — and the first mainline game since
             Grand Theft Auto V in 2013. It returns to a modern, reimagined Vice
             City within the fictional state of Leonida.
           </p>
-          <p>
+          <p className="serif mt-5.5 text-xl leading-[1.68] text-body">
             For the first time the series follows two playable protagonists,
             Lucia and Jason, in a story Rockstar describes as a modern
             Bonnie-and-Clyde tale. GTA VI launches on PlayStation 5 and Xbox
             Series X|S on {gameFacts.releaseDateLabel}.
           </p>
-        </div>
-      </section>
+        </section>
 
-      {/* Explore cards */}
-      <section
-        aria-labelledby="explore-heading"
-        className="mx-auto max-w-6xl px-5 py-12"
-      >
-        <h2 id="explore-heading" className="font-display text-3xl sm:text-4xl">
-          Explore the guide
-        </h2>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((f) => (
-            <Link
-              key={f.href}
-              href={f.href}
-              className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink/50 hover:bg-white/[0.08]"
-            >
-              <h3 className="font-display text-2xl text-foreground">
-                {f.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {f.blurb}
-              </p>
-              <span className="mt-4 inline-block text-sm font-semibold text-pink transition-transform group-hover:translate-x-1">
-                Read more →
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
+        {/* Explore the guide */}
+        <section aria-labelledby="explore-heading" className="mt-22">
+          <SectionHead
+            id="explore-heading"
+            title="Explore the guide"
+            href="/faq"
+            linkLabel="All guides"
+          />
+          <div>
+            {topics.map((t, i) => (
+              <Link
+                key={t.href}
+                href={t.href}
+                className="grid grid-cols-[36px_minmax(0,1fr)_28px] items-baseline gap-5 border-b border-line py-6.5 transition-colors hover:bg-surface sm:grid-cols-[56px_minmax(0,1fr)_28px]"
+              >
+                <span className="text-xs leading-[1.6] tracking-[0.08em] text-faint">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="grid gap-2">
+                  <span className="text-[22px] font-semibold leading-[1.25] tracking-[-0.025em] sm:text-2xl">
+                    {t.title}
+                  </span>
+                  <span className="serif max-w-[60ch] text-[17px] leading-[1.55] text-tertiary">
+                    {t.blurb}
+                  </span>
+                </span>
+                <span aria-hidden className="text-right text-lg text-accent">
+                  →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-      {/* Characters teaser */}
-      <section className="mx-auto max-w-6xl px-5 py-12">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="font-display text-3xl sm:text-4xl">The protagonists</h2>
-          <Link
+        {/* Protagonists */}
+        <section aria-labelledby="protagonists-heading" className="mt-22">
+          <SectionHead
+            id="protagonists-heading"
+            title="The protagonists"
             href="/characters"
-            className="shrink-0 text-sm font-semibold text-pink hover:underline"
-          >
-            All characters →
-          </Link>
-        </div>
-        <div className="mt-6 grid gap-5 md:grid-cols-2">
-          {characters.map((c) => (
-            <div
-              key={c.slug}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6"
-            >
-              <p className="text-xs uppercase tracking-wider text-teal">
-                {c.role}
-              </p>
-              <h3 className="mt-1 font-display text-2xl">{c.name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {c.summary}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+            linkLabel="All characters"
+          />
+          <div className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-14">
+            {characters.map((c) => (
+              <article key={c.slug}>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface">
+                  <Image
+                    src={c.image}
+                    alt={c.imageAlt}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 528px"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="eyebrow-sm mt-5 text-muted">{c.role}</p>
+                <h3 className="mt-3.5 text-3xl font-semibold leading-[1.15] tracking-[-0.03em]">
+                  {c.name}
+                </h3>
+                <p className="serif mt-4 text-lg leading-[1.6] text-secondary">
+                  {c.summary}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-      {/* Editions & pricing teaser */}
-      <section className="mx-auto max-w-6xl px-5 py-12">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="font-display text-3xl sm:text-4xl">
-            Editions &amp; price
-          </h2>
-          <Link
+        {/* Editions */}
+        <section aria-labelledby="editions-heading" className="mt-22">
+          <SectionHead
+            id="editions-heading"
+            title="Editions & price"
             href="/editions"
-            className="shrink-0 text-sm font-semibold text-pink hover:underline"
-          >
-            Compare editions →
-          </Link>
-        </div>
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
-          GTA VI comes in two editions. See the full breakdown of what each
-          includes, pricing and pre-order bonuses on the{" "}
-          <Link href="/editions" className="text-pink hover:underline">
-            editions &amp; price guide
-          </Link>
-          .
-        </p>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            linkLabel="Compare editions"
+          />
           {editions.map((e) => (
             <Link
               key={e.slug}
               href="/editions"
-              className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink/50 hover:bg-white/[0.08]"
+              className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-8 border-b border-line py-7 transition-colors hover:bg-surface"
             >
-              <div>
-                <h3 className="font-display text-2xl text-foreground">
+              <span className="grid gap-2">
+                <span className="text-[22px] font-semibold leading-[1.25] tracking-[-0.025em]">
                   {e.name}
-                </h3>
-                <p className="mt-1 text-sm text-muted">{e.tagline}</p>
-              </div>
-              <span className="shrink-0 font-display text-2xl gradient-text">
+                </span>
+                <span className="serif max-w-[62ch] text-[17px] leading-[1.55] text-tertiary">
+                  {e.tagline}
+                </span>
+              </span>
+              <span className="text-[22px] font-semibold leading-[1.25] tabular-nums">
                 {e.price}
               </span>
             </Link>
           ))}
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ teaser */}
-      <section className="mx-auto max-w-6xl px-5 py-12">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="font-display text-3xl sm:text-4xl">Common questions</h2>
-          <Link
+        {/* FAQ */}
+        <section aria-labelledby="faq-heading" className="mt-22">
+          <SectionHead
+            id="faq-heading"
+            title="Common questions"
             href="/faq"
-            className="shrink-0 text-sm font-semibold text-pink hover:underline"
-          >
-            Full FAQ →
-          </Link>
-        </div>
-        <dl className="mt-6 divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5">
-          {faqs.slice(0, 4).map((f) => (
-            <div key={f.question} className="p-6">
-              <dt className="font-semibold text-foreground">{f.question}</dt>
-              <dd className="mt-2 text-sm leading-relaxed text-muted">
-                {f.answer}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+            linkLabel="Full FAQ"
+          />
+          <dl>
+            {faqs.slice(0, 4).map((f) => (
+              <div
+                key={f.question}
+                className="grid grid-cols-1 gap-x-12 gap-y-3 border-b border-line py-7 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)]"
+              >
+                <dt className="text-[21px] font-semibold leading-[1.3] tracking-[-0.02em]">
+                  {f.question}
+                </dt>
+                <dd className="serif text-lg leading-[1.62] text-secondary">
+                  {f.answer}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
-      {/* Latest from Community */}
-      <section
-        aria-labelledby="community-heading"
-        className="mx-auto max-w-6xl px-5 py-12"
-      >
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <h2
-              id="community-heading"
-              className="font-display text-3xl sm:text-4xl"
-            >
-              Latest from the <span className="gradient-text-cool">community</span>
-            </h2>
-            <p className="mt-2 text-sm text-muted">
-              Fan theories, debates and leaks — unofficial, and clearly labelled.
-            </p>
-          </div>
-          <Link
+        {/* Community */}
+        <section aria-labelledby="community-heading" className="mt-22">
+          <SectionHead
+            id="community-heading"
+            title="Latest from the community"
             href="/community"
-            className="shrink-0 text-sm font-semibold text-pink hover:underline"
-          >
-            All community →
-          </Link>
-        </div>
-        <div className="mt-6 grid gap-5 sm:grid-cols-3">
-          {latestCommunity.map((post) => {
-            const category = categoryBySlug[post.category];
-            return (
+            linkLabel="All community"
+          />
+          <p className="serif mt-4.5 max-w-[60ch] text-[17px] leading-[1.6] text-muted">
+            Fan theories, debates and leaks — unofficial, and clearly labelled.
+          </p>
+          <div className="mt-6">
+            {latestCommunity.map((post) => (
               <Link
                 key={post.slug}
                 href={`/community/${post.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-colors hover:border-pink/50 hover:bg-white/[0.08]"
+                className="grid gap-3 border-b border-line py-7 transition-colors hover:bg-surface"
               >
-                <div
-                  className={`flex aspect-[16/6] items-end bg-gradient-to-br ${category.accent} p-4`}
-                >
-                  <span className="rounded-full bg-black/40 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
-                    {category.label}
-                  </span>
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <time
-                    dateTime={post.date}
-                    className="text-xs uppercase tracking-wider text-teal"
-                  >
-                    {post.dateLabel}
-                  </time>
-                  <h3 className="mt-2 font-display text-lg leading-tight">
-                    {post.title}
-                  </h3>
-                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">
-                    {post.summary}
-                  </p>
-                  <span className="mt-3 inline-block text-sm font-semibold text-pink transition-transform group-hover:translate-x-1">
-                    Read summary →
-                  </span>
-                </div>
+                <span className="eyebrow-sm flex items-center gap-3 text-accent-deep">
+                  <span>{categoryBySlug[post.category].label}</span>
+                  <span aria-hidden className="dot-sep" />
+                  <span>{post.dateLabel}</span>
+                </span>
+                <span className="max-w-[34ch] text-[26px] font-semibold leading-[1.25] tracking-[-0.03em]">
+                  {post.title}
+                </span>
+                <span className="serif max-w-[72ch] text-lg leading-[1.6] text-tertiary">
+                  {post.summary}
+                </span>
+                <span className="text-[13px] leading-none text-faint">
+                  {readingTime(post.body)}
+                </span>
               </Link>
-            );
-          })}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      {/* Trailer CTA */}
-      <section className="mx-auto max-w-6xl px-5 py-12">
-        <div className="rounded-2xl border border-white/10 bg-gradient-to-r from-pink/15 via-magenta/10 to-orange/15 p-8 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl">
-            Watch the latest trailer
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted">
-            {trailers[0].description}
-          </p>
-          <Link
-            href="/trailers"
-            className="mt-6 inline-block rounded-full bg-gradient-to-r from-pink to-orange px-6 py-3 font-semibold text-black transition-opacity hover:opacity-90"
-          >
-            View all trailers
-          </Link>
-        </div>
-      </section>
+        {/* Trailer CTA */}
+        <section
+          aria-labelledby="trailer-cta-heading"
+          className="rule-top mt-24 grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] items-end gap-10 pt-12"
+        >
+          <div>
+            <h2
+              id="trailer-cta-heading"
+              className="max-w-[22ch] text-[34px] font-semibold leading-[1.15] tracking-[-0.03em]"
+            >
+              Watch the latest trailer
+            </h2>
+            <p className="serif mt-4.5 max-w-[52ch] text-[19px] leading-[1.62] text-secondary">
+              {trailers[0].description}
+            </p>
+            <Link href="/trailers" className="btn-accent mt-7">
+              View all trailers
+            </Link>
+          </div>
+          <div className="relative aspect-video w-full overflow-hidden bg-surface">
+            <Image
+              src={trailers[1].thumbnail}
+              alt={`${trailers[1].title} — official still`}
+              fill
+              sizes="(max-width: 900px) 100vw, 528px"
+              className="object-cover"
+            />
+          </div>
+        </section>
+      </div>
     </>
   );
 }

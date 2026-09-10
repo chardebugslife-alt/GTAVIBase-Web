@@ -1,27 +1,66 @@
 @import "tailwindcss";
 
 /*
- * GTA VI-inspired theme: deep midnight base with Vice City neon — hot pink,
- * sunset orange and teal. Display type is heavy/condensed for that bold poster
- * feel; body type stays clean and readable.
+ * Editorial theme: white ground, hairline rules, generous whitespace and a
+ * single hot-pink accent. Display and UI type is Instrument Sans; running prose
+ * and pull quotes are set in Source Serif 4. Replaces the previous dark neon
+ * treatment — see the design concept in the "Website redesign project" canvas.
  */
 
 :root {
-  --background: #05030c;
-  --foreground: #f4f1fb;
-  --muted: #b3a9cf;
+  --background: #ffffff;
+  /* Near-black used for headings, rules and the wordmark. */
+  --foreground: #0b0b0b;
+  /* Running prose sits a touch lighter than headings. */
+  --body: #1a1a1a;
+  --secondary: #3d3d3d;
+  --tertiary: #5c5c5c;
+  --muted: #6f6f6f;
+  --faint: #9a9a9a;
 
-  --pink: #ff2d8b;
-  --magenta: #e91e8c;
-  --orange: #ff8a3c;
-  --teal: #18e0d6;
-  --purple: #7a2bff;
+  /* Hairlines. `line` separates rows; `line-soft` is for denser lists. */
+  --line: #e6e6e6;
+  --line-soft: #ededed;
+  /* Row hover wash. */
+  --surface: #fafafa;
+  /* The small round separators between byline items. */
+  --dot: #c9c9c9;
+
+  --accent: #e6007e;
+  --accent-deep: #c10068;
+  /* Tinted ground for callouts and disclaimers. */
+  --accent-wash: #fdf2f7;
+
+  /*
+   * Legacy aliases. The previous theme's colour names are still referenced by
+   * utilities across the site (text-pink, from-pink/to-orange, text-teal…).
+   * Pointing them at the new two-tone accent keeps those pages coherent as they
+   * are migrated, instead of leaving neon against white.
+   */
+  --pink: var(--accent);
+  --magenta: var(--accent-deep);
+  --orange: var(--accent);
+  --teal: var(--accent-deep);
+  --purple: var(--accent-deep);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-body: var(--body);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
   --color-muted: var(--muted);
+  --color-faint: var(--faint);
+
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-surface: var(--surface);
+  --color-dot: var(--dot);
+
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-wash: var(--accent-wash);
 
   --color-pink: var(--pink);
   --color-magenta: var(--magenta);
@@ -29,8 +68,9 @@
   --color-teal: var(--teal);
   --color-purple: var(--purple);
 
-  --font-display: var(--font-anton), "Arial Narrow", sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
 }
 
 * {
@@ -49,38 +89,104 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Subtle vice-city glow that sits behind page content. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(60% 50% at 80% 0%, rgba(255, 45, 139, 0.18), transparent 60%),
-    radial-gradient(55% 45% at 10% 10%, rgba(122, 43, 255, 0.16), transparent 60%),
-    radial-gradient(70% 60% at 50% 100%, rgba(24, 224, 214, 0.1), transparent 65%);
-  pointer-events: none;
+p {
+  text-wrap: pretty;
 }
 
+/*
+ * Display headings. The previous theme set these in condensed uppercase Anton;
+ * the editorial concept uses tight-tracked Instrument Sans semibold in sentence
+ * case, so pages not yet hand-migrated pick the new treatment up for free.
+ */
 .font-display {
   font-family: var(--font-display);
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-transform: none;
 }
 
-/* The signature GTA VI pink→orange gradient lettering. */
+/*
+ * The old neon gradient lettering. The editorial concept has no gradients, so
+ * these collapse to flat ink and flat accent respectively.
+ */
 .gradient-text {
-  background: linear-gradient(100deg, var(--pink) 0%, var(--magenta) 35%, var(--orange) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: var(--foreground);
 }
 
 .gradient-text-cool {
-  background: linear-gradient(100deg, var(--teal) 0%, var(--pink) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: var(--accent);
+}
+
+@layer components {
+  /* Small caps-tracked label above a section or in a byline. */
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* Heavier tracking for the smallest labels (footer column heads, tags). */
+  .eyebrow-sm {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /*
+   * A section opener: full-width ink rule with the heading sitting directly
+   * beneath it. The structural motif the whole design is built on.
+   */
+  .rule-top {
+    border-top: 1px solid var(--foreground);
+    padding-top: 20px;
+  }
+
+  /* The lighter variant used between rows within a section. */
+  .rule-soft {
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+
+  .serif {
+    font-family: var(--font-serif);
+  }
+
+  /* Pink pill — the single call-to-action treatment in the concept. */
+  .btn-accent {
+    display: inline-block;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 100px;
+    padding: 14px 22px;
+    transition: background-color 150ms ease;
+  }
+
+  .btn-accent:hover {
+    background: var(--accent-deep);
+    color: #ffffff;
+  }
+
+  /* The 3px round separator used between byline and meta items. */
+  .dot-sep {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--dot);
+    flex: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
