@@ -145,6 +145,7 @@ export default function Home() {
           title={trailers[0].title}
           releasedLabel={trailers[0].releasedLabel}
           thumbnail={trailers[0].thumbnail}
+          embeddable={trailers[0].embeddable}
         />
 
         {/* Countdown */}
@@ -372,13 +373,13 @@ export default function Home() {
               id="trailer-cta-heading"
               className="max-w-[22ch] text-[34px] font-semibold leading-[1.15] tracking-[-0.03em]"
             >
-              Watch the latest trailer
+              Catch up on the trailers
             </h2>
             <p className="serif mt-4.5 max-w-[52ch] text-[19px] leading-[1.62] text-secondary">
-              {trailers[0].description}
+              {trailers[1].description}
             </p>
             <Link href="/trailers" className="btn-accent mt-7">
-              View all trailers
+              See every official video
             </Link>
           </div>
           <div className="relative aspect-video w-full overflow-hidden bg-surface">

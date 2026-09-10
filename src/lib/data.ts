@@ -352,14 +352,35 @@ export type Trailer = {
   released: string;
   releasedLabel: string;
   description: string;
-  music: string;
+  /** The credited track, where one carries the whole video. */
+  music?: string;
   /** Video on Rockstar Games' official YouTube channel. */
   youtubeId: string;
+  /**
+   * False when YouTube refuses off-site playback — age-restricted videos
+   * only play on youtube.com, where the viewer can be signed in. Embedding
+   * one anyway renders a dead player, so those link out instead.
+   */
+  embeddable?: boolean;
   /** Official still hosted on Rockstar's own CDN. */
   thumbnail: string;
 };
 
 export const trailers: Trailer[] = [
+  {
+    id: "extended-look",
+    title: "Grand Theft Auto VI: An Extended Look",
+    released: "2026-08-27",
+    releasedLabel: "August 2026",
+    description:
+      "Rockstar’s longest look at the game so far, captured entirely from in-game footage on PlayStation 5. It premiered on Netflix before going up free on YouTube the same evening, and it is the first official footage to follow two trailers that showed no gameplay at all.",
+    youtubeId: "tJbzMqJGH4k",
+    // Rockstar age-restricted this one, so it cannot play in an embed.
+    embeddable: false,
+    // The undated cut of the key art. The newswire version carries a
+    // "Netflix, August 27" banner that has now been overtaken by events.
+    thumbnail: officialArt("an-extended-look.0ijbsha5fo1te.jpg"),
+  },
   {
     id: "trailer-2",
     title: "Grand Theft Auto VI — Trailer 2",
@@ -380,7 +401,7 @@ export const trailers: Trailer[] = [
     description:
       "The first official look at GTA VI, our introduction to Vice City, Lucia and the state of Leonida.",
     music: "“Love Is a Long Road” by Tom Petty",
-    youtubeId: "g7jtqwUi9U0",
+    youtubeId: "QdBZY2fkU-0",
     thumbnail:
       "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/8978kok9385a82/1d6307ffa5adedfba5b1805e7c949fa74816d163.jpg",
   },

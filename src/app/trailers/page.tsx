@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import Link from "next/link";
@@ -7,9 +8,9 @@ import { trailers } from "@/lib/data";
 import { gameFacts } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Trailers — Watch Every Official Trailer",
+  title: "GTA VI Trailers — Watch Every Official Video",
   description:
-    "Watch every official Grand Theft Auto VI trailer from Rockstar Games, including the record-breaking first reveal and the second trailer, with release dates and breakdowns.",
+    "Watch every official Grand Theft Auto VI video from Rockstar Games: the record-breaking 2023 reveal, the second trailer, and An Extended Look — the in-game footage that premiered in August 2026 — with release dates and breakdowns.",
   path: "/trailers",
 });
 
@@ -53,9 +54,10 @@ export default function TrailersPage() {
             <span className="gradient-text">Trailers</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            Every official Grand Theft Auto VI trailer, newest first. Each reveal
-            broke records and gave us a deeper look at Vice City, Leonida and the
-            game&rsquo;s two protagonists.
+            Every official Grand Theft Auto VI video, newest first — the two
+            trailers and An Extended Look, the in-game footage Rockstar released
+            in August 2026. Each one broke records and took us deeper into Vice
+            City, Leonida and the game&rsquo;s two protagonists.
           </p>
         </header>
 
@@ -69,36 +71,65 @@ export default function TrailersPage() {
                 {t.title}
               </h2>
               <p className="mt-1 text-sm text-muted">
-                Released {t.releasedLabel} · Music: {t.music}
+                Released {t.releasedLabel}
+                {t.music ? ` · Music: ${t.music}` : null}
               </p>
-              <div className="mt-4 aspect-video w-full overflow-hidden border border-line bg-black">
-                <iframe
-                  className="h-full w-full"
-                  src={`https://www.youtube-nocookie.com/embed/${t.youtubeId}`}
-                  title={t.title}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
+              <div className="relative mt-4 aspect-video w-full overflow-hidden border border-line bg-black">
+                {t.embeddable === false ? (
+                  <a
+                    href={`https://www.youtube.com/watch?v=${t.youtubeId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Watch ${t.title} on YouTube`}
+                    className="group absolute inset-0 block h-full w-full"
+                  >
+                    <Image
+                      src={t.thumbnail}
+                      alt={`${t.title} — official still`}
+                      fill
+                      sizes="(max-width: 896px) 100vw, 896px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                    <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+                    <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 text-[13px] font-medium text-foreground">
+                      Watch on YouTube
+                    </span>
+                  </a>
+                ) : (
+                  <iframe
+                    className="h-full w-full"
+                    src={`https://www.youtube-nocookie.com/embed/${t.youtubeId}`}
+                    title={t.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                )}
               </div>
               <p className="mt-4 text-lg leading-relaxed text-muted">
                 {t.description}
               </p>
+              {t.embeddable === false ? (
+                <p className="mt-2 text-sm text-muted">
+                  Rockstar has age-restricted this video, so YouTube will only
+                  play it on its own site — the still above links straight to it.
+                </p>
+              ) : null}
             </section>
           ))}
         </div>
 
         <section aria-labelledby="about-heading" className="mt-16 max-w-3xl">
           <h2 id="about-heading" className="font-display text-3xl">
-            What the two trailers tell us
+            What the official footage tells us
           </h2>
           <div className="mt-4 space-y-4 text-lg leading-relaxed text-muted">
             <p>
-              For all the anticipation around Grand Theft Auto VI, the official
-              footage still comes down to just these two trailers — the December
-              2023 reveal and the longer follow-up in May 2025. That makes them
-              worth watching closely rather than once. The first ended years of
+              For most of the campaign the official footage came down to two
+              trailers — the December 2023 reveal and the longer follow-up in May
+              2025 — which is why both are worth watching closely rather than
+              once. The first ended years of
               speculation by confirming the return to Vice City, introducing Lucia
               and setting its montage of sun, crime and excess to Tom Petty&rsquo;s
               &ldquo;Love Is a Long Road.&rdquo; It leaned hard into a social-media,
@@ -115,12 +146,14 @@ export default function TrailersPage() {
               mark on a calendar.
             </p>
             <p>
-              Just as telling is what the trailers deliberately withhold: there is
-              no gameplay footage, no heads-up display, no mission structure and no
-              world map. That restraint is a Rockstar signature — reveal character
-              and world long before systems. It means almost everything about how
-              the game actually plays remains unconfirmed until Rockstar chooses to
-              show it. For a fuller breakdown, read our explainer on{" "}
+              Just as telling is what those two deliberately withheld: no gameplay,
+              no heads-up display, no mission structure and no world map. That
+              restraint is a Rockstar signature — reveal character and world long
+              before systems. An Extended Look, captured entirely from in-game
+              footage on PlayStation 5, is the first official break from the
+              pattern, though Rockstar still controls exactly how much of the game
+              it shows. For a fuller breakdown of the trailers, read our explainer
+              on{" "}
               <Link
                 href="/news/trailer-2-released"
                 className="font-semibold text-pink hover:underline"
