@@ -71,7 +71,8 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    // Images are only ever hotlinked from Rockstar Games' own domains.
+    // Game imagery is hotlinked from Rockstar Games' own domains, plus the
+    // press stills credited on the vehicles page.
     remotePatterns: [
       { protocol: "https", hostname: "www.rockstargames.com", pathname: "/VI/**" },
       {
@@ -84,6 +85,13 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.ctfassets.net",
         pathname: "/h1rqp7q66d54/**",
+      },
+      {
+        // GTA VI stills from Red Bull's vehicle roundup, credited and linked
+        // on /vehicles. The underlying imagery is Rockstar's.
+        protocol: "https",
+        hostname: "img.redbull.com",
+        pathname: "/images/**",
       },
     ],
   },

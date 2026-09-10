@@ -1,47 +1,17 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
-import { vehicleClasses } from "@/lib/data";
+import { vehicleRoundup, vehicleRoundupSource } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Vehicles — Cars, Bikes & Boats Seen in the Trailers",
+  title: "GTA VI Vehicles — Every Car, Bike, Boat and Plane Spotted",
   description:
-    "A guide to the cars, motorcycles and boats of Grand Theft Auto VI, organised by type and grounded in Rockstar's two official trailers — from Vice City supercars to Leonida's wetland airboats.",
+    "A guide to the vehicles of Grand Theft Auto VI — the cars, superbikes, helicopters, planes, boats and police vehicles named so far, including the models new to the series, with what Rockstar has actually shown of each.",
   path: "/vehicles",
 });
-
-/** Icon per vehicle type for the placeholder banner. */
-function ClassIcon({ slug, className }: { slug: string; className?: string }) {
-  if (slug === "motorcycle") {
-    return (
-      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <circle cx="5" cy="17" r="3" />
-        <circle cx="19" cy="17" r="3" />
-        <path d="M8 17h6l3-6h-4l-2-3H6" />
-        <path d="M14 11l-3 6" />
-      </svg>
-    );
-  }
-  if (slug === "boat") {
-    return (
-      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <path d="M3 14h18l-2 5H5l-2-5z" />
-        <path d="M12 14V4l6 6" />
-        <path d="M2 21c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1" />
-      </svg>
-    );
-  }
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M3 13l2-5a2 2 0 0 1 2-1.4h10A2 2 0 0 1 19 8l2 5" />
-      <path d="M3 13h18v4a1 1 0 0 1-1 1h-1a2 2 0 0 1-4 0H9a2 2 0 0 1-4 0H4a1 1 0 0 1-1-1v-4z" />
-      <circle cx="7.5" cy="16.5" r="0.5" />
-      <circle cx="16.5" cy="16.5" r="0.5" />
-    </svg>
-  );
-}
 
 export default function VehiclesPage() {
   return (
@@ -66,7 +36,8 @@ export default function VehiclesPage() {
             Grand Theft Auto VI&rsquo;s two official trailers are packed with the
             cars, motorcycles and boats you&rsquo;ll be driving, riding and
             piloting across Vice City and the state beyond. This guide breaks the
-            fleet down by type, using only what Rockstar has actually shown.
+            fleet, from Vice City supercars to the boats and airboats of the
+            Leonida wetlands.
           </p>
         </header>
 
@@ -103,66 +74,116 @@ export default function VehiclesPage() {
               used its own in-house car brands &mdash; Declasse, Grotti, Vapid,
               Shitzu and the rest &mdash; that echo real-world manufacturers
               without licensing them, and GTA VI will do the same. Where a model
-              is only glimpsed and unnamed, we describe it by type rather than
-              guess a badge. As Rockstar reveals confirmed vehicles, we&rsquo;ll
-              fold the official names and imagery into the categories below.
+              is only glimpsed and unnamed, we leave it that way rather than guess
+              a badge. As Rockstar reveals confirmed vehicles, we&rsquo;ll fold the
+              official names and imagery in here.
             </p>
           </div>
         </section>
 
-        <section aria-labelledby="types-heading" className="mt-14">
-          <h2 id="types-heading" className="font-display text-3xl">
-            The fleet by type
+
+        <section aria-labelledby="roundup-heading" className="mt-16">
+          <h2 id="roundup-heading" className="font-display text-3xl">
+            Named models spotted so far
           </h2>
-          <p className="mt-2 max-w-2xl text-muted">
-            Every category below is visible in Rockstar&rsquo;s official footage.
-            Here&rsquo;s what each class looks like in the world of Leonida.
-          </p>
-
-          <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {vehicleClasses.map((cls) => (
-              <li
-                key={cls.slug}
-                className="flex h-full flex-col overflow-hidden border border-line bg-surface"
+          <div className="mt-4 max-w-3xl space-y-4 text-base leading-relaxed text-muted">
+            <p>
+              Rockstar has never published a vehicle list, but the press has been
+              reading the footage frame by frame. The fullest catalogue so far is{" "}
+              <a
+                href={vehicleRoundupSource.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-pink hover:underline"
               >
-                <div className="relative flex aspect-[16/9] items-end justify-between border-b border-line bg-accent-wash p-4">
-                  <span className="eyebrow-sm text-accent-deep">
-                    {cls.label}
-                  </span>
-                  <ClassIcon slug={cls.slug} className="h-8 w-8 text-accent" />
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="font-display text-xl leading-tight">
-                    {cls.label}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {cls.blurb}
-                  </p>
-                  <span className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-accent bg-accent-wash px-3 py-1 text-xs font-medium text-teal">
-                    <span className="h-1.5 w-1.5 rounded-full bg-teal" aria-hidden />
-                    Seen in the official trailers
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
+                {vehicleRoundupSource.publisher}&rsquo;s roundup
+              </a>{" "}
+              by {vehicleRoundupSource.author} ({vehicleRoundupSource.publishedLabel}),
+              which names the models it recognises from the trailers and released
+              stills. We have grouped them below.
+            </p>
+            <p>
+              Treat these as identifications rather than confirmations. They are one
+              publication&rsquo;s reading of footage Rockstar has shown, and most are
+              recognised because the badge already exists elsewhere in the series.
+              Rockstar has confirmed none of them, and the lineup can change before
+              launch.
+            </p>
+          </div>
 
+          <div className="mt-10 space-y-12">
+            {vehicleRoundup.map((g) => (
+              <article key={g.slug} id={g.slug}>
+                <figure className="relative aspect-[16/9] w-full overflow-hidden border border-line bg-black">
+                  <Image
+                    src={g.image}
+                    alt={g.imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    className="object-cover"
+                  />
+                  <figcaption className="absolute bottom-0 right-0 bg-black/60 px-2 py-1 text-[10px] text-muted">
+                    &copy; Rockstar Games
+                  </figcaption>
+                </figure>
+                <h3 className="mt-5 font-display text-2xl">{g.label}</h3>
+                <p className="mt-2 max-w-3xl leading-relaxed text-muted">
+                  {g.blurb}
+                </p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {g.models.map((m) => (
+                    <li
+                      key={m}
+                      className="border border-line bg-surface px-3 py-1.5 text-sm text-secondary"
+                    >
+                      {m}
+                    </li>
+                  ))}
+                  {g.debuts?.map((d) => (
+                    <li
+                      key={d}
+                      className="border border-accent bg-accent-wash px-3 py-1.5 text-sm font-medium text-teal"
+                    >
+                      {d} &middot; new
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-8 max-w-3xl text-sm text-muted">
+            Names in the accent colour are the ones the roundup calls new to the
+            series; the rest it reports as returning from earlier Grand Theft Auto
+            games.
+          </p>
+        </section>
         {/* Sources */}
         <section className="mt-16 border-t border-line pt-8">
           <h2 className="font-display text-xl text-foreground">
             Sources &amp; credits
           </h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">
-            Everything on this page is drawn from Grand Theft Auto VI&rsquo;s two
-            official trailers, published by Rockstar Games. You can watch both in
+            What the footage shows is drawn from Grand Theft Auto VI&rsquo;s
+            official videos, published by Rockstar Games — you can watch them in
             full on our{" "}
             <Link href="/trailers" className="font-semibold text-pink hover:underline">
               trailers page
             </Link>
-            . We deliberately avoid unconfirmed leaks and fan-made vehicle lists;
-            as Rockstar officially names and details individual models, this guide
-            will be updated with the confirmed information and imagery.
+            . The named models are compiled from{" "}
+            <a
+              href={vehicleRoundupSource.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-pink hover:underline"
+            >
+              {vehicleRoundupSource.publisher}&rsquo;s vehicle roundup
+            </a>{" "}
+            and attributed as that publication&rsquo;s identifications, not as
+            Rockstar confirmations. Several stills on this page come from the same
+            article; the game imagery throughout is &copy; Rockstar Games. We still
+            avoid unconfirmed leaks, and as Rockstar names individual models
+            officially we will fold the confirmed detail in here.
           </p>
         </section>
       </div>

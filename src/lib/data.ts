@@ -1450,57 +1450,154 @@ export const community: CommunityPost[] = [
 ];
 
 /* ---------------------------------------------------------------------------
- * Vehicles shown in the official GTA VI trailers.
+ * Named models, as compiled by the press.
  *
- * Rockstar has NOT published an official GTA VI vehicle list or names. Every
- * entry below is a vehicle that visibly appears in an official Rockstar trailer;
- * the names are the vehicles' established Grand Theft Auto in-game brands as
- * identified from the trailer footage, and the "inspiration" is the real-world
- * car each design echoes. Details may change before launch. The trailers
- * themselves (linked on the page) are the source.
+ * Rockstar still has not published a vehicle list. The names below come from
+ * Red Bull's August 2026 roundup, which identifies them from trailer footage
+ * and released stills — so they are a journalist's reading of the footage, not
+ * anything Rockstar has confirmed, and the page says so plainly.
  * ------------------------------------------------------------------------- */
 
-export type VehicleClass = {
-  slug: string;
-  label: string;
-  blurb: string;
+/** Red Bull hosts its GTA VI stills on a Cloudinary-style path we can size. */
+const redBullStill = (path: string) =>
+  `https://img.redbull.com/images/c_crop,x_0,y_0,h_2160,w_3840/c_fill,w_1600,h_900/q_auto,f_auto/redbullcom/2026/8/17/${path}`;
+
+export const vehicleRoundupSource = {
+  publisher: "Red Bull",
+  author: "Tom Ward",
+  publishedLabel: "August 17, 2026",
+  url: "https://www.redbull.com/int-en/gta-6-driveable-vehicles",
 };
 
-/** Vehicle categories, in the order they appear on the page. */
-export const vehicleClasses: VehicleClass[] = [
+export type VehicleRoundupGroup = {
+  slug: string;
+  label: string;
+  /** Our paraphrase of what the roundup says about this group. */
+  blurb: string;
+  /** Models it reports as returning from earlier games. */
+  models: string[];
+  /** Models it calls new to the series. */
+  debuts?: string[];
+  image: string;
+  imageAlt: string;
+};
+
+export const vehicleRoundup: VehicleRoundupGroup[] = [
   {
-    slug: "super",
-    label: "Supercars & Sports",
-    blurb: "High-end exotics and sports cars glimpsed tearing through Leonida.",
+    slug: "cars",
+    label: "Cars & sports models",
+    blurb:
+      "The heart of the roundup: sports models it reports as returning, alongside a few more it places in stills Rockstar has put out.",
+    models: [
+      "8F Drafter",
+      "Alutein",
+      "Astron",
+      "Asterope GZ",
+      "Sultan",
+      "Tailgater",
+      "Tempesta",
+    ],
+    image: redBullStill("hw31cncjvlja4roxqbos/grand-theft-auto-vi-gta-6-vehicles-cars"),
+    imageAlt: "A blue lowrider sedan in traffic beneath a mural-covered overpass in Vice City, with dirt bikes and buggies alongside it",
   },
   {
-    slug: "muscle",
-    label: "Muscle Cars",
-    blurb: "American muscle — including the magenta hero car that closes both trailers.",
+    slug: "helicopters",
+    label: "Helicopters",
+    blurb:
+      "Five rotorcraft it lists as returning — though it admits there is no telling how many variants will end up in the game.",
+    models: [
+      "Buzzard",
+      "Maverick",
+      "Police Maverick",
+      "SuperVolito",
+      "Sea Sparrow",
+    ],
+    image: redBullStill("mwmlilvs3edaug0wtg04/grand-theft-auto-vi-gta-6-vehicles-helicopter"),
+    imageAlt: "A red and white news helicopter banking over a wooded ridge at sunset",
   },
   {
-    slug: "classic",
-    label: "Classics & Luxury",
-    blurb: "Vintage cruisers and drop-top luxury in classic Vice City style.",
+    slug: "bikes",
+    label: "Bikes, super and pedal",
+    blurb:
+      "Motorbikes and pedal power together, which between them should cover most riding tastes.",
+    models: [
+      "Avarus",
+      "Double T",
+      "Manchez",
+      "Sanchez",
+      "Zombie Chopper",
+      "BMX",
+      "Scorcher",
+    ],
+    image: officialArt("Ambrosia_01.0rqphs0gazkm..jpg"),
+    imageAlt: "A biker gang in matching leather vests riding together down a road in Ambrosia",
   },
   {
-    slug: "suv",
-    label: "SUVs & 4x4s",
-    blurb: "Full-size SUVs and body-on-frame haulers seen in traffic.",
+    slug: "aircraft",
+    label: "Planes & jets",
+    blurb:
+      "Fixed-wing aircraft running from private jets down to a crop duster, with the Dodo back for putting down on water.",
+    models: [
+      "Jet",
+      "Nimbus",
+      "Shamal",
+      "Dodo",
+      "Duster",
+    ],
+    image: redBullStill("acfid2zrvkqke6fciqc9/grand-theft-auto-vi-gta-6-vehicles-leonida-keys"),
+    imageAlt: "A yellow and white seaplane flying over the Leonida Keys, a causeway and the Vice City skyline beyond",
   },
   {
-    slug: "truck",
-    label: "Trucks & Off-Road",
-    blurb: "Pickups and off-roaders built for Leonida's back roads and swamps.",
-  },
-  {
-    slug: "motorcycle",
-    label: "Motorcycles",
-    blurb: "Two wheels — from a lean chopper to a dirt bike.",
-  },
-  {
-    slug: "boat",
+    slug: "boats",
     label: "Boats",
-    blurb: "Watercraft for Leonida's coast, canals and wetlands.",
+    blurb:
+      "A fast hull, a plush one and a basic one — and a strong suspicion that Rockstar is holding the rest back.",
+    models: [
+      "Squalo",
+      "Marquis",
+      "Dinghy",
+    ],
+    image: redBullStill("fpepov3so1bmzsgpqxyk/grand-theft-auto-vi-gta-6-vehicles-boat-party"),
+    imageAlt: "Dozens of boats rafted together at a party on the water off the Leonida Keys",
+  },
+  {
+    slug: "police",
+    label: "Police vehicles",
+    blurb:
+      "The law's side of the garage, from pursuit cars and a riot van to a sheriff's SUV and a helicopter.",
+    models: [
+      "Buffalo STX Pursuit",
+      "Gauntlet Interceptor",
+      "Interceptor",
+      "Police Riot Van",
+      "Sheriff SUV",
+      "Police Maverick",
+    ],
+    image: officialArt("Grassrivers_04.01ckpqbhxyz76.jpg"),
+    imageAlt: "A police helicopter and two cruisers chasing a pick-up truck through the Grassrivers swamp",
+  },
+  {
+    slug: "utility",
+    label: "Work vehicles & oddities",
+    blurb:
+      "Everything that does not fit a showroom — plus the three the article singles out as new to the series.",
+    models: [
+      "Biff",
+      "Boxville",
+      "Hustler",
+      "Kamacho",
+      "Outlaw",
+      "Dashound",
+      "Forklift",
+      "Minivan",
+      "Canoe",
+    ],
+    debuts: [
+      "Airboat",
+      "Street Blazer ATV",
+      "Verus ATV",
+    ],
+    image: officialArt("Mount_Kalaga_National_Park_01.0v5fl0f83hjv_.jpg"),
+    imageAlt: "Four riders taking dirt bikes through mud in Mount Kalaga, an ATV jumping behind them",
   },
 ];
