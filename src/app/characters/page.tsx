@@ -205,7 +205,7 @@ export default function CharactersPage() {
               how the character-switching system, missions or endings work, and
               the supporting players arrive with roles rather than arcs. A great
               deal of confident &ldquo;detail&rdquo; circulating online — specific
-              backstories, chapter counts, who betrays whom — traces back to leaks
+              backstories, chapter counts, who betrays whom — traces back to rumours
               and insider posts, not to Rockstar.
             </p>
             <p>
@@ -222,8 +222,8 @@ export default function CharactersPage() {
             <p>
               Everything on this page is drawn from Rockstar&rsquo;s official
               trailers and reveals. If you want to follow where the fandom thinks
-              the story is heading — the ending theories, the leaked runtime and
-              the debates — we track all of that, clearly labelled as speculation,
+              the story is heading — the ending theories and the
+              debates — we track all of that, clearly labelled as speculation,
               in our{" "}
               <Link
                 href="/community/lucia-and-jason-ending-theories"

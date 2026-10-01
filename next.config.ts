@@ -64,6 +64,12 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // Leak coverage was withdrawn; send it to the official footage instead.
+        source: "/community/august-2026-gameplay-leak",
+        destination: "/news/extended-look-netflix-premiere",
+        permanent: true,
+      },
+      {
         source: "/community/vice-city-secret-messages",
         destination: "/community/trailer-2-hidden-details",
         permanent: true,

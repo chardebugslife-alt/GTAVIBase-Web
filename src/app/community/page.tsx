@@ -9,7 +9,7 @@ import { community, communityCategories, type CommunityPost } from "@/lib/data";
 export const metadata: Metadata = pageMetadata({
   title: "GTA VI Community — Fan Theories, Story Talk & Conspiracy",
   description:
-    "The unofficial side of the GTA VI countdown: fan theories, story speculation, trailer breakdowns, leaks and conspiracy talk — curated summaries with links back to where the discussion lives.",
+    "The unofficial side of the GTA VI countdown: fan theories, story speculation, trailer breakdowns and conspiracy talk — curated summaries with links back to where the discussion lives.",
   path: "/community",
 });
 
@@ -47,7 +47,7 @@ export default function CommunityPage() {
         <header className="max-w-[760px] pt-16 sm:pt-21">
           <p className="eyebrow text-muted">Community</p>
           <h1 className="mt-6 text-[clamp(38px,5.2vw,60px)] font-semibold leading-[1.05] tracking-[-0.035em]">
-            Theories, debates and leaks
+            Theories, debates and breakdowns
           </h1>
           <p className="serif mt-6 max-w-[60ch] text-xl leading-[1.65] text-secondary">
             What the fandom is arguing about, summarised and sourced. Nothing on

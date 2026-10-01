@@ -37,7 +37,7 @@ const destinations: Record<string, Item> = {
   community: {
     href: "/community",
     title: "Community",
-    blurb: "Fan theories, debates and leaks — unofficial and clearly labelled.",
+    blurb: "Fan theories, debates and trailer breakdowns — unofficial and clearly labelled.",
   },
   faq: {
     href: "/faq",

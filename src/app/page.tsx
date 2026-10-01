@@ -335,7 +335,7 @@ export default function Home() {
             linkLabel="All community"
           />
           <p className="serif mt-4.5 max-w-[60ch] text-[17px] leading-[1.6] text-muted">
-            Fan theories, debates and leaks — unofficial, and clearly labelled.
+            Fan theories, debates and trailer breakdowns — unofficial, and clearly labelled.
           </p>
           <div className="mt-6">
             {latestCommunity.map((post) => (

@@ -67,8 +67,8 @@ export const editorial = {
       text: "Every factual claim on our news and guide pages traces back to Rockstar Games — its trailers, Newswire posts and store listings. We link the primary source on each page so you can check it yourself.",
     },
     {
-      title: "Leaks stay labelled",
-      text: "Unconfirmed leaks, insider claims and fan theories live in our clearly-marked Community section, never in the factual News. We tell you plainly when something is speculation.",
+      title: "No leaks, speculation labelled",
+      text: "We don't publish or summarise leaked material from unreleased builds. Fan theories and speculation live in our clearly-marked Community section, never in the factual News, and we tell you plainly when something is speculation.",
     },
     {
       title: "Dated and corrected",

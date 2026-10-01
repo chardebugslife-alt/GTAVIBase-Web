@@ -529,7 +529,6 @@ export const news: NewsArticle[] = [
       "It mattered for Netflix beyond one weekend, too. The company has spent years trying to make gaming stick through a mobile catalogue, cloud experiments and adaptations of its own franchises, with mixed results. Premiering the most anticipated entertainment product of the decade did more for its credibility in that space than another round of licensed mobile titles. For the wider games industry it sets a precedent, even if almost no other game has the cultural weight to negotiate the same deal.",
       "The arrangement did draw criticism when it was announced. A loud group of players objected to paying a subscription to watch what amounted to an advert. In practice, the free YouTube release six hours later took most of the sting out of that complaint, because anyone who waited saw exactly the same video. The more lasting cost was structural. Part of what made the first two trailers feel like events was millions of people pressing play on the same link at the same moment, and a staggered rollout split that single global moment into two audiences six hours apart.",
       "If you missed it, An Extended Look is still available in full. It is free on the Rockstar Games YouTube channel and at rockstargames.com/VI, and it remains in the Netflix catalogue for subscribers. One practical note: Rockstar age-restricted the YouTube upload, so it will not play in players embedded on other sites, including ours. Watch it on YouTube while signed in to an account that meets the age requirement, or on Rockstar's own site. Our trailers page links to it alongside both earlier trailers.",
-      "The premiere also settled the question left by the August 18 leak, when clips from an unfinished build circulated online nine days before Rockstar's own reveal. An Extended Look is now the official, on-the-record view of how the game looks and plays. Where it differs from the leaked material, trust the official footage. Our community write-up of the leak covers what was reported at the time and how much weight it deserved.",
       "None of this moved the fundamentals. Grand Theft Auto VI still launches on November 19, 2026, on PlayStation 5 and Xbox Series X|S, with no PC version announced for launch. Pre-orders have been open since June 25, and Standard and Ultimate remain the only two editions. Take-Two had already pointed to An Extended Look in its financial reporting as evidence that the November date was holding, and nothing in or around the premiere suggested otherwise. Studios rarely stage a reveal this size twelve weeks before a date they expect to move.",
       "With launch now only weeks away, An Extended Look is likely to remain the definitive pre-release showcase, though Rockstar may still release shorter clips or a launch trailer before November 19. If it does, we will update this page and our trailers guide, sourced as always from Rockstar and its named partners rather than from screenshots and rumours.",
     ],
@@ -745,7 +744,7 @@ export const news: NewsArticle[] = [
       "That chemistry is the point. Rockstar has repeatedly framed the two as a modern outlaw couple, a Bonnie-and-Clyde dynamic transplanted into a contemporary, social-media-soaked Leonida. The setup the studio describes is deceptively simple — two people the world has counted out, drawn together and then pulled into a criminal conspiracy that stretches across the state — but it reframes the entire Grand Theft Auto formula around a relationship rather than a lone climber. The question the game seems built to ask is not just 'can they get rich,' but 'can they hold on to each other while they try.'",
       "The significance of a female lead is hard to overstate for a series this size. Every previous mainline Grand Theft Auto protagonist — from Claude and Tommy Vercetti to CJ, Niko Bellic and the GTA V trio — has been a man. Putting Lucia at the front, and making her a fully co-equal lead rather than a supporting figure, is the most consequential change to the series' point of view in its history, and it reshapes the kind of story Rockstar can tell.",
       "A two-protagonist structure also opens design questions the trailers do not answer. GTA V's three-way switching let players jump between characters mid-mission and live separate lives between jobs; a two-hander built around a couple could work very differently, leaning into shared scenes, split perspectives or moments where the pair are apart and the player chooses who to be. Rockstar has shown the relationship without showing the mechanics, so exactly how you move between Lucia and Jason remains one of the most interesting unknowns.",
-      "It is worth being clear about where confirmed information ends. Rockstar has established who Lucia and Jason are, where they start and the shape of their bond, but it has not published full biographies, confirmed a voice cast, or detailed how the switching system, missions or endings work. A great deal of confident 'detail' circulating online — specific backstories, chapter counts, who betrays whom — traces back to leaks and insider posts, not to Rockstar. We keep that material in our clearly labelled community section rather than presenting it as fact.",
+      "It is worth being clear about where confirmed information ends. Rockstar has established who Lucia and Jason are, where they start and the shape of their bond, but it has not published full biographies, confirmed a voice cast, or detailed how the switching system, missions or endings work. A great deal of confident 'detail' circulating online — specific backstories, chapter counts, who betrays whom — traces back to rumours and anonymous insider posts, not to Rockstar, and we don't repeat it as fact anywhere on this site.",
       "For the confirmed character breakdowns, including the details Rockstar has shown of each lead, see our full characters guide. And if you want to follow where the fandom thinks the Lucia-and-Jason story is heading — the ending theories, the betrayal predictions and the story-length debate — our community section tracks those conversations while keeping them firmly separated from what has actually been confirmed.",
     ],
     sources: [
@@ -1049,12 +1048,6 @@ export const communityCategories: CommunityCategory[] = [
       "The wilder, take-it-with-a-shaker-of-salt end of the fandom. Entertainment, not evidence.",
   },
   {
-    slug: "leaks-rumors",
-    label: "Leaks & Rumors",
-    blurb:
-      "Unconfirmed chatter and reported leaks the community is weighing — none of it official.",
-  },
-  {
     slug: "debates",
     label: "Hot Debates",
     blurb:
@@ -1129,80 +1122,6 @@ const HUB_FORUMS: CommunityLink = {
 
 export const community: CommunityPost[] = [
   {
-    slug: "august-2026-gameplay-leak",
-    evidence:
-      "Footage corroborated by DMCA takedowns and Bloomberg reporting; the map image is disputed.",
-    category: "leaks-rumors",
-    date: "2026-08-19",
-    dateLabel: "August 19, 2026",
-    updatedLabel:
-      "Leaked footage from an unfinished build. None of it is Rockstar's own announcement, and details below may not reflect the shipping game. Updated after Rockstar's official Extended Look premiered on August 27.",
-    title:
-      "The August 2026 GTA VI gameplay leak: what leaked, what's verified, and what's a scam",
-    summary:
-      "Days before Rockstar's Netflix reveal, a group calling itself CyberLeek published gameplay clips from an unfinished GTA VI build — and Rockstar's lawyers responded within hours. Here's what is actually established, what's disputed, and what to avoid.",
-    keyPoints: [
-      "Clips began appearing on August 18, 2026, growing to four over the following day.",
-      "Rockstar and Take-Two issued DMCA takedowns within hours across X, Streamable and Reddit.",
-      "Bloomberg's Jason Schreier reported the footage is genuine, citing Rockstar sources.",
-      "A separate 'full map' image is disputed by the fan community and far less certain than the clips.",
-      "It's an in-development build — mechanics shown may be cut, changed or unfinished.",
-      "Fake 'full leak' downloads are circulating. Don't run them.",
-    ],
-    body: [
-      "On August 18, 2026, roughly nine days before Rockstar's own Extended Look was due to premiere on Netflix, gameplay footage from Grand Theft Auto VI began appearing online. What started as two clips grew to four over the following day, alongside images claiming to show the full map of Leonida. A group calling itself CyberLeek took responsibility. It is the largest unauthorised GTA VI disclosure since the 2022 breach, and unlike most leak cycles, this one carries an unusually strong signal that the material is real.",
-      "That signal is Rockstar's own response. Take-Two and Rockstar began issuing DMCA takedown notices within hours, hitting posts across X, Streamable and Reddit. Copyright claims are an admission of ownership: publishers do not generally file them over footage that isn't theirs, because doing so would be both pointless and legally awkward. Bloomberg's Jason Schreier — comfortably the most reliable reporter on this beat — subsequently reported that the footage is genuine, citing sources at Rockstar. Between the takedowns and Schreier, the clips themselves are about as close to confirmed as leaked material ever gets.",
-      "The clips are not, however, a preview. Everything in them comes from a build that was still in development, and this is the distinction that gets flattened in thumbnails and headlines. Features visible in an internal build routinely get cut, rebuilt or replaced before release; placeholder art and debug states are normal; and nothing on screen has been through the polish pass that separates a work-in-progress from a shipped Rockstar game. Reporting suggests one clip contains a track released in January 2025, which points to a more recent build than first assumed — but 'more recent' is not 'final'.",
-      "With that caveat firmly attached, here is what outlets have described across the four clips. On foot: melee exchanges including punches, jump kicks and improvised weapons, knife and switchblade animations, the ability to disarm an armed NPC, and a looting system that observers immediately compared to Red Dead Redemption 2. In vehicles: a fuel gauge, engine readouts, a choice between smashing a window or cloning a key when stealing a car, and a small vehicle storage inventory. Around the edges: a basketball mini-game with its own timing mechanic feeding a focus stat, a police system that tracks your description, clothing and vehicle separately, and a stamina bar during fistfights. Several outlets also describe a karma or morality system that judges Jason's actions.",
-      "Some specifics are shakier than others, and it's worth separating them. The wanted system is a good example: a claim that GTA VI runs to six stars has circulated widely, but what is actually visible in the clips is a two-star state, which tells you nothing about the ceiling. Treat the mechanics list above as 'things that existed in this build', not as a confirmed feature set — and expect at least some of it to look different when Rockstar shows the game on its own terms.",
-      "The map images are a separate matter, and they deserve much more scepticism than the video. While the clips carry the weight of DMCA takedowns and Schreier's reporting behind them, the alleged full-map image has been disputed within the fan community, and it is considerably easier to fake a static image than a minute of coherent gameplay. Location names have circulated from it — Dalton Island, Tequesta Retreat, Gloriana Key, Catalan Key, Catalan Bay among them — but until something corroborates them, they are names on an image of uncertain origin, not confirmed geography. Our setting guide sticks to what Rockstar has actually shown.",
-      "CyberLeek has framed the leak as protest rather than profit, objecting to what it characterises as the industry's slide toward all-digital distribution and 'fake' single-player DLC, and warning that other publishers should consider themselves reachable. Whether you find that framing persuasive or self-serving, it's worth being clear-eyed about the position it puts developers in: the people whose unfinished work is being picked over publicly had no say in the matter, and the 2022 leak was followed by a genuinely ugly period for the team involved.",
-      "One practical warning. Any leak of this size attracts opportunists, and this one has been no exception: files advertised as the 'full leak', a complete map dump or an early build are circulating, and they are scams. Rockstar takedowns have also made the genuine material transient, which is exactly the environment in which malware thrives. Nothing legitimate about this story requires you to download anything.",
-      "Update: nine days after the leak, on August 27, Rockstar released Grand Theft Auto VI: An Extended Look, about 27 minutes of official in-game footage captured on PlayStation 5. It is now the on-the-record view of how the game looks and plays. Where it differs from the leaked clips, trust the official footage: the leak came from an unfinished build, and Rockstar chose what to show in its own video. Our write-up of the premiere covers what it showed.",
-    ],
-    source: {
-      title:
-        "Apparent GTA 6 footage and map leak as Rockstar issues takedowns",
-      publisher: "GameSpot",
-      url: "https://www.gamespot.com/articles/apparent-gta-6-footage-and-map-leak-as-rockstar-issues-takedowns/",
-      kind: "Article",
-    },
-    moreLinks: [
-      {
-        title:
-          "GTA 6 gameplay leaked ahead of its new trailer, and Rockstar is taking down the videos",
-        publisher: "Engadget",
-        url: "https://www.engadget.com/2239548/gta-6-gameplay-leak-august-2026/",
-        kind: "Article",
-      },
-      {
-        title: "GTA 6 gameplay leaks continue as group makes demands of Rockstar",
-        publisher: "Push Square",
-        url: "https://www.pushsquare.com/news/2026/08/gta-6-gameplay-leaks-continue-as-group-makes-demands-of-rockstar",
-        kind: "Article",
-      },
-      {
-        title:
-          "15 details from the new GTA 6 leaks, including a possible morality system and stamina meter",
-        publisher: "PC Gamer",
-        url: "https://www.pcgamer.com/games/grand-theft-auto/gta-6-video-leak-analysis-august-2026/",
-        kind: "Article",
-      },
-      {
-        title:
-          "GTA 6 gameplay and map seemingly leaked ahead of Netflix Extended Look",
-        publisher: "Dexerto",
-        url: "https://www.dexerto.com/gta/gta-6-gameplay-and-map-seemingly-leaked-ahead-of-netflix-extended-look-3399751/",
-        kind: "Article",
-      },
-      HUB_REDDIT,
-    ],
-    related: [
-      { href: "/setting", label: "GTA VI setting: Vice City & Leonida" },
-      { href: "/news/extended-look-netflix-premiere", label: "The official Extended Look on Netflix" },
-    ],
-  },
-  {
     slug: "how-big-is-the-map",
     evidence:
       "Fan estimate reconstructed from trailer footage, not an official figure.",
@@ -1218,15 +1137,15 @@ export const community: CommunityPost[] = [
       "Fan mapping estimates put Leonida at about 2.5x the size of GTA V.",
       "One widely-shared Reddit calculation lands at ~2.7x with the full area, ~2.4x without the northern panhandle.",
       "The April 2026 revision of the Community Mapping Project added cities, highways, towns and waterways.",
-      "It's built from trailer analysis and leaks — Rockstar has not published an official map or size.",
+      "It's built from analysis of Rockstar's official footage — Rockstar has not published an official map or size.",
     ],
     body: [
       "The single most-asked GTA VI question finally has a headline number attached: the fan-built Community Mapping Project now estimates Leonida at roughly 2.5 times the size of GTA V's map. That figure has rocketed around the fandom, appearing in headlines and thumbnails as though it were confirmed. It isn't — so it's worth understanding exactly what the number is, where it comes from, and why the honest answer is still 'we don't really know.'",
       "First, some context on why this question dominates every GTA VI discussion. Map size has become shorthand for ambition. Grand Theft Auto V's Los Santos and Blaine County felt enormous in 2013 and stayed the backbone of a game people played for over a decade. So when fans ask how big Leonida is, they're really asking how many years of exploration Rockstar is promising — and after a wait this long, they want that promise to be huge.",
-      "The 2.5x figure comes from the Community Mapping Project, a fan effort to reconstruct Leonida from trailer shots, background details, screenshots and leaked material. It is genuinely impressive detective work, but it is reconstruction, not a blueprint. One widely-shared Reddit calculation landed at about 2.7 times GTA V using the full projected area, or roughly 2.4 times if you exclude a debated northern panhandle region — which is where the round '2.5x' everyone quotes actually comes from. An April 2026 revision added cities including the confirmed Vice City, plus highways, towns, countryside and waterways, making it the most complete fan picture yet.",
+      "The 2.5x figure comes from the Community Mapping Project, a fan effort to reconstruct Leonida from trailer shots, background details and official screenshots. It is genuinely impressive detective work, but it is reconstruction, not a blueprint. One widely-shared Reddit calculation landed at about 2.7 times GTA V using the full projected area, or roughly 2.4 times if you exclude a debated northern panhandle region — which is where the round '2.5x' everyone quotes actually comes from. An April 2026 revision added cities including the confirmed Vice City, plus highways, towns, countryside and waterways, making it the most complete fan picture yet.",
       "Here's the catch that headlines skip: raw area is the least interesting measure of a Grand Theft Auto map, and the easiest to get wrong. A map can be technically large but mostly empty water or repetitive countryside, or it can be smaller on paper yet denser and more detailed than anything before it. Rockstar itself has historically cared far more about density — how much there is to do per square mile — than about a big number on a box. A Leonida that is '2.5x bigger' but packed with interiors, activities and living detail would feel vastly larger than the ratio suggests.",
       "There's also the water problem. Estimates that include large stretches of ocean, the Leonida Keys and Everglades-style wetlands can inflate the total dramatically, even though much of that space is traversed by boat rather than explored on foot. Whether you count that area is a big part of why fan figures swing between roughly 2x and nearly 3x. There is no single 'correct' way to draw the boundary, which is exactly why the estimates disagree.",
-      "What is actually confirmed is narrower but solid: GTA VI returns to Vice City within the wider state of Leonida, a modern-day reimagining of Florida, and the two trailers show a clear mix of dense urban sprawl, coastline, keys and backcountry swamp. Rockstar has described its ambitions for the world in glowing terms, and a retailer listing that called it 'the most massive, dense and insane' map the studio has built made the rounds — but that is marketing copy, not a measurement, and it should be read as such.",
+      "What is actually confirmed is narrower but solid: GTA VI returns to Vice City within the wider state of Leonida, a modern-day reimagining of Florida, and Rockstar's official footage, from the two trailers to the 27-minute An Extended Look, shows a clear mix of dense urban sprawl, coastline, keys and backcountry swamp. Rockstar has described its ambitions for the world in glowing terms, and a retailer listing that called it 'the most massive, dense and insane' map the studio has built made the rounds — but that is marketing copy, not a measurement, and it should be read as such.",
       "So treat 2.5x as a well-reasoned fan estimate, not a fact. It could tighten or shift the moment Rockstar shows an official map, which the studio has not yet done. If you want the confirmed picture of where the game is set — Vice City, the Keys, the wetlands and the towns of Leonida — our setting guide sticks to what Rockstar has actually shown, and we'll update this post the day a real map or size figure arrives.",
     ],
     source: {
@@ -1242,12 +1161,6 @@ export const community: CommunityPost[] = [
         url: "https://screenrant.com/gta-6-map-comparison-open-world-scale/",
         kind: "Article",
       },
-      {
-        title: "Updated Community Mapping Project comparison",
-        publisher: "GamingBible",
-        url: "https://www.gamingbible.com/news/gta-6-updated-map-leak-324914-20260414",
-        kind: "Article",
-      },
       HUB_REDDIT,
     ],
     related: [
@@ -1261,24 +1174,24 @@ export const community: CommunityPost[] = [
     date: "2026-06-20",
     dateLabel: "June 20, 2026",
     updatedLabel:
-      "A roundup of the story speculation — endings, the runtime leak and the length debate. All unconfirmed.",
+      "A roundup of the story speculation — endings, betrayal theories and the length debate. All unconfirmed.",
     title: "GTA VI Story Theories: Endings, Length and Where Fans Think It's Going",
     summary:
-      "Rockstar calls it a modern outlaw-couple tale — so the community is already deep into theories about betrayals, branching endings, a leaked 75-hour runtime and whether the campaign should even be that long. Here's the whole conversation, clearly marked as speculation.",
+      "Rockstar calls it a modern outlaw-couple tale — so the community is deep into theories about betrayals, branching endings and how long the campaign should be. Here's the whole conversation, clearly marked as speculation, with our own read on what the official footage does and doesn't support.",
     keyPoints: [
       "The two-protagonist setup has fans predicting player-choice or branching endings.",
       "The 'Bonnie and Clyde' framing fuels tragic-ending and betrayal theories.",
-      "A viral leak claims a ~75-hour, five-chapter campaign — Rockstar has confirmed nothing.",
-      "Fans are split on whether a 30-hour or 75-hour story would be better.",
-      "None of this is official: the trailers show setup and tone, not plot resolution.",
+      "Rockstar has not confirmed a runtime or chapter count; any precise figure you see is unofficial.",
+      "Fans are split between a tight GTA V-length story and a longer Red Dead Redemption 2-style epic.",
+      "None of this is official: even An Extended Look shows setup and tone, not plot resolution.",
     ],
     body: [
       "Rockstar has framed Lucia and Jason as two people the world has counted out, pulled together and then deeper into a criminal conspiracy across Leonida. That outlaw-couple pitch has the community running wild with story predictions, and the speculation has since spilled well past the ending into questions of runtime and structure. This post gathers the whole conversation in one place — and every word of it is fan theory, not fact.",
       "Start with the endings, because that's where the theorizing began. The most popular threads lean on the 'Bonnie and Clyde' comparison to argue for a tragic or bittersweet finale, the kind of doomed-romance ending the framing seems to invite. Others expect a betrayal beat between the two leads, or a branching structure that lets the player decide how the pair's story closes — an idea fuelled by memories of the multiple-ending choice at the climax of Grand Theft Auto V. Frame-counters have combed both trailers for hints of who might turn on whom, though what they're really finding is tone, not spoilers.",
-      "Then came the runtime leak, which poured fuel on everything. A viral, unverified claim — traced back to an anonymous 2025 insider post attributed to the X user 'remus_r' — describes a roughly 75-hour main story split into a prologue and five chapters, escalating from around two hours to a 22-hour fourth chapter. The same leak alleges specific character beats, such as Jason being a former black-ops soldier from Latin America and Lucia pursuing revenge after her father is killed by a cartel, with the finale set outside the United States. It is unusually detailed, which is precisely why to be skeptical: competing insider reports put the campaign closer to 45–50 hours, and Rockstar has confirmed neither a runtime nor a chapter count nor any of these plot claims.",
-      "That leak, in turn, kicked off a genuinely fun taste debate: how long should the story even be? One camp wants a focused 30–40 hour campaign in the propulsive mould of GTA V, and worries that 75 hours would sag under padding and filler. The other points to Red Dead Redemption 2 as proof Rockstar can sustain a much longer, slower-burning epic, and would happily sink 60–75 hours into Leonida if the quality holds. Both sides are really arguing about pacing philosophy dressed up as a numbers argument — and since the underlying runtime is unconfirmed, neither can win.",
-      "What ties these threads together is a single healthy reminder: the trailers establish character and tone, not plot resolution. We know who Lucia and Jason are and the shape of their bond. We do not know how their story is structured, how long it runs, or how it ends — and anyone presenting those as settled is repeating a leak, not reporting a fact. That's the exact line this community section exists to hold.",
-      "So enjoy all of it — the tragic-ending predictions, the chapter-by-chapter leak breakdowns, the 30-versus-75 arguments. Speculating through a long wait is half the fun of being a fan. Just keep the mental label attached: this is what the community thinks, not what Rockstar has said. For the confirmed character details underneath all the theorizing, our characters guide sticks strictly to what's official.",
+      "An Extended Look gave theorists more to work with without settling anything. Its longer narrative cutscenes put real screen time on the people around Lucia and Jason, including Brian Heder, Raul Bautista, Boobie Ike and Cal Hampton, and every one of them has since become a candidate for the betrayal the outlaw-couple framing seems to promise. Our read is more cautious. Rockstar cut that footage to sell a world and a tone, and a studio this protective of its story is unlikely to have put the decisive turn of its plot into a promotional video. A supporting character who looks shifty in a showcase edit is evidence of good casting, not of the ending.",
+      "The other long-running argument is about length: how long should the story be? One camp wants a focused campaign in the mould of Grand Theft Auto V, whose main story most players finish in roughly 30 to 35 hours, and worries that anything far longer would sag under padding. The other points to Red Dead Redemption 2, which runs closer to 50 hours for its main story alone, as proof Rockstar can sustain a slower, more novelistic epic. Both camps are really arguing about pacing, not hours. Our view is that the two-protagonist structure points to a GTA V-style rhythm, since switching between leads is a tool for keeping momentum, but that is our interpretation, not something Rockstar has said. Rockstar has confirmed no runtime and no chapter count, so any precise number you see quoted is unofficial.",
+      "What ties these threads together is a single healthy reminder: the trailers establish character and tone, not plot resolution. We know who Lucia and Jason are and the shape of their bond. We do not know how their story is structured, how long it runs, or how it ends — and anyone presenting those as settled is repeating a rumour, not reporting a fact. That's the exact line this community section exists to hold.",
+      "So enjoy all of it — the tragic-ending predictions, the betrayal suspects, the short-versus-long arguments. Speculating through a long wait is half the fun of being a fan. Just keep the mental label attached: this is what the community thinks, not what Rockstar has said. For the confirmed character details underneath all the theorizing, our characters guide sticks strictly to what's official.",
     ],
     source: {
       title: "Story & ending theory threads on r/GTA6",
@@ -1287,18 +1200,6 @@ export const community: CommunityPost[] = [
       kind: "Subreddit",
     },
     moreLinks: [
-      {
-        title: "GTA 6 Rumored Runtime Compared To All Other Grand Theft Auto Games",
-        publisher: "ScreenRant",
-        url: "https://screenrant.com/gta-6-main-story-runtime-leak/",
-        kind: "Article",
-      },
-      {
-        title: "GTA 6 splits fans already: should its story be 30 or 75 hours?",
-        publisher: "Softonic",
-        url: "https://en.softonic.com/articles/gta-6-splits-fans-already-should-its-story-be-30-or-75-hours",
-        kind: "Article",
-      },
     ],
     related: [
       { href: "/characters", label: "GTA VI characters: Lucia & Jason" },
@@ -1350,7 +1251,7 @@ export const community: CommunityPost[] = [
   },
   {
     slug: "will-it-delay-again",
-    category: "leaks-rumors",
+    category: "debates",
     date: "2026-06-10",
     dateLabel: "June 10, 2026",
     title: "Will GTA VI get delayed again? What the community thinks",
