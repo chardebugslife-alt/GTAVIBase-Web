@@ -152,13 +152,19 @@ export default function TrailersPage() {
               before systems. An Extended Look, captured entirely from in-game
               footage on PlayStation 5, is the first official break from the
               pattern, though Rockstar still controls exactly how much of the game
-              it shows. For a fuller breakdown of the trailers, read our explainer
-              on{" "}
+              it shows. For a fuller breakdown, read our explainer on{" "}
               <Link
                 href="/news/trailer-2-released"
                 className="font-semibold text-pink hover:underline"
               >
-                both official GTA VI trailers
+                every official GTA VI trailer
+              </Link>
+              , our write-up of{" "}
+              <Link
+                href="/news/extended-look-netflix-premiere"
+                className="font-semibold text-pink hover:underline"
+              >
+                what An Extended Look showed
               </Link>
               , or see the details fans keep spotting in our{" "}
               <Link

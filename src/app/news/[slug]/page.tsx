@@ -12,6 +12,7 @@ import {
   breadcrumbJsonLd,
   newsArticleJsonLd,
   articleEventJsonLd,
+  isPastEvent,
 } from "@/lib/seo";
 import { news } from "@/lib/data";
 
@@ -89,8 +90,8 @@ export default async function NewsArticlePage({
             {article.summary}
           </p>
           <Byline
-            date={article.date}
-            dateLabel={article.dateLabel}
+            date={article.updated ?? article.date}
+            dateLabel={article.updatedDateLabel ?? article.dateLabel}
             updatedLabel={article.updatedLabel}
           />
           {article.updatedLabel && (
@@ -121,7 +122,7 @@ export default async function NewsArticlePage({
           </figcaption>
         </figure>
 
-        {article.event && (
+        {article.event && !isPastEvent(article.event.startsAt) && (
           <section
             aria-labelledby="premiere-countdown"
             className="mt-10 border border-line bg-surface p-6"

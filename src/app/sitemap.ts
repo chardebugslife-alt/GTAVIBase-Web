@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const articles: MetadataRoute.Sitemap = news.map((a) => ({
     url: absoluteUrl(`/news/${a.slug}`),
-    lastModified: new Date(a.date),
+    lastModified: new Date(a.updated ?? a.date),
     changeFrequency: "monthly",
     priority: 0.6,
   }));

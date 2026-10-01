@@ -33,7 +33,7 @@ export default function VehiclesPage() {
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
             Getting around Leonida means getting behind the wheel &mdash; and
-            Grand Theft Auto VI&rsquo;s two official trailers are packed with the
+            Grand Theft Auto VI&rsquo;s official trailers and its 27-minute Extended Look are packed with the
             cars, motorcycles and boats you&rsquo;ll be driving, riding and
             piloting across Vice City and the state beyond. This guide breaks the
             fleet, from Vice City supercars to the boats and airboats of the

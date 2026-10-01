@@ -452,6 +452,10 @@ export type NewsArticle = {
   dateLabel: string;
   /** Optional "last updated" note for evergreen posts. */
   updatedLabel?: string;
+  /** ISO date of the last substantive revision; drives dateModified + sitemap. */
+  updated?: string;
+  /** Human label for `updated`, e.g. "October 1, 2026". */
+  updatedDateLabel?: string;
   title: string;
   /** One-sentence dek, reused as the page meta description. */
   summary: string;
@@ -493,69 +497,59 @@ export const news: NewsArticle[] = [
     slug: "extended-look-netflix-premiere",
     date: "2026-08-13",
     dateLabel: "August 13, 2026",
+    updated: "2026-10-01",
+    updatedDateLabel: "October 1, 2026",
     updatedLabel:
-      "Our running guide to the August 27 premiere — updated as Rockstar and Netflix confirm more.",
-    title: "GTA VI: An Extended Look Premieres on Netflix August 27",
+      "Updated after the August 27 premiere with what the footage showed, how it performed and where to watch it now. First published on August 13, 2026 as our premiere guide.",
+    title: "GTA VI: An Extended Look — What Rockstar's 27-Minute Netflix Premiere Showed",
     summary:
-      "Grand Theft Auto VI: An Extended Look premieres on Netflix on August 27, 2026 at 3 p.m. ET, then hits YouTube free six hours later. How to watch, what Rockstar has confirmed, and why the biggest reveal of the campaign is debuting on a streaming service.",
+      "Rockstar's 27-minute Grand Theft Auto VI: An Extended Look premiered on Netflix on August 27, 2026 and drew 31.1 million views in four days. What it showed, where to watch it now, and what it does and doesn't change before the November 19 launch.",
     image: `${CDN}/9k2kaa1o3297k9/4faf2f8d60cd657f09eb55707b31cc44008bfa4c.jpg`,
     imageAlt:
       "Grand Theft Auto VI: An Extended Look key art from Rockstar Games",
     imageCredit: "© Rockstar Games",
     imageCreditUrl:
       "https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look",
-    event: {
-      name: "Grand Theft Auto VI: An Extended Look",
-      startsAt: "2026-08-27T15:00:00-04:00",
-      startsAtLabel: "Thursday, August 27 · 3:00 p.m. ET on Netflix",
-      description:
-        "The premiere of Grand Theft Auto VI: An Extended Look, debuting on Netflix six hours before its free release on the Rockstar Games YouTube channel and the official Grand Theft Auto VI website.",
-      watchUrl: "https://www.netflix.com/title/83035795",
-      watchLabel: "Netflix listing",
-    },
     keyPoints: [
-      "Grand Theft Auto VI: An Extended Look premieres on Netflix on Thursday, August 27, 2026 at 3 p.m. ET.",
-      "That is 12 p.m. PT, 8 p.m. BST and 9 p.m. CEST on the same day.",
-      "It goes free on the Rockstar Games YouTube channel and rockstargames.com/VI at 9 p.m. ET — a six-hour Netflix exclusive window.",
-      "Every Netflix tier can watch it, including the cheaper ad-supported plan; no separate purchase is required.",
-      "It is the first new official GTA VI footage since Trailer 2 in May 2025.",
-      "Rockstar has not confirmed a runtime, a format, or whether the footage includes gameplay.",
-      "Grand Theft Auto VI still launches November 19, 2026 on PlayStation 5 and Xbox Series X|S.",
+      "Grand Theft Auto VI: An Extended Look premiered on Netflix on August 27, 2026 at 3 p.m. ET, then went up free on Rockstar's YouTube channel and rockstargames.com/VI at 9 p.m. ET.",
+      "It runs about 27 minutes and, per Rockstar, was captured entirely from in-game footage on PlayStation 5.",
+      "It mixes trailer-style montage with longer narrative cutscenes, and it is the first official footage to show the game being played rather than a purely cinematic trailer.",
+      "Netflix reported 31.1 million views in its first four days, with the special reaching No. 1 in 87 of the 93 countries it tracks.",
+      "It is still free to watch on YouTube and Rockstar's site. The YouTube upload is age-restricted, so it only plays on YouTube itself.",
+      "Nothing about launch changed: GTA VI still releases November 19, 2026 on PlayStation 5 and Xbox Series X|S.",
     ],
     body: [
-      "Rockstar Games is about to do something it has never done in the twenty-five-year history of Grand Theft Auto: hand its next big reveal to someone else first. On August 6, 2026, the studio announced Grand Theft Auto VI: An Extended Look, and confirmed it will premiere on Netflix on Thursday, August 27 at 3 p.m. ET — six full hours before it reaches the Rockstar Games YouTube channel and the official Grand Theft Auto VI website, where everyone else can watch it free.",
-      "For a company that has spent a decade training the internet to refresh its Newswire at 9 a.m. ET, that is a genuine break in pattern. The first two trailers went straight to YouTube and social media, unmediated and free, and each detonated on arrival. Routing the third major reveal through a subscription streaming service is not a small production choice. It is a statement about what Rockstar now thinks Grand Theft Auto VI is — and it has produced the first real backlash of the campaign.",
-      "Here is the practical part first, because it is the question most people actually have. If you subscribe to Netflix on any tier — including the cheaper ad-supported plan — you can watch An Extended Look at 3 p.m. ET on August 27. That is 12 p.m. PT on the US west coast, 8 p.m. BST in the UK and 9 p.m. CEST across most of western Europe. There is no separate ticket, no pay-per-view charge and no premium add-on; it sits inside the standard Netflix catalogue like any other title.",
-      "If you do not subscribe, you wait until 9 p.m. ET the same evening — 6 p.m. PT, and the small hours of August 28 in Europe — when the identical video lands on Rockstar's own YouTube channel and on rockstargames.com/VI at no cost. Rockstar has been explicit that this is the same footage, not a cut-down version. The six-hour gap buys Netflix exclusivity, not a better edit, so waiting costs you nothing but time and an evening of scrupulously avoiding social media.",
-      "The naming is worth pausing on. Rockstar did not call this Trailer 3, and after a fifteen-month silence the fandom had been begging for exactly that. 'An Extended Look' is deliberately looser language, and it implies something longer and less rigidly cut than a two-minute music-scored montage — closer to a showcase than a trailer. Take-Two's leadership has publicly framed it as an extended trailer, which points away from a full behind-the-scenes documentary, but Rockstar itself has described the format only in that one phrase.",
-      "That leaves a genuine information vacuum, and it is being filled quickly. A widely-shared runtime of roughly twenty minutes has been circulating, traced back to a Netflix customer-support chat rather than to either company. Whether the premiere is a fixed-time livestream you cannot skip through, or a normal on-demand title you can scrub, is likewise unconfirmed. So is the biggest question of all: whether An Extended Look finally shows gameplay — a heads-up display, a mission, a menu, a map — or whether Rockstar holds that back yet again. None of that is official, and we will not treat it as though it is.",
-      "What we do know is how much ground there is to cover. Every frame Rockstar has formally released of this game still fits inside two trailers. The December 2023 reveal confirmed the return to Vice City inside the wider state of Leonida and introduced Lucia. The May 2025 follow-up introduced Jason, widened the view across the state and arrived attached to a release date. Neither showed a single second of gameplay. An Extended Look is the first new official footage in fifteen months, and it arrives with an enormous backlog of unanswered questions behind it.",
-      "The strategic logic becomes clearer when you look at where this sits on the calendar. Grand Theft Auto VI launches on November 19, 2026 — roughly twelve weeks after the premiere. This is the starting gun on the real marketing campaign, not a stray mid-cycle drop, and Take-Two treated it as such: the publisher pointed to An Extended Look in its most recent financial report as evidence that the November date holds, telling investors that anticipation for the series will keep building into launch. Studios do not schedule tentpole reveals twelve weeks out from a date they expect to move.",
-      "It also fits a marketing philosophy Take-Two chief executive Strauss Zelnick has described for months: put the campaign where the audience and the attention actually are today, rather than buying traditional television. On that logic Netflix is not a strange partner at all. It is one of the few remaining places where hundreds of millions of people can be reached simultaneously, on a television screen, in a context that reads as entertainment rather than as advertising.",
-      "Netflix, for its part, has called it a first-of-its-kind partnership. Brandon Riegg, the company's vice president of nonfiction series, said Netflix was honoured to debut the next part of the Grand Theft Auto story with its members first, and framed the deal around the idea that GTA reveals have become cultural events in their own right. That framing is the real prize for both sides: Rockstar gets its game classified alongside prestige entertainment rather than in the games aisle, and Netflix gets to stand at the centre of one of the biggest attention moments of the year.",
-      "That is also, quietly, the point where this stops being about a trailer. Netflix has spent years trying to make gaming stick — a mobile catalogue, cloud experiments, adaptations of its own franchises — with mixed results. Landing the premiere of the most anticipated entertainment product of the decade does more for its credibility in that space than another round of licensed mobile titles. And for the games industry, a major publisher treating a streaming premiere as the natural home for its biggest reveal is a meaningful precedent, even if almost no other game on earth has the cultural weight to negotiate the same deal.",
-      "The backlash was immediate and fairly predictable. A loud contingent of players read the arrangement as being asked to pay a subscription to watch an advertisement, and said so in exactly those words. It is an understandable reaction, and it is also somewhat overstated: the footage is free six hours later, on Rockstar's own channels, in full. The more substantive complaint is about the shape of the moment rather than the money. Part of what made the first two trailers extraordinary was millions of people watching the same link at the same second, reacting in the same comment sections. A six-hour staggered rollout splits that audience in two.",
-      "Rockstar surely knows this, and knows what will happen in the gap. The moment An Extended Look plays on Netflix, camera-phone recordings and re-uploads will flood every platform, and the studio will spend six hours issuing takedowns against footage it is about to publish itself. The company has historically been aggressive about controlling its own imagery — a stance that sits awkwardly with a distribution plan that guarantees a window of low-quality bootlegs. That is the cost of the exclusivity, and Rockstar has evidently decided it is worth paying.",
-      "None of this changes the underlying facts about the game, which remain exactly where they were. Grand Theft Auto VI arrives on November 19, 2026, on PlayStation 5 and Xbox Series X|S, with no PC version announced for launch. Pre-orders have been open since June 25, and the Standard and Ultimate editions are the only two tiers. If An Extended Look moves any of that, it will be because Rockstar says so on the day — and we will update this page when it does.",
-      "So: set an alarm for 3 p.m. ET on August 27 if you have Netflix, or 9 p.m. ET if you do not, and treat everything you read in between with real suspicion. This is the stretch of a campaign where fabricated 'leaked details' spread fastest, and the six-hour window is practically designed to manufacture them. We will have the confirmed breakdown here once the footage is officially out — sourced, as always, from Rockstar rather than from a screenshot of someone's support chat.",
+      "On August 27, 2026, Rockstar Games did something it had never done in the twenty-five-year history of Grand Theft Auto: it gave someone else the first showing of its next big reveal. Grand Theft Auto VI: An Extended Look premiered on Netflix at 3 p.m. ET, six hours before the same video went up free on the Rockstar Games YouTube channel and the official Grand Theft Auto VI website. Rockstar had announced the plan on August 6, and on the day it ran exactly as described.",
+      "What arrived was longer and more substantial than many fans expected. An Extended Look runs about 27 minutes, and Rockstar says it was captured entirely from in-game footage on PlayStation 5. It alternates compilation-style sequences cut like a trailer with longer narrative cutscenes that let scenes play out in full. After fifteen months of silence since Trailer 2, that is several times more official footage than Rockstar had released of the game in total: the two earlier trailers together come to well under five minutes.",
+      "The name turned out to be accurate. Rockstar never called this Trailer 3, and 'An Extended Look' suggested something looser than a two-minute montage set to music. That is what it was: closer to a showcase than a trailer, but still edited and paced by Rockstar rather than an uncut play session. The runtime of roughly twenty minutes that circulated beforehand, traced back to a Netflix customer-support chat, was in the right range, though no official figure had been given before the premiere.",
+      "The most important change is that, for the first time, Rockstar showed the game being played. Both earlier trailers were purely cinematic, with no heads-up display, missions or menus. An Extended Look puts Lucia and Jason into the kinds of activity the series is built around: store robberies and larger heists, getaway driving, racing and nights out in Vice City's clubs. It also spends real time with the supporting cast Rockstar introduced on its character pages, including Brian Heder, Raul Bautista, Boobie Ike and Cal Hampton. Our characters guide covers who each of them is.",
+      "Just as notable is what Rockstar still held back. There is still no official full world map, no detailed look at online play and no word on a PC version. The footage is a curated selection with no feature list alongside it, so it shows what Rockstar chose to put forward, not everything in the game. Reports that describe specific mechanics in detail are observations from the video, not confirmed design rules, and we treat them that way until Rockstar spells them out.",
+      "The Netflix gamble worked the way both companies hoped. Netflix's own Top 10 reported 31.1 million views between the premiere and Sunday, August 30, enough to top its English-language film list and reach No. 1 in 87 of the 93 countries it tracks. For a 27-minute video about a game that was not yet out, on a service most people associate with drama and film, that is a remarkable result. It also makes Netflix's pre-launch description of the deal as a first-of-its-kind partnership look less like marketing.",
+      "The strategy behind it is clearer in hindsight. Take-Two chief executive Strauss Zelnick has argued for months that the campaign should go where the audience and the attention actually are, rather than into traditional television advertising. Netflix is one of the few places left where hundreds of millions of people can be reached on a television screen in a setting that feels like entertainment rather than an advert. Rockstar got its game presented next to prestige film and television rather than in the games aisle, and Netflix got to host one of the biggest entertainment moments of the year.",
+      "It mattered for Netflix beyond one weekend, too. The company has spent years trying to make gaming stick through a mobile catalogue, cloud experiments and adaptations of its own franchises, with mixed results. Premiering the most anticipated entertainment product of the decade did more for its credibility in that space than another round of licensed mobile titles. For the wider games industry it sets a precedent, even if almost no other game has the cultural weight to negotiate the same deal.",
+      "The arrangement did draw criticism when it was announced. A loud group of players objected to paying a subscription to watch what amounted to an advert. In practice, the free YouTube release six hours later took most of the sting out of that complaint, because anyone who waited saw exactly the same video. The more lasting cost was structural. Part of what made the first two trailers feel like events was millions of people pressing play on the same link at the same moment, and a staggered rollout split that single global moment into two audiences six hours apart.",
+      "If you missed it, An Extended Look is still available in full. It is free on the Rockstar Games YouTube channel and at rockstargames.com/VI, and it remains in the Netflix catalogue for subscribers. One practical note: Rockstar age-restricted the YouTube upload, so it will not play in players embedded on other sites, including ours. Watch it on YouTube while signed in to an account that meets the age requirement, or on Rockstar's own site. Our trailers page links to it alongside both earlier trailers.",
+      "The premiere also settled the question left by the August 18 leak, when clips from an unfinished build circulated online nine days before Rockstar's own reveal. An Extended Look is now the official, on-the-record view of how the game looks and plays. Where it differs from the leaked material, trust the official footage. Our community write-up of the leak covers what was reported at the time and how much weight it deserved.",
+      "None of this moved the fundamentals. Grand Theft Auto VI still launches on November 19, 2026, on PlayStation 5 and Xbox Series X|S, with no PC version announced for launch. Pre-orders have been open since June 25, and Standard and Ultimate remain the only two editions. Take-Two had already pointed to An Extended Look in its financial reporting as evidence that the November date was holding, and nothing in or around the premiere suggested otherwise. Studios rarely stage a reveal this size twelve weeks before a date they expect to move.",
+      "With launch now only weeks away, An Extended Look is likely to remain the definitive pre-release showcase, though Rockstar may still release shorter clips or a launch trailer before November 19. If it does, we will update this page and our trailers guide, sourced as always from Rockstar and its named partners rather than from screenshots and rumours.",
     ],
     figures: [
       {
-        afterParagraph: 6,
+        afterParagraph: 4,
         src: `${CDN}/3928aaa9471o3a/87db5089306344e0854cffb1b3bf15e6d71b465b.jpg`,
         alt: "Lucia and Jason in a still from Grand Theft Auto VI Trailer 2",
         caption:
-          "Trailer 2, from May 2025, is still the most recent official footage of Lucia and Jason — and, like the reveal before it, showed no gameplay at all.",
+          "Trailer 2, from May 2025, was purely cinematic, as was the reveal before it. An Extended Look is the first official footage to show the game being played.",
         credit: "© Rockstar Games",
         creditUrl:
           "https://www.rockstargames.com/newswire/article/3928aaa9471o3a/grand-theft-auto-vi-watch-trailer-2-now",
       },
       {
-        afterParagraph: 8,
+        afterParagraph: 12,
         src: `${CDN}/ak3ak31a49a221/c8c033070a0bfb2e3ec6ae7ff047ebe8ec551326.jpg`,
         alt: "Grand Theft Auto VI key art",
         caption:
-          "The premiere lands roughly twelve weeks out from the November 19, 2026 launch — the point where a campaign of this size would be expected to begin in earnest.",
+          "The premiere landed roughly twelve weeks before the November 19, 2026 launch, which still stands.",
         credit: "© Rockstar Games",
         creditUrl:
           "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026",
@@ -578,12 +572,28 @@ export const news: NewsArticle[] = [
         publisher: "Netflix",
         url: "https://www.netflix.com/title/83035795",
       },
+      {
+        title: "Grand Theft Auto VI: An Extended Look",
+        publisher: "Rockstar Games",
+        url: "https://www.rockstargames.com/VI/an-extended-look",
+      },
+      {
+        title: "Grand Theft Auto VI: An Extended Look (official video)",
+        publisher: "Rockstar Games on YouTube",
+        url: "https://www.youtube.com/watch?v=tJbzMqJGH4k",
+      },
+      {
+        title:
+          "Grand Theft Auto VI: An Extended Look Soars to No. 1 in This Week's Top 10",
+        publisher: "Netflix Tudum",
+        url: "https://www.netflix.com/tudum/articles/top-10-august-24-2026",
+      },
       RS_VI,
     ],
     sourceNote:
-      "The premiere details on this page come from Rockstar Games and from Netflix, its named partner for this event. Anything not confirmed by one of them — runtime, format, whether gameplay is shown — is flagged in the text as unconfirmed.",
+      "The premiere details and viewing figures on this page come from Rockstar Games and from Netflix, its named partner for this event. Descriptions of the footage refer to the official video itself, and anything Rockstar has not confirmed is labelled as such.",
     related: [
-      { href: "/trailers", label: "Watch both official GTA VI trailers" },
+      { href: "/trailers", label: "Watch every official GTA VI trailer" },
       {
         href: "/news/release-date-november-2026",
         label: "GTA VI release date: November 19, 2026, explained",
@@ -640,7 +650,7 @@ export const news: NewsArticle[] = [
       { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
       {
         href: "/news/extended-look-netflix-premiere",
-        label: "GTA VI: An Extended Look premieres on Netflix August 27",
+        label: "GTA VI: An Extended Look — what the Netflix premiere showed",
       },
       { href: "/faq", label: "GTA VI FAQ" },
       { href: "/community/will-it-delay-again", label: "Will GTA VI get delayed again?" },
@@ -650,32 +660,37 @@ export const news: NewsArticle[] = [
     slug: "trailer-2-released",
     date: "2025-05-06",
     dateLabel: "May 6, 2025",
+    updated: "2026-10-01",
+    updatedDateLabel: "October 1, 2026",
     updatedLabel:
-      "A guide to both official GTA VI trailers — updated as Rockstar releases more.",
-    title: "GTA VI Trailers: Both Official Trailers, Explained",
+      "A guide to every official GTA VI trailer, updated after the August 2026 release of An Extended Look.",
+    title: "GTA VI Trailers: Every Official Trailer, Explained",
     summary:
-      "Rockstar has released two official Grand Theft Auto VI trailers so far — the December 2023 reveal and the longer May 2025 follow-up. Here's what each one showed, what they establish together, and what Rockstar is still holding back.",
+      "Rockstar has released three official Grand Theft Auto VI videos: the December 2023 reveal, the May 2025 Trailer 2 and the 27-minute An Extended Look from August 2026. Here's what each one showed, what they establish together, and what Rockstar is still holding back.",
     image: `${CDN}/3928aaa9471o3a/87db5089306344e0854cffb1b3bf15e6d71b465b.jpg`,
     imageAlt: "Grand Theft Auto VI Trailer 2 still",
     imageCredit: "© Rockstar Games",
     imageCreditUrl:
       "https://www.rockstargames.com/newswire/article/3928aaa9471o3a/grand-theft-auto-vi-watch-trailer-2-now",
     keyPoints: [
-      "Two official trailers have been released: December 2023 and May 6, 2025.",
+      "Three official videos have been released: Trailer 1 (December 2023), Trailer 2 (May 6, 2025) and An Extended Look (August 27, 2026).",
       "Trailer 1 revealed the return to Vice City and introduced Lucia.",
       "Trailer 2 ran longer, introduced Jason and widened the view of Leonida.",
       "Both are scored with licensed music, including Tom Petty in the reveal.",
-      "Neither trailer shows gameplay, menus or the map — that is still to come.",
+      "The two trailers were purely cinematic. An Extended Look, at about 27 minutes, was the first to show the game being played.",
+      "Rockstar has still not shown an official full world map.",
     ],
     body: [
-      "For all the anticipation around Grand Theft Auto VI, the official footage still comes down to just two trailers — the December 2023 reveal and a longer follow-up in May 2025. Everything Rockstar Games has formally shown of the game lives in those two videos, which makes them worth watching closely rather than once. Here is what each established, and what they add up to.",
+      "For all the anticipation around Grand Theft Auto VI, the official footage comes down to three videos: the December 2023 reveal, a longer follow-up in May 2025, and the 27-minute An Extended Look that premiered on Netflix in August 2026. Everything Rockstar Games has formally shown of the game lives in those three, which makes them worth watching closely rather than once. Here is what each established, and what they add up to.",
       "The first trailer arrived in December 2023 and ended years of speculation in ninety seconds. It confirmed the long-rumoured return to Vice City, now set inside a broader modern-day state called Leonida — Rockstar's reimagining of Florida. It introduced Lucia, established from the outset as the first female protagonist in a mainline Grand Theft Auto, and set its montage of sun, crime and excess to Tom Petty's 'Love Is a Long Road.' The tone was immediate: neon and beaches on the surface, desperation and hustle underneath.",
       "That reveal did more than show a game; it reset expectations for what a trailer could be. Rockstar leaned into a social-media, influencer-saturated version of Leonida — livestreams, phone footage, mugshots and memes — signalling that GTA VI would hold a mirror to the present day the way earlier entries satirised their own eras. It was a statement of intent as much as a preview.",
       "The second trailer followed on May 6, 2025, and it was a different kind of video: longer, calmer and more character-driven. Where the reveal was a mood piece, Trailer 2 spent real time on people. It fleshed out Lucia and formally introduced her partner Jason, framing the pair as a modern outlaw couple, and it widened the lens across Leonida — from Vice City's beaches and nightlife to the swamps, keys and small towns that ring it. Rockstar again scored the footage with licensed tracks, reinforcing the game's strong musical identity.",
       "Crucially, the second trailer landed alongside a release date, tying the creative reveal to a concrete business moment. That pairing — new footage plus a date — is how Rockstar tends to escalate a campaign, and it turned Trailer 2 into the point where GTA VI stopped being an abstract 'someday' and became something fans could mark on a calendar.",
       "Taken together, the two trailers establish the pillars of the game with real confidence. The setting is Vice City within the wider state of Leonida. The structure is a dual-protagonist story built around Lucia and Jason. The tone is a glossy, satirical, deeply lived-in take on contemporary America. And the technical ambition is obvious in every frame — crowd density, weather, reflections and small environmental details that fans have spent months pausing and dissecting.",
-      "Just as telling is what the trailers deliberately withhold. There is no gameplay footage, no heads-up display, no mission structure, no menus and no world map. That restraint is a Rockstar signature: the studio reveals character and world long before it reveals systems, keeping the how-you-play conversation for later in the campaign. It means that almost everything about mechanics — however confidently stated elsewhere — remains unconfirmed until Rockstar chooses to show it.",
-      "Both trailers remain available in full on Rockstar's official YouTube channel and on the Grand Theft Auto VI section of the Rockstar Games website. If you want to see the footage rather than read about it — and to catch the details the community keeps finding — you can watch both, embedded and in order, on our dedicated trailers page.",
+      "Just as telling was what the first two trailers deliberately withheld: no gameplay footage, no heads-up display, no mission structure, no menus and no world map. That restraint is a Rockstar signature. The studio reveals character and world long before it reveals systems, and for more than two and a half years that left every claim about mechanics unconfirmed.",
+      "An Extended Look broke that pattern on August 27, 2026. Rockstar premiered it on Netflix, then released it free on YouTube and its own site six hours later. At about 27 minutes it is far longer than both trailers combined, and Rockstar says it was captured entirely from in-game footage on PlayStation 5. It mixes trailer-style montage with longer narrative cutscenes, and for the first time it shows Lucia and Jason in play: robberies and heists, getaway driving, racing and nights out in Vice City. It also gives real screen time to supporting characters such as Brian Heder, Raul Bautista, Boobie Ike and Cal Hampton.",
+      "Even so, Rockstar is still choosing what to show. There is still no official full map and no detailed look at online play, and the studio has not published a feature list to go with the footage. Treat specific mechanics people describe from the video as observations rather than confirmed rules until Rockstar spells them out. Our full write-up of the premiere covers what it showed and how it performed.",
+      "All three videos remain available in full on Rockstar's official YouTube channel and on the Grand Theft Auto VI section of the Rockstar Games website. On our trailers page, both trailers are embedded in order. An Extended Look is age-restricted on YouTube, so it can only play on YouTube itself, and we link straight to it there.",
     ],
     sources: [
       {
@@ -688,13 +703,18 @@ export const news: NewsArticle[] = [
         publisher: "Rockstar Games Newswire",
         url: "https://www.rockstargames.com/newswire/article/8978kok9385a82/grand-theft-auto-vi-watch-trailer-1-now",
       },
+      {
+        title: "Grand Theft Auto VI: An Extended Look",
+        publisher: "Rockstar Games",
+        url: "https://www.rockstargames.com/VI/an-extended-look",
+      },
       RS_VI,
     ],
     related: [
-      { href: "/trailers", label: "Watch both official GTA VI trailers" },
+      { href: "/trailers", label: "Watch every official GTA VI trailer" },
       {
         href: "/news/extended-look-netflix-premiere",
-        label: "GTA VI: An Extended Look premieres on Netflix August 27",
+        label: "GTA VI: An Extended Look — what the Netflix premiere showed",
       },
       { href: "/community/trailer-2-hidden-details", label: "Hidden details fans keep finding in Trailer 2" },
     ],
@@ -938,17 +958,17 @@ export const faqs: Faq[] = [
   {
     question: "How many trailers does GTA VI have?",
     answer:
-      "Two official trailers have been released so far: the first in December 2023 and the second in May 2025. A third reveal, Grand Theft Auto VI: An Extended Look, premieres on August 27, 2026.",
+      "Rockstar has released three official videos: Trailer 1 in December 2023, Trailer 2 in May 2025, and Grand Theft Auto VI: An Extended Look, a roughly 27-minute showcase that premiered on August 27, 2026. An Extended Look is the first to show the game being played.",
   },
   {
     question: "How do I watch GTA VI: An Extended Look?",
     answer:
-      "Grand Theft Auto VI: An Extended Look premieres on Netflix on Thursday, August 27, 2026 at 3 p.m. ET (12 p.m. PT, 8 p.m. BST, 9 p.m. CEST). Any Netflix tier can watch it, including the ad-supported plan. It then releases free on the Rockstar Games YouTube channel and the official Grand Theft Auto VI website at 9 p.m. ET the same day.",
+      "Grand Theft Auto VI: An Extended Look is free to watch on the Rockstar Games YouTube channel and on rockstargames.com/VI, and it is also on Netflix for subscribers. It premiered on Netflix on August 27, 2026 at 3 p.m. ET and went up on YouTube at 9 p.m. ET the same day. The YouTube video is age-restricted, so you need to watch it on YouTube while signed in, not in an embedded player.",
   },
   {
     question: "Do I need Netflix to watch the GTA VI Extended Look?",
     answer:
-      "No. Netflix has a six-hour exclusive window, but the same video releases free on Rockstar's YouTube channel and the Grand Theft Auto VI website at 9 p.m. ET on August 27, 2026. A Netflix subscription only gets you the earlier 3 p.m. ET premiere.",
+      "No. Netflix only had a six-hour exclusive window on August 27, 2026. The same video has been free on Rockstar's YouTube channel and the Grand Theft Auto VI website since 9 p.m. ET that day.",
   },
   {
     question: "Is GTA VI the first game since GTA V?",
@@ -1020,7 +1040,7 @@ export const communityCategories: CommunityCategory[] = [
     slug: "story-speculation",
     label: "Story Talk",
     blurb:
-      "Where fans think the Lucia-and-Jason story is heading, based on the two trailers.",
+      "Where fans think the Lucia-and-Jason story is heading, based on Rockstar's official footage.",
   },
   {
     slug: "conspiracy",
@@ -1116,7 +1136,7 @@ export const community: CommunityPost[] = [
     date: "2026-08-19",
     dateLabel: "August 19, 2026",
     updatedLabel:
-      "A developing story. Leaked footage from an unfinished build — none of it is Rockstar's own announcement, and details below may not reflect the shipping game.",
+      "Leaked footage from an unfinished build. None of it is Rockstar's own announcement, and details below may not reflect the shipping game. Updated after Rockstar's official Extended Look premiered on August 27.",
     title:
       "The August 2026 GTA VI gameplay leak: what leaked, what's verified, and what's a scam",
     summary:
@@ -1137,7 +1157,8 @@ export const community: CommunityPost[] = [
       "Some specifics are shakier than others, and it's worth separating them. The wanted system is a good example: a claim that GTA VI runs to six stars has circulated widely, but what is actually visible in the clips is a two-star state, which tells you nothing about the ceiling. Treat the mechanics list above as 'things that existed in this build', not as a confirmed feature set — and expect at least some of it to look different when Rockstar shows the game on its own terms.",
       "The map images are a separate matter, and they deserve much more scepticism than the video. While the clips carry the weight of DMCA takedowns and Schreier's reporting behind them, the alleged full-map image has been disputed within the fan community, and it is considerably easier to fake a static image than a minute of coherent gameplay. Location names have circulated from it — Dalton Island, Tequesta Retreat, Gloriana Key, Catalan Key, Catalan Bay among them — but until something corroborates them, they are names on an image of uncertain origin, not confirmed geography. Our setting guide sticks to what Rockstar has actually shown.",
       "CyberLeek has framed the leak as protest rather than profit, objecting to what it characterises as the industry's slide toward all-digital distribution and 'fake' single-player DLC, and warning that other publishers should consider themselves reachable. Whether you find that framing persuasive or self-serving, it's worth being clear-eyed about the position it puts developers in: the people whose unfinished work is being picked over publicly had no say in the matter, and the 2022 leak was followed by a genuinely ugly period for the team involved.",
-      "One practical warning. Any leak of this size attracts opportunists, and this one has been no exception: files advertised as the 'full leak', a complete map dump or an early build are circulating, and they are scams. Rockstar takedowns have also made the genuine material transient, which is exactly the environment in which malware thrives. Nothing legitimate about this story requires you to download anything. If you want to see GTA VI, the Extended Look is coming from Rockstar itself — and we'll be covering that as the official, on-the-record version of events.",
+      "One practical warning. Any leak of this size attracts opportunists, and this one has been no exception: files advertised as the 'full leak', a complete map dump or an early build are circulating, and they are scams. Rockstar takedowns have also made the genuine material transient, which is exactly the environment in which malware thrives. Nothing legitimate about this story requires you to download anything.",
+      "Update: nine days after the leak, on August 27, Rockstar released Grand Theft Auto VI: An Extended Look, about 27 minutes of official in-game footage captured on PlayStation 5. It is now the on-the-record view of how the game looks and plays. Where it differs from the leaked clips, trust the official footage: the leak came from an unfinished build, and Rockstar chose what to show in its own video. Our write-up of the premiere covers what it showed.",
     ],
     source: {
       title:
@@ -1306,7 +1327,7 @@ export const community: CommunityPost[] = [
       "Then there's the deep end: the fringe convinced Rockstar has buried coded messages in the trailers. You'll find posts insisting a specific frame hides a release date, that a background billboard is an encoded clue, or that reversing a snippet of trailer audio reveals a secret — full alternate-reality-game energy. It's a genuinely fun rabbit hole, and pattern-spotting is half the joy of a hype cycle this long, so we're not here to spoil it.",
       "But honesty matters: Rockstar has never confirmed an official GTA VI alternate-reality game, and the overwhelming majority of these 'discoveries' are pareidolia — the human brain's habit of finding signals in noise. A blurry shape becomes a face; a random arrangement of pixels becomes a date; a bit of reverb becomes a whispered word. When Rockstar genuinely hides something, its track record shows it usually wants players to find it, and it doesn't require frame-stepping and audio reversal to surface.",
       "So how do you enjoy all this without getting fooled? Keep one simple filter in mind: separate what is visible from what it supposedly means. 'This sign appears in the trailer' is an observation. 'Therefore you can buy that shop' is a theory. 'This frame contains a secret coded message' is, almost always, entertainment. All three can be fun to follow — they just deserve very different levels of trust.",
-      "If you'd rather watch the actual footage and judge the details yourself, both official trailers are embedded in order on our trailers page, and our confirmed write-up of what the two trailers established sticks strictly to what Rockstar has shown. Everything on this page, by contrast, is the community's interpretation — the good, the plausible and the gloriously far-fetched.",
+      "If you'd rather watch the actual footage and judge the details yourself, every official GTA VI video is on our trailers page, and our confirmed write-up of what the trailers established sticks strictly to what Rockstar has shown. Everything on this page, by contrast, is the community's interpretation — the good, the plausible and the gloriously far-fetched.",
     ],
     source: {
       title: "Trailer 2 frame-by-frame breakdown threads",

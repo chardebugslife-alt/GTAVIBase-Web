@@ -84,7 +84,7 @@ export function newsArticleJsonLd(a: NewsArticle): Record<string, unknown> {
     description: a.summary,
     image: [a.image, ...(a.figures ?? []).map((f) => f.src)],
     datePublished: a.date,
-    dateModified: a.date,
+    dateModified: a.updated ?? a.date,
     inLanguage: "en-US",
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
@@ -110,11 +110,17 @@ export function newsArticleJsonLd(a: NewsArticle): Record<string, unknown> {
   };
 }
 
+/** True once an event's start time has passed (evaluated at build time). */
+export function isPastEvent(startsAt: string): boolean {
+  return new Date(startsAt).getTime() <= Date.now();
+}
+
 /** BroadcastEvent structured data for a still-upcoming premiere or stream an
  *  article covers. Gives search and answer engines a machine-readable start
  *  time, so "when is X" queries can be answered directly from the page. */
 export function articleEventJsonLd(a: NewsArticle): Record<string, unknown> | null {
-  if (!a.event) return null;
+  // A finished event must not be advertised as EventScheduled/live.
+  if (!a.event || isPastEvent(a.event.startsAt)) return null;
   const e = a.event;
   return {
     "@context": "https://schema.org",
