@@ -466,7 +466,8 @@ export type NewsArticle = {
   imageCreditUrl: string;
   /** Scannable, quotable facts for answer engines and AI overviews. */
   keyPoints: string[];
-  /** Article body — one string per paragraph, original prose. */
+  /** Article body — one string per paragraph, original prose. A paragraph
+   *  starting with "## " renders as a section heading. */
   body: string[];
   /** Optional in-body imagery, interleaved with `body` paragraphs. */
   figures?: ArticleFigure[];
@@ -493,6 +494,126 @@ const RS_VI: NewsSource = {
 const CDN = "https://media-rockstargames-com.akamaized.net/tina-uploads/posts";
 
 export const news: NewsArticle[] = [
+  {
+    slug: "extended-look-breakdown",
+    date: "2026-10-01",
+    dateLabel: "October 1, 2026",
+    title: "GTA VI: An Extended Look, Scene by Scene — What the Footage Confirms",
+    summary:
+      "A scene-by-scene breakdown of Rockstar's 27-minute GTA VI: An Extended Look: the drug pickup for Boobie Ike, dinner with Brian, the getaway for Raul and the high-rise security job — and what the footage confirms against the two trailers.",
+    image: officialArt("an-extended-look.0ijbsha5fo1te.jpg"),
+    imageAlt: "Grand Theft Auto VI: An Extended Look key art from Rockstar Games",
+    imageCredit: "© Rockstar Games",
+    imageCreditUrl: "https://www.rockstargames.com/VI/an-extended-look",
+    keyPoints: [
+      "An Extended Look runs about 27 minutes and follows Lucia and Jason through one connected arc, from a drug pickup for Boobie Ike to a security job in a Vice City high-rise.",
+      "It is the first official footage to show GTA VI being played; Rockstar says it was captured entirely in-game on PlayStation 5.",
+      "Control switches between Jason and Lucia mid-chase and mid-firefight, making their partnership a core mechanic rather than only a story theme.",
+      "Red Dead Redemption 2's influence is clear: contextual conversations with NPCs and a Dead Eye-style slow-motion aiming mode.",
+      "The supporting cast forms a ladder: Boobie as client, Brian as employer, Raul as recruiter, Cal as the friend at home.",
+      "Still unshown: the full map, online play, a PC version and official performance targets.",
+    ],
+    body: [
+      "Grand Theft Auto VI: An Extended Look is the most useful thing Rockstar has published about the game, and the least like a trailer. Across about 27 minutes of in-game footage captured on PlayStation 5, it does something neither earlier trailer attempted: it follows Lucia and Jason through a connected run of jobs, with the game being played in between. This is our breakdown of what is in it, scene by scene, and what it confirms when you set it against what the trailers promised. The story of the Netflix premiere itself, and how it performed, is in our separate premiere write-up.",
+      "## How An Extended Look is built",
+      "Rockstar describes the video as captured entirely from in-game footage, and its structure is the first thing worth understanding. It is not one uninterrupted play session. It strings together a loose story, told through longer cutscenes and playable sequences, and breaks it up with fast montage in the style of the trailers. The effect is close to a pilot episode: one arc, from a small drug pickup to a job inside a corporate high-rise, with the montage standing in for the weeks of ordinary criminal life between the big moments. That shape matters for how to read it. Everything is in-engine, but everything is also edited, and Rockstar chose what made the cut.",
+      "## Scene one: a pickup that goes wrong",
+      "The video opens with Jason and Lucia arriving at a run-down compound in Vice City to collect drugs for Boobie Ike, the club owner and property man Rockstar introduced earlier in the year. The scene starts in play, with Jason under control, and its first reveal is a small one: he can stop and talk to the people around him through a contextual interaction system that looks far closer to Red Dead Redemption 2 than to anything in Grand Theft Auto V. Then the police raid the place. The pickup becomes a shootout and an escape, and the pair get out with the product.",
+      "It is a deliberately ordinary job to open on, and that is the point. Rockstar's profiles describe Boobie as warm company right up until money enters the conversation, and the scene casts Lucia and Jason exactly where you would expect a couple with no money and no leverage to start: doing risky errands for a man who will not be the one facing the police.",
+      "## Scene two: dinner with Brian",
+      "The second major scene slows right down. Over dinner with Brian Heder, the veteran smuggler from the Leonida Keys whom Jason already works for, the pair talk about the attention they have drawn from the law, and Brian hands them more work. It is the most conventional cutscene in the video, and arguably the most revealing. Rockstar's profile says Brian has been in the business long enough that other people now handle the dangerous end of it. Here that is staged almost literally: an old hand passing risk down to the young couple at his table.",
+      "## The montage: a life in Leonida",
+      "Between the story beats come the montage sections most viewers will remember. They cover both the legal and illegal sides of life in Leonida: holding up convenience-store and gas-station tills, races, nights out in clubs, and a long run of leisure activities that includes basketball, workouts, jet skis, kayaking and base jumping. In one moment that sums up the game's tone, Lucia steals a car, finds an influencer hiding in the trunk, and he carries on livestreaming while she outruns the police.",
+      "The montage also shows the side of a Grand Theft Auto game that trailers never can: the routine between missions. That is where these games are actually lived in, the hours spent driving, wandering and getting into trouble that no mission asked for. It is the first time Rockstar has let anyone see that layer of GTA VI, and the sheer range on display is the strongest evidence yet that Leonida is built to be lived in, not just driven through.",
+      "## Scene three: the getaway for Raul",
+      "The story picks up again when Jason and Lucia drive the getaway for Raul Bautista, the career bank robber of Rockstar's profiles, after one of his jobs. The chase that follows is the clearest demonstration in the video of how two protagonists work in play. Control switches between them mid-pursuit: one moment the player is Jason, leaning out to shoot at the cars behind; the next, Lucia at the wheel. The switch is close to instant, without the pause and sweeping camera Grand Theft Auto V used to change characters.",
+      "By the end of it, Raul is impressed enough to bring the pair into his crew. That fits the profile Rockstar wrote for him, a man always scouting for people willing to take the kind of risk that actually pays, and it marks the moment the couple stop running errands and start being recruited.",
+      "## Scene four: the security job",
+      "The longest set piece puts Jason and Lucia in a high-rise, working private security at an opening party for the first American headquarters of a Spanish-language television network. The two are separated, Jason off on one task and Lucia with the guests, and when an armed group storms the event the video cuts between them as they fight their way through, texting each other as they go.",
+      "This is where Rockstar shows its combat. Jason uses a slow-motion aiming mode that highlights weak points to shoot, an obvious descendant of Red Dead Redemption 2's Dead Eye. Lucia, without her gun for part of the fight, gets through it with close-quarters quick-time moments. It is a smart piece of staging: the same firefight, played two very different ways, which is a preview of how much variety the two-lead structure can create inside a single mission.",
+      "## The last word goes to Cal",
+      "The video closes on Cal Hampton, Jason's housebound, conspiracy-minded friend, urging the two of them to make the most of being young. After twenty-odd minutes of escalating violence, ending on slacker advice is a very Rockstar choice, and it lands as both a joke and something darker. Couples told to live while they can, in stories built on the Bonnie and Clyde template, do not usually get a long life to enjoy it. That is our reading, not Rockstar's, but it is hard to believe the line was placed last by accident.",
+      "## What it confirms against the trailers",
+      "Set against the two trailers, An Extended Look mostly confirms that their promises were about the game, not just the marketing. Trailer 1 sold a Leonida soaked in social media: phone footage, livestreams and viral clips. In the Extended Look that idea turns up in play, from the livestreaming stowaway to the constant texting between the leads. Satire that was once only a montage is now part of how the game works.",
+      "Trailer 2 sold the relationship. It presented Lucia and Jason as a couple who need each other, and the Extended Look turns that into a mechanic. Grand Theft Auto V's three protagonists mostly lived separate lives that met in big missions. Here the switching happens inside a single chase or firefight, so the partnership is something you play rather than watch. Of everything in the video, this is the most important design choice, and the one most likely to define how GTA VI feels.",
+      "The trailers also introduced a supporting cast without saying how its members fit together. The Extended Look answers that, at least for its opening stretch: Boobie as a client, Brian as an employer, Raul as a recruiter and Cal as the friend at home. Each hands the couple a step up, which strongly suggests a campaign structured as a climb through Leonida's criminal hierarchy. Again, that is our reading of the edit, not something Rockstar has said.",
+      "Finally, the video shows how much of Red Dead Redemption 2 has carried over. Talking to strangers, slow-motion targeting and a weightier feel to everyday interactions all point the same way. Rockstar has effectively merged its two big series: Grand Theft Auto's scale and satire with Red Dead's attention to the small business of living in a world.",
+      "## What Rockstar still isn't showing",
+      "For all its length, the video leaves big gaps. There is still no official full map, so every estimate of Leonida's size remains a fan reconstruction. There is no look at online play, which for Grand Theft Auto V became as important as the story. There is no PC version announced. And there is no confirmed runtime or chapter count for the campaign, so any precise figure in circulation is unofficial.",
+      "Performance is another open question. Observers measured the footage at 30 frames per second on a base PlayStation 5. Rockstar has not published frame-rate targets or said whether PS5 Pro or Xbox Series X will offer different modes, so treat claims either way as unconfirmed until it does.",
+      "And it is worth repeating that this is an edit. Every scene was chosen, and Rockstar will have shown its best-looking moments and kept the rough ones off screen. That does not make the footage misleading, but it does mean the safest reading is 'this is what the game can look like', not 'every hour will look like this'.",
+      "## Our verdict",
+      "An Extended Look does what the trailers could not: it makes GTA VI legible as a game. Its most important reveal is not an activity or a graphical effect but a structure: a couple climbing a criminal ladder together, played from both sides of the same job. If the full game sustains that partnership at the scale the montage suggests, Rockstar's long silence will have been worth it. We will find out on November 19.",
+    ],
+    figures: [
+      {
+        afterParagraph: 6,
+        src: officialArt("Boobie_Ike_02.0sp9mtc.1cdzs.jpg"),
+        alt: "Official Rockstar Games character art of Boobie Ike",
+        caption:
+          "Boobie Ike, the Vice City club owner whose drug pickup opens An Extended Look.",
+        credit: "© Rockstar Games",
+        creditUrl: ONLY_IN_LEONIDA_URL,
+      },
+      {
+        afterParagraph: 8,
+        src: officialArt("Brian_Heder_02.0kmg6iw38f-9o.jpg"),
+        alt: "Official Rockstar Games character art of Brian Heder",
+        caption:
+          "Brian Heder, the Leonida Keys smuggler Jason already works for, hands the pair their next jobs.",
+        credit: "© Rockstar Games",
+        creditUrl: ONLY_IN_LEONIDA_URL,
+      },
+      {
+        afterParagraph: 14,
+        src: officialArt("Raul_Bautista_02.10ddy6ogywu-t.jpg"),
+        alt: "Official Rockstar Games character art of Raul Bautista",
+        caption:
+          "Raul Bautista, the career bank robber who recruits Lucia and Jason after the getaway.",
+        credit: "© Rockstar Games",
+        creditUrl: ONLY_IN_LEONIDA_URL,
+      },
+      {
+        afterParagraph: 19,
+        src: officialArt("Cal_Hampton_02.05r2t_mck65fe.jpg"),
+        alt: "Official Rockstar Games character art of Cal Hampton",
+        caption:
+          "Cal Hampton, Jason's friend, gets the final word in An Extended Look.",
+        credit: "© Rockstar Games",
+        creditUrl: ONLY_IN_LEONIDA_URL,
+      },
+    ],
+    sources: [
+      {
+        title: "Grand Theft Auto VI: An Extended Look",
+        publisher: "Rockstar Games",
+        url: "https://www.rockstargames.com/VI/an-extended-look",
+      },
+      {
+        title: "Grand Theft Auto VI: An Extended Look (official video)",
+        publisher: "Rockstar Games on YouTube",
+        url: "https://www.youtube.com/watch?v=tJbzMqJGH4k",
+      },
+      {
+        title: "Only in Leonida — character profiles",
+        publisher: "Rockstar Games",
+        url: ONLY_IN_LEONIDA_URL,
+      },
+      {
+        title: "Watch Grand Theft Auto VI: An Extended Look",
+        publisher: "Netflix",
+        url: "https://www.netflix.com/title/83035795",
+      },
+      RS_VI,
+    ],
+    sourceNote:
+      "Scene descriptions refer to Rockstar's official video, and character context comes from Rockstar's own Only in Leonida profiles. Where we interpret what a scene suggests, the text says so; frame-rate figures are outside measurements, not Rockstar's.",
+    related: [
+      { href: "/news/extended-look-netflix-premiere", label: "How the Netflix premiere of An Extended Look played out" },
+      { href: "/characters", label: "GTA VI characters: Lucia, Jason and the supporting cast" },
+      { href: "/trailers", label: "Watch every official GTA VI trailer" },
+    ],
+  },
   {
     slug: "extended-look-netflix-premiere",
     date: "2026-08-13",
@@ -522,7 +643,7 @@ export const news: NewsArticle[] = [
       "On August 27, 2026, Rockstar Games did something it had never done in the twenty-five-year history of Grand Theft Auto: it gave someone else the first showing of its next big reveal. Grand Theft Auto VI: An Extended Look premiered on Netflix at 3 p.m. ET, six hours before the same video went up free on the Rockstar Games YouTube channel and the official Grand Theft Auto VI website. Rockstar had announced the plan on August 6, and on the day it ran exactly as described.",
       "What arrived was longer and more substantial than many fans expected. An Extended Look runs about 27 minutes, and Rockstar says it was captured entirely from in-game footage on PlayStation 5. It alternates compilation-style sequences cut like a trailer with longer narrative cutscenes that let scenes play out in full. After fifteen months of silence since Trailer 2, that is several times more official footage than Rockstar had released of the game in total: the two earlier trailers together come to well under five minutes.",
       "The name turned out to be accurate. Rockstar never called this Trailer 3, and 'An Extended Look' suggested something looser than a two-minute montage set to music. That is what it was: closer to a showcase than a trailer, but still edited and paced by Rockstar rather than an uncut play session. The runtime of roughly twenty minutes that circulated beforehand, traced back to a Netflix customer-support chat, was in the right range, though no official figure had been given before the premiere.",
-      "The most important change is that, for the first time, Rockstar showed the game being played. Both earlier trailers were purely cinematic, with no heads-up display, missions or menus. An Extended Look puts Lucia and Jason into the kinds of activity the series is built around: store robberies and larger heists, getaway driving, racing and nights out in Vice City's clubs. It also spends real time with the supporting cast Rockstar introduced on its character pages, including Brian Heder, Raul Bautista, Boobie Ike and Cal Hampton. Our characters guide covers who each of them is.",
+      "The most important change is that, for the first time, Rockstar showed the game being played. Both earlier trailers were purely cinematic, with no heads-up display, missions or menus. An Extended Look puts Lucia and Jason into the kinds of activity the series is built around: store robberies and larger heists, getaway driving, racing and nights out in Vice City's clubs. It also spends real time with the supporting cast Rockstar introduced on its character pages, including Brian Heder, Raul Bautista, Boobie Ike and Cal Hampton. Our scene-by-scene breakdown of An Extended Look goes through each sequence in detail.",
       "Just as notable is what Rockstar still held back. There is still no official full world map, no detailed look at online play and no word on a PC version. The footage is a curated selection with no feature list alongside it, so it shows what Rockstar chose to put forward, not everything in the game. Reports that describe specific mechanics in detail are observations from the video, not confirmed design rules, and we treat them that way until Rockstar spells them out.",
       "The Netflix gamble worked the way both companies hoped. Netflix's own Top 10 reported 31.1 million views between the premiere and Sunday, August 30, enough to top its English-language film list and reach No. 1 in 87 of the 93 countries it tracks. For a 27-minute video about a game that was not yet out, on a service most people associate with drama and film, that is a remarkable result. It also makes Netflix's pre-launch description of the deal as a first-of-its-kind partnership look less like marketing.",
       "The strategy behind it is clearer in hindsight. Take-Two chief executive Strauss Zelnick has argued for months that the campaign should go where the audience and the attention actually are, rather than into traditional television advertising. Netflix is one of the few places left where hundreds of millions of people can be reached on a television screen in a setting that feels like entertainment rather than an advert. Rockstar got its game presented next to prestige film and television rather than in the games aisle, and Netflix got to host one of the biggest entertainment moments of the year.",
@@ -592,6 +713,7 @@ export const news: NewsArticle[] = [
     sourceNote:
       "The premiere details and viewing figures on this page come from Rockstar Games and from Netflix, its named partner for this event. Descriptions of the footage refer to the official video itself, and anything Rockstar has not confirmed is labelled as such.",
     related: [
+      { href: "/news/extended-look-breakdown", label: "An Extended Look, scene by scene" },
       { href: "/trailers", label: "Watch every official GTA VI trailer" },
       {
         href: "/news/release-date-november-2026",
@@ -688,7 +810,7 @@ export const news: NewsArticle[] = [
       "Taken together, the two trailers establish the pillars of the game with real confidence. The setting is Vice City within the wider state of Leonida. The structure is a dual-protagonist story built around Lucia and Jason. The tone is a glossy, satirical, deeply lived-in take on contemporary America. And the technical ambition is obvious in every frame — crowd density, weather, reflections and small environmental details that fans have spent months pausing and dissecting.",
       "Just as telling was what the first two trailers deliberately withheld: no gameplay footage, no heads-up display, no mission structure, no menus and no world map. That restraint is a Rockstar signature. The studio reveals character and world long before it reveals systems, and for more than two and a half years that left every claim about mechanics unconfirmed.",
       "An Extended Look broke that pattern on August 27, 2026. Rockstar premiered it on Netflix, then released it free on YouTube and its own site six hours later. At about 27 minutes it is far longer than both trailers combined, and Rockstar says it was captured entirely from in-game footage on PlayStation 5. It mixes trailer-style montage with longer narrative cutscenes, and for the first time it shows Lucia and Jason in play: robberies and heists, getaway driving, racing and nights out in Vice City. It also gives real screen time to supporting characters such as Brian Heder, Raul Bautista, Boobie Ike and Cal Hampton.",
-      "Even so, Rockstar is still choosing what to show. There is still no official full map and no detailed look at online play, and the studio has not published a feature list to go with the footage. Treat specific mechanics people describe from the video as observations rather than confirmed rules until Rockstar spells them out. Our full write-up of the premiere covers what it showed and how it performed.",
+      "Even so, Rockstar is still choosing what to show. There is still no official full map and no detailed look at online play, and the studio has not published a feature list to go with the footage. Treat specific mechanics people describe from the video as observations rather than confirmed rules until Rockstar spells them out. Our scene-by-scene breakdown covers what it showed, and our premiere write-up covers how it performed.",
       "All three videos remain available in full on Rockstar's official YouTube channel and on the Grand Theft Auto VI section of the Rockstar Games website. On our trailers page, both trailers are embedded in order. An Extended Look is age-restricted on YouTube, so it can only play on YouTube itself, and we link straight to it there.",
     ],
     sources: [

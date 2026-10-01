@@ -161,7 +161,7 @@ export default function TrailersPage() {
               </Link>
               , our write-up of{" "}
               <Link
-                href="/news/extended-look-netflix-premiere"
+                href="/news/extended-look-breakdown"
                 className="font-semibold text-pink hover:underline"
               >
                 what An Extended Look showed

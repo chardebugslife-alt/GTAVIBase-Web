@@ -179,7 +179,14 @@ export default async function NewsArticlePage({
         <div className="mt-10 space-y-5 text-lg leading-relaxed text-muted">
           {article.body.map((paragraph, i) => (
             <div key={i} className="space-y-5">
-              <p>{paragraph}</p>
+              {/* A "## " prefix marks a section heading within the body. */}
+              {paragraph.startsWith("## ") ? (
+                <h2 className="pt-6 font-display text-2xl leading-snug text-foreground">
+                  {paragraph.slice(3)}
+                </h2>
+              ) : (
+                <p>{paragraph}</p>
+              )}
               {article.figures
                 ?.filter((f) => f.afterParagraph === i + 1)
                 .map((figure) => (
