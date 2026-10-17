@@ -7,7 +7,7 @@ import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { vehicleRoundup, vehicleRoundupSource } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Vehicles — Every Car, Bike, Boat and Plane Spotted",
+  title: "GTA 6 Vehicles: Every Car, Bike, Boat and Plane Spotted",
   description:
     "A guide to the vehicles of Grand Theft Auto VI — the cars, superbikes, helicopters, planes, boats and police vehicles named so far, including the models new to the series, with what Rockstar has actually shown of each.",
   path: "/vehicles",

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Countdown } from "@/components/Countdown";
 import { HeroTrailer } from "@/components/HeroTrailer";
 import { JsonLd } from "@/components/JsonLd";
-import { videoGameJsonLd } from "@/lib/seo";
+import { videoGameJsonLd, videoObjectJsonLd } from "@/lib/seo";
 import { gameFacts, editorial } from "@/lib/site";
 import { readingTime } from "@/lib/text";
 import {
@@ -45,7 +45,7 @@ const topics = [
   {
     href: "/trailers",
     title: "Trailers",
-    blurb: "Watch every official trailer and break down what we learned.",
+    blurb: "Watch every official GTA 6 trailer, including the new Launch Trailer.",
   },
   {
     href: "/editions",
@@ -114,6 +114,12 @@ export default function Home() {
   return (
     <>
       <JsonLd data={videoGameJsonLd()} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          ...videoObjectJsonLd(trailers[0]),
+        }}
+      />
 
       <div className={SHELL}>
         {/* Hero */}
@@ -373,13 +379,13 @@ export default function Home() {
               id="trailer-cta-heading"
               className="max-w-[22ch] text-[34px] font-semibold leading-[1.15] tracking-[-0.03em]"
             >
-              Catch up on the trailers
+              Catch up on the GTA 6 trailers
             </h2>
             <p className="serif mt-4.5 max-w-[52ch] text-[19px] leading-[1.62] text-secondary">
               {trailers[1].description}
             </p>
             <Link href="/trailers" className="btn-accent mt-7">
-              See every official video
+              Watch every GTA 6 trailer
             </Link>
           </div>
           <div className="relative aspect-video w-full overflow-hidden bg-surface">

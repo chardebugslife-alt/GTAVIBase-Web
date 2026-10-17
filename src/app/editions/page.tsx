@@ -14,7 +14,7 @@ import { editions, editionsInfo, editionFaqs } from "@/lib/data";
 import { gameFacts } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Editions & Price — Standard $79.99, Ultimate $99.99",
+  title: "GTA 6 Editions & Price: Standard $79.99, Ultimate $99.99",
   description:
     "How much is GTA VI and what editions are there? The Standard Edition is $79.99 and the Ultimate Edition is $99.99. Compare what each digital edition includes, pre-order bonuses and platforms.",
   path: "/editions",

@@ -3,7 +3,8 @@
  * rendered pages and the structured data (JSON-LD) without drifting apart.
  *
  * Everything here is based on Rockstar Games' official reveals (Trailer 1, Dec
- * 2023; Trailer 2, May 2025). We deliberately avoid unconfirmed leaks.
+ * 2023; Trailer 2, May 2025; An Extended Look, Aug 2026; the Launch Trailer,
+ * Oct 2026). We deliberately avoid unconfirmed leaks.
  */
 
 import type { NavItem } from "@/lib/site";
@@ -68,7 +69,7 @@ export const characters: Character[] = [
       "Jason wants an easy life and keeps being handed a harder one. He was raised among grifters and crooks, straightened himself out with a spell in the Army, and drifted back into the only work he really knows — running errands for the drug trade in the Leonida Keys. Meeting Lucia is either his way out or the worst thing that could happen to him.",
     details: [
       "Second playable protagonist alongside Lucia.",
-      "Grew up around con artists and criminals, then served in the Army.",
+      "Grew up around con artists and criminals, then served in the Army — and, as he says in the Launch Trailer, left it on bad terms.",
       "Works for local drug runners in the Leonida Keys, where we first meet him.",
       "Lives rent-free on smuggler Brian Heder’s property in return for muscle.",
     ],
@@ -351,6 +352,11 @@ export type Trailer = {
   title: string;
   released: string;
   releasedLabel: string;
+  /** Exact YouTube publish time, with offset, for VideoObject uploadDate. */
+  uploadedAt: string;
+  /** Runtime as ISO 8601 (VideoObject duration) and as shown on the page. */
+  duration: string;
+  durationLabel: string;
   description: string;
   /** The credited track, where one carries the whole video. */
   music?: string;
@@ -368,10 +374,30 @@ export type Trailer = {
 
 export const trailers: Trailer[] = [
   {
+    id: "launch-trailer",
+    title: "Grand Theft Auto VI — Launch Trailer",
+    released: "2026-10-15",
+    releasedLabel: "October 2026",
+    uploadedAt: "2026-10-15T06:00:26-07:00",
+    duration: "PT1M30S",
+    durationLabel: "1:30",
+    description:
+      "The last trailer before release: about ninety seconds, captured entirely in-game on PlayStation 5. It sets out the story plainly — an easy score goes wrong and Lucia and Jason are pulled into a conspiracy that stretches across Leonida — and closes on the November 19 date.",
+    music:
+      "“Flower in a Hurricane” by Justice feat. Tame Impala, SZA and King Gizzard & The Lizard Wizard",
+    youtubeId: "rz1B4B2yBZY",
+    // Launch key art from the Newswire post; it carries the release date.
+    thumbnail:
+      "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/517572321a549a/0637b4bb19438399bc5b3e7bbdfe6936f79cdbf3.jpg",
+  },
+  {
     id: "extended-look",
     title: "Grand Theft Auto VI: An Extended Look",
     released: "2026-08-27",
     releasedLabel: "August 2026",
+    uploadedAt: "2026-08-27T18:00:48-07:00",
+    duration: "PT26M48S",
+    durationLabel: "26:48",
     description:
       "Rockstar’s longest look at the game so far, captured entirely from in-game footage on PlayStation 5. It premiered on Netflix before going up free on YouTube the same evening, and it is the first official footage to follow two trailers that showed no gameplay at all.",
     youtubeId: "tJbzMqJGH4k",
@@ -386,9 +412,12 @@ export const trailers: Trailer[] = [
     title: "Grand Theft Auto VI — Trailer 2",
     released: "2025-05-06",
     releasedLabel: "May 2025",
+    uploadedAt: "2025-05-06T06:29:04-07:00",
+    duration: "PT2M47S",
+    durationLabel: "2:47",
     description:
-      "A deeper look at Lucia and Jason, the people of Leonida and the scope of Vice City and its surrounding regions.",
-    music: "Multiple licensed tracks",
+      "A deeper look at Lucia and Jason, the people of Leonida and the scope of Vice City and its surrounding regions. Rockstar says it was captured entirely in-game on PlayStation 5, in equal parts gameplay and cutscenes.",
+    music: "“Hot Together” by The Pointer Sisters",
     youtubeId: "VQRLujxTm3c",
     thumbnail:
       "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/3928aaa9471o3a/87db5089306344e0854cffb1b3bf15e6d71b465b.jpg",
@@ -398,6 +427,9 @@ export const trailers: Trailer[] = [
     title: "Grand Theft Auto VI — Trailer 1",
     released: "2023-12-05",
     releasedLabel: "December 2023",
+    uploadedAt: "2023-12-04T15:07:10-08:00",
+    duration: "PT1M30S",
+    durationLabel: "1:30",
     description:
       "The first official look at GTA VI, our introduction to Vice City, Lucia and the state of Leonida.",
     music: "“Love Is a Long Road” by Tom Petty",
@@ -618,10 +650,10 @@ export const news: NewsArticle[] = [
     slug: "extended-look-netflix-premiere",
     date: "2026-08-13",
     dateLabel: "August 13, 2026",
-    updated: "2026-10-01",
-    updatedDateLabel: "October 1, 2026",
+    updated: "2026-10-16",
+    updatedDateLabel: "October 16, 2026",
     updatedLabel:
-      "Updated after the August 27 premiere with what the footage showed, how it performed and where to watch it now. First published on August 13, 2026 as our premiere guide.",
+      "Updated after the August 27 premiere with what the footage showed, how it performed and where to watch it now, and again after the October 15 Launch Trailer. First published on August 13, 2026 as our premiere guide.",
     title: "GTA VI: An Extended Look — What Rockstar's 27-Minute Netflix Premiere Showed",
     summary:
       "Rockstar's 27-minute Grand Theft Auto VI: An Extended Look premiered on Netflix on August 27, 2026 and drew 31.1 million views in four days. What it showed, where to watch it now, and what it does and doesn't change before the November 19 launch.",
@@ -651,7 +683,7 @@ export const news: NewsArticle[] = [
       "The arrangement did draw criticism when it was announced. A loud group of players objected to paying a subscription to watch what amounted to an advert. In practice, the free YouTube release six hours later took most of the sting out of that complaint, because anyone who waited saw exactly the same video. The more lasting cost was structural. Part of what made the first two trailers feel like events was millions of people pressing play on the same link at the same moment, and a staggered rollout split that single global moment into two audiences six hours apart.",
       "If you missed it, An Extended Look is still available in full. It is free on the Rockstar Games YouTube channel and at rockstargames.com/VI, and it remains in the Netflix catalogue for subscribers. One practical note: Rockstar age-restricted the YouTube upload, so it will not play in players embedded on other sites, including ours. Watch it on YouTube while signed in to an account that meets the age requirement, or on Rockstar's own site. Our trailers page links to it alongside both earlier trailers.",
       "None of this moved the fundamentals. Grand Theft Auto VI still launches on November 19, 2026, on PlayStation 5 and Xbox Series X|S, with no PC version announced for launch. Pre-orders have been open since June 25, and Standard and Ultimate remain the only two editions. Take-Two had already pointed to An Extended Look in its financial reporting as evidence that the November date was holding, and nothing in or around the premiere suggested otherwise. Studios rarely stage a reveal this size twelve weeks before a date they expect to move.",
-      "With launch now only weeks away, An Extended Look is likely to remain the definitive pre-release showcase, though Rockstar may still release shorter clips or a launch trailer before November 19. If it does, we will update this page and our trailers guide, sourced as always from Rockstar and its named partners rather than from screenshots and rumours.",
+      "With launch now only weeks away, An Extended Look remains the definitive pre-release showcase. Rockstar did follow it with a Launch Trailer on October 15, but that is a trailer in the classic sense: about ninety seconds, also captured in-game on PlayStation 5, cut to a new Justice single and built to restate the premise rather than show more of the game being played. Both are on our trailers page, and our guide to every official trailer covers what the Launch Trailer adds.",
     ],
     figures: [
       {
@@ -781,28 +813,29 @@ export const news: NewsArticle[] = [
     slug: "trailer-2-released",
     date: "2025-05-06",
     dateLabel: "May 6, 2025",
-    updated: "2026-10-01",
-    updatedDateLabel: "October 1, 2026",
+    updated: "2026-10-16",
+    updatedDateLabel: "October 16, 2026",
     updatedLabel:
-      "A guide to every official GTA VI trailer, updated after the August 2026 release of An Extended Look.",
-    title: "GTA VI Trailers: Every Official Trailer, Explained",
+      "A guide to every official GTA VI trailer, updated after the October 15, 2026 release of the Launch Trailer.",
+    title: "GTA 6 Trailers Explained: What Every Official Trailer Revealed",
     summary:
-      "Rockstar has released three official Grand Theft Auto VI videos: the December 2023 reveal, the May 2025 Trailer 2 and the 27-minute An Extended Look from August 2026. Here's what each one showed, what they establish together, and what Rockstar is still holding back.",
+      "Rockstar has released four official Grand Theft Auto VI videos: the December 2023 reveal, the May 2025 Trailer 2, the 27-minute An Extended Look from August 2026 and the Launch Trailer from October 2026. Here's what each one showed, what they establish together, and what Rockstar is still holding back.",
     image: `${CDN}/3928aaa9471o3a/87db5089306344e0854cffb1b3bf15e6d71b465b.jpg`,
     imageAlt: "Grand Theft Auto VI Trailer 2 still",
     imageCredit: "© Rockstar Games",
     imageCreditUrl:
       "https://www.rockstargames.com/newswire/article/3928aaa9471o3a/grand-theft-auto-vi-watch-trailer-2-now",
     keyPoints: [
-      "Three official videos have been released: Trailer 1 (December 2023), Trailer 2 (May 6, 2025) and An Extended Look (August 27, 2026).",
+      "Four official videos have been released: Trailer 1 (December 2023), Trailer 2 (May 6, 2025), An Extended Look (August 27, 2026) and the Launch Trailer (October 15, 2026).",
       "Trailer 1 revealed the return to Vice City and introduced Lucia.",
       "Trailer 2 ran longer, introduced Jason and widened the view of Leonida.",
       "Both are scored with licensed music, including Tom Petty in the reveal.",
       "The two trailers were purely cinematic. An Extended Look, at about 27 minutes, was the first to show the game being played.",
+      "The roughly 90-second Launch Trailer was captured in-game on PlayStation 5 and debuts 'Flower in a Hurricane', a new single from Justice, who also composed the game's original score.",
       "Rockstar has still not shown an official full world map.",
     ],
     body: [
-      "For all the anticipation around Grand Theft Auto VI, the official footage comes down to three videos: the December 2023 reveal, a longer follow-up in May 2025, and the 27-minute An Extended Look that premiered on Netflix in August 2026. Everything Rockstar Games has formally shown of the game lives in those three, which makes them worth watching closely rather than once. Here is what each established, and what they add up to.",
+      "For all the anticipation around Grand Theft Auto VI, the official footage comes down to four videos: the December 2023 reveal, a longer follow-up in May 2025, the 27-minute An Extended Look that premiered on Netflix in August 2026, and the Launch Trailer released in October 2026. Everything Rockstar Games has formally shown of the game before release lives in those four, which makes them worth watching closely rather than once. Here is what each established, and what they add up to.",
       "The first trailer arrived in December 2023 and ended years of speculation in ninety seconds. It confirmed the long-rumoured return to Vice City, now set inside a broader modern-day state called Leonida — Rockstar's reimagining of Florida. It introduced Lucia, established from the outset as the first female protagonist in a mainline Grand Theft Auto, and set its montage of sun, crime and excess to Tom Petty's 'Love Is a Long Road.' The tone was immediate: neon and beaches on the surface, desperation and hustle underneath.",
       "That reveal did more than show a game; it reset expectations for what a trailer could be. Rockstar leaned into a social-media, influencer-saturated version of Leonida — livestreams, phone footage, mugshots and memes — signalling that GTA VI would hold a mirror to the present day the way earlier entries satirised their own eras. It was a statement of intent as much as a preview.",
       "The second trailer followed on May 6, 2025, and it was a different kind of video: longer, calmer and more character-driven. Where the reveal was a mood piece, Trailer 2 spent real time on people. It fleshed out Lucia and formally introduced her partner Jason, framing the pair as a modern outlaw couple, and it widened the lens across Leonida — from Vice City's beaches and nightlife to the swamps, keys and small towns that ring it. Rockstar again scored the footage with licensed tracks, reinforcing the game's strong musical identity.",
@@ -811,9 +844,35 @@ export const news: NewsArticle[] = [
       "Just as telling was what the first two trailers deliberately withheld: no gameplay footage, no heads-up display, no mission structure, no menus and no world map. That restraint is a Rockstar signature. The studio reveals character and world long before it reveals systems, and for more than two and a half years that left every claim about mechanics unconfirmed.",
       "An Extended Look broke that pattern on August 27, 2026. Rockstar premiered it on Netflix, then released it free on YouTube and its own site six hours later. At about 27 minutes it is far longer than both trailers combined, and Rockstar says it was captured entirely from in-game footage on PlayStation 5. It mixes trailer-style montage with longer narrative cutscenes, and for the first time it shows Lucia and Jason in play: robberies and heists, getaway driving, racing and nights out in Vice City. It also gives real screen time to supporting characters such as Brian Heder, Raul Bautista, Boobie Ike and Cal Hampton.",
       "Even so, Rockstar is still choosing what to show. There is still no official full map and no detailed look at online play, and the studio has not published a feature list to go with the footage. Treat specific mechanics people describe from the video as observations rather than confirmed rules until Rockstar spells them out. Our scene-by-scene breakdown covers what it showed, and our premiere write-up covers how it performed.",
-      "All three videos remain available in full on Rockstar's official YouTube channel and on the Grand Theft Auto VI section of the Rockstar Games website. On our trailers page, both trailers are embedded in order. An Extended Look is age-restricted on YouTube, so it can only play on YouTube itself, and we link straight to it there.",
+      "The Launch Trailer followed on October 15, 2026, five weeks before release, and with launch this close it is almost certainly the last trailer before the game is out. At about ninety seconds it returns to the length of the original reveal, but not to its approach. Like An Extended Look, Rockstar says it was captured entirely in-game on a PlayStation 5, and where the reveal was a mood piece, this one is a pitch for the story. Rockstar's own synopsis is the plainest account of the plot it has given: Lucia and Jason have always had the odds against them, an easy score goes wrong, and they end up on the dark side of Vice City, caught in a criminal conspiracy that reaches across Leonida and forced to depend on each other to get out alive.",
+      "Jason gets more of a voice than in any earlier trailer. He talks about getting into trouble in the Army and leaving on bad terms, which fills in the military service his official profile mentions and hints at why an ordinary life is closed to him. Around that the cut moves quickly through heists, gunfire, driving and helicopter action, with a quieter, intimate moment between the two leads. None of it adds new systems or a map. The point is to restate who these two are and why they need each other.",
+      "The music is the other headline. Earlier trailers leaned on licensed songs, from Tom Petty in the reveal onward. The Launch Trailer instead debuts 'Flower in a Hurricane', a new single from the electronic duo Justice featuring Tame Impala, SZA and King Gizzard & The Lizard Wizard. Rockstar also confirmed that Justice composed the game's original score, and that the track appears on Grand Theft Auto VI: The Album, the official soundtrack, which is up for pre-save on streaming services and pre-order on vinyl and CD. The trailer ends on the November 19 release date.",
+      "Read in order, the four videos are a clear escalation: a mood piece, a character piece, a long look at the game being played, and finally a trailer that states the premise outright and gives the soundtrack an original song. That is a confident way to close a campaign. Rockstar is no longer explaining what GTA VI is, only reminding people when it arrives.",
+      "All four videos remain available in full on Rockstar's official YouTube channel and on the Grand Theft Auto VI section of the Rockstar Games website. On our trailers page, the Launch Trailer and both earlier trailers are embedded in order. An Extended Look is age-restricted on YouTube, so it can only play on YouTube itself, and we link straight to it there.",
+    ],
+    figures: [
+      {
+        afterParagraph: 11,
+        src: `${CDN}/517572321a549a/0637b4bb19438399bc5b3e7bbdfe6936f79cdbf3.jpg`,
+        alt: "Grand Theft Auto VI launch key art of Jason and Lucia with the November 19, 2026 release date",
+        caption:
+          "Rockstar released the Launch Trailer on October 15, 2026, alongside new key art carrying the November 19 release date.",
+        credit: "© Rockstar Games",
+        creditUrl:
+          "https://www.rockstargames.com/newswire/article/517572321a549a/watch-the-grand-theft-auto-vi-launch-trailer",
+      },
     ],
     sources: [
+      {
+        title: "Watch the Grand Theft Auto VI Launch Trailer",
+        publisher: "Rockstar Games Newswire",
+        url: "https://www.rockstargames.com/newswire/article/517572321a549a/watch-the-grand-theft-auto-vi-launch-trailer",
+      },
+      {
+        title: "Grand Theft Auto VI Launch Trailer (official video)",
+        publisher: "Rockstar Games on YouTube",
+        url: "https://www.youtube.com/watch?v=rz1B4B2yBZY",
+      },
       {
         title: "Grand Theft Auto VI — Watch Trailer 2 Now",
         publisher: "Rockstar Games Newswire",
@@ -1025,6 +1084,74 @@ export type Faq = {
 /** Q&A pairs power both the FAQ page and FAQPage structured data — strong for
  *  answer engines (AEO) and AI overviews (GEO). Keep answers concise and
  *  self-contained so they can be quoted directly. */
+/** Questions people search about the trailers; shown on /trailers. */
+export const trailerFaqs: Faq[] = [
+  {
+    question: "What is the latest GTA 6 trailer?",
+    answer:
+      "The latest is the Grand Theft Auto VI Launch Trailer, released by Rockstar Games on October 15, 2026. It runs about 90 seconds, was captured entirely in-game on PlayStation 5, sets out the story of Lucia and Jason and ends on the November 19, 2026 release date. With launch five weeks away, it is expected to be the final trailer before release.",
+  },
+  {
+    question: "How many GTA 6 trailers are there?",
+    answer:
+      "Rockstar has released four official videos: Trailer 1 (December 2023), Trailer 2 (May 2025), Grand Theft Auto VI: An Extended Look (August 2026, about 27 minutes) and the Launch Trailer (October 2026). All four are on this page, newest first.",
+  },
+  {
+    question: "Where can I watch the full GTA 6 trailer?",
+    answer:
+      "Every official GTA 6 trailer is free to watch in full on Rockstar Games' YouTube channel and at rockstargames.com/VI. Trailer 1, Trailer 2 and the Launch Trailer play directly on this page. An Extended Look is age-restricted by YouTube, so it only plays on YouTube itself while you are signed in.",
+  },
+  {
+    question: "Can I download the GTA 6 trailer?",
+    answer:
+      "Rockstar does not offer the trailers as downloads. They stream free on its YouTube channel and its own website, and the only sanctioned way to keep one for offline viewing is YouTube's own download option in its app, where that is available to you. Avoid sites offering 'GTA 6 trailer downloads' or early copies of the game: they are a common route for malware.",
+  },
+  {
+    question: "What song is in the GTA 6 trailer?",
+    answer:
+      "Each trailer has its own track. Trailer 1 uses Tom Petty's 'Love Is a Long Road', Trailer 2 uses 'Hot Together' by The Pointer Sisters, and the Launch Trailer debuts 'Flower in a Hurricane' by Justice featuring Tame Impala, SZA and King Gizzard & The Lizard Wizard. Justice also composed the game's original score.",
+  },
+  {
+    question: "Which characters are in the GTA 6 trailers?",
+    answer:
+      "The two playable leads carry every trailer: Lucia Caminos, introduced in Trailer 1, and Jason Duval, introduced in Trailer 2. An Extended Look adds real screen time for supporting characters including Brian Heder, Raul Bautista, Boobie Ike and Cal Hampton. Our characters guide covers the full confirmed cast.",
+  },
+  {
+    question: "Is the GTA 6 trailer gameplay?",
+    answer:
+      "Partly. Rockstar says Trailer 2 was captured entirely in-game on PlayStation 5 in equal parts gameplay and cutscenes, and the Launch Trailer was also captured in-game on PS5, but both are edited like cinematic trailers with no on-screen HUD. An Extended Look is the first official video to show the game being played at length.",
+  },
+  {
+    question: "Is there a GTA 6 Online trailer?",
+    answer:
+      "No. None of Rockstar's four official videos covers online play, and the studio has not released a trailer or details for a GTA VI online mode.",
+  },
+];
+
+/** Questions people search about the cast; shown on /characters. */
+export const characterFaqs: Faq[] = [
+  {
+    question: "Who is the main character in GTA 6?",
+    answer:
+      "GTA 6 has two main characters, and you play as both: Lucia Caminos and Jason Duval. They are a criminal couple whose relationship drives the story, and Lucia is the first female protagonist in a mainline Grand Theft Auto game.",
+  },
+  {
+    question: "What is Lucia's full name in GTA 6?",
+    answer:
+      "Her full name is Lucia Caminos. Rockstar's official character page introduces her as Lucia Caminos, and the reveal trailer opens with her in a Leonida correctional facility.",
+  },
+  {
+    question: "What are the names of the GTA 6 characters?",
+    answer:
+      "Rockstar has officially named the playable leads Lucia Caminos and Jason Duval, plus Cal Hampton, Boobie Ike, Dre'Quan Priest, the rap duo Real Dimez, Raul Bautista and Brian Heder. Any other names circulating online come from rumours, not Rockstar.",
+  },
+  {
+    question: "Which GTA 6 characters appear in the trailers?",
+    answer:
+      "Lucia is introduced in Trailer 1 and Jason in Trailer 2, and both lead the Launch Trailer. An Extended Look gives the supporting cast real screen time, including Brian Heder, Raul Bautista, Boobie Ike and Cal Hampton.",
+  },
+];
+
 export const faqs: Faq[] = [
   {
     question: "When is GTA VI coming out?",
@@ -1079,7 +1206,12 @@ export const faqs: Faq[] = [
   {
     question: "How many trailers does GTA VI have?",
     answer:
-      "Rockstar has released three official videos: Trailer 1 in December 2023, Trailer 2 in May 2025, and Grand Theft Auto VI: An Extended Look, a roughly 27-minute showcase that premiered on August 27, 2026. An Extended Look is the first to show the game being played.",
+      "Rockstar has released four official videos: Trailer 1 in December 2023, Trailer 2 in May 2025, Grand Theft Auto VI: An Extended Look, a roughly 27-minute showcase that premiered on August 27, 2026, and the Launch Trailer, a 90-second final trailer released on October 15, 2026. An Extended Look is the first to show the game being played at length.",
+  },
+  {
+    question: "Who made the music for GTA VI?",
+    answer:
+      "The French electronic duo Justice composed Grand Theft Auto VI's original score. Their single 'Flower in a Hurricane', featuring Tame Impala, SZA and King Gizzard & The Lizard Wizard, debuted in the October 2026 Launch Trailer and is on Grand Theft Auto VI: The Album, the official soundtrack, available to pre-save on streaming services and pre-order on vinyl and CD. Earlier trailers used licensed songs, including Tom Petty's 'Love Is a Long Road' in the reveal.",
   },
   {
     question: "How do I watch GTA VI: An Extended Look?",

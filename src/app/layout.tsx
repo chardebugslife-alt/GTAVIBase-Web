@@ -32,7 +32,7 @@ const sourceSerif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — GTA VI Release Date, Map, Characters & News`,
+    default: `${siteConfig.name} — GTA 6 Release Date, Trailers, Characters & Map`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -89,6 +89,8 @@ function siteJsonLd() {
         "@id": absoluteUrl("/#website"),
         url: siteConfig.url,
         name: siteConfig.name,
+        // Google reads these as accepted variants of the site name.
+        alternateName: ["GTA 6 Base", siteConfig.shortName, "gtavibase.com"],
         description: siteConfig.description,
         inLanguage: "en",
         publisher: { "@id": absoluteUrl("/#organization") },

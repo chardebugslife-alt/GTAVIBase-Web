@@ -22,7 +22,7 @@ const destinations: Record<string, Item> = {
   trailers: {
     href: "/trailers",
     title: "Trailers",
-    blurb: "Watch every official trailer and break down what we learned.",
+    blurb: "Watch every official GTA 6 trailer, including the new Launch Trailer.",
   },
   editions: {
     href: "/editions",

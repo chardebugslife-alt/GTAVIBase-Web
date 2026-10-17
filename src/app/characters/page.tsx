@@ -3,13 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
-import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
-import { characters, supportingCast, ONLY_IN_LEONIDA_URL } from "@/lib/data";
+import { pageMetadata, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo";
+import {
+  characters,
+  supportingCast,
+  characterFaqs,
+  ONLY_IN_LEONIDA_URL,
+} from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Characters — Lucia, Jason and the Full Cast",
+  title: "GTA 6 Characters: Lucia, Jason & Every Confirmed Name",
   description:
-    "Every GTA VI character Rockstar has confirmed: playable leads Lucia Caminos and Jason Duval, plus Cal Hampton, Boobie Ike, Dre’Quan Priest, Real Dimez, Raul Bautista and Brian Heder. Backstories, roles and what is still unknown.",
+    "Who are the GTA 6 main characters? Lucia Caminos and Jason Duval, both playable. Every character Rockstar has named — Cal Hampton, Boobie Ike, Dre’Quan Priest, Real Dimez, Raul Bautista and Brian Heder — with roles, backstories and trailer appearances.",
   path: "/characters",
 });
 
@@ -22,6 +27,7 @@ export default function CharactersPage() {
           { name: "Characters", path: "/characters" },
         ])}
       />
+      <JsonLd data={faqPageJsonLd(characterFaqs)} />
 
       <article className="mx-auto max-w-4xl px-5 py-16">
         <header>
@@ -29,17 +35,33 @@ export default function CharactersPage() {
             GTA VI Guide
           </p>
           <h1 className="mt-2 font-display text-5xl sm:text-6xl">
-            <span className="gradient-text">Main Characters</span>
+            <span className="gradient-text">GTA 6 Characters</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            Grand Theft Auto VI has no single main character. It is the first
-            game in the series with two playable protagonists — Lucia Caminos
-            and Jason Duval — and their intertwined, Bonnie-and-Clyde story
-            anchors the game in Vice City and the wider state of Leonida.
-            Rockstar has since named six more of the people around them, and
-            they are all below.
+            The main characters in GTA 6 are Lucia Caminos and Jason Duval, and
+            you play as both. Grand Theft Auto VI is the first game in the series
+            with two playable protagonists, and their intertwined,
+            Bonnie-and-Clyde story anchors the game in Vice City and the wider
+            state of Leonida. Rockstar has since named six more of the people
+            around them, and they are all below.
           </p>
         </header>
+
+        <nav aria-labelledby="names-heading" className="mt-10 border border-line p-6">
+          <h2 id="names-heading" className="text-xs uppercase tracking-wider text-teal">
+            Every confirmed GTA 6 character
+          </h2>
+          <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+            {[...characters, ...supportingCast].map((c) => (
+              <li key={c.slug} className="text-sm leading-relaxed">
+                <a href={`#${c.slug}`} className="font-semibold text-pink hover:underline">
+                  {c.name}
+                </a>
+                <span className="text-muted"> — {c.role}</span>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="mt-12 space-y-10">
           {characters.map((c) => (
@@ -241,6 +263,28 @@ export default function CharactersPage() {
               .
             </p>
           </div>
+        </section>
+
+        <section aria-labelledby="character-faq-heading" className="mt-12 max-w-3xl">
+          <h2 id="character-faq-heading" className="font-display text-3xl">
+            GTA 6 characters FAQ
+          </h2>
+          <div className="mt-6 space-y-3">
+            {characterFaqs.map((f) => (
+              <div key={f.question} className="border border-line bg-surface p-6">
+                <h3 className="font-semibold text-foreground">{f.question}</h3>
+                <p className="mt-3 leading-relaxed text-muted">{f.answer}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-muted">
+            Want to see them in motion? Every character above appears in the
+            official footage on our{" "}
+            <Link href="/trailers" className="font-semibold text-pink hover:underline">
+              GTA 6 trailers
+            </Link>{" "}
+            page.
+          </p>
         </section>
       </article>
       <RelatedLinks current="characters" />

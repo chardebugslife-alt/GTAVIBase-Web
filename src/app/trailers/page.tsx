@@ -3,34 +3,32 @@ import Image from "next/image";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import Link from "next/link";
-import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
-import { trailers } from "@/lib/data";
-import { gameFacts } from "@/lib/site";
+import {
+  pageMetadata,
+  breadcrumbJsonLd,
+  faqPageJsonLd,
+  videoObjectJsonLd,
+} from "@/lib/seo";
+import { trailers, trailerFaqs } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Trailers — Watch Every Official Video",
+  title: "GTA 6 Trailer: Watch Every Official GTA VI Trailer",
   description:
-    "Watch every official Grand Theft Auto VI video from Rockstar Games: the record-breaking 2023 reveal, the second trailer, and An Extended Look — the in-game footage that premiered in August 2026 — with release dates and breakdowns.",
+    "Watch the new GTA 6 Launch Trailer and every official Grand Theft Auto VI trailer in full: Trailer 1, Trailer 2 and the 27-minute Extended Look, with release dates, run times, songs and what each one shows.",
   path: "/trailers",
 });
+
+/** "Grand Theft Auto VI — Launch Trailer" → "Launch Trailer". */
+function shortTitle(title: string) {
+  return title.replace(/^Grand Theft Auto VI(: | — )/, "");
+}
+
+const latest = trailers[0];
 
 function videoObjectsJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@graph": trailers.map((t) => ({
-      "@type": "VideoObject",
-      name: t.title,
-      description: t.description,
-      uploadDate: t.released,
-      thumbnailUrl: [t.thumbnail],
-      embedUrl: `https://www.youtube.com/embed/${t.youtubeId}`,
-      contentUrl: `https://www.youtube.com/watch?v=${t.youtubeId}`,
-      publisher: {
-        "@type": "Organization",
-        name: gameFacts.publisher,
-        url: "https://www.rockstargames.com",
-      },
-    })),
+    "@graph": trailers.map(videoObjectJsonLd),
   };
 }
 
@@ -44,6 +42,7 @@ export default function TrailersPage() {
         ])}
       />
       <JsonLd data={videoObjectsJsonLd()} />
+      <JsonLd data={faqPageJsonLd(trailerFaqs)} />
 
       <article className="mx-auto max-w-4xl px-5 py-16">
         <header>
@@ -51,15 +50,66 @@ export default function TrailersPage() {
             GTA VI Guide
           </p>
           <h1 className="mt-2 font-display text-5xl sm:text-6xl">
-            <span className="gradient-text">Trailers</span>
+            <span className="gradient-text">GTA 6 Trailers</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            Every official Grand Theft Auto VI video, newest first — the two
-            trailers and An Extended Look, the in-game footage Rockstar released
-            in August 2026. Each one broke records and took us deeper into Vice
-            City, Leonida and the game&rsquo;s two protagonists.
+            Every official Grand Theft Auto VI trailer, newest first, to watch
+            in full. The latest GTA 6 trailer is the{" "}
+            <a
+              href={`#${latest.id}-heading`}
+              className="font-semibold text-pink hover:underline"
+            >
+              {shortTitle(latest.title)}
+            </a>
+            , released by Rockstar Games on October 15, 2026 &mdash; expected to
+            be the last before the game launches on November 19. Below it are An
+            Extended Look and the two trailers that started it all.
           </p>
         </header>
+
+        <section aria-labelledby="list-heading" className="mt-10">
+          <h2 id="list-heading" className="sr-only">
+            Every official GTA 6 trailer at a glance
+          </h2>
+          <div className="overflow-x-auto border border-line">
+            <table className="w-full min-w-[520px] text-left text-sm">
+              <thead className="bg-surface text-xs uppercase tracking-wider text-muted">
+                <tr>
+                  <th scope="col" className="px-4 py-3 font-medium">Trailer</th>
+                  <th scope="col" className="px-4 py-3 font-medium">Released</th>
+                  <th scope="col" className="px-4 py-3 font-medium">Length</th>
+                  <th scope="col" className="px-4 py-3 font-medium">Music</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trailers.map((t) => (
+                  <tr key={t.id} className="border-t border-line align-top">
+                    <td className="px-4 py-3">
+                      <a
+                        href={`#${t.id}-heading`}
+                        className="font-semibold text-pink hover:underline"
+                      >
+                        {shortTitle(t.title)}
+                      </a>
+                    </td>
+                    <td className="px-4 py-3 text-muted">
+                      <time dateTime={t.released}>
+                        {new Date(t.released).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                          timeZone: "UTC",
+                        })}
+                      </time>
+                    </td>
+                    <td className="px-4 py-3 text-muted">{t.durationLabel}</td>
+                    <td className="px-4 py-3 text-muted">{t.music ?? "Various"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
 
         <div className="mt-12 space-y-14">
           {trailers.map((t) => (
@@ -71,7 +121,7 @@ export default function TrailersPage() {
                 {t.title}
               </h2>
               <p className="mt-1 text-sm text-muted">
-                Released {t.releasedLabel}
+                Released {t.releasedLabel} · {t.durationLabel}
                 {t.music ? ` · Music: ${t.music}` : null}
               </p>
               <div className="relative mt-4 aspect-video w-full overflow-hidden border border-line bg-black">
@@ -146,13 +196,26 @@ export default function TrailersPage() {
               mark on a calendar.
             </p>
             <p>
-              Just as telling is what those two deliberately withheld: no gameplay,
-              no heads-up display, no mission structure and no world map. That
+              Just as telling is what those two deliberately withheld. Rockstar
+              says Trailer 2 was captured in-game on PlayStation 5, half gameplay
+              and half cutscenes, but it was cut as a cinematic trailer: no
+              heads-up display, no mission structure and no world map. That
               restraint is a Rockstar signature — reveal character and world long
               before systems. An Extended Look, captured entirely from in-game
-              footage on PlayStation 5, is the first official break from the
-              pattern, though Rockstar still controls exactly how much of the game
-              it shows. For a fuller breakdown, read our explainer on{" "}
+              footage on PlayStation 5, is the first official video to show the
+              game being played at length, though Rockstar still controls exactly how much of the game
+              it shows.
+            </p>
+            <p>
+              The Launch Trailer, released on October 15, 2026, closes the
+              campaign. At about ninety seconds it is back to the length of the
+              reveal, and like An Extended Look it was captured entirely in-game
+              on PlayStation 5. It spells out the premise &mdash; an easy score
+              goes wrong and Lucia and Jason are drawn into a conspiracy that
+              spans Leonida &mdash; and swaps licensed songs for &ldquo;Flower in
+              a Hurricane,&rdquo; a new single from Justice, the duo behind the
+              game&rsquo;s original score. For a fuller breakdown, read our
+              explainer on{" "}
               <Link
                 href="/news/trailer-2-released"
                 className="font-semibold text-pink hover:underline"
@@ -175,6 +238,20 @@ export default function TrailersPage() {
               </Link>
               .
             </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="trailer-faq-heading" className="mt-16 max-w-3xl">
+          <h2 id="trailer-faq-heading" className="font-display text-3xl">
+            GTA 6 trailer FAQ
+          </h2>
+          <div className="mt-6 space-y-3">
+            {trailerFaqs.map((f) => (
+              <div key={f.question} className="border border-line bg-surface p-6">
+                <h3 className="font-semibold text-foreground">{f.question}</h3>
+                <p className="mt-3 leading-relaxed text-muted">{f.answer}</p>
+              </div>
+            ))}
           </div>
         </section>
       </article>

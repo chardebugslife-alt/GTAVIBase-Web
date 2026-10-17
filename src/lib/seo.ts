@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { absoluteUrl, siteConfig, gameFacts, editorial } from "@/lib/site";
-import type { NewsArticle, Faq, CommunityPost } from "@/lib/data";
+import type { NewsArticle, Faq, CommunityPost, Trailer } from "@/lib/data";
 import { editions } from "@/lib/data";
 
 /**
@@ -227,6 +227,25 @@ export function editionsJsonLd(): Record<string, unknown> {
       url: absoluteUrl("/editions"),
       seller: { "@type": "Organization", name: gameFacts.publisher },
     })),
+  };
+}
+
+/** VideoObject for one official trailer, hosted on Rockstar's YouTube. */
+export function videoObjectJsonLd(t: Trailer): Record<string, unknown> {
+  return {
+    "@type": "VideoObject",
+    name: t.title,
+    description: t.description,
+    uploadDate: t.uploadedAt,
+    duration: t.duration,
+    thumbnailUrl: [t.thumbnail],
+    embedUrl: `https://www.youtube.com/embed/${t.youtubeId}`,
+    contentUrl: `https://www.youtube.com/watch?v=${t.youtubeId}`,
+    publisher: {
+      "@type": "Organization",
+      name: gameFacts.publisher,
+      url: "https://www.rockstargames.com",
+    },
   };
 }
 
