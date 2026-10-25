@@ -1737,6 +1737,7 @@ export const community: CommunityPost[] = [
     ],
     related: [
       { href: "/trailers", label: "Watch the official GTA VI trailers" },
+      { href: "/community/gta-6-soundtrack-songs-and-album", label: "GTA VI soundtrack guide: songs, score and The Album" },
       { href: "/news/extended-look-breakdown", label: "An Extended Look, scene by scene" },
     ],
   },
@@ -2068,6 +2069,81 @@ export const community: CommunityPost[] = [
     related: [
       { href: "/setting", label: "GTA VI setting: Vice City & Leonida" },
       { href: "/news/release-date-november-2026", label: "GTA VI release date: the confirmed facts" },
+    ],
+  },
+  {
+    slug: "gta-6-soundtrack-songs-and-album",
+    category: "industry-watch",
+    evidence:
+      "Album and score are officially announced; per-scene song lists are compiled by the press and vary slightly.",
+    date: "2026-10-25",
+    dateLabel: "October 25, 2026",
+    title: "GTA VI soundtrack guide: every confirmed song, the score and The Album",
+    summary:
+      "Licensed songs from the trailers and An Extended Look, a Justice-composed score, a 34-track album out November 19 and six radio stations: a single guide to what is confirmed about the sound of GTA VI, and what is not.",
+    keyPoints: [
+      "Grand Theft Auto VI: The Album has 34 new tracks, is released with Atlantic Records on November 19, and comes on streaming, vinyl and CD.",
+      "Six album singles are out, including Travis Scott's \"RHYNO\" and Morgan Wallen's \"Last Thing You Need\".",
+      "French duo Justice composed the original score; \"Flower in a Hurricane\" with Tame Impala, SZA and King Gizzard & The Lizard Wizard is the Launch Trailer song.",
+      "The trailers and An Extended Look used licensed songs from Tom Petty to Def Leppard to Sexyy Red.",
+      "Rockstar has not published a full tracklist for the album or the in-game radio.",
+    ],
+    body: [
+      "Music has been central to Grand Theft Auto VI's marketing from the first trailer, and the amount of confirmed material has grown quickly. This guide pulls it together in one place: the licensed songs heard in Rockstar's videos, the original score, the album and the radio. Song lists compiled by the press differ in small ways, so where outlets disagree we say so.",
+      "Start with the trailers. Tom Petty's \"Love Is a Long Road\" scored Trailer 1 and The Pointer Sisters' \"Hot Together\" scored Trailer 2, and Red Bull's roundup lists four further trailer-era tracks: Wang Chung's \"Everybody Have Fun Tonight,\" Tammy Wynette's \"Talkin' to Myself Again,\" Zenglen's \"Child Support\" and Jay Ferguson's \"Thunder Island.\" The Launch Trailer on October 15 broke the pattern with an original piece, Justice's \"Flower in a Hurricane\" featuring Tame Impala, SZA and King Gizzard & The Lizard Wizard, which Push Square reports was made for the game's soundtrack.",
+      "An Extended Look carried the broadest mix. Red Bull lists fourteen licensed songs, among them Birdman and Lil Wayne's \"Pop Bottles,\" Sexyy Red and Tay Keith's \"Pound Town,\" Kodak Black's \"Skrilla,\" Def Leppard's \"Love Bites,\" Depeche Mode's \"People Are People,\" Prefab Sprout's \"Cars and Girls,\" Cliff Richard's \"Devil Woman\" and Phil Collins's \"Against All Odds.\" Rolling Stone's list runs to twelve and GameSpot's and GamesRadar's to about sixteen, partly because they treat a theme song heard in the video differently, so treat any exact count as approximate. What is consistent is the range: 1980s pop and rock beside current rap, reggaeton and dance music, which is the mixture Vice City has always traded on.",
+      "The original music is handled by Justice. Billboard reports that the French duo created the score, including the passages heard in An Extended Look. Rockstar has also teased a dynamic score, but it has not explained how that will work, so we do not describe it beyond that.",
+      "Then there is the album. Grand Theft Auto VI: The Album was announced in September with Atlantic Records, with 34 new tracks arriving on November 19 alongside the game, per Billboard, VGC and Push Square. Six songs were released at announcement: Yung Lean's \"That's It\" with Future and Metro Boomin, Travis Scott's \"RHYNO,\" \"Sexy Magic\" by CA7RIEL & Paco Amoroso, PinkPantheress, Fred again.. and Etienne de Crécy, Morgan Wallen's \"Last Thing You Need,\" Rauw Alejandro's \"Macacoa 2000\" and Keith Richards' \"Bright Lights, Big City.\" Justice's single has since joined them. GameSpot and GamesRadar report that it will also be sold on CD and vinyl, including a $125 deluxe vinyl collection, even though the game itself has no disc. One GamesRadar piece gives November 20 for the album; the reports we read otherwise say November 19.",
+      "What is still unknown matters. The other 28 album tracks have not been published. It is not confirmed whether album songs will play on the in-game radio, and Rockstar has not released a station track list. Red Bull's piece, written in September, says the only confirmed station was V-Rock and that others came from leaks; that predates Rockstar's October 8 reveal of six stations with named hosts, which we cover in our radio post. Until Rockstar publishes a tracklist, any list of what plays where is speculation.",
+    ],
+    source: {
+      title: "GTA 6 soundtrack: All confirmed songs, albums and radio stations",
+      publisher: "Red Bull",
+      url: "https://www.redbull.com/gb-en/gta-6-soundtrack-songs-music-radio",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title:
+          "'Grand Theft Auto VI: The Album' Will Feature 34 New Tracks — Hear the First Six Songs From the Project",
+        publisher: "Billboard",
+        url: "https://www.billboard.com/music/music-news/grand-theft-auto-vi-the-album-videogame-soundtrack-1236342337/",
+        kind: "Article",
+      },
+      {
+        title: "Grand Theft Auto 6 is getting a vinyl, CD and streaming soundtrack with 34 original tracks",
+        publisher: "VGC",
+        url: "https://www.videogameschronicle.com/news/grand-theft-auto-6-is-getting-a-vinyl-cd-and-streaming-soundtrack-with-34-original-tracks/",
+        kind: "Article",
+      },
+      {
+        title: "Justice Created the Score for 'Grand Theft Auto VI': Hear the Duo's New Song With Tame Impala, SZA & More",
+        publisher: "Billboard",
+        url: "https://www.billboard.com/music/music-news/grand-theft-auto-vi-score-justice-1236361230/",
+        kind: "Article",
+      },
+      {
+        title: "Every Song We Heard in Netflix's 'GTA VI' Extended Look",
+        publisher: "Rolling Stone",
+        url: "https://ca.rollingstone.com/music/gta-6-netflix-extended-look-soundtrack-songs-vi/",
+        kind: "Article",
+      },
+      {
+        title: "GTA 6 Soundtrack - All Confirmed Songs So Far",
+        publisher: "GameSpot",
+        url: "https://www.gamespot.com/articles/gta-6-soundtrack-all-confirmed-songs-so-far/",
+        kind: "Article",
+      },
+      {
+        title: "GTA 6: The Album Announced, Pre-Orders Available Now",
+        publisher: "Push Square",
+        url: "https://www.pushsquare.com/news/2026/09/gta-6-the-album-announced-pre-orders-available-now",
+        kind: "Article",
+      },
+    ],
+    related: [
+      { href: "/community/gta-6-radio-stations-and-podcasts", label: "GTA VI's six radio stations and podcasts" },
+      { href: "/trailers", label: "Watch the official GTA VI trailers" },
     ],
   },
 ];
