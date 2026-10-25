@@ -61,6 +61,7 @@ export default async function CommunityPostPage({
 
   const category = categoryBySlug[post.category];
   const links = [post.source, ...(post.moreLinks ?? [])];
+  const isPress = post.category === "industry-watch";
 
   return (
     <>
@@ -109,10 +110,15 @@ export default async function CommunityPostPage({
 
           {/* Unofficial-content disclaimer — every community page carries it. */}
           <aside className="mt-10 border-l-2 border-accent bg-accent-wash px-6 py-5.5">
-            <p className="eyebrow-sm">Fan discussion, not official information</p>
+            <p className="eyebrow-sm">
+              {isPress
+                ? "Press-reported, not an official announcement"
+                : "Fan discussion, not official information"}
+            </p>
             <p className="serif mt-3 text-base leading-[1.6] text-secondary">
-              This is a summary of community speculation and is not confirmed by
-              Rockstar Games. For confirmed facts, see the{" "}
+              {isPress
+                ? "This is our summary of reporting from the outlets cited below, not an announcement from Rockstar Games unless we say so. For facts straight from Rockstar, see the "
+                : "This is a summary of community speculation and is not confirmed by Rockstar Games. For confirmed facts, see the "}
               <Link
                 href="/news"
                 className="text-accent-deep underline underline-offset-4"
@@ -188,11 +194,12 @@ export default async function CommunityPostPage({
 
           <section aria-labelledby="discussion" className="mt-14 pb-5">
             <h2 id="discussion" className="eyebrow text-muted">
-              Join the discussion
+              {isPress ? "References" : "Join the discussion"}
             </h2>
             <p className="serif mt-3.5 text-base leading-[1.6] text-muted">
-              This conversation is happening on external, fan-run platforms.
-              Links open in a new tab — we don&apos;t control their content.
+              {isPress
+                ? "The reporting this summary draws on. Links open in a new tab — we don't control their content."
+                : "This conversation is happening on external, fan-run platforms. Links open in a new tab — we don't control their content."}
             </p>
             <ul className="mt-5.5 grid gap-px bg-line">
               {links.map((link) => (

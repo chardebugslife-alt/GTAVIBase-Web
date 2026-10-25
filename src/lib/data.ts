@@ -1308,6 +1308,12 @@ export const communityCategories: CommunityCategory[] = [
       "The arguments splitting the fandom right now — price, story length and how to play launch week.",
   },
   {
+    slug: "industry-watch",
+    label: "Industry Watch",
+    blurb:
+      "Ratings, platforms, sales and marketing developments around GTA VI, summarised from reputable press and cited in full. Not a Rockstar announcement unless stated.",
+  },
+  {
     slug: "breakdowns",
     label: "Trailer Breakdowns",
     blurb:
@@ -1621,6 +1627,447 @@ export const community: CommunityPost[] = [
     related: [
       { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
       { href: "/news/platforms-and-editions", label: "GTA VI platforms & editions: the confirmed facts" },
+    ],
+  },
+  {
+    slug: "gta-6-esrb-mature-rating-explained",
+    category: "industry-watch",
+    evidence:
+      "ESRB listing is official; regional-board detail is press-reported.",
+    date: "2026-10-02",
+    dateLabel: "October 2, 2026",
+    title: "GTA VI is rated Mature 17+: what the ratings actually say",
+    summary:
+      "The ESRB has rated Grand Theft Auto VI M for Mature 17+, with seven content descriptors and an in-game purchases notice. Here is what the listing confirms, what the regional boards added, and what it does not tell us.",
+    keyPoints: [
+      "The ESRB rates GTA VI M (Mature 17+) on PlayStation 5 and Xbox Series.",
+      "Descriptors: Blood and Gore, Intense Violence, Mature Humor, Nudity, Strong Language, Strong Sexual Content, Use of Drugs and Alcohol.",
+      "The listing carries an In-Game Purchases interactive element.",
+      "A detailed PEGI 18 summary appeared in early October and was removed within a day; its details are press-reported, not something Rockstar published.",
+      "No ratings board has told us anything about story, length or online features.",
+    ],
+    body: [
+      "Age ratings rarely make headlines, but the week Grand Theft Auto VI's rating appeared was one of the busiest of the build-up to launch. The ESRB's public listing for the game shows an M for Mature 17+ rating covering PlayStation 5 and Xbox Series consoles. That is the same tier every mainline Grand Theft Auto has held for years, so the rating itself is no surprise. The descriptors underneath it are where the interesting detail sits.",
+      "The ESRB lists seven content descriptors: Blood and Gore, Intense Violence, Mature Humor, Nudity, Strong Language, Strong Sexual Content, and Use of Drugs and Alcohol. It also lists In-Game Purchases as an interactive element. That last item is worth reading carefully. The ESRB applies it to a wide range of paid extras, not just random loot, so it confirms that some form of paid content exists but says nothing about what it is or how aggressive it will be. Anyone reading it as proof of a specific monetisation model is going further than the evidence allows.",
+      "Regional boards added colour. Press coverage from Push Square and VGC reported that Europe's PEGI published an 18 rating with an unusually specific summary, describing realistic gore, frequent and prominent drug use, nudity and intercourse, and optional private dances in nightclubs. VGC also reported that the PEGI entry was taken down shortly after it went up, and no official explanation was given. Australian and New Zealand listings, according to GamesRadar, name sex scenes explicitly, which the outlet read as a step up in wording from Grand Theft Auto V's older classification. Because the older game was rated in 2013, some of that difference may simply be newer, more detailed rating language rather than a real change in content.",
+      "It is sensible to hold these descriptions at arm's length. A ratings summary describes what a reviewer was told a game can contain; it is not a design document, and a removed listing is not a confirmed one. Nothing in any of the rating material tells us how often these things happen, whether they are optional, or how they fit the story. Our guide to the confirmed facts on this site deliberately leaves the PEGI wording out for that reason, and we only treat the ESRB listing as firm.",
+      "What the ratings do give us is a useful reality check on tone. Rockstar's trailers have leaned on sun, music and romance, and the ratings are a reminder that the finished game is aimed squarely at adults. For parents, the practical takeaway is straightforward: this is a 17+ title, the consoles' parental controls apply, and the in-game purchases notice is a prompt to check spending limits before a younger family member gets near a store page.",
+    ],
+    source: {
+      title: "Grand Theft Auto VI — ESRB rating",
+      publisher: "ESRB",
+      url: "https://www.esrb.org/ratings/41627/grand-theft-auto-vi/",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title: "GTA 6 rating pulled after revealing sex scenes and drug use",
+        publisher: "VGC",
+        url: "https://www.videogameschronicle.com/news/gta-6-rating-pulled-after-revealing-sex-scenes-and-drug-use/",
+        kind: "Article",
+      },
+      {
+        title: "Drug Use, Nudity, and Sexual Fetishes All in GTA 6",
+        publisher: "Push Square",
+        url: "https://www.pushsquare.com/news/2026/10/drug-use-nudity-and-sexual-fetishes-all-in-gta-6",
+        kind: "Article",
+      },
+      {
+        title:
+          "GTA 6 age rating suggests a more explicit game than GTA 5, singling out \"sex scenes\"",
+        publisher: "GamesRadar+",
+        url: "https://www.gamesradar.com/games/grand-theft-auto/gta-6-age-rating-suggests-a-more-explicit-game-than-gta-5-singling-out-sex-scenes-in-a-step-up-from-rockstars-last-installment/",
+        kind: "Article",
+      },
+    ],
+    related: [
+      { href: "/faq", label: "GTA VI FAQ" },
+      { href: "/editions", label: "GTA VI editions & price" },
+    ],
+  },
+  {
+    slug: "gta-6-radio-stations-and-podcasts",
+    category: "industry-watch",
+    evidence:
+      "Announced by Rockstar on October 8; host details are as reported by the press.",
+    date: "2026-10-08",
+    dateLabel: "October 8, 2026",
+    title: "GTA VI's six radio stations and the first on-foot podcasts",
+    summary:
+      "Rockstar revealed the first six GTA VI radio stations on October 8, with hosts from Bad Bunny to Slayer's Kerry King, plus on-demand podcasts you can listen to on foot. Here is the lineup, what is new, and what is still unannounced.",
+    keyPoints: [
+      "Six stations were revealed: Cocoteo FM, Back Country Radio, AfroBank FM, The Chamber 106.6, Flash FM and Dirty South Classics.",
+      "Named hosts include Bad Bunny, Lana Del Rey, Morgan Wallen, Burna Boy, Kerry King, Tom Araya, Robyn, Trick Daddy and Trina.",
+      "Radio and on-demand podcasts can be heard on foot as well as in vehicles, a first for the series.",
+      "Rockstar has not published a full track list or said how many stations the final game has.",
+    ],
+    body: [
+      "Radio has been a signature of Grand Theft Auto since the 1990s, and on October 8 Rockstar finally showed how it plans to handle it in Grand Theft Auto VI. According to GameSpot, Billboard and Rolling Stone, the first reveal covers six stations, each with a distinct genre and named hosts. It is the clearest look yet at the sound of Leonida.",
+      "The lineup is deliberately broad. Cocoteo FM is a Latin music station hosted by Bad Bunny and RaiNao. Back Country Radio is the country station, hosted by Lana Del Rey and Morgan Wallen as DJs Delta Dawne and MW, with Del Rey's husband Jeremy Dufrene voicing a roving reporter called Mud Dog Mike. AfroBank FM pairs Burna Boy with DJ Palms Trax for contemporary and classic African music. The Chamber 106.6 is a heavy-metal station hosted by Slayer's Kerry King and Tom Araya. Flash FM is pop, with Robyn and Alex Consani, and Dirty South Classics brings regional rap and classic hip-hop with Trick Daddy and Trina.",
+      "The format change is arguably the bigger news. GameSpot reports that Rockstar also confirmed on-demand podcasts, and that both radio and podcasts can be listened to on foot, not just from a vehicle's dashboard. The reporting describes this as running through headphones or earbuds tied to the characters' phones. That is a genuine design shift: in earlier games, a station only existed when you were behind the wheel, which quietly shaped how players behaved. Letting audio follow the player on foot makes the soundtrack part of everyday movement through Vice City, and it suggests Rockstar wants the world's media to feel like a place rather than a car feature.",
+      "It also fits the music direction already established by the trailers. The October 15 Launch Trailer used a new track, Justice's \"Flower in a Hurricane\" with Tame Impala, SZA and King Gizzard & The Lizard Wizard, according to Push Square and Rolling Stone, which Rockstar commissioned for the soundtrack rather than licensing an existing hit. Taken together, the trailers, the hosts and the podcasts point to an audio identity built around contemporary Florida culture instead of nostalgia alone.",
+      "What is still missing is just as telling. Rockstar has not published a track list, so which songs play on which station is unknown. It has not said whether six is the full count; GameSpot's headline frames these as the first six. And while hosts are named, we do not yet know how much time each will spend on air or what the podcasts cover. Treat any detailed track list you see before launch as a guess until Rockstar publishes one.",
+    ],
+    source: {
+      title: "GTA 6 Reveals 6 Radio Stations, Plus Podcasts You Can Listen To On Foot",
+      publisher: "GameSpot",
+      url: "https://www.gamespot.com/articles/gta-6-reveals-6-radio-stations-plus-podcasts-you-can-listen-to-on-foot/",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title:
+          "Bad Bunny, Lana Del Rey (and Her Husband), Morgan Wallen, Robyn & Burna Boy to Host GTA VI In-Game Radio Stations",
+        publisher: "Billboard",
+        url: "https://www.billboard.com/culture/lifestyle/grand-theft-auto-vi-radio-station-hosts-bad-bunny-lana-del-rey-1236357868/",
+        kind: "Article",
+      },
+      {
+        title: "Bad Bunny, Lana Del Rey to Host 'GTA VI' Radio Stations",
+        publisher: "Rolling Stone",
+        url: "https://www.rollingstone.com/music/music-news/bad-bunny-lana-del-rey-gta-6-radio-stations-1235639652/",
+        kind: "Article",
+      },
+      {
+        title: "GTA 6 Launch Trailer Available to Watch Right Now, Captured on PS5",
+        publisher: "Push Square",
+        url: "https://www.pushsquare.com/news/2026/10/gta-6-launch-trailer-available-to-watch-right-now-captured-on-ps5",
+        kind: "Article",
+      },
+    ],
+    related: [
+      { href: "/trailers", label: "Watch the official GTA VI trailers" },
+      { href: "/news/extended-look-breakdown", label: "An Extended Look, scene by scene" },
+    ],
+  },
+  {
+    slug: "gta-6-pc-and-xbox-cloud-streaming",
+    category: "industry-watch",
+    evidence:
+      "Xbox's statement is on the record; the PC timing claims are unconfirmed.",
+    date: "2026-10-07",
+    dateLabel: "October 7, 2026",
+    title: "GTA VI on PC and cloud: what Xbox actually said",
+    summary:
+      "A report that Xbox had exclusive cloud streaming rights briefly raised hopes of GTA VI on PC at launch. Xbox's chief strategy officer shut that down within hours, and Rockstar has still said nothing about a PC version.",
+    keyPoints: [
+      "The Verge reported that Microsoft had secured exclusive streaming rights; Xbox called that misreporting.",
+      "Xbox chief strategy officer Matthew Ball said GTA VI will not be streaming on PC at launch.",
+      "Rockstar has not announced a PC version or a date.",
+      "A Q1 2027 PC window is a rumour attributed to anonymous sources, not a confirmed plan.",
+    ],
+    body: [
+      "For a few hours in early October it looked as though PC players might be able to play Grand Theft Auto VI on launch day after all. The Verge reported that Microsoft had secured exclusive cloud-streaming rights to the game, which, because Xbox Cloud Gaming runs on ordinary Windows PCs, would have been a back door onto PC. The idea spread quickly. It did not survive the day.",
+      "On October 7, Xbox chief strategy officer Matthew Ball responded publicly, saying Xbox was excited to bring the game to its console on November 19 and that it will not be streaming on PC. He described the earlier coverage as misreporting. According to GameSpot, The Verge's Tom Warren later acknowledged the situation appeared more complicated than first thought. PC Gamer read Ball's wording as cut and dried; PureXbox noted that it does not strictly rule out every form of Xbox cloud access. That distinction matters: the denial is clear about PC, and less clear about cloud on Xbox consoles themselves.",
+      "Strip away the headlines and the confirmed picture has not changed. Rockstar's official platforms are PlayStation 5 and Xbox Series X|S, and the studio has not announced a PC version or a date. Reports in the press that a PC release could follow within roughly three months of the console launch trace back to anonymous sources, and Rockstar has not commented. We list them as a rumour, not a plan.",
+      "History is the best guide, and it points to a gap rather than a day-one release. Grand Theft Auto V reached PC more than a year after its console launch, and Red Dead Redemption 2 followed a similar path. Take-Two's chief has said publicly that PC is becoming more important to the company, which is a reason to expect a PC version eventually, but it is not a release window. If you are deciding where to play, the safe assumption is a console launch on November 19 and nothing else.",
+      "There is also a practical point on scams. Moments like this create fake PC downloads and bogus streaming links. Until Rockstar announces a PC edition through its own channels, anything claiming to be one is not to be trusted.",
+    ],
+    source: {
+      title: "GTA 6 Will Not Stream To PC Through Xbox, Despite Earlier Report",
+      publisher: "GameSpot",
+      url: "https://www.gamespot.com/articles/gta-6-will-not-stream-to-pc-through-xbox-despite-earlier-report/",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title:
+          "For a moment it looked like Grand Theft Auto 6 might be playable on PC on launch day—then Xbox's chief strategy officer crashed the party",
+        publisher: "PC Gamer",
+        url: "https://www.pcgamer.com/games/grand-theft-auto/for-a-moment-it-looked-like-grand-theft-auto-6-might-be-playable-on-pc-on-launch-day-then-xboxs-chief-strategy-officer-crashed-the-party/",
+        kind: "Article",
+      },
+      {
+        title: "Xbox Denies Landing Exclusive Streaming Deal For GTA 6 At Launch",
+        publisher: "Pure Xbox",
+        url: "https://www.purexbox.com/news/2026/10/xbox-denies-landing-exclusive-streaming-deal-for-gta-6-at-launch",
+        kind: "Article",
+      },
+      {
+        title: "GTA 6 PC Release Date Estimate, Rumors, And News",
+        publisher: "GameSpot",
+        url: "https://www.gamespot.com/articles/gta-6-pc-release-date-estimate-rumors-and-news/",
+        kind: "Article",
+      },
+    ],
+    related: [
+      { href: "/news/platforms-and-editions", label: "GTA VI platforms & editions: the confirmed facts" },
+      { href: "/faq", label: "GTA VI FAQ" },
+    ],
+  },
+  {
+    slug: "gta-6-30fps-and-ps5-pro",
+    category: "industry-watch",
+    evidence:
+      "Analyst reading of Rockstar's footage; Rockstar has published no performance targets.",
+    date: "2026-10-25",
+    dateLabel: "October 25, 2026",
+    title: "Will GTA VI run at 60fps? What the tech analysts found",
+    summary:
+      "Digital Foundry's analysis of An Extended Look points to a roughly native 1440p, 30fps presentation on base PS5, and the PS5 Pro's CPU limits any easy 60fps fix. None of it is an official target.",
+    keyPoints: [
+      "Digital Foundry's reading of the footage: about native 1440p on base PS5, upscaled to 4K, at a mostly steady 30fps.",
+      "The analysts blame CPU load from open-world simulation, and note the PS5 Pro's CPU is only about 7% faster.",
+      "Rockstar has published no official resolution or frame-rate targets.",
+      "Footage released so far was captured on PS5, so Xbox performance is untested publicly.",
+    ],
+    body: [
+      "Resolution and frame rate are the technical questions that dominate the final weeks before any big console launch, and Grand Theft Auto VI is no exception. The material so far comes from analysts reading Rockstar's own footage, not from Rockstar. That is a useful distinction to keep in mind throughout.",
+      "According to press coverage of Digital Foundry's work, including GamesRadar, Push Square and GameSpot, the Extended Look footage appears to run at a native 2560x1440 on a base PS5 and is then upscaled to 4K. Because of how Rockstar uploaded the video, a full frame-rate analysis was not possible, but the team saw a mostly stable, well-paced 30fps with only rare single-frame drops. They also described a fairly straightforward spatial upscale, with some softness, visible aliasing and shimmer on fine detail, and noisy ray-traced reflections in places.",
+      "The reasoning behind 30fps is the more interesting part. Analysts argue that the limiting factor is not the GPU but the CPU: Grand Theft Auto's trademark crowd, traffic and physics simulation is expensive, and the PS5 Pro's processor offers only around a 7% improvement over the base console. A bigger GPU can raise resolution or add ray tracing, but it cannot simply double the frame rate if the CPU is the bottleneck. GamesRadar's report summarises the consensus of the tech analysts it spoke to as 60fps being unlikely on console.",
+      "Be careful about what this does and does not establish. These are inferences from marketing footage, and footage in a trailer can be captured under conditions that differ from final retail builds. Some outlets also report a claim that Rockstar itself said the game would run at 30fps; we could not trace that to a primary Rockstar source, so we do not treat it as confirmed. Rockstar has not published resolution or frame-rate targets for any console, and since the released footage was captured on PS5, there is no public evidence about how the Xbox Series X and Series S versions will run.",
+      "The sensible expectation, then, is a cinematic 30fps presentation at launch, with any higher-frame-rate mode a bonus rather than a promise. Rockstar's own history is relevant: Red Dead Redemption 2 shipped on console without a 60fps option, and the studio's priority has consistently been density and fidelity over frame rate. Wait for Rockstar's own spec details before buying hardware on the strength of any of this.",
+    ],
+    source: {
+      title:
+        "GTA 6 at 60fps is \"unlikely\" on console and will be \"genuinely challenging\" on PC, tech analysts say",
+      publisher: "GamesRadar+",
+      url: "https://www.gamesradar.com/games/grand-theft-auto/gta-6-at-60fps-is-unlikely-on-console-and-will-be-genuinely-challenging-on-pc-tech-analysts-say/",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title:
+          "Tech Experts Call Grand Theft Auto 6 The Most Visually Advanced Game To Date, Which Explains Why It's Stuck At 30FPS",
+        publisher: "GameSpot",
+        url: "https://www.gamespot.com/articles/tech-experts-call-grand-theft-auto-6-the-most-visually-advanced-game-to-date-which-explains-why-its-stuck-at-30fps/",
+        kind: "Article",
+      },
+      {
+        title:
+          "Tech Experts Call GTA 6 'the Most Impressive Example of Real-Time Rendering We've Ever Seen'",
+        publisher: "Push Square",
+        url: "https://www.pushsquare.com/news/2026/08/tech-experts-call-gta-6-the-most-impressive-example-of-real-time-rendering-weve-ever-seen",
+        kind: "Article",
+      },
+      {
+        title: "Don't expect GTA 6 to hit 60 FPS on PS5 Pro - its faster GPU doesn't solve the real bottleneck",
+        publisher: "TweakTown",
+        url: "https://www.tweaktown.com/news/113347/dont-expect-gta-6-to-hit-60-fps-on-ps5-pro-its-faster-gpu-doesnt-solve-the-real-bottleneck/index.html",
+        kind: "Article",
+      },
+    ],
+    related: [
+      { href: "/news/extended-look-breakdown", label: "An Extended Look, scene by scene" },
+      { href: "/news/platforms-and-editions", label: "GTA VI platforms & editions: the confirmed facts" },
+    ],
+  },
+  {
+    slug: "gta-6-preload-and-physical-copies",
+    category: "industry-watch",
+    evidence:
+      "Preload date and download-code policy are Rockstar's; file size is unannounced.",
+    date: "2026-10-25",
+    dateLabel: "October 25, 2026",
+    title: "GTA VI preload guide: November 12, download codes and file size",
+    summary:
+      "Preloading starts November 12, a week before launch. Boxed copies are a download code with no disc, and Rockstar has not published a file size, so every number you see is a guess.",
+    keyPoints: [
+      "Digital buyers can preload from November 12; the game unlocks on November 19.",
+      "Physical copies contain a code for the digital download. Rockstar's notes say no disc is included.",
+      "Boxed copies go on sale November 12, but the code does not unlock play until launch.",
+      "No official install size exists; estimates from 150GB to 300GB and beyond are speculation.",
+    ],
+    body: [
+      "With launch under four weeks away, the practical question for most players is simple: what do I need to do before November 19? The answer has two parts that Rockstar has confirmed and one that it has not.",
+      "The first confirmed part is the preload. Digital pre-orders can begin downloading on November 12, a week before the game unlocks, so that players can start on launch day without waiting on a download. For a game of this scale, that week is not a nicety. Launch-day network congestion on the PlayStation Network and Xbox services is a familiar problem, and preloading is the cleanest way to sidestep it.",
+      "The second confirmed part is the physical edition, which is not what the name suggests. Rockstar's pre-order notes state that physical copies contain a code redeemable for the digital download and that no disc is included in the box. Push Square, Pure Xbox and VGC all reported this in June, and the Hollywood Reporter, via GameSpot, said there are no plans to print discs at launch or in the months after. Boxed copies go on sale November 12, and the code can be redeemed to preload from that date, but it does not unlock the game until November 19. For collectors this is a sore point; for everyone else it means the box is functionally a gift card with packaging, and a stable internet connection is required either way.",
+      "The part nobody can answer is how much storage to clear. Rockstar has not published an installation size. Fan estimates range from about 150GB to 300GB, and some figures circulating go far higher, but none come from a reliable source. TweakTown has reported a development build of over 200GB, and a development build is not a retail package: it carries debug data and uncompressed assets that never ship. Treat all of these as guesses. If you are on a small console drive, the safest preparation is to free up generous space now and check the store listing as launch approaches, since the size usually appears on the platform store page once the game is ready for preload.",
+      "A final safety note. Interest this high attracts scams. Files claiming to be GTA VI builds or early downloads are not real, and installing them risks malware. The only legitimate ways to get the game are the PlayStation Store, the Xbox store and the Rockstar Store codes sold at retail. Anything else is not worth the risk.",
+    ],
+    source: {
+      title: "Rockstar confirms there will be no disc version of GTA 6 at launch",
+      publisher: "VGC",
+      url: "https://www.videogameschronicle.com/news/rockstar-confirms-there-will-be-no-disc-version-of-gta6-at-launch/",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title: "GTA 6 Physical Edition Doesn't Come with Discs, It's a Code in the Box",
+        publisher: "Push Square",
+        url: "https://www.pushsquare.com/news/2026/06/gta-6-physical-edition-doesnt-come-with-discs-its-a-code-in-the-box",
+        kind: "Article",
+      },
+      {
+        title: "Eek, GTA 6's 'Physical Edition' Is A Download Code In A Box",
+        publisher: "Pure Xbox",
+        url: "https://www.purexbox.com/news/2026/06/eek-gta-6s-physical-edition-is-a-download-code-in-a-box",
+        kind: "Article",
+      },
+      {
+        title: "GTA 6 Physical Copies Won't Include Discs, Just Download Codes",
+        publisher: "GameSpot",
+        url: "https://www.gamespot.com/articles/gta-6-physical-copies-wont-include-discs-just-download-codes/",
+        kind: "Article",
+      },
+    ],
+    related: [
+      { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
+      { href: "/news/release-date-november-2026", label: "GTA VI release date: the confirmed facts" },
+    ],
+  },
+  {
+    slug: "gta-6-pre-order-sales-sensor-tower",
+    category: "industry-watch",
+    evidence:
+      "Third-party analyst estimate; neither Rockstar nor Take-Two has confirmed it.",
+    date: "2026-10-20",
+    dateLabel: "October 20, 2026",
+    title: "GTA VI pre-orders: what the $630 million estimate does and doesn't mean",
+    summary:
+      "Sensor Tower estimates about $630 million from roughly 6.45 million digital pre-orders. It is a striking number, but it is an estimate with an unclear scope, and the real test comes at launch.",
+    keyPoints: [
+      "Sensor Tower puts digital pre-orders at about 6.45 million and $630 million, per TweakTown and Insider Gaming.",
+      "The split reported is about 4.8 million on PlayStation and 1.66 million on Xbox.",
+      "An October 13 figure was about 6 million pre-orders and $594 million.",
+      "Physical sales are excluded, and outlets disagree on whether the totals are US-only or global.",
+      "Take-Two has not confirmed any pre-order figure.",
+    ],
+    body: [
+      "Few numbers have travelled faster this month than the claim that Grand Theft Auto VI has already earned more than half a billion dollars before anyone has played it. The figure comes from the analytics firm Sensor Tower, and reading it correctly matters more than repeating it.",
+      "As reported by TweakTown and Insider Gaming, Sensor Tower's latest estimate is about $630 million from roughly 6.45 million digital pre-orders, with PlayStation 5 accounting for around 4.8 million copies and $468 million and Xbox for about 1.66 million copies and $162 million. A week earlier, on October 13, the same tracker was reported at about 6 million pre-orders and $594 million. Growth of several hundred thousand copies in about a week suggests demand is still building rather than stalling, which fits with preloading opening on November 12.",
+      "Three caveats keep the number honest. First, it is an estimate built from store data, not a sales report; Sensor Tower is a third party and the figures are not confirmed by Rockstar or Take-Two. Second, it excludes physical copies, so the true total is higher by an unknown amount. Third, the scope is murky. Some outlets, such as Khel Now, describe the 6.45 million as US figures, others describe it as global, and Gurugamer cites a US-only set of 6.08 million and about $594 million. Anyone using the number should say which they mean, and the honest answer is that coverage disagrees.",
+      "It is also worth putting the number in context rather than treating it as a record. Pre-orders measure intent, not launch-week sales, and a studio like Rockstar can rely on strong word of mouth after release. The more reliable guide to the commercial picture is Take-Two itself: in August the company reiterated fiscal 2027 net bookings guidance of $8.0 to $8.2 billion, tied to the November 19 launch, according to VGC. Take-Two's next earnings report is expected on November 10, nine days before launch, and that is the place to look for official commentary.",
+      "The takeaway is that demand looks enormous and the date looks firm, but a trading firm's estimate is not a sales announcement. For the ongoing argument over price and editions, which presumably affects how many of these pre-orders are Standard versus Ultimate, see our debate post on the $99.99 tier.",
+    ],
+    source: {
+      title: "GTA 6 has already made Rockstar more than half a billion dollars",
+      publisher: "TweakTown",
+      url: "https://www.tweaktown.com/news/114187/gta-6-has-already-made-rockstar-more-than-half-a-billion-dollars/index.html",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title: "GTA 6 pre-order sales report",
+        publisher: "Insider Gaming",
+        url: "https://insider-gaming.com/gta-6-600-million-pre-order-sales/",
+        kind: "Article",
+      },
+      {
+        title: "Take-Two reiterates that it predicts $8 billion in net bookings this fiscal year thanks to GTA 6",
+        publisher: "VGC",
+        url: "https://www.videogameschronicle.com/news/take-two-predicts-8-billion-in-net-bookings-for-its-2027-fiscal-year-thanks-to-gta-6/",
+        kind: "Article",
+      },
+    ],
+    related: [
+      { href: "/community/is-gta6-a-100-dollar-game", label: "Is GTA VI really a $100 game?" },
+      { href: "/editions", label: "GTA VI editions & price" },
+    ],
+  },
+  {
+    slug: "gta-online-after-gta-6",
+    category: "industry-watch",
+    evidence:
+      "Take-Two statements are on the record; any new online mode is unannounced.",
+    date: "2026-10-25",
+    dateLabel: "October 25, 2026",
+    title: "What happens to GTA Online when GTA VI launches?",
+    summary:
+      "Take-Two calls GTA VI a single-player title and says it will keep supporting GTA Online. Anything beyond that, including a new online mode, is unannounced and unconfirmed.",
+    keyPoints: [
+      "At its shareholder meeting Take-Two called GTA VI a single-player title due this November.",
+      "It said it will continue to support GTA Online after the GTA VI release and beyond.",
+      "CEO Strauss Zelnick said he doesn't know where GTA Online performance goes, but has no reason to expect it to fall.",
+      "No GTA VI online mode has been announced; timing claims are rumour or opinion.",
+    ],
+    body: [
+      "For many players, Grand Theft Auto V's online mode is the game, so the status of online play is the biggest unanswered question hanging over Grand Theft Auto VI. The official position is narrow, and worth reading precisely.",
+      "As GamesRadar and GameSpot reported, Take-Two said at its shareholder meeting that \"GTA 6 is a single-player title and is due to release this November,\" and that it will \"continue to support GTA Online after the Grand Theft Auto 6 release and beyond.\" GamesRadar separately reports Strauss Zelnick saying he doesn't know where GTA Online performance goes after the release but has no reason to believe it will not continue, pointing to Take-Two's willingness to support legacy titles while a community stays engaged. GameSpot adds that GTA Online has been one of the biggest contributors to the company's recurrent consumer spending.", 
+      "Read together, those statements say three things: the game launching on November 19 is a single-player experience, the current GTA Online is not going away, and nothing has been said about what comes next. Notably absent is any announcement of a GTA VI multiplayer mode. Press coverage, including GameSpot and GamesRadar, takes the single-player framing to mean online will not be part of launch day.",
+      "Precedent offers a loose guide. Grand Theft Auto V launched in 2013 as a single-player game and its online mode followed a couple of weeks later, and Red Dead Redemption 2 followed a similar staggered pattern. Some voices expect the same here: a claim from an industry insider that online would arrive within a month of launch circulates, while a Twitch executive has floated a later window. These are guesses, not announcements, and Zelnick himself has stressed that he was speaking theoretically and that an announcement would come in the future.",
+      "For players, the practical advice is simple. If you play GTA Online today, nothing is changing on November 19. If you are buying GTA VI for its story, you are buying exactly what Take-Two has described. And if you are waiting for a new online world, nothing official exists to wait on yet, so be skeptical of dates and leaked player counts. We will cover it here the moment Rockstar speaks.",
+    ],
+    source: {
+      title: "Take-Two Reaffirms Its Support For GTA Online To Continue After GTA 6 Releases",
+      publisher: "GameSpot",
+      url: "https://www.gamespot.com/articles/take-two-reaffirms-its-support-for-gta-online-to-continue-after-gta-6-releases/1100-6537903/",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title:
+          "\"I don't know where GTA Online performance goes after the release of GTA 6,\" Take-Two boss says, but he doesn't expect it to decline",
+        publisher: "GamesRadar+",
+        url: "https://www.gamesradar.com/games/grand-theft-auto/i-dont-know-where-gta-online-performance-goes-after-the-release-of-gta-6-take-two-boss-says-but-he-doesnt-expect-it-to-decline/",
+        kind: "Article",
+      },
+      {
+        title: "GTA 6 Online looks unlikely for launch as Rockstar refers to the game as a \"single-player experience\"",
+        publisher: "GamesRadar+",
+        url: "https://www.gamesradar.com/games/grand-theft-auto/gta-6-online-looks-unlikely-for-launch-as-rockstar-refers-to-the-game-as-a-single-player-experience/",
+        kind: "Article",
+      },
+      {
+        title: "Don't Expect A GTA 6 Online Mode At Launch",
+        publisher: "GameSpot",
+        url: "https://www.gamespot.com/articles/dont-expect-a-gta-6-online-mode-at-launch/1100-6539297/",
+        kind: "Article",
+      },
+    ],
+    related: [
+      { href: "/faq", label: "GTA VI FAQ" },
+      { href: "/news/release-date-november-2026", label: "GTA VI release date: the confirmed facts" },
+    ],
+  },
+  {
+    slug: "miami-heat-night-in-vice-city",
+    category: "industry-watch",
+    evidence:
+      "Partnership announced by the Miami Heat; the wider Miami campaign is press-reported.",
+    date: "2026-10-25",
+    dateLabel: "October 25, 2026",
+    title: "A Night in Vice City: Rockstar's real-world Miami takeover",
+    summary:
+      "On November 18, the night before launch, the Miami Heat become the Vice City Heat for one game. It is the loudest part of a wider campaign that has been quietly turning the real Miami into Vice City.",
+    keyPoints: [
+      "The Heat host the Milwaukee Bucks at Kaseya Center on November 18 as \"A Night in Vice City\".",
+      "The team will play on a special Vice City court in reimagined uniforms, with a merchandise line on sale.",
+      "Reports say Burger Shot and Cluckin' Bell outlets have opened inside the arena.",
+      "Outlets also report a large Vice City billboard and other Miami activations.",
+    ],
+    body: [
+      "Rockstar's marketing for Grand Theft Auto VI has been quieter than the game's scale might suggest, so the last weeks have felt different. The campaign has moved off the screen and into the real city that inspired Vice City.",
+      "The centrepiece is the Miami Heat. According to ESPN and the team's own site, the Heat will present \"A Night in Vice City\" on November 18, hosting the Milwaukee Bucks at Kaseya Center, with a 7:00 PM ET tip-off on ESPN, WPLG Local 10 and FM 104.3 WQAM. The team will play on a special Vice City hardwood and wear reimagined uniforms, and a Vice City apparel line is already on sale through the Heat's store. Push Square and GamesRadar both frame it as the team being rebranded as Vice City for the night.",
+      "It extends to the building itself. GamesRadar reports that the fictional fast-food brands Burger Shot and Cluckin' Bell have opened in the arena, and that the Vice City logo has been placed on the roof. VGC has described Rockstar as quietly transforming the real Miami into Vice City, and GamesRadar reports a large billboard that has gone up despite objections from local police. GameSpot has separately noted real-world versions of the games' food brands on sale. We have not independently verified each activation, so details such as pricing and exact locations are best checked with the sources.",
+      "Why does this matter? Grand Theft Auto has always satirised a specific place, and Vice City is the series' loving send-up of Miami. Turning the real city into a stage for the game is a statement of confidence in the date: sports-team partnerships are scheduled months ahead, and a game-night tied to November 18 is not something a studio books for a launch it expects to move. It sits alongside pre-orders, a preload date and an ESRB rating as another sign that November 19 is firm.",
+      "It also tells us about the tone. Rockstar's trailers present Leonida as sunny, loud and slightly unhinged, and the partnership leans into that. If you are in Miami, the Heat game is the clearest tie-in; if not, the merch and broadcast will do the job.",
+    ],
+    source: {
+      title: "'A Night in Vice City': Heat to partner with Rockstar Games for special GTA VI game promo",
+      publisher: "ESPN",
+      url: "https://www.espn.com/nba/story/_/id/50085674/miami-heat-night-vice-city-game",
+      kind: "Article",
+    },
+    moreLinks: [
+      {
+        title: "2026-27 HEAT Vice City Edition Uniform",
+        publisher: "Miami HEAT (NBA.com)",
+        url: "https://www.nba.com/heat/uniforms/2627-heat-vice-city-uniform-collection",
+        kind: "Article",
+      },
+      {
+        title: "GTA 6 Rebrands Miami Basketball Team to Vice City for One Night Only",
+        publisher: "Push Square",
+        url: "https://www.pushsquare.com/news/2026/10/gta-6-rebrands-miami-basketball-team-to-vice-city-for-one-night-only",
+        kind: "Article",
+      },
+      {
+        title: "Rockstar is quietly transforming the real Miami into GTA 6's Vice City",
+        publisher: "VGC",
+        url: "https://www.videogameschronicle.com/news/rockstar-is-quietly-transforming-the-real-miami-into-gta-6s-vice-city/",
+        kind: "Article",
+      },
+      {
+        title: "The power of GTA 6 marketing turns NBA goliath Miami Heat into the Vice City Heat for one game",
+        publisher: "GamesRadar+",
+        url: "https://www.gamesradar.com/games/grand-theft-auto/the-power-of-gta-6-marketing-turns-nba-goliath-miami-heat-into-the-vice-city-heat-for-one-game-involving-an-arena-makeover-new-kits-and-naturally-merch/",
+        kind: "Article",
+      },
+    ],
+    related: [
+      { href: "/setting", label: "GTA VI setting: Vice City & Leonida" },
+      { href: "/news/release-date-november-2026", label: "GTA VI release date: the confirmed facts" },
     ],
   },
 ];

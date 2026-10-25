@@ -51,8 +51,9 @@ export default function CommunityPage() {
           </h1>
           <p className="serif mt-6 max-w-[60ch] text-xl leading-[1.65] text-secondary">
             What the fandom is arguing about, summarised and sourced. Nothing on
-            this page is confirmed by Rockstar Games — every entry is labelled
-            with how solid the evidence is. For facts straight from Rockstar,
+            this page is an official Rockstar announcement, and every entry is
+            labelled with how solid the evidence is. Industry Watch entries
+            summarise reputable press reporting, with references. For facts straight from Rockstar,
             see the{" "}
             <Link
               href="/news"
