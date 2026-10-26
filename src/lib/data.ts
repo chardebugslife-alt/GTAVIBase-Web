@@ -1204,6 +1204,26 @@ export const characterFaqs: Faq[] = [
     answer:
       "Lucia is introduced in Trailer 1 and Jason in Trailer 2, and both lead the Launch Trailer. An Extended Look gives the supporting cast real screen time, including Brian Heder, Raul Bautista, Boobie Ike and Cal Hampton.",
   },
+  {
+    question: "Can you play as both Lucia and Jason in GTA 6?",
+    answer:
+      "Yes. Lucia Caminos and Jason Duval are both playable protagonists, which makes Grand Theft Auto VI the first mainline GTA built around two leads. Rockstar has not yet detailed how switching between them works.",
+  },
+  {
+    question: "Who is Jason Duval in GTA 6?",
+    answer:
+      "Jason Duval is the second playable protagonist. Rockstar describes him as someone raised among grifters and crooks who served in the Army, then drifted back into running errands for the drug trade in the Leonida Keys, where he lives on smuggler Brian Heder's property.",
+  },
+  {
+    question: "Who are the GTA 6 voice actors?",
+    answer:
+      "Rockstar has not announced a voice cast for any GTA 6 character. Names of actors circulating online come from rumours and fan speculation, not from Rockstar, and we will list them here once the studio confirms them.",
+  },
+  {
+    question: "How old are Lucia and Jason in GTA 6?",
+    answer:
+      "Rockstar has not published ages or heights for Lucia or Jason. Figures quoted online come from fan wikis, not from the studio. Both read as adults in the official trailers.",
+  },
 ];
 
 export const faqs: Faq[] = [

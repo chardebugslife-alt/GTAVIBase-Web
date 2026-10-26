@@ -4,6 +4,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { pageMetadata, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site";
 import {
   characters,
   supportingCast,
@@ -18,6 +19,9 @@ export const metadata: Metadata = pageMetadata({
   path: "/characters",
 });
 
+/** Bump when the cast changes or the page is re-checked against Rockstar's site. */
+const lastVerified = "October 26, 2026";
+
 export default function CharactersPage() {
   return (
     <>
@@ -28,6 +32,19 @@ export default function CharactersPage() {
         ])}
       />
       <JsonLd data={faqPageJsonLd(characterFaqs)} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Every confirmed GTA 6 character",
+          itemListElement: [...characters, ...supportingCast].map((c, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: c.name,
+            url: absoluteUrl(`/characters#${c.slug}`),
+          })),
+        }}
+      />
 
       <article className="mx-auto max-w-4xl px-5 py-16">
         <header>
@@ -47,21 +64,35 @@ export default function CharactersPage() {
           </p>
         </header>
 
-        <nav aria-labelledby="names-heading" className="mt-10 border border-line p-6">
-          <h2 id="names-heading" className="text-xs uppercase tracking-wider text-teal">
-            Every confirmed GTA 6 character
+        <section aria-labelledby="names-heading" className="mt-10 border border-line p-6">
+          <h2 id="names-heading" className="font-display text-2xl">
+            GTA 6 characters list: every confirmed name
           </h2>
-          <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2">
-            {[...characters, ...supportingCast].map((c) => (
-              <li key={c.slug} className="text-sm leading-relaxed">
-                <a href={`#${c.slug}`} className="font-semibold text-pink hover:underline">
-                  {c.name}
-                </a>
-                <span className="text-muted"> — {c.role}</span>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <p className="mt-2 text-sm text-muted">
+            Eight characters named by Rockstar Games, last checked{" "}
+            {lastVerified}. Select a name to jump to their profile.
+          </p>
+          <table className="mt-4 w-full text-left text-sm">
+            <thead>
+              <tr className="border-b border-line text-xs uppercase tracking-wider text-teal">
+                <th scope="col" className="py-2 pr-4 font-normal">Character</th>
+                <th scope="col" className="py-2 font-normal">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[...characters, ...supportingCast].map((c) => (
+                <tr key={c.slug} className="border-b border-line/50">
+                  <th scope="row" className="py-2 pr-4 font-semibold">
+                    <a href={`#${c.slug}`} className="text-pink hover:underline">
+                      {c.name}
+                    </a>
+                  </th>
+                  <td className="py-2 text-muted">{c.role}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
 
         <div className="mt-12 space-y-10">
           {characters.map((c) => (

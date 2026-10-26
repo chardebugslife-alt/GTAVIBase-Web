@@ -180,7 +180,10 @@ export default function TrailersPage() {
               trailers — the December 2023 reveal and the longer follow-up in May
               2025 — which is why both are worth watching closely rather than
               once. The first ended years of
-              speculation by confirming the return to Vice City, introducing Lucia
+              speculation by confirming the return to Vice City, introducing{" "}
+              <Link href="/characters#lucia" className="font-semibold text-pink hover:underline">
+                Lucia
+              </Link>{" "}
               and setting its montage of sun, crime and excess to Tom Petty&rsquo;s
               &ldquo;Love Is a Long Road.&rdquo; It leaned hard into a social-media,
               livestream-saturated version of Leonida, signalling that GTA VI would
@@ -189,7 +192,11 @@ export default function TrailersPage() {
             <p>
               The second trailer was a different kind of video: longer, calmer and
               more character-driven. It fleshed out Lucia, formally introduced her
-              partner Jason, and widened the lens across Leonida — from Vice
+              partner{" "}
+              <Link href="/characters#jason" className="font-semibold text-pink hover:underline">
+                Jason
+              </Link>
+              , and widened the lens across Leonida — from Vice
               City&rsquo;s beaches and nightlife to the swamps, keys and small
               towns that ring it. Crucially, it arrived alongside a release date,
               turning an abstract &ldquo;someday&rdquo; into a moment fans could
