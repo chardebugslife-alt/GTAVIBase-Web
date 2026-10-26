@@ -12,7 +12,7 @@ import {
 import { trailers, trailerFaqs } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA 6 Trailer: Watch Every Official GTA VI Trailer",
+  title: "GTA 6 Trailer: Every Official GTA VI Trailer",
   description:
     "Watch the new GTA 6 Launch Trailer and every official Grand Theft Auto VI trailer in full: Trailer 1, Trailer 2 and the 27-minute Extended Look, with release dates, run times, songs and what each one shows.",
   path: "/trailers",

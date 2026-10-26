@@ -7,7 +7,7 @@ import { readingTime } from "@/lib/text";
 import { community, communityCategories, type CommunityPost } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Community — Fan Theories, Story Talk & Conspiracy",
+  title: "GTA 6 Fan Theories & Community Discussion",
   description:
     "The unofficial side of the GTA VI countdown: fan theories, story speculation, trailer breakdowns and conspiracy talk — curated summaries with links back to where the discussion lives.",
   path: "/community",

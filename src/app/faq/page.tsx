@@ -5,7 +5,7 @@ import { pageMetadata, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo";
 import { faqs, editionFaqs } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI FAQ — Release Date, Price, Editions & Platforms",
+  title: "GTA 6 FAQ: Release Date, Price & Platforms",
   description:
     "Answers to the most common Grand Theft Auto VI questions: release date, price, Standard vs Ultimate editions, platforms, setting, characters and developer — concise, confirmed and up to date.",
   path: "/faq",

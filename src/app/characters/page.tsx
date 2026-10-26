@@ -12,7 +12,7 @@ import {
 } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA 6 Characters: Lucia, Jason & Every Confirmed Name",
+  title: "GTA 6 Characters: Lucia, Jason & Full Cast",
   description:
     "Who are the GTA 6 main characters? Lucia Caminos and Jason Duval, both playable. Every character Rockstar has named — Cal Hampton, Boobie Ike, Dre’Quan Priest, Real Dimez, Raul Bautista and Brian Heder — with roles, backstories and trailer appearances.",
   path: "/characters",

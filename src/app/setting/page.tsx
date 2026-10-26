@@ -7,7 +7,7 @@ import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { setting, places, ONLY_IN_LEONIDA_URL } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI Map & Setting — Vice City & the State of Leonida",
+  title: "GTA 6 Map: Vice City & the State of Leonida",
   description:
     "Where is GTA VI set? A guide to every location Rockstar has toured across Leonida — Vice City, the Leonida Keys, Grassrivers, Port Gellhorn, Ambrosia and Mount Kalaga — plus what is known about the size of the map.",
   path: "/setting",

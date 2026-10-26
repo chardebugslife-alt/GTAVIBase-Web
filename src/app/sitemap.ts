@@ -3,11 +3,21 @@ import { absoluteUrl, mainNav } from "@/lib/site";
 import { news, community } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // Hub pages change when content is added, so date them by the newest
+  // article instead of the build time (which would flag every page as
+  // modified on every deploy).
+  const latestContent = new Date(
+    Math.max(
+      ...news.map((a) => new Date(a.updated ?? a.date).getTime()),
+      ...community.map((p) => new Date(p.date).getTime()),
+    ),
+  );
+  // Legal/about pages are edited rarely; bump this when they change.
+  const staticPagesUpdated = new Date("2026-07-03");
 
   const pages: MetadataRoute.Sitemap = mainNav.map((item) => ({
     url: absoluteUrl(item.href),
-    lastModified: now,
+    lastModified: latestContent,
     changeFrequency:
       item.href === "/" || item.href === "/news" || item.href === "/community"
         ? "daily"
@@ -22,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/terms",
   ].map((path) => ({
     url: absoluteUrl(path),
-    lastModified: now,
+    lastModified: staticPagesUpdated,
     changeFrequency: "yearly",
     priority: 0.3,
   }));

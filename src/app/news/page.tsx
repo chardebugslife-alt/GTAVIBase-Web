@@ -7,7 +7,7 @@ import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { news } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GTA VI News — Latest Confirmed Updates",
+  title: "GTA 6 News: Latest Confirmed Updates",
   description:
     "The latest confirmed Grand Theft Auto VI news and announcements from Rockstar Games, including the release window, trailers and platform details.",
   path: "/news",
