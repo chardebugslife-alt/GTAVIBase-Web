@@ -527,6 +527,60 @@ const CDN = "https://media-rockstargames-com.akamaized.net/tina-uploads/posts";
 
 export const news: NewsArticle[] = [
   {
+    slug: "grand-theft-auto-vi-collection-rockstar-store",
+    date: "2026-10-08",
+    dateLabel: "October 8, 2026",
+    title: "The Grand Theft Auto VI Collection: Every Item in Rockstar's Official Merch Drop",
+    summary:
+      "On October 8, 2026, Rockstar opened the official Grand Theft Auto VI Collection at the Rockstar Store: tees, caps, totes, a Vice City Zippo lighter and more. What is in it, what it costs, and what Rockstar says is still to come.",
+    image: `${CDN}/759875393o5253/999a13ef806098304feeee0531ad81e817c3030b.jpg`,
+    imageAlt:
+      "A flat lay of Grand Theft Auto VI merchandise: shirts, caps, tote bags and stickers with GTA VI logos and artwork",
+    imageCredit: "© Rockstar Games",
+    imageCreditUrl:
+      "https://www.rockstargames.com/newswire/article/759875393o5253/grand-theft-auto-vi-collection-now-at-the-rockstar-store",
+    keyPoints: [
+      "Rockstar opened the official Grand Theft Auto VI Collection at the Rockstar Store on October 8, 2026, exclusively there.",
+      "It covers heavyweight cotton tees (VI logo, Rockstar logo, Goodtime State and Macca the Gator designs), Flexfit caps, canvas totes, a keychain, a Vice City money clip, a Vice City Zippo lighter and two sticker sets.",
+      "On the UK store, tees and caps are £25.99, totes £36.99, the lighter £35.99, the money clip £22.99, the keychain £13.99 and sticker sets £8.99 and £5.99.",
+      "Rockstar says more items will be added, and a new wishlist feature sends restock and sale alerts to mailing-list subscribers.",
+      "The separate Goodtime State – Vice City Collection is listed as coming soon, at £349.99 on the UK store.",
+    ],
+    body: [
+      "Rockstar Games has turned the Grand Theft Auto VI countdown into something you can wear. On October 8, 2026, the studio announced the official Grand Theft Auto VI Collection, a range of apparel and collectibles inspired by the game and sold exclusively through the Rockstar Store. It arrived the same day as the first six in-game radio stations, and a week before the Launch Trailer, which makes it part of a clear pre-launch push rather than a standalone product page.",
+      "## What is in the collection",
+      "Apparel leads the range. Rockstar describes new heavyweight cotton tees in black, blue and pink, with designs built around either the VI logo or the classic Rockstar Games logo. A second line is the Goodtime State and Macca the Gator tees. Rockstar says the Goodtime State gear is inspired by the styles Jason and Lucia wear in the Grand Theft Auto VI Ultimate Edition, and that the Macca the Gator designs feature characters from what it calls Leonida's hit TV show. The store listing also includes women's cropped baby-logo tees, taking the T-shirt range to thirteen designs.",
+      "On the accessories side there are stretch-fitted Flexfit cotton caps with palm trees nested inside the VI logo, alongside the original Rockstar baseball cap now in colours inspired by the game. The store lists six cap designs in blue-and-pink, pink-and-blue and black-and-pink combinations, plus two canvas totes. Rockstar's announcement describes the caps as available to pre-order.",
+      "The collectibles are the most Vice City part of the drop. The Grand Theft Auto VI Keychain is chrome metal, laser-etched with the Rockstar Games logo on one side and the VI logo with palm trees on the other. The two-sided chrome Vice City Money Clip has the classic Vice City logo blind-embossed on one side and the VI logo on the other. Rockstar also lists a refillable, polished chrome Vice City Zippo lighter, heavy-duty canvas tote bags and two sets of vinyl stickers, one of them holographic.",
+      "## Prices and availability",
+      "Rockstar's announcement does not list prices, so the figures here come from the Rockstar Store's collection page as shown on its UK storefront; the store lists prices in other currencies for other regions. Every T-shirt design and every cap is £25.99. The canvas totes are £36.99, the Vice City Zippo lighter is £35.99, the money clip is £22.99, the keychain is £13.99, the standard sticker collection is £8.99 and the holographic sticker collection is £5.99. Those are the prices as we saw them; stock, pricing and designs can change, so check the store before you buy.",
+      "Rockstar closes the announcement by saying that much more will be added to the collection. It also introduces a wishlisting feature at the store: you can keep track of items you want and, if you subscribe to the Rockstar Games mailing list, receive restock and sale alerts. That is worth noting because drops like this tend to sell through quickly, and the wishlist is Rockstar's own answer to it.",
+      "## The bigger collection, and what it means",
+      "The same store collection page carries a much larger listing: Grand Theft Auto VI: The Goodtime State – Vice City Collection, marked coming soon at £349.99 on the UK store. Rockstar promoted it separately in a September 24 Newswire post about pre-ordering the collection while supplies last, so treat it as its own product rather than part of this October drop. The store page also lists the exclusive CD and vinyl editions of Grand Theft Auto VI: The Album, which Rockstar announced on September 17 for release on November 19. Our soundtrack guide covers the album.",
+      "For fans the practical advice is simple. This is licensed, Rockstar-run merchandise sold on the studio's own store, so it is the safe way to buy official GTA VI gear; the usual caution applies to lookalike shops and marketplace listings that claim to sell the same designs. For the game itself, nothing here changes anything: Grand Theft Auto VI still launches on November 19, 2026 on PlayStation 5 and Xbox Series X|S, and the editions and pre-order bonus are covered on our editions page.",
+    ],
+    sources: [
+      {
+        title: "Grand Theft Auto VI Collection Now at the Rockstar Store",
+        publisher: "Rockstar Games Newswire",
+        url: "https://www.rockstargames.com/newswire/article/759875393o5253/grand-theft-auto-vi-collection-now-at-the-rockstar-store",
+      },
+      {
+        title: "Grand Theft Auto VI Collection",
+        publisher: "Rockstar Store",
+        url: "https://store.rockstargames.com/grand-theft-auto-vi-collection",
+      },
+      RS_VI,
+    ],
+    sourceNote:
+      "The announcement text comes from Rockstar's Newswire. Prices come from the Rockstar Store's UK storefront on the date we checked, since the announcement itself lists none.",
+    related: [
+      { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
+      { href: "/community/gta-6-soundtrack-songs-and-album", label: "GTA VI soundtrack guide: songs, score and The Album" },
+      { href: "/news/release-date-november-2026", label: "GTA VI release date: November 19, 2026, explained" },
+    ],
+  },
+  {
     slug: "extended-look-breakdown",
     date: "2026-10-01",
     dateLabel: "October 1, 2026",
