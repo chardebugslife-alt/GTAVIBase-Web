@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { mainNav } from "@/lib/site";
+import { mainNav, guideNav } from "@/lib/site";
 
 /**
  * Mobile navigation: a hamburger toggle (hidden on md+) that opens a full-width
@@ -74,7 +74,7 @@ export function MobileNav() {
         >
           <nav aria-label="Mobile" className="mx-auto max-w-[1120px] px-5 py-4 sm:px-7">
             <ul className="flex flex-col">
-              {mainNav.map((item) => {
+              {[...mainNav, ...guideNav].map((item) => {
                 const active =
                   item.href === "/"
                     ? pathname === "/"

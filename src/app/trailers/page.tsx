@@ -170,6 +170,31 @@ export default function TrailersPage() {
           ))}
         </div>
 
+        <section aria-labelledby="trailer3-heading" className="mt-12 max-w-3xl">
+          <h2 id="trailer3-heading" className="font-display text-3xl">
+            Is there a GTA 6 Trailer 3?
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-muted">
+            Not under that name. Rockstar has released four official videos:
+            Trailer 1 (December 2023), Trailer 2 (May 2025), a 27-minute An
+            Extended Look (August 2026) and the Launch Trailer (October 15,
+            2026). No video has been titled Trailer 3, so people searching for it
+            are looking for the newest one, which is the{" "}
+            <a
+              href={`#${latest.id}-heading`}
+              className="font-semibold text-pink hover:underline"
+            >
+              {shortTitle(latest.title)}
+            </a>{" "}
+            above. It is expected to be the last trailer before the game launches
+            on{" "}
+            <Link href="/release-date" className="font-semibold text-pink hover:underline">
+              November 19
+            </Link>
+            .
+          </p>
+        </section>
+
         <section aria-labelledby="about-heading" className="mt-16 max-w-3xl">
           <h2 id="about-heading" className="font-display text-3xl">
             What the official footage tells us

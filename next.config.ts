@@ -40,7 +40,17 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/news/release-date-set",
-        destination: "/news/release-date-november-2026",
+        destination: "/release-date",
+        permanent: true,
+      },
+      {
+        source: "/news/release-date-november-2026",
+        destination: "/release-date",
+        permanent: true,
+      },
+      {
+        source: "/news/platforms-and-editions",
+        destination: "/platforms",
         permanent: true,
       },
       {

@@ -577,7 +577,7 @@ export const news: NewsArticle[] = [
     related: [
       { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
       { href: "/community/gta-6-soundtrack-songs-and-album", label: "GTA VI soundtrack guide: songs, score and The Album" },
-      { href: "/news/release-date-november-2026", label: "GTA VI release date: November 19, 2026, explained" },
+      { href: "/release-date", label: "GTA VI release date: November 19, 2026, explained" },
     ],
   },
   {
@@ -802,65 +802,10 @@ export const news: NewsArticle[] = [
       { href: "/news/extended-look-breakdown", label: "An Extended Look, scene by scene" },
       { href: "/trailers", label: "Watch every official GTA VI trailer" },
       {
-        href: "/news/release-date-november-2026",
+        href: "/release-date",
         label: "GTA VI release date: November 19, 2026, explained",
       },
       { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
-    ],
-  },
-  {
-    slug: "release-date-november-2026",
-    date: "2025-11-06",
-    dateLabel: "November 6, 2025",
-    updatedLabel:
-      "The complete release-date timeline — kept current through every change Rockstar makes.",
-    title: "GTA VI Release Date: November 19, 2026 — and the Long Road There",
-    summary:
-      "Grand Theft Auto VI launches on Thursday, November 19, 2026. Here's the full story of how Rockstar arrived at that date — the reveal, the two delays, the platforms and the pre-order milestones that suggest this date will hold.",
-    image: `${CDN}/ak3ak31a49a221/c8c033070a0bfb2e3ec6ae7ff047ebe8ec551326.jpg`,
-    imageAlt: "Grand Theft Auto VI key art",
-    imageCredit: "© Rockstar Games",
-    imageCreditUrl:
-      "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026",
-    keyPoints: [
-      "GTA VI's release date is Thursday, November 19, 2026.",
-      "That date was set on November 6, 2025 — the game's second delay.",
-      "It first moved from a broad 2025 window, then from May 26, 2026.",
-      "Platforms are PlayStation 5 and Xbox Series X|S; no PC version at launch.",
-      "Pre-orders opened June 25, 2026, with preload lined up for November 12, 2026.",
-    ],
-    body: [
-      "Grand Theft Auto VI has a release date: Thursday, November 19, 2026. Rockstar Games confirmed it on November 6, 2025, and it is the date every countdown, pre-order and marketing beat now points to. But getting to a single day on the calendar took nearly two years and two separate delays, and understanding that path is the best way to judge how solid this date really is.",
-      "The journey began at the reveal. When Rockstar unveiled Grand Theft Auto VI with its first trailer in December 2023, the studio attached only a broad target: 2025. That was enough to set expectations sky-high after more than a decade without a mainline entry, but it was a window, not a date — and windows have a way of moving.",
-      "The first hard date arrived alongside the second trailer. On May 6, 2025, Rockstar released Trailer 2 and, in the same announcement, narrowed the launch to a specific day: May 26, 2026. For the first time, fans had something concrete to plan around, and the reveal reconfirmed the game's platforms and positioned it as the defining release of the console generation.",
-      "That date did not hold. On November 6, 2025, Rockstar announced the game would slip again — this time to November 19, 2026, a delay of just under six months. In its statement the studio framed the move as a matter of polish, saying the extra time would let the team finish Grand Theft Auto VI to the standard players expect, and it thanked fans for their patience during an already long wait.",
-      "Landing on a Thursday in late November is telling. It places GTA VI squarely inside the holiday sales window, the most lucrative stretch of the retail year for games, and a mid-week launch is a familiar Rockstar pattern that gives retailers and servers a run-up before the first weekend. None of that is stated by Rockstar as strategy, but it fits how blockbuster games are timed.",
-      "The platforms have never wavered. Grand Theft Auto VI launches on PlayStation 5 and Xbox Series X|S, exactly as announced at the December 2023 reveal, and Rockstar has not announced a PC version for launch. If history is any guide, a PC edition is likely to follow the console release rather than ship alongside it — that was the pattern for both Grand Theft Auto V and Red Dead Redemption 2 — but nothing has been confirmed.",
-      "Several business milestones now suggest the November 19 date is firm rather than aspirational. Pre-orders opened on June 25, 2026, with every order placed before November 20, 2026 including the Vintage Vice City Pack bonus, and Rockstar has lined up a preload date of November 12, 2026 so players can download ahead of launch night. Studios rarely open pre-orders and schedule preloads unless they intend to hit the date attached to them.",
-      "It is also worth remembering that a Rockstar delay is not the warning sign it would be for many studios. Red Dead Redemption 2 was itself pushed twice — from an original late-2017 target into 2018 — before shipping to some of the best reviews of its generation. Rockstar has built a reputation on releasing late but polished, and the GTA VI delays read as an extension of that same philosophy rather than a sign of trouble.",
-      "The bottom line for anyone counting down: the only official release date is Thursday, November 19, 2026, on PlayStation 5 and Xbox Series X|S. Any other date you see — an earlier leak, a retailer placeholder, a confident 'insider' claim of a new slip — is not official until Rockstar says so. We track this timeline on this page and update it the moment anything changes, so you always have the confirmed picture in one place.",
-    ],
-    sources: [
-      {
-        title: "Grand Theft Auto VI is Now Set to Launch November 19, 2026",
-        publisher: "Rockstar Games Newswire",
-        url: "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026",
-      },
-      {
-        title: "Grand Theft Auto VI is Now Coming May 26, 2026 (superseded)",
-        publisher: "Rockstar Games Newswire",
-        url: "https://www.rockstargames.com/newswire/article/258aa538o412ok/grand-theft-auto-vi-is-now-coming-may-26-2026",
-      },
-      RS_VI,
-    ],
-    related: [
-      { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
-      {
-        href: "/news/extended-look-netflix-premiere",
-        label: "GTA VI: An Extended Look — what the Netflix premiere showed",
-      },
-      { href: "/faq", label: "GTA VI FAQ" },
-      { href: "/community/will-it-delay-again", label: "Will GTA VI get delayed again?" },
     ],
   },
   {
@@ -995,48 +940,6 @@ export const news: NewsArticle[] = [
       { href: "/community/lucia-and-jason-ending-theories", label: "Where fans think the story ends" },
     ],
   },
-  {
-    slug: "platforms-and-editions",
-    date: "2023-12-05",
-    dateLabel: "December 5, 2023",
-    updatedLabel: "Evergreen overview — kept current as Rockstar shares details.",
-    title: "GTA VI platforms: PS5 and Xbox Series X|S",
-    summary:
-      "Rockstar Games has confirmed Grand Theft Auto VI for PlayStation 5 and Xbox Series X|S. No PC version has been announced for launch, and editions are listed on the Rockstar Store.",
-    image: `${CDN}/ak3ak31a49a221/c8c033070a0bfb2e3ec6ae7ff047ebe8ec551326.jpg`,
-    imageAlt: "Grand Theft Auto VI key art",
-    imageCredit: "© Rockstar Games",
-    imageCreditUrl: "https://www.rockstargames.com/VI",
-    keyPoints: [
-      "GTA VI launches on PlayStation 5 and Xbox Series X|S — current-gen only.",
-      "No PC version has been announced for the initial release.",
-      "Two editions: Standard ($79.99) and Ultimate ($99.99), US pricing.",
-      "Pre-orders opened June 25, 2026, with the Vintage Vice City Pack bonus.",
-      "A preload date of November 12, 2026 precedes the November 19 launch.",
-    ],
-    body: [
-      "Rockstar Games has been consistent about where Grand Theft Auto VI will run: PlayStation 5 and Xbox Series X|S. Those two platforms were named at the December 2023 reveal and reaffirmed with every announcement since, and just as important is what is not on the list — the last-generation PlayStation 4 and Xbox One. Unlike Grand Theft Auto V, which launched on the hardware of its day and was later ported forward, GTA VI is a current-generation title from the start.",
-      "That decision matters more than it might seem. Building only for PS5 and Xbox Series X|S frees Rockstar from the compromises of older hardware — slower storage, less memory, weaker CPUs — and lets the studio target the crowd density, draw distance, weather and simulation detail that the trailers show off. A game designed around a single generation of consoles can push that hardware harder than one that has to also run on machines from 2013.",
-      "The most common platform question is about PC, and the honest answer is that Rockstar has not announced a PC version for launch. History offers a strong hint without a promise: Grand Theft Auto V arrived on consoles in September 2013 but did not reach PC until April 2015, and Red Dead Redemption 2 followed a similar path, landing on PC about a year after its console debut. A GTA VI PC edition is widely expected to come eventually — but 'eventually' is not a date, and anyone claiming a confirmed PC launch window is going beyond what Rockstar has said.",
-      "On editions, Rockstar has kept things relatively simple with two tiers. The Standard Edition is the complete game at $79.99 (US digital pricing), while the Ultimate Edition sits at $99.99 and layers premium in-game content on top — bonus vehicles, personalized weapons, exclusive apparel and tattoos, a pair of Ultimate-only businesses to visit in-game, and a month of GTA+ membership with digital purchases. Both editions also include the Vintage Vice City Pack as a pre-order bonus.",
-      "There is a wrinkle worth knowing on physical copies. The Standard Edition is sold as a boxed product, but the box contains a download code rather than a game disc, and the Ultimate Edition is digital only. In practice, then, GTA VI is effectively a digital-first release regardless of which edition you choose — the 'physical' option is really a boxed license, not a disc you install from.",
-      "The commercial calendar around the game is now well defined. Pre-orders opened on June 25, 2026, and every pre-order placed before November 20, 2026 includes the Vintage Vice City Pack. Rockstar has also set a preload date of November 12, 2026, a week ahead of launch, so players can download the game in advance and be ready to play the moment it unlocks on November 19. Those dates are the kind of concrete milestone that tends to signal a studio is confident in its release window.",
-      "Pricing has been its own story. The $79.99 Standard price continues the industry's move toward a higher baseline for flagship games, and the $99.99 Ultimate Edition — along with the fact that some content is locked behind it — sparked a loud debate among fans about whether GTA VI is, in effect, a $100 game. That argument is a matter of value and taste rather than fact, so we cover it in our community section rather than here.",
-      "A few things remain genuinely unconfirmed: a PC release date, the finer points of regional pricing, and how and when the online component of the GTA VI ecosystem will arrive. For the full side-by-side of what each edition includes, the pre-order bonus and the physical-versus-digital details, see our editions and price guide, and check our FAQ for quick answers to the platform questions we get asked most.",
-    ],
-    sources: [
-      RS_VI,
-      {
-        title: "Grand Theft Auto VI — Rockstar Store",
-        publisher: "Rockstar Store",
-        url: "https://store.rockstargames.com/game/buy-gta-vi",
-      },
-    ],
-    related: [
-      { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
-      { href: "/faq", label: "GTA VI FAQ" },
-    ],
-  },
 ];
 
 /**
@@ -1146,6 +1049,11 @@ export const trailerFaqs: Faq[] = [
       "The latest is the Grand Theft Auto VI Launch Trailer, released by Rockstar Games on October 15, 2026. It runs about 90 seconds, was captured entirely in-game on PlayStation 5, sets out the story of Lucia and Jason and ends on the November 19, 2026 release date. With launch five weeks away, it is expected to be the final trailer before release.",
   },
   {
+    question: "Is there a GTA 6 Trailer 3?",
+    answer:
+      "Rockstar has not released a video titled Trailer 3. After Trailer 1 (December 2023) and Trailer 2 (May 2025) came An Extended Look (August 2026, about 27 minutes) and the Launch Trailer (October 15, 2026). People searching for Trailer 3 are almost always after the newest trailer, which is the Launch Trailer, and it is on this page.",
+  },
+  {
     question: "How many GTA 6 trailers are there?",
     answer:
       "Rockstar has released four official videos: Trailer 1 (December 2023), Trailer 2 (May 2025), Grand Theft Auto VI: An Extended Look (August 2026, about 27 minutes) and the Launch Trailer (October 2026). All four are on this page, newest first.",
@@ -1223,6 +1131,123 @@ export const characterFaqs: Faq[] = [
     question: "How old are Lucia and Jason in GTA 6?",
     answer:
       "Rockstar has not published ages or heights for Lucia or Jason. Figures quoted online come from fan wikis, not from the studio. Both read as adults in the official trailers.",
+  },
+];
+
+/** Questions about the release date; shown on /release-date. */
+export const releaseDateFaqs: Faq[] = [
+  {
+    question: "When is the GTA 6 release date?",
+    answer:
+      "Grand Theft Auto VI releases on Thursday, November 19, 2026 on PlayStation 5 and Xbox Series X|S. Rockstar Games confirmed the date on November 6, 2025.",
+  },
+  {
+    question: "Has GTA 6 been delayed?",
+    answer:
+      "Yes, twice. Rockstar first gave only a 2025 window at the December 2023 reveal, set May 26, 2026 in May 2025, and then moved the game again on November 6, 2025 to November 19, 2026. Rockstar has announced no delay since.",
+  },
+  {
+    question: "Will GTA 6 be delayed again?",
+    answer:
+      "Rockstar has given no sign of a third delay. Pre-orders have been open since June 25, 2026, a preload is scheduled for November 12, and the Launch Trailer ends on the November 19 date. Any claim of a new delay that does not come from Rockstar is a rumour.",
+  },
+  {
+    question: "When is the GTA 6 pre-order and preload?",
+    answer:
+      "Pre-orders opened on June 25, 2026, and orders placed before November 20, 2026 include the Vintage Vice City Pack. Digital pre-orders can preload from November 12, a week before the game unlocks on November 19.",
+  },
+  {
+    question: "What time does GTA 6 unlock?",
+    answer:
+      "We have not seen Rockstar publish a launch-night unlock time. The date is November 19, 2026; check your PlayStation Store or Xbox store listing as launch approaches, and we will post the time here once Rockstar confirms it.",
+  },
+  {
+    question: "What is the GTA 6 release date on PC?",
+    answer:
+      "There is none. Rockstar has not announced a PC version. Grand Theft Auto V and Red Dead Redemption 2 both reached PC long after their console launches, but a GTA VI PC date has not been confirmed. See our platforms guide for the full picture.",
+  },
+  {
+    question: "Is the GTA 6 release date the same in every country?",
+    answer:
+      "Rockstar's announcements give a single worldwide date, November 19, 2026. It has not published region-by-region unlock times.",
+  },
+];
+
+/** Questions about platforms; shown on /platforms. */
+export const platformFaqs: Faq[] = [
+  {
+    question: "What platforms is GTA 6 on?",
+    answer:
+      "PlayStation 5 and Xbox Series X|S. Those are the only platforms Rockstar Games has announced, from the December 2023 reveal through the November 19, 2026 launch.",
+  },
+  {
+    question: "Is GTA 6 coming to PC?",
+    answer:
+      "Rockstar has not announced a PC version. Reports of a PC release within a few months of launch come from anonymous sources and are unconfirmed. Grand Theft Auto V reached PC about a year and a half after its console launch (September 2013 to April 2015), and Red Dead Redemption 2 about a year after.",
+  },
+  {
+    question: "Is GTA 6 on PS4 or Xbox One?",
+    answer:
+      "No. GTA 6 is a current-generation game for PS5 and Xbox Series X|S. Rockstar has never announced a PlayStation 4 or Xbox One version.",
+  },
+  {
+    question: "Is GTA 6 on Nintendo Switch 2, Steam or mobile?",
+    answer:
+      "Rockstar has not announced GTA 6 for Nintendo Switch 2, Steam, Steam Deck or mobile. Any listing, app or download claiming otherwise is not from Rockstar.",
+  },
+  {
+    question: "What are the GTA 6 system requirements?",
+    answer:
+      "There are none to publish: with no PC version announced, there are no PC system requirements, and any list you find online is invented. On console you simply need a PS5 or Xbox Series X|S with enough free storage, and Rockstar has not published the install size.",
+  },
+  {
+    question: "How big is the GTA 6 download?",
+    answer:
+      "Rockstar has not published a file size. Estimates from about 150GB to 300GB are guesses. The size normally appears on the store listing once preload is available from November 12.",
+  },
+  {
+    question: "Will GTA 6 run at 60fps or 4K?",
+    answer:
+      "Rockstar has not published resolution or frame-rate targets. Digital Foundry's analysis of the Extended Look footage, captured on PS5, points to roughly native 1440p upscaled to 4K at a mostly steady 30fps. That is an analyst's reading, not an official specification.",
+  },
+  {
+    question: "Does GTA 6 have PS5 Pro enhancements?",
+    answer:
+      "Rockstar has not announced any PS5 Pro-specific features. Analysts note the PS5 Pro's CPU is only about 7% faster than the base console, which limits what a Pro mode could change.",
+  },
+  {
+    question: "Is there a physical copy of GTA 6?",
+    answer:
+      "Boxed copies exist, but Rockstar's pre-order notes say they contain a download code and no disc. The Ultimate Edition is digital only.",
+  },
+];
+
+/** Questions about the map; shown on /setting. */
+export const settingFaqs: Faq[] = [
+  {
+    question: "Is there an official GTA 6 map?",
+    answer:
+      "Not yet. Rockstar Games has toured six locations on its official site but has not published a full world map. Maps you see online are fan reconstructions from trailer footage.",
+  },
+  {
+    question: "How big is the GTA 6 map?",
+    answer:
+      "Rockstar has not published a size. Fan mapping projects estimate Leonida at roughly 2.5 times the size of GTA V's map, but that depends on how water and the northern region are counted, so treat it as an estimate.",
+  },
+  {
+    question: "Is the GTA 6 map bigger than GTA 5?",
+    answer:
+      "Fan estimates say yes, by roughly 2 to 3 times, but Rockstar has not confirmed it. Rockstar has historically emphasised how dense a map is rather than its raw size.",
+  },
+  {
+    question: "What cities are in GTA 6?",
+    answer:
+      "Vice City is the confirmed main city. Rockstar has also presented the Leonida Keys, Grassrivers, Port Gellhorn, Ambrosia and Mount Kalaga as locations in the state of Leonida, all covered on this page.",
+  },
+  {
+    question: "Where is GTA 6 set?",
+    answer:
+      "Grand Theft Auto VI is set in the fictional state of Leonida, Rockstar's modern-day take on Florida, and returns to Vice City.",
   },
 ];
 
@@ -1613,7 +1638,7 @@ export const community: CommunityPost[] = [
     },
     moreLinks: [HUB_REDDIT],
     related: [
-      { href: "/news/release-date-november-2026", label: "GTA VI release date: the confirmed facts" },
+      { href: "/release-date", label: "GTA VI release date: the confirmed facts" },
       { href: "/faq", label: "GTA VI FAQ" },
     ],
   },
@@ -1700,7 +1725,7 @@ export const community: CommunityPost[] = [
     ],
     related: [
       { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
-      { href: "/news/platforms-and-editions", label: "GTA VI platforms & editions: the confirmed facts" },
+      { href: "/platforms", label: "GTA VI platforms & editions: the confirmed facts" },
     ],
   },
   {
@@ -1866,7 +1891,7 @@ export const community: CommunityPost[] = [
       },
     ],
     related: [
-      { href: "/news/platforms-and-editions", label: "GTA VI platforms & editions: the confirmed facts" },
+      { href: "/platforms", label: "GTA VI platforms & editions: the confirmed facts" },
       { href: "/faq", label: "GTA VI FAQ" },
     ],
   },
@@ -1924,7 +1949,7 @@ export const community: CommunityPost[] = [
     ],
     related: [
       { href: "/news/extended-look-breakdown", label: "An Extended Look, scene by scene" },
-      { href: "/news/platforms-and-editions", label: "GTA VI platforms & editions: the confirmed facts" },
+      { href: "/platforms", label: "GTA VI platforms & editions: the confirmed facts" },
     ],
   },
   {
@@ -1978,7 +2003,7 @@ export const community: CommunityPost[] = [
     ],
     related: [
       { href: "/editions", label: "GTA VI editions & price: Standard vs Ultimate" },
-      { href: "/news/release-date-november-2026", label: "GTA VI release date: the confirmed facts" },
+      { href: "/release-date", label: "GTA VI release date: the confirmed facts" },
     ],
   },
   {
@@ -2082,7 +2107,7 @@ export const community: CommunityPost[] = [
     ],
     related: [
       { href: "/faq", label: "GTA VI FAQ" },
-      { href: "/news/release-date-november-2026", label: "GTA VI release date: the confirmed facts" },
+      { href: "/release-date", label: "GTA VI release date: the confirmed facts" },
     ],
   },
   {
@@ -2142,7 +2167,7 @@ export const community: CommunityPost[] = [
     ],
     related: [
       { href: "/setting", label: "GTA VI setting: Vice City & Leonida" },
-      { href: "/news/release-date-november-2026", label: "GTA VI release date: the confirmed facts" },
+      { href: "/release-date", label: "GTA VI release date: the confirmed facts" },
     ],
   },
   {

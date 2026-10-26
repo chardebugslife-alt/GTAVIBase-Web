@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl, mainNav } from "@/lib/site";
+import { absoluteUrl, mainNav, guideNav } from "@/lib/site";
 import { news, community } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,14 +15,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Legal/about pages are edited rarely; bump this when they change.
   const staticPagesUpdated = new Date("2026-07-03");
 
-  const pages: MetadataRoute.Sitemap = mainNav.map((item) => ({
+  const pages: MetadataRoute.Sitemap = [...mainNav, ...guideNav].map((item) => ({
     url: absoluteUrl(item.href),
     lastModified: latestContent,
     changeFrequency:
       item.href === "/" || item.href === "/news" || item.href === "/community"
         ? "daily"
         : "weekly",
-    priority: item.href === "/" ? 1 : 0.8,
+    priority:
+      item.href === "/"
+        ? 1
+        : item.href === "/release-date" || item.href === "/platforms"
+          ? 0.9
+          : 0.8,
   }));
 
   const extraPages: MetadataRoute.Sitemap = [

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { mainNav, siteConfig, gameFacts, socialLinks } from "@/lib/site";
+import { mainNav, guideNav, siteConfig, gameFacts, socialLinks } from "@/lib/site";
 import { cmpEnabled } from "@/lib/ads";
 import { PrivacySettingsLink } from "@/components/PrivacySettingsLink";
 
@@ -59,7 +59,7 @@ export function Footer() {
         <nav aria-label="Footer">
           <ColumnHeading>Explore</ColumnHeading>
           <ul className="mt-5 grid gap-3 text-[15px] leading-tight">
-            {mainNav.map((item) => (
+            {[...mainNav, ...guideNav].map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className={footerLink}>
                   {item.label}

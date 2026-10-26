@@ -54,6 +54,16 @@ const topics = [
       "Compare the Standard and Ultimate editions, pricing and pre-order bonuses.",
   },
   {
+    href: "/release-date",
+    title: "Release Date",
+    blurb: "November 19, 2026: countdown, every delay, pre-order and preload dates.",
+  },
+  {
+    href: "/platforms",
+    title: "Platforms",
+    blurb: "PS5 and Xbox Series X|S are confirmed. PC, PS4 and the rest, answered.",
+  },
+  {
     href: "/news",
     title: "News",
     blurb: "The latest confirmed updates straight from Rockstar Games.",

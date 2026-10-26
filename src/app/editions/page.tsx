@@ -245,7 +245,7 @@ export default function EditionsPage() {
             </Link>
             , or check the{" "}
             <Link
-              href="/news/platforms-and-editions"
+              href="/platforms"
               className="font-semibold text-pink hover:underline"
             >
               platforms &amp; editions overview

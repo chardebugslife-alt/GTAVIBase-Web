@@ -95,6 +95,13 @@ export const mainNav: NavItem[] = [
   { href: "/faq", label: "FAQ" },
 ];
 
+/** High-demand guides linked from the footer, mobile menu and sitemap. The
+ *  desktop header row is already at its limit, so they stay out of mainNav. */
+export const guideNav: NavItem[] = [
+  { href: "/release-date", label: "Release Date" },
+  { href: "/platforms", label: "Platforms" },
+];
+
 export type SocialLink = {
   href: string;
   label: string;

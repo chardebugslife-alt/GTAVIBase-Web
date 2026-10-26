@@ -3,8 +3,8 @@ import Image from "next/image";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import Link from "next/link";
-import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
-import { setting, places, ONLY_IN_LEONIDA_URL } from "@/lib/data";
+import { pageMetadata, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo";
+import { setting, places, settingFaqs, ONLY_IN_LEONIDA_URL } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
   title: "GTA 6 Map: Vice City & the State of Leonida",
@@ -16,6 +16,7 @@ export const metadata: Metadata = pageMetadata({
 export default function SettingPage() {
   return (
     <>
+      <JsonLd data={faqPageJsonLd(settingFaqs)} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -121,7 +122,7 @@ export default function SettingPage() {
 
         <section aria-labelledby="mapsize-heading" className="mt-12 max-w-3xl">
           <h2 id="mapsize-heading" className="font-display text-3xl">
-            How big is the map?
+            How big is the GTA 6 map?
           </h2>
           <div className="mt-4 space-y-4 text-lg leading-relaxed text-muted">
             <p>
@@ -237,6 +238,20 @@ export default function SettingPage() {
             Rockstar has confirmed these six destinations; the full map of
             Leonida is expected closer to launch.
           </p>
+        </section>
+
+        <section aria-labelledby="map-faq-heading" className="mt-16 max-w-3xl">
+          <h2 id="map-faq-heading" className="font-display text-3xl">
+            GTA 6 map FAQ
+          </h2>
+          <div className="mt-6 space-y-3">
+            {settingFaqs.map((f) => (
+              <div key={f.question} className="border border-line bg-surface p-6">
+                <h3 className="font-semibold text-foreground">{f.question}</h3>
+                <p className="mt-3 leading-relaxed text-muted">{f.answer}</p>
+              </div>
+            ))}
+          </div>
         </section>
       </article>
       <RelatedLinks current="setting" />

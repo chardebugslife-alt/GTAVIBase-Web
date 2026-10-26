@@ -39,6 +39,16 @@ const destinations: Record<string, Item> = {
     title: "Community",
     blurb: "Fan theories, debates and trailer breakdowns — unofficial and clearly labelled.",
   },
+  releaseDate: {
+    href: "/release-date",
+    title: "Release Date",
+    blurb: "November 19, 2026: the countdown, every delay and the pre-order and preload dates.",
+  },
+  platforms: {
+    href: "/platforms",
+    title: "Platforms",
+    blurb: "PS5 and Xbox Series X|S are confirmed. PC, PS4 and the rest, answered.",
+  },
   faq: {
     href: "/faq",
     title: "FAQ",
@@ -53,11 +63,13 @@ const related: Record<Section, Section[]> = {
   characters: ["setting", "trailers", "faq"],
   setting: ["characters", "vehicles", "trailers"],
   vehicles: ["trailers", "setting", "editions"],
-  trailers: ["vehicles", "characters", "news"],
-  editions: ["news", "faq", "characters"],
-  news: ["trailers", "community", "editions"],
-  community: ["news", "trailers", "faq"],
-  faq: ["characters", "editions", "news"],
+  trailers: ["releaseDate", "characters", "vehicles"],
+  editions: ["platforms", "releaseDate", "faq"],
+  news: ["releaseDate", "trailers", "community"],
+  community: ["news", "releaseDate", "faq"],
+  faq: ["releaseDate", "platforms", "editions"],
+  releaseDate: ["platforms", "editions", "trailers"],
+  platforms: ["releaseDate", "editions", "news"],
 };
 
 /**
