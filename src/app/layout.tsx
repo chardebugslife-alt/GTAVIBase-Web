@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Source_Serif_4 } from "next/font/google";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -142,8 +140,6 @@ export default function RootLayout({
         </div>
 
         <Footer />
-        <Analytics />
-        <SpeedInsights />
 
         {/* Google Consent Mode v2 defaults — must run BEFORE the AdSense loader
             (guaranteed by beforeInteractive vs. the loader's lazyOnload). Every
