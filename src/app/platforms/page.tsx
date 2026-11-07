@@ -14,8 +14,8 @@ export const metadata: Metadata = pageMetadata({
 });
 
 /** Bump when the platform picture changes or the page is re-checked. */
-const lastVerified = "October 26, 2026";
-const lastVerifiedIso = "2026-10-26";
+const lastVerified = "November 7, 2026";
+const lastVerifiedIso = "2026-11-07";
 
 const platforms = [
   {
@@ -244,10 +244,11 @@ export default function PlatformsPage() {
           </h2>
           <div className="mt-4 space-y-4 text-lg leading-relaxed text-muted">
             <p>
-              Rockstar has not published an install size. Estimates from about
-              150GB to 300GB are guesses, and a figure reported for a development
-              build is not a retail package. The size usually appears on the store
-              listing once preload opens on November 12.
+              Rockstar&rsquo;s November 3 Newswire post says the pre-load file
+              requires up to 212 GB depending on your device. Digital pre-loading
+              opens on Tuesday, November 10, at midnight local time on PS5 and
+              at 12 a.m. GMT on Xbox Series X|S; code-in-box copies should reach
+              retailers from November 12.
             </p>
             <p>
               Boxed copies are not discs. Rockstar&rsquo;s pre-order notes say they

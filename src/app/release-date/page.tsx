@@ -15,8 +15,8 @@ export const metadata: Metadata = pageMetadata({
 });
 
 /** Bump when the timeline changes or the page is re-checked against Rockstar. */
-const lastVerified = "October 26, 2026";
-const lastVerifiedIso = "2026-10-26";
+const lastVerified = "November 7, 2026";
+const lastVerifiedIso = "2026-11-07";
 
 const timeline = [
   {
@@ -50,8 +50,13 @@ const timeline = [
     status: "Past",
   },
   {
+    when: "November 10, 2026",
+    what: "Pre-load begins on PS5 (midnight local time) and Xbox Series X|S (12 a.m. GMT); the file is up to 212 GB.",
+    status: "Upcoming",
+  },
+  {
     when: "November 12, 2026",
-    what: "Preload begins for digital pre-orders; boxed copies go on sale.",
+    what: "Code-in-box versions should reach retailers.",
     status: "Upcoming",
   },
   {
@@ -221,8 +226,8 @@ export default function ReleaseDatePage() {
             <p>
               Rockstar has given no sign of a third delay, and the business
               machinery is already running against it. Pre-orders opened on June
-              25, 2026. A bonus is tied to ordering before November 20. A preload
-              is scheduled for November 12, and the Launch Trailer, released on
+              25, 2026. A bonus is tied to ordering before November 20. Pre-loading
+              opens on November 10, and the Launch Trailer, released on
               October 15, closes on the release date. Publishers rarely open
               pre-orders, attach dated bonuses and schedule preloads for a date they
               intend to abandon.
@@ -292,10 +297,10 @@ export default function ReleaseDatePage() {
             </li>
             <li>
               <strong className="text-foreground">Clear storage.</strong> Rockstar
-              has not published an install size, so free generous space now.
+              says the pre-load needs up to 212 GB, so free the space now.
             </li>
             <li>
-              <strong className="text-foreground">Preload from November 12</strong>{" "}
+              <strong className="text-foreground">Pre-load from November 10</strong>{" "}
               so you can play the moment the game unlocks. Boxed copies are a
               download code with no disc.
             </li>

@@ -527,6 +527,77 @@ const CDN = "https://media-rockstargames-com.akamaized.net/tina-uploads/posts";
 
 export const news: NewsArticle[] = [
   {
+    slug: "pre-load-november-10-launch-gallery-justice-score",
+    date: "2026-11-07",
+    dateLabel: "November 7, 2026",
+    title: "GTA 6 Pre-Load Starts Nov 10: 212 GB File Size",
+    summary:
+      "Rockstar's final stretch before November 19: digital pre-load opens November 10 and needs up to 212 GB, boxed copies reach retailers from November 12, new Vice City screenshots are live, and Justice's 30-track score album lands December 11.",
+    image: `${CDN}/k4ak9okk485712/81e58e08369adca0d68a17dac9b12c3a63848fc3.jpg`,
+    imageAlt: "Grand Theft Auto VI pre-load announcement art from Rockstar Games: Pre-Load Begins November 10",
+    imageCredit: "© Rockstar Games",
+    imageCreditUrl:
+      "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10",
+    keyPoints: [
+      "Digital pre-loading starts Tuesday, November 10: midnight local time on PlayStation 5, and 12 a.m. GMT worldwide on Xbox Series X|S.",
+      "Rockstar says the pre-load file requires up to 212 GB depending on your device.",
+      "Code-in-box versions for both consoles should be available from retailers beginning November 12.",
+      "On November 5 Rockstar opened a Launch Gallery of new Vice City screenshots at rockstargames.com/VI/launch-gallery, calling the game two weeks away.",
+      "The Grand Theft Auto VI: Original Score by Justice has 30 tracks and arrives December 11 on streaming, CD and vinyl, with the new single \"Pusher\" feat. Gesaffelstein.",
+      "The game itself still launches November 19, 2026 on PlayStation 5 and Xbox Series X|S.",
+    ],
+    body: [
+      "Rockstar Games has spent the first week of November turning the Grand Theft Auto VI countdown into a checklist. Three announcements, a pre-load date, a screenshot gallery and the score album, cover almost everything a player needs to do between now and the November 19 launch. This is the consolidated version, with each fact traced to Rockstar's own Newswire.",
+      "## Pre-load: dates, times and the 212 GB file",
+      "In its November 3 Newswire post, Rockstar said digital pre-loading on PlayStation 5 begins on Tuesday, November 10 at midnight local time, in each player's own time zone. On Xbox Series X|S, pre-loading begins globally on Tuesday, November 10 at 12 a.m. GMT. The difference matters: PlayStation players in every region start at their own midnight, while Xbox players everywhere start at the same instant, which is 4 p.m. Pacific on Monday, November 9.",
+      "The headline number is the size. Rockstar says the pre-load file will require up to 212 GB depending on your device. That settles months of guesswork, and it is a figure to plan around rather than a minimum: the real amount depends on the console, so check the size shown on your store listing. If you are on a base internal drive, now is the time to move or delete other games. Rockstar points players to its Support site for step-by-step pre-load instructions.",
+      "This also corrects a date our own guides carried. Rockstar's November 3 announcement sets digital pre-loading at November 10, with November 12 as the date from which code-in-box versions should be available from retailers. Those boxed copies are a download code rather than a disc, as covered in our preload guide, and the code does not unlock play before November 19.",
+      "## The Launch Gallery: new Vice City screenshots",
+      "On November 5, with the game officially two weeks away, Rockstar published a Launch Gallery on the Grand Theft Auto VI site: a collection of new screenshots showing Vice City and beyond. The post is short on detail and the gallery is the point; it lives on the official site at rockstargames.com/VI/launch-gallery rather than being reproduced anywhere else. It is worth opening for one reason in particular: it is new first-party imagery of the game running, released after the Launch Trailer, and screenshots are the clearest official evidence of visual fidelity ahead of launch.",
+      "## Justice's Original Score arrives December 11",
+      "Rockstar's October 29 post introduced the Grand Theft Auto VI: Original Score, composed by Grammy Award winners Justice, the French duo of Gaspard Augé and Xavier de Rosnay. Rockstar describes it as an adaptive score, with compositions dynamically tuned to the different ways players engage with Vice City and Leonida during Jason and Lucia's story. The official album follows on December 11, about three weeks after launch, on all major streaming services and on CD and vinyl.",
+      "It has 30 tracks, including \"Flower in a Hurricane\" feat. Tame Impala, SZA and King Gizzard & The Lizard Wizard, heard in the Launch Trailer, and a new single, \"Pusher\" feat. Gesaffelstein. Digital bonus tracks are included across all formats, and the vinyl pre-order includes a limited Triple Crystal Clear edition. This is separate from Grand Theft Auto VI: The Album, the 34-track soundtrack of songs that releases on November 19; our soundtrack guide sorts out which is which.",
+      "## What to do before November 19",
+      "The practical order of operations is short. Make sure you have pre-ordered the edition you want, since the Vintage Vice City Pack is tied to ordering before November 20. Free up to 212 GB of storage. Be ready to start the pre-load on November 10, or on November 12 if you have a boxed copy. Then wait: nothing about the pre-load unlocks the game early, and Rockstar has said nothing to suggest the November 19 date will move. Our release date page keeps the full timeline, and we will update it again at launch.",
+    ],
+    figures: [
+      {
+        afterParagraph: 7,
+        src: `${CDN}/39ak81277255o9/72074994d6364ad0de8872aa971fc47653f644ab.jpg`,
+        alt: "Grand Theft Auto VI Launch Gallery artwork from the official Rockstar Games site",
+        caption:
+          "Rockstar's art for the Launch Gallery, which it opened on November 5, 2026 with new screenshots of Vice City and beyond.",
+        credit: "© Rockstar Games",
+        creditUrl:
+          "https://www.rockstargames.com/newswire/article/39ak81277255o9/explore-the-grand-theft-auto-vi-launch-gallery",
+      },
+    ],
+    sources: [
+      {
+        title: "Grand Theft Auto VI Pre-Load Begins on November 10",
+        publisher: "Rockstar Games Newswire",
+        url: "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10",
+      },
+      {
+        title: "Explore the Grand Theft Auto VI Launch Gallery",
+        publisher: "Rockstar Games Newswire",
+        url: "https://www.rockstargames.com/newswire/article/39ak81277255o9/explore-the-grand-theft-auto-vi-launch-gallery",
+      },
+      {
+        title: "Grand Theft Auto VI: Original Score by Justice",
+        publisher: "Rockstar Games Newswire",
+        url: "https://www.rockstargames.com/newswire/article/39ak8a12395591/grand-theft-auto-vi-original-score-by-justice",
+      },
+      RS_VI,
+    ],
+    related: [
+      { href: "/release-date", label: "GTA VI release date: November 19, 2026, explained" },
+      { href: "/platforms", label: "GTA VI platforms, file size and preload" },
+      { href: "/community/gta-6-preload-and-physical-copies", label: "GTA VI preload guide: November 10, 212 GB, download codes" },
+      { href: "/community/gta-6-soundtrack-songs-and-album", label: "GTA VI soundtrack guide: songs, score and The Album" },
+    ],
+  },
+  {
     slug: "grand-theft-auto-vi-collection-rockstar-store",
     date: "2026-10-08",
     dateLabel: "October 8, 2026",
@@ -1017,7 +1088,7 @@ export const editionsInfo = {
   preOrderLabel: "June 25, 2026",
   preOrderBonus: "Vintage Vice City Pack",
   preOrderBonusDeadline: "November 20, 2026",
-  preloadLabel: "November 12, 2026",
+  preloadLabel: "November 10, 2026",
   storeUrl: "https://store.rockstargames.com/game/buy-gta-vi",
   sources: [
     {
@@ -1149,12 +1220,12 @@ export const releaseDateFaqs: Faq[] = [
   {
     question: "Will GTA 6 be delayed again?",
     answer:
-      "Rockstar has given no sign of a third delay. Pre-orders have been open since June 25, 2026, a preload is scheduled for November 12, and the Launch Trailer ends on the November 19 date. Any claim of a new delay that does not come from Rockstar is a rumour.",
+      "Rockstar has given no sign of a third delay. Pre-orders have been open since June 25, 2026, a preload opens on November 10, and the Launch Trailer ends on the November 19 date. Any claim of a new delay that does not come from Rockstar is a rumour.",
   },
   {
     question: "When is the GTA 6 pre-order and preload?",
     answer:
-      "Pre-orders opened on June 25, 2026, and orders placed before November 20, 2026 include the Vintage Vice City Pack. Digital pre-orders can preload from November 12, a week before the game unlocks on November 19.",
+      "Pre-orders opened on June 25, 2026, and orders placed before November 20, 2026 include the Vintage Vice City Pack. Digital pre-orders can preload from November 10 (midnight local time on PS5, 12 a.m. GMT on Xbox), nine days before the game unlocks on November 19. The download is up to 212 GB. Boxed copies reach retailers from November 12.",
   },
   {
     question: "What time does GTA 6 unlock?",
@@ -1203,7 +1274,7 @@ export const platformFaqs: Faq[] = [
   {
     question: "How big is the GTA 6 download?",
     answer:
-      "Rockstar has not published a file size. Estimates from about 150GB to 300GB are guesses. The size normally appears on the store listing once preload is available from November 12.",
+      "Rockstar says the pre-load file requires up to 212 GB, depending on your device. Pre-loading starts November 10 on PS5 and Xbox Series X|S.",
   },
   {
     question: "Will GTA 6 run at 60fps or 4K?",
@@ -1956,32 +2027,41 @@ export const community: CommunityPost[] = [
     slug: "gta-6-preload-and-physical-copies",
     category: "industry-watch",
     evidence:
-      "Preload date and download-code policy are Rockstar's; file size is unannounced.",
+      "Preload timing and the up-to-212 GB file size come from Rockstar's November 3 Newswire post; the download-code policy is from Rockstar's pre-order notes.",
     date: "2026-10-25",
     dateLabel: "October 25, 2026",
-    title: "GTA VI preload guide: November 12, download codes and file size",
+    updatedLabel:
+      "Updated November 7, 2026 with Rockstar's pre-load date (November 10) and the up-to-212 GB file size.",
+    title: "GTA VI preload guide: November 10, 212 GB, download codes",
     summary:
-      "Preloading starts November 12, a week before launch. Boxed copies are a download code with no disc, and Rockstar has not published a file size, so every number you see is a guess.",
+      "Pre-loading starts November 10, nine days before launch, and needs up to 212 GB. Boxed copies reach retailers from November 12 and are a download code with no disc.",
     keyPoints: [
-      "Digital buyers can preload from November 12; the game unlocks on November 19.",
+      "Digital buyers can pre-load from Tuesday, November 10: midnight local time on PS5, 12 a.m. GMT on Xbox Series X|S. The game unlocks on November 19.",
+      "Rockstar says the pre-load file requires up to 212 GB depending on your device.",
       "Physical copies contain a code for the digital download. Rockstar's notes say no disc is included.",
-      "Boxed copies go on sale November 12, but the code does not unlock play until launch.",
-      "No official install size exists; estimates from 150GB to 300GB and beyond are speculation.",
+      "Code-in-box versions should be at retailers from November 12, but the code does not unlock play until launch.",
+      "Earlier 150GB-to-300GB guesses are superseded: Rockstar has now published the figure.",
     ],
     body: [
-      "With launch under four weeks away, the practical question for most players is simple: what do I need to do before November 19? The answer has two parts that Rockstar has confirmed and one that it has not.",
-      "The first confirmed part is the preload. Digital pre-orders can begin downloading on November 12, a week before the game unlocks, so that players can start on launch day without waiting on a download. For a game of this scale, that week is not a nicety. Launch-day network congestion on the PlayStation Network and Xbox services is a familiar problem, and preloading is the cleanest way to sidestep it.",
-      "The second confirmed part is the physical edition, which is not what the name suggests. Rockstar's pre-order notes state that physical copies contain a code redeemable for the digital download and that no disc is included in the box. Push Square, Pure Xbox and VGC all reported this in June, and the Hollywood Reporter, via GameSpot, said there are no plans to print discs at launch or in the months after. Boxed copies go on sale November 12, and the code can be redeemed to preload from that date, but it does not unlock the game until November 19. For collectors this is a sore point; for everyone else it means the box is functionally a gift card with packaging, and a stable internet connection is required either way.",
-      "The part nobody can answer is how much storage to clear. Rockstar has not published an installation size. Fan estimates range from about 150GB to 300GB, and some figures circulating go far higher, but none come from a reliable source. TweakTown has reported a development build of over 200GB, and a development build is not a retail package: it carries debug data and uncompressed assets that never ship. Treat all of these as guesses. If you are on a small console drive, the safest preparation is to free up generous space now and check the store listing as launch approaches, since the size usually appears on the platform store page once the game is ready for preload.",
+      "With launch under two weeks away, the practical question for most players is simple: what do I need to do before November 19? The answer has two parts that Rockstar has confirmed and one that it has not.",
+      "The first confirmed part is the preload. Rockstar's November 3 Newswire post says digital pre-loading on PlayStation 5 begins on Tuesday, November 10 at midnight local time, while on Xbox Series X|S it begins globally at 12 a.m. GMT the same day. That is nine days before the game unlocks, so players can start on launch day without waiting on a download. For a game of this scale, that week is not a nicety. Launch-day network congestion on the PlayStation Network and Xbox services is a familiar problem, and preloading is the cleanest way to sidestep it.",
+      "The second confirmed part is the physical edition, which is not what the name suggests. Rockstar's pre-order notes state that physical copies contain a code redeemable for the digital download and that no disc is included in the box. Push Square, Pure Xbox and VGC all reported this in June, and the Hollywood Reporter, via GameSpot, said there are no plans to print discs at launch or in the months after. Rockstar says code-in-box versions for both consoles should be available from retailers beginning November 12, and the code does not unlock the game until November 19. For collectors this is a sore point; for everyone else it means the box is functionally a gift card with packaging, and a stable internet connection is required either way.",
+      "The third part is storage, and Rockstar has now answered it: the pre-load file will require up to 212 GB depending on your device, and the studio advises having ample space ready before you begin. That replaces the 150GB-to-300GB fan estimates and the 200GB-plus development-build figure TweakTown reported earlier in the year, which were guesses. 'Up to' matters: the amount can differ by console, so check the size shown on the PlayStation Store or Xbox store before you start, and clear space accordingly if you are on a small internal drive. Rockstar also points players to its Support site for step-by-step pre-load instructions.",
       "A final safety note. Interest this high attracts scams. Files claiming to be GTA VI builds or early downloads are not real, and installing them risks malware. The only legitimate ways to get the game are the PlayStation Store, the Xbox store and the Rockstar Store codes sold at retail. Anything else is not worth the risk.",
     ],
     source: {
-      title: "Rockstar confirms there will be no disc version of GTA 6 at launch",
-      publisher: "VGC",
-      url: "https://www.videogameschronicle.com/news/rockstar-confirms-there-will-be-no-disc-version-of-gta6-at-launch/",
+      title: "Grand Theft Auto VI Pre-Load Begins on November 10",
+      publisher: "Rockstar Games Newswire",
+      url: "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10",
       kind: "Article",
     },
     moreLinks: [
+      {
+        title: "Rockstar confirms there will be no disc version of GTA 6 at launch",
+        publisher: "VGC",
+        url: "https://www.videogameschronicle.com/news/rockstar-confirms-there-will-be-no-disc-version-of-gta6-at-launch/",
+        kind: "Article",
+      },
       {
         title: "GTA 6 Physical Edition Doesn't Come with Discs, It's a Code in the Box",
         publisher: "Push Square",
@@ -2177,13 +2257,16 @@ export const community: CommunityPost[] = [
       "Album and score are officially announced; per-scene song lists are compiled by the press and vary slightly.",
     date: "2026-10-25",
     dateLabel: "October 25, 2026",
+    updatedLabel:
+      "Updated November 7, 2026 with Rockstar's October 29 announcement of the 30-track Original Score album (December 11).",
     title: "GTA VI soundtrack guide: every confirmed song, the score and The Album",
     summary:
-      "Licensed songs from the trailers and An Extended Look, a Justice-composed score, a 34-track album out November 19 and six radio stations: a single guide to what is confirmed about the sound of GTA VI, and what is not.",
+      "Licensed songs from the trailers and An Extended Look, a Justice-composed score with its own December 11 album, a 34-track album out November 19 and six radio stations: a single guide to what is confirmed about the sound of GTA VI, and what is not.",
     keyPoints: [
       "Grand Theft Auto VI: The Album has 34 new tracks, is released with Atlantic Records on November 19, and comes on streaming, vinyl and CD.",
       "Six album singles are out, including Travis Scott's \"RHYNO\" and Morgan Wallen's \"Last Thing You Need\".",
-      "French duo Justice composed the original score; \"Flower in a Hurricane\" with Tame Impala, SZA and King Gizzard & The Lizard Wizard is the Launch Trailer song.",
+      "French duo Justice composed the original score; Rockstar says a separate 30-track Original Score album arrives December 11, with the new single \"Pusher\" feat. Gesaffelstein.",
+      "\"Flower in a Hurricane\" with Tame Impala, SZA and King Gizzard & The Lizard Wizard is the Launch Trailer song and is also on The Album.",
       "The trailers and An Extended Look used licensed songs from Tom Petty to Def Leppard to Sexyy Red.",
       "Rockstar has not published a full tracklist for the album or the in-game radio.",
     ],
@@ -2191,7 +2274,7 @@ export const community: CommunityPost[] = [
       "Music has been central to Grand Theft Auto VI's marketing from the first trailer, and the amount of confirmed material has grown quickly. This guide pulls it together in one place: the licensed songs heard in Rockstar's videos, the original score, the album and the radio. Song lists compiled by the press differ in small ways, so where outlets disagree we say so.",
       "Start with the trailers. Tom Petty's \"Love Is a Long Road\" scored Trailer 1 and The Pointer Sisters' \"Hot Together\" scored Trailer 2, and Red Bull's roundup lists four further trailer-era tracks: Wang Chung's \"Everybody Have Fun Tonight,\" Tammy Wynette's \"Talkin' to Myself Again,\" Zenglen's \"Child Support\" and Jay Ferguson's \"Thunder Island.\" The Launch Trailer on October 15 broke the pattern with an original piece, Justice's \"Flower in a Hurricane\" featuring Tame Impala, SZA and King Gizzard & The Lizard Wizard, which Push Square reports was made for the game's soundtrack.",
       "An Extended Look carried the broadest mix. Red Bull lists fourteen licensed songs, among them Birdman and Lil Wayne's \"Pop Bottles,\" Sexyy Red and Tay Keith's \"Pound Town,\" Kodak Black's \"Skrilla,\" Def Leppard's \"Love Bites,\" Depeche Mode's \"People Are People,\" Prefab Sprout's \"Cars and Girls,\" Cliff Richard's \"Devil Woman\" and Phil Collins's \"Against All Odds.\" Rolling Stone's list runs to twelve and GameSpot's and GamesRadar's to about sixteen, partly because they treat a theme song heard in the video differently, so treat any exact count as approximate. What is consistent is the range: 1980s pop and rock beside current rap, reggaeton and dance music, which is the mixture Vice City has always traded on.",
-      "The original music is handled by Justice. Billboard reports that the French duo created the score, including the passages heard in An Extended Look. Rockstar has also teased a dynamic score, but it has not explained how that will work, so we do not describe it beyond that.",
+      "The original music is handled by Justice, and Rockstar has now said so itself. In its October 29 Newswire post, the studio describes the Grand Theft Auto VI Original Score as composed by Grammy Award winners Justice, the French duo of Gaspard Augé and Xavier de Rosnay, and calls it an adaptive score, tuned dynamically to the different ways players engage with Vice City and Leonida. A separate Original Score album follows on December 11, a few weeks after launch, on streaming services, CD and vinyl. It has 30 tracks, including \"Flower in a Hurricane\" and a new single, \"Pusher\" featuring Gesaffelstein, plus digital bonus tracks across all formats. Pre-orders include a limited Triple Crystal Clear vinyl. Rockstar adds that more on the score album will follow.",
       "Then there is the album. Grand Theft Auto VI: The Album was announced in September with Atlantic Records, with 34 new tracks arriving on November 19 alongside the game, per Billboard, VGC and Push Square. Six songs were released at announcement: Yung Lean's \"That's It\" with Future and Metro Boomin, Travis Scott's \"RHYNO,\" \"Sexy Magic\" by CA7RIEL & Paco Amoroso, PinkPantheress, Fred again.. and Etienne de Crécy, Morgan Wallen's \"Last Thing You Need,\" Rauw Alejandro's \"Macacoa 2000\" and Keith Richards' \"Bright Lights, Big City.\" Justice's single has since joined them. GameSpot and GamesRadar report that it will also be sold on CD and vinyl, including a $125 deluxe vinyl collection, even though the game itself has no disc. One GamesRadar piece gives November 20 for the album; the reports we read otherwise say November 19.",
       "What is still unknown matters. The other 28 album tracks have not been published. It is not confirmed whether album songs will play on the in-game radio, and Rockstar has not released a station track list. Red Bull's piece, written in September, says the only confirmed station was V-Rock and that others came from leaks; that predates Rockstar's October 8 reveal of six stations with named hosts, which we cover in our radio post. Until Rockstar publishes a tracklist, any list of what plays where is speculation.",
     ],
@@ -2202,6 +2285,18 @@ export const community: CommunityPost[] = [
       kind: "Article",
     },
     moreLinks: [
+      {
+        title: "Grand Theft Auto VI: Original Score by Justice",
+        publisher: "Rockstar Games Newswire",
+        url: "https://www.rockstargames.com/newswire/article/39ak8a12395591/grand-theft-auto-vi-original-score-by-justice",
+        kind: "Article",
+      },
+      {
+        title: "Announcing Grand Theft Auto VI: The Album, Coming November 19",
+        publisher: "Rockstar Games Newswire",
+        url: "https://www.rockstargames.com/newswire/article/7599a881942544/announcing-grand-theft-auto-vi-the-album-coming-november-19",
+        kind: "Article",
+      },
       {
         title:
           "'Grand Theft Auto VI: The Album' Will Feature 34 New Tracks — Hear the First Six Songs From the Project",
